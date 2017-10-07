@@ -1,0 +1,124 @@
+﻿ <?php
+		//Si tout va bien, on affiche la page
+		
+		if(isset($_SESSION["id"])) {
+		
+			$base = mysqli_connect('localhost', 'root','MF4ever','bde');
+			$requete1 = "SELECT id_user, id_event FROM participe WHERE id_user='".$_SESSION["id"]."' ORDER BY id_event DESC";
+			$retour1 = mysqli_query($base,$requete1);
+			$donnees1 = mysqli_fetch_array($retour1);
+			while($donnees1){
+				$event_inscrit[$donnees1["id_event"]]=1;
+				$donnees1 = mysqli_fetch_array($retour1);
+			}
+				
+			
+			$requete2 ="SELECT id_admin, id_event, img_event, date_event, TIMESTAMPDIFF(SECOND,date_event,NOW()) AS ecart, deadline_event, nom_event, description_event, prix_event, places_max_event FROM event WHERE is_shotgun='1' ORDER BY date_event DESC";
+			$retour2 = mysqli_query($base,$requete2);
+			$donnees2 = mysqli_fetch_array($retour2);
+				
+?>
+		<h1>Liste des événements au shotgun</h1>
+
+<?php
+
+if($donnees2){
+
+	while($donnees2){
+	switch($donnees2["img_event"]){
+	case 1:$img="images/flags.png";
+	break;
+	}
+?>
+	<div class="entete_event">
+	<?php echo($donnees2["nom_event"]); ?>
+	</div>
+	<div class="event">
+	<table>
+		<tr>
+			<td>
+				<img src=<?php echo("'".$img."'");?>>
+				</img>
+			</td>
+			<td width="100%">
+				<ul>
+					<li><b>Ouverture du Shotgun :</b> le <?php echo(date("d/m/Y à H\hi", strtotime($donnees2["date_event"]))); ?></li>
+					<li><b>Fermeture du Shotgun :</b> le <?php echo(date("d/m/Y à H\hi", strtotime($donnees2["deadline_event"]))); ?></li>
+					<li><b>Description :</b> <?php echo($donnees2["description_event"]);?></li>
+					<li><b>Nombre de places disponibles initialement :</b> <?php echo($donnees2["places_max_event"]);?></li>
+				</ul>
+				<?php
+				if(isset($_GET["err"]) && isset($_GET["id_ev"]) && ($_GET["id_ev"]==$donnees2["id_event"])){
+					if($_GET["err"]=="ok"){
+					?>
+						<p style="color:rgba(0,255,0,1);">Inscription validée !</p>
+					<?php	
+					}
+					if($_GET["err"]=="asec"){
+					?>
+						<p style="color:rgba(255,0,0,1);">Solde insuffisant pour s'inscrire !</p>
+						
+					<?php
+					}
+				}
+				
+				
+				
+				if(!isset($event_inscrit[$donnees2["id_event"]])){
+					if($donnees2["ecart"]<0){
+				?>
+				<form>
+				<input disabled name="send" type="submit" <?php echo("value='SHOTGUN dans ".-$donnees2["ecart"]." secondes !'"); ?>/>
+				</form>
+				<?php 
+					}else{
+				?>
+				<form action=<?php echo("'checkshotgun.php?id_event=".$donnees2["id_event"]."&action=ins'");?> method="post">
+				<input name="send" type="submit" value="SHOTGUN NOOOOOOOOOW !"/>
+				</form>
+				
+				<?php 	
+					}
+				}else{
+					$base = mysqli_connect('localhost', 'root','MF4ever','bde'); 
+					$requete3 = "SELECT date_inscription, login_user, user.id_user AS user, id_event FROM participe, user WHERE user.id_user=participe.id_user AND id_event=3 ORDER BY date_inscription ASC";
+					$retour3 = mysqli_query($base,$requete3);
+					$donnees3 = mysqli_fetch_array($retour3);
+					$i=0;
+					while($donnees3){
+						$i++;
+						echo("</br>".$i." : ".$donnees3["login_user"]." le ".date("d/m/Y à H\hi\m\ns\s", strtotime($donnees3["date_inscription"])));
+						$donnees3 = mysqli_fetch_array($retour3);
+					}
+				
+				}
+				?>
+				
+			</td>
+		</tr>
+	</table>
+	</div>	
+	
+	
+	</br>
+	</br>
+	</br>
+	<?php
+	$donnees2 = mysqli_fetch_array($retour2);
+	}
+}
+else
+{	
+	echo("Aucun événement n'est enregistré...");
+}
+	mysqli_free_result($retour2);
+	?>
+	
+	
+
+<?php		
+		//Si la session n'est pas lancée, on affiche la page de connection
+		}else{
+			include("login.php");
+		}
+?>

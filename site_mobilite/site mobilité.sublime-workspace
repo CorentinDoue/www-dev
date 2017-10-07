@@ -1,0 +1,2984 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"r",
+				"rgba()"
+			],
+			[
+				"fe",
+				"fetch"
+			],
+			[
+				"do",
+				"donnees"
+			],
+			[
+				"error",
+				"errordestination"
+			],
+			[
+				"a",
+				"apply"
+			],
+			[
+				"ne",
+				"next"
+			],
+			[
+				"dest",
+				"destination"
+			],
+			[
+				"mo",
+				"mobilite"
+			],
+			[
+				"mobili",
+				"mobilite"
+			],
+			[
+				"desti",
+				"destinations"
+			],
+			[
+				"for",
+				"for\tfor …"
+			],
+			[
+				"don",
+				"donnees2"
+			],
+			[
+				"ans",
+				"answer"
+			],
+			[
+				"arr",
+				"array"
+			],
+			[
+				"type",
+				"type_mobilite"
+			],
+			[
+				"date_d",
+				"date_debut"
+			],
+			[
+				"file",
+				"filename"
+			],
+			[
+				"con",
+				"justify-content"
+			],
+			[
+				"ID",
+				"ID_destination"
+			],
+			[
+				"de",
+				"destinations"
+			],
+			[
+				"inti",
+				"init_new_domaine"
+			],
+			[
+				"I",
+				"Id_of_key"
+			],
+			[
+				"ty",
+				"type_mobilite"
+			],
+			[
+				"mari",
+				"margin-top"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"m",
+				"margin"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"max",
+				"maxrow"
+			],
+			[
+				"comm",
+				"Commentaire"
+			],
+			[
+				"ville",
+				"ville"
+			],
+			[
+				"b",
+				"button"
+			],
+			[
+				"in",
+				"init_domaine"
+			],
+			[
+				"new",
+				"new_domaines2"
+			],
+			[
+				"array_i",
+				"array_iunique"
+			],
+			[
+				"conv",
+				"convention"
+			],
+			[
+				"exp",
+				"explode"
+			],
+			[
+				"i",
+				"index"
+			],
+			[
+				"tr",
+				"track"
+			],
+			[
+				"cl",
+				"clickable"
+			],
+			[
+				"o",
+				"overflow"
+			],
+			[
+				"un",
+				"unknowpays"
+			],
+			[
+				"la",
+				"langues_final"
+			],
+			[
+				"tye",
+				"type_convention"
+			],
+			[
+				"value",
+				"value2"
+			],
+			[
+				"valu",
+				"value2"
+			],
+			[
+				"l",
+				"langues"
+			],
+			[
+				"v",
+				"value"
+			],
+			[
+				"D",
+				"Data"
+			],
+			[
+				"highest",
+				"highestRow"
+			],
+			[
+				"G",
+				"_GET"
+			],
+			[
+				"s",
+				"scope"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"e",
+				"excel"
+			],
+			[
+				"appl",
+				"apply"
+			],
+			[
+				"u",
+				"upload"
+			],
+			[
+				"err",
+				"error"
+			],
+			[
+				"f",
+				"false"
+			],
+			[
+				"ex",
+				"extension_upload"
+			],
+			[
+				"backgroundc",
+				"background-color"
+			],
+			[
+				"al",
+				"text-align"
+			],
+			[
+				"prin",
+				"print_r"
+			],
+			[
+				"pro",
+				"progress"
+			],
+			[
+				"d",
+				"display"
+			],
+			[
+				"h",
+				"h1\tTag"
+			],
+			[
+				"ID_d",
+				"ID_domaine"
+			],
+			[
+				"ID_",
+				"ID_destination"
+			],
+			[
+				"ch",
+				"checkable"
+			],
+			[
+				"p",
+				"push"
+			],
+			[
+				"c",
+				"checked"
+			],
+			[
+				"or",
+				"order"
+			],
+			[
+				"conti",
+				"continent"
+			],
+			[
+				"exe",
+				"execute"
+			],
+			[
+				"fl",
+				"flex-start"
+			],
+			[
+				"vill",
+				"ville"
+			],
+			[
+				"box",
+				"box-shadow"
+			],
+			[
+				"marg",
+				"margin-top"
+			],
+			[
+				"si",
+				"font-size"
+			],
+			[
+				"modi",
+				"modif_ville"
+			],
+			[
+				"vi",
+				"ville"
+			],
+			[
+				"op",
+				"option\tTag"
+			],
+			[
+				"se",
+				"selection"
+			],
+			[
+				"mof",
+				"modif_ville"
+			],
+			[
+				"bor",
+				"border-radius"
+			],
+			[
+				"ng",
+				"ng-click"
+			],
+			[
+				"app",
+				"apply"
+			],
+			[
+				"typ",
+				"type_mobilite"
+			],
+			[
+				"is",
+				"isset"
+			],
+			[
+				"tru",
+				"trustAsHtml"
+			],
+			[
+				"ma",
+				"margin-bottom"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"te",
+				"textarea\tTag"
+			],
+			[
+				"fo",
+				"form\tTag"
+			],
+			[
+				"sty",
+				"font-style"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"border-r",
+				"border-radius"
+			],
+			[
+				"lay",
+				"layer2"
+			],
+			[
+				"wh",
+				"width"
+			],
+			[
+				"par",
+				"parcour"
+			],
+			[
+				"margi",
+				"margin"
+			],
+			[
+				"des",
+				"destination"
+			],
+			[
+				"destin",
+				"destination"
+			],
+			[
+				"au",
+				"authorized_villes"
+			],
+			[
+				"array_m",
+				"array_merge"
+			],
+			[
+				"ese",
+				"else"
+			],
+			[
+				"sel",
+				"select"
+			],
+			[
+				"hei",
+				"height"
+			],
+			[
+				"recher",
+				"recherche_prio"
+			],
+			[
+				"A",
+				"Angleterre"
+			],
+			[
+				"dom",
+				"domaine"
+			],
+			[
+				"che",
+				"checked"
+			],
+			[
+				"chec",
+				"checked"
+			],
+			[
+				"flex",
+				"flex-direction"
+			],
+			[
+				"ng-",
+				"ng-if"
+			],
+			[
+				"logo",
+				"logo_type_mobilite"
+			],
+			[
+				"el",
+				"element"
+			],
+			[
+				"wr",
+				"flex-wrap"
+			],
+			[
+				"bo",
+				"border-radius"
+			],
+			[
+				"uft",
+				"utf8_encode"
+			],
+			[
+				"is_a",
+				"is_array"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"tri",
+				"trim_array"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"whi",
+				"width"
+			],
+			[
+				"set_",
+				"set_statut_allo"
+			],
+			[
+				"_",
+				"_POST"
+			],
+			[
+				"stat",
+				"statut"
+			],
+			[
+				"po",
+				"points"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "excelread.php",
+			"settings":
+			{
+				"buffer_size": 27336,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "excel.php",
+			"settings":
+			{
+				"buffer_size": 16834,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "assets/js/angularapp5.js",
+			"settings":
+			{
+				"buffer_size": 30818,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "export_parc.php",
+			"settings":
+			{
+				"buffer_size": 9238,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "<?php"
+			}
+		},
+		{
+			"file": "php/majparcour.php",
+			"settings":
+			{
+				"buffer_size": 9858,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "php/majdestination.php",
+			"settings":
+			{
+				"buffer_size": 10689,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "assets/js/angularapp6.js",
+			"settings":
+			{
+				"buffer_size": 28585,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "majparcour.php",
+			"settings":
+			{
+				"buffer_size": 18776,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "majdestination.php",
+			"settings":
+			{
+				"buffer_size": 32331,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "newdestination.php",
+			"settings":
+			{
+				"buffer_size": 1976,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "assets/js/angularapp.js",
+			"settings":
+			{
+				"buffer_size": 8881,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/js/angularapp1.js",
+			"settings":
+			{
+				"buffer_size": 567,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/js/angularapp2.js",
+			"settings":
+			{
+				"buffer_size": 1438,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "saveexcelfile.php",
+			"settings":
+			{
+				"buffer_size": 1798,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "savetestfile.php",
+			"settings":
+			{
+				"buffer_size": 1096,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "assets/js/angularapptest.js",
+			"settings":
+			{
+				"buffer_size": 970,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "test.php",
+			"settings":
+			{
+				"buffer_size": 4949,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "php/connection.php",
+			"settings":
+			{
+				"buffer_size": 231,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "<?php"
+			}
+		},
+		{
+			"file": "connexion pour serveur webélève/connection_back_office.php",
+			"settings":
+			{
+				"buffer_size": 918,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "<?php\nrequire_once(\"CAS.php\");\n\n// -------------------------------- CASIFICATION de l'application --------------------------------\nphpCAS::setDebug();\nphpCAS::client(CAS_VERSION_2_0, \"cas.emse.fr\", 443, \"\");\nphpCAS::setNoCasServerValidation();\nphpCAS::forceAuthentication();\n// -------------------------------- CASIFICATION de l'application --------------------------------\n\n\n\n//L'utilisateur a choisi de se déconnecter via un bouton qui a réécrit l'URL en faisant passer le paramètre mode a true\nif (isset($_GET['mode']) && $_GET['mode'] == \"deco\"){\n    session_unset();        // On détruit les variables de session si vous les utilisez\n    phpCAS::logout();    // On se déconnecte CAS\n}\n\nif (phpCAS::isAuthenticated()) {\n\n    // On affiche un message d'information pour l'utilisateur connecté\n    //$texte= \"Bonjour \". phpCAS::getUser().\"<br><br>\".print_r($_SESSION);\n\n    // Je place ici le code de ma page\n\n\n}\n// L'utilisateur n'est pas authentifié\nelse{\n\n    $texte=\"erreur\";\n\n}\n\ntry{\n    $bdd = new PDO('mysql:host=localhost;dbname=mobinfo;charset=utf8', \"mobinfo\", \"SDByUkH4dXE9kGlc\", array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));\n}\ncatch (Exception $e)\n{\n die('Erreur : ' . $e->getMessage());\n}\n\n?>",
+			"file": "connexion pour serveur webélève/connection.php",
+			"file_size": 1264,
+			"file_write_time": 131464844433066743,
+			"settings":
+			{
+				"buffer_size": 1214,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "php/connection_back_office.php",
+			"settings":
+			{
+				"buffer_size": 231,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "php/header.php",
+			"settings":
+			{
+				"buffer_size": 812,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "<?php"
+			}
+		},
+		{
+			"file": "php/header_back_office.php",
+			"settings":
+			{
+				"buffer_size": 492,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "index.php",
+			"settings":
+			{
+				"buffer_size": 7125,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "destinations.php",
+			"settings":
+			{
+				"buffer_size": 15549,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "destination.php",
+			"settings":
+			{
+				"buffer_size": 20997,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp64/www/site_bde/ajout_compte.php",
+			"settings":
+			{
+				"buffer_size": 1060,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp64/www/site_bde/php/checkajoutcompte.php",
+			"settings":
+			{
+				"buffer_size": 1330,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/Corentin/Downloads/checkajoutcompte.php",
+			"settings":
+			{
+				"buffer_size": 1330,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "demarches.php",
+			"settings":
+			{
+				"buffer_size": 3456,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "index_back_office.php",
+			"settings":
+			{
+				"buffer_size": 2757,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "contenu.php",
+			"settings":
+			{
+				"buffer_size": 3243,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "php/majcontenus.php",
+			"settings":
+			{
+				"buffer_size": 506,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "php/querycontenus.php",
+			"settings":
+			{
+				"buffer_size": 1419,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "php/PHPExcel.php",
+			"settings":
+			{
+				"buffer_size": 31533,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "php/PHPExcel/Autoloader.php",
+			"settings":
+			{
+				"buffer_size": 2884,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/js/angularapp3.js",
+			"settings":
+			{
+				"buffer_size": 20716,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "modif_bdd.php",
+			"settings":
+			{
+				"buffer_size": 25922,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "assets/js/angularapp4.js",
+			"settings":
+			{
+				"buffer_size": 43698,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "php/querydestinations.php",
+			"settings":
+			{
+				"buffer_size": 7909,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "newparcour.php",
+			"settings":
+			{
+				"buffer_size": 524,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "php/queryparcours.php",
+			"settings":
+			{
+				"buffer_size": 7617,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "php/queryparcour.php",
+			"settings":
+			{
+				"buffer_size": 6551,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "php/queryconventions.php",
+			"settings":
+			{
+				"buffer_size": 545,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "php/querydomaines.php",
+			"settings":
+			{
+				"buffer_size": 338,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "php/querylangues.php",
+			"settings":
+			{
+				"buffer_size": 567,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "php/querynewvilles.php",
+			"settings":
+			{
+				"buffer_size": 3690,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "php/querynewdomaines.php",
+			"settings":
+			{
+				"buffer_size": 348,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "php/queryvilles.php",
+			"settings":
+			{
+				"buffer_size": 529,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "savedestinationfile.php",
+			"settings":
+			{
+				"buffer_size": 1148,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "php/PHPExcel/Shared/XMLWriter.php",
+			"settings":
+			{
+				"buffer_size": 3505,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/wamp64/bin/apache/apache2.4.23/bin/php.ini",
+			"settings":
+			{
+				"buffer_size": 72808,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "assets/css/back_office.css",
+			"settings":
+			{
+				"buffer_size": 32651,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/css/style.css",
+			"settings":
+			{
+				"buffer_size": 8382,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 118.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/wamp64/www/site_bde/php/connexion serveur emse/connexion.php",
+		"/C/wamp64/www/site_mobilite/majdestination2.php",
+		"/C/wamp64/www/site_mobilite/majdestination.php",
+		"/D/Corentin/Etudes/EMSE/Cercle/site/cercle/log/1485800187.48.txt",
+		"/D/Corentin/Etudes/EMSE/Cercle/site/cercle/perm_mv/solde_v",
+		"/D/Corentin/Etudes/EMSE/Cercle/site/cercle/user/claire.savonnet/operations/1498598645.98_1 Despe",
+		"/D/Corentin/Etudes/EMSE/Cercle/site/cercle/user/claire.savonnet/operations/1498608319.14_1 Pilsner",
+		"/D/Corentin/Etudes/EMSE/Cercle/site/cercle/user/claire.savonnet/solde",
+		"/C/wamp64/www/site_mobilite/assets/js/angularapp4.js",
+		"/D/Corentin/Etudes/EMSE/Cercle/site/cercle/user/corentin.doue/operations/1476224443.2_2 Brugse zot",
+		"/D/Corentin/Etudes/EMSE/Cercle/site/cercle/user/admin/mdp",
+		"/D/Corentin/Etudes/EMSE/Cercle/site/cercle/.htaccess",
+		"/D/Corentin/Etudes/EMSE/Cercle/site/cercle/prix.txt",
+		"/D/Corentin/Etudes/EMSE/Cercle/site/cercle/Copie de prixcercle.txt",
+		"/D/Corentin/Etudes/EMSE/Cercle/site/cercle/log/1454015156.34.txt",
+		"/D/Corentin/Etudes/EMSE/Cercle/site/cercle/user/corentin.doue/operations/1498423163.74_1 Corona",
+		"/D/Corentin/Etudes/EMSE/Cercle/site/cercle/user/corentin.doue/operations/1498596751.54_barbecue",
+		"/D/Corentin/Etudes/EMSE/Cercle/site/cercle/user/corentin.doue/operations/1495572229.19_ajout d&apos;argent par le Cercle",
+		"/D/Corentin/Etudes/EMSE/Cercle/site/cercle/user/corentin.doue/operations/1472481730.1_ajout d&apos;argent par le Cercle",
+		"/D/Corentin/Etudes/EMSE/Cercle/site/cercle/user/corentin.doue/solde",
+		"/C/Users/Corentin/Downloads/connection_back_office.php",
+		"/C/Users/Corentin/Desktop/QuadTreeSimple-origin-1b1437003480d9248ae21bac923971c69cb82330/src/quadtree_test.c",
+		"/C/Users/Corentin/Desktop/QuadTreeSimple-origin-1b1437003480d9248ae21bac923971c69cb82330/doc/api/bbox_8h.html",
+		"/C/Users/Corentin/Desktop/QuadTreeSimple-origin-1b1437003480d9248ae21bac923971c69cb82330/src/quadtree_test",
+		"/C/Users/Corentin/Desktop/temp/index.php",
+		"/C/wamp64/www/site_mobilite/onecolumn.html",
+		"/C/wamp64/www/site_mobilite/savedestinationfile.php",
+		"/D/Corentin/Etudes/EMSE/BDE/site BDE/html/detail_ope.php",
+		"/C/wamp64/www/SiteMinesterstellar/home_points.php",
+		"/C/wamp64/www/site_mobilite/contenu.php",
+		"/C/wamp64/www/SiteMinesterstellar/style_mobile.css",
+		"/C/wamp64/www/site_mobilite/assets/js/sanitize.js",
+		"/C/wamp64/www/site_mobilite/assets/js/util.js",
+		"/C/wamp64/www/site_mobilite/assets/js/jquery.dropotron.min.js",
+		"/C/wamp64/www/site_mobilite/assets/css/main.css",
+		"/C/wamp64/www/site_mobilite/assets/js/main.js",
+		"/C/wamp64/www/SiteMinesterstellar/footer.php",
+		"/C/wamp64/www/site_mobilite/assets/js/angularjs.js",
+		"/C/wamp64/www/test_phpexcel/modif_offre.php",
+		"/C/wamp64/bin/apache/apache2.4.23/bin/php.ini",
+		"/C/wamp64/www/test_phpexcel/Examples/31docproperties_write.php",
+		"/D/Cours EMSE/Projet CIT/site/code angular/angular.js",
+		"/D/Cours EMSE/Projet CIT/site/code angular/index.html",
+		"/C/wamp64/www/site_mobilite/PHPExcel-1.8/Examples/02types.php",
+		"/C/wamp64/www/site_mobilite/PHPExcel-1.8/Examples/02types-xls.php",
+		"/C/wamp64/www/site_mobilite/ng-file-upload-bower-12.2.13/FileAPI.js",
+		"/C/wamp64/www/site_mobilite/php/newdestination.php",
+		"/C/wamp64/www/site_mobilite/assets/js/sce.js",
+		"/C/wamp64/www/site_mobilite/documents.html",
+		"/D/Corentin/Etudes/EMSE/BDE/site BDE/html/checkshotgun.php",
+		"/D/Corentin/Etudes/EMSE/BDE/site BDE/html/login.php",
+		"/D/Corentin/Etudes/EMSE/BDE/site BDE/html/lostPass.php",
+		"/D/Corentin/Etudes/EMSE/BDE/site BDE/html/checklogin.php",
+		"/D/Corentin/Etudes/EMSE/BDE/site BDE/html/functions.php",
+		"/D/Corentin/Etudes/EMSE/BDE/site BDE/html/checkretrait.php",
+		"/D/Corentin/Etudes/EMSE/BDE/site BDE/html/retrait.php",
+		"/D/Corentin/Etudes/EMSE/BDE/site BDE/html/admin2.php",
+		"/C/wamp64/www/SiteMinesterstellar/start.php",
+		"/C/Users/Corentin/AppData/Local/Temp/index.php",
+		"/D/Corentin/Etudes/EMSE/BDE/site BDE/html/shotgun.php",
+		"/D/Cours EMSE/Projet CIT/original/assets/css/main.css",
+		"/D/Cours EMSE/Projet CIT/test/assets/js/main.js",
+		"/D/Cours EMSE/Projet CIT/test/index.html",
+		"/D/Cours EMSE/Projet CIT/test/assets/css/main.css",
+		"/D/Cours EMSE/Projet CIT/site_mobilite/assets/js/jquery.dropotron.min.js",
+		"/D/Cours EMSE/Methode num/Tp aquifer/Ksurmu.m",
+		"/D/Cours EMSE/Methode num/TP5/Ksurmu.m",
+		"/C/Users/Corentin/Google Drive/Bureau Mines'terstellar/Pole Com/site internet/Soundbox/sounbox.html",
+		"/C/wamp64/www/SiteMinesterstellar/contenu/logo.php",
+		"/C/wamp64/www/SiteMinesterstellar/test transform css.css",
+		"/C/wamp64/www/SiteMinesterstellar/logo.php",
+		"/C/wamp64/www/SiteMinesterstellar/home_jdp.php",
+		"/C/wamp64/www/SiteMinesterstellar/contenu/actualite.php",
+		"/C/wamp64/www/SiteMinesterstellar/logs/info.php5",
+		"/C/wamp64/www/SiteMinesterstellar/logs/.htaccess",
+		"/D/Games/Sid Meiers Civilization VI/Base/Binaries/Win64Steam/steam_api.ini",
+		"/C/wamp64/www/SiteMinesterstellar/jquery-ui/jquery-ui.css",
+		"/C/wamp64/www/test_image/miniature.php",
+		"/C/wamp64/www/SiteMinesterstellar/miniature_jpg.php",
+		"/C/wamp64/www/SiteMinesterstellar/miniature_png.php",
+		"/C/wamp64/www/SiteMinesterstellar/home_galerie.php",
+		"/C/wamp64/www/SiteMinesterstellar/home_lien.php",
+		"/C/wamp64/www/SiteMinesterstellar/galerie.php",
+		"/C/wamp64/www/SiteMinesterstellar/calendrier.php",
+		"/C/wamp64/www/SiteMinesterstellar/actualite.php",
+		"/C/wamp64/www/SiteMinesterstellar/accueil.php",
+		"/C/wamp64/www/SiteMinesterstellar/affiche_micro.php",
+		"/C/wamp64/www/SiteMinesterstellar/affiche.php",
+		"/C/wamp64/www/SiteMinesterstellar/nav.php",
+		"/D/BDE EMSE/Site web/test/test.html",
+		"/C/wamp64/www/test_3/index.php",
+		"/C/wamp64/www/index.php",
+		"/C/wamp64/www/test 1/affichertexte.php",
+		"/D/BDE EMSE/Site web/test/test CSS 1.html",
+		"/D/BDE EMSE/Site web/test/style.css",
+		"/C/wamp64/www/test 1/cible.php",
+		"/C/wamp64/www/test 1/index.php",
+		"/C/wamp64/www/tests/footers.php",
+		"/C/wamp64/www/tests/menus.php",
+		"/C/wamp64/www/tests/bonjour.php",
+		"/C/wamp64/www/tests/affichertexte.php",
+		"/D/BDE EMSE/Site web/test/présentation d'Openclassrooms.html",
+		"/D/BDE EMSE/Site web/test/zozor.html"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"p {",
+			"p{",
+			"p",
+			"layout",
+			"sav_new_dom",
+			"$scope.parcour",
+			"new Excel",
+			"destinations",
+			"export",
+			"$answer[$",
+			"$answer[\"ty",
+			"$answer['ty",
+			"destination.save",
+			"xml",
+			"#u",
+			"/",
+			"spa",
+			"search_dest",
+			"domaine",
+			"search_dest",
+			"$key+3",
+			"$scope.continent",
+			"20",
+			"result",
+			"langue",
+			"\t\t\t\t$",
+			"no",
+			"new_name",
+			"convention",
+			"langue",
+			"domaine",
+			"domaines",
+			"domaine",
+			"domaines",
+			"lay",
+			"lay()",
+			"insert",
+			"ville",
+			"villes",
+			"C1",
+			"ID_card",
+			"C1",
+			"logo",
+			"button",
+			"serch_dest",
+			"search",
+			"html",
+			"body",
+			"page_wrapper",
+			"-webkit-linear-gradient(top, #008ead, #007b9d);",
+			"header",
+			"#008ead",
+			"008dab",
+			"007294",
+			"hover",
+			"\\\"><",
+			"0",
+			"date_fin",
+			"echo \"rep<br>\";\n\tprint_r($rep);",
+			"len",
+			"leng",
+			"s[$i]",
+			"domaines",
+			"\", ",
+			"preg_match(\"",
+			"#",
+			"$",
+			"langue",
+			"domaine",
+			"mobility",
+			"mobilities",
+			"langue",
+			"langues",
+			"domaine",
+			"domaines",
+			"domaine",
+			"mobility",
+			"mobilities",
+			"mobilities\n",
+			">\n",
+			"search",
+			"back",
+			"p ",
+			"p",
+			"row",
+			"main",
+			"main-row ",
+			"sec",
+			"4u",
+			"12u ",
+			"h2",
+			"lower",
+			"h1",
+			"li",
+			"nav",
+			"scrol",
+			"nav",
+			"crypted",
+			"mini",
+			" \">"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"parcours",
+			"#",
+			"search_parcour",
+			"promo",
+			"search_parcour",
+			"$i",
+			"convention",
+			"new_name",
+			"convention",
+			"domaine",
+			"langue",
+			"langues",
+			"langue",
+			"langues",
+			"pays",
+			"search_dest",
+			"serch_dest",
+			"test",
+			"html",
+			"body",
+			"C205E3",
+			"A500C2",
+			"",
+			"langues",
+			".test(",
+			"",
+			"/",
+			"",
+			"continent",
+			"langue",
+			"convention",
+			"conventions",
+			"ville",
+			"pay",
+			"continent",
+			"villes",
+			"pays",
+			"continents",
+			"langue",
+			"langues",
+			"domaine",
+			"domaines",
+			"\t\t<div class=\"texte_recherche\">Type de mobilité :</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"result_recherche\" ng-mouseover=\"search.mobilities.isactive=true\" ng-mouseleave=\"search.mobilities.isactive=false\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"resume\">{{search.mobilities.resume}}</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div ng-repeat=\"mobility in search.mobilities.checkable\" ng-if=\"search.mobilities.isactive\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"checked\" ng-if=\"search.mobilities.isin(mobility)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div>{{mobility}}</div><div class=\"clickable\" ng-click=\"search.mobilities.uncheck(mobility)\" style=\"width: 20px;\"><img style=\"width :100%;\" src=\"images/croix rouge.jpg\"></div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"unchecked clickable\" ng-click=\"search.mobilities.check(mobility)\" ng-if=\"!search.mobilities.isin(mobility)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div>{{mobility}}</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>",
+			"<div class=\"recherche_item\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"texte_recherche\">Type de mobilité :</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"result_recherche\" ng-mouseover=\"search.mobilities.isactive=true\" ng-mouseleave=\"search.mobilities.isactive=false\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"resume\">{{search.mobilities.resume}}</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div ng-repeat=\"mobility in search.mobilities.checkable\" ng-if=\"search.mobilities.isactive\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"checked\" ng-if=\"search.mobilities.isin(mobility)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div>{{mobility}}</div><div class=\"clickable\" ng-click=\"search.mobilities.uncheck(mobility)\" style=\"width: 20px;\"><img style=\"width :100%;\" src=\"images/croix rouge.jpg\"></div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"unchecked clickable\" ng-click=\"search.mobilities.check(mobility)\" ng-if=\"!search.mobilities.isin(mobility)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div>{{mobility}}</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>",
+			"moyen",
+			"<tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/Amiral.png\" title=\"Amiral\"><img src=\"grade/mini_Amiral.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Amiral</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/Vice_amiral.png\" title=\"Vice-Amiral\"><img src=\"grade/mini_Vice_amiral.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Vice-Amiral</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/contre_amiral.png\" title=\"Contre Amiral\"><img src=\"grade/mini_contre_amiral.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Contre Amiral</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/capitaine de vaisseau.png\" title=\"Capitaine de Vaisseau\"><img src=\"grade/mini_capitaine de vaisseau.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Capitaine de Vaisseau</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/capitaine de frégate.png\" title=\"Capitaine de Frégate\"><img src=\"grade/mini_capitaine de frégate.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Capitaine de Frégate</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/capitaine de corvette.png\" title=\"Capitaine de Corvette\"><img src=\"grade/mini_capitaine de corvette.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Capitaine de Corvette</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/lieutenant.png\" title=\"Lieutenant\"><img src=\"grade/mini_lieutenant.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Lieutenant</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/major.png\" title=\"Major\"><img src=\"grade/mini_major.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Major</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/maitre principal.png\" title=\"Maître Principal\"><img src=\"grade/mini_maitre principal.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Maître Principal</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/premier maitre.png\" title=\"Premier Maître\"><img src=\"grade/mini_premier maitre.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Premier Maître</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/maitre.png\" title=\"Maître\"><img src=\"grade/mini_maitre.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Maître</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/second maitre.png\" title=\"Second Maître\"><img src=\"grade/mini_second maitre.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Second Maître</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/quartier maitre.png\" title=\"Quartier Maître\"><img src=\"grade/mini_quartier maitre.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Quartier Maître</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/matelot.png\" title=\"Matelot\"><img src=\"grade/mini_matelot.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Matelot</div></td>\n                            </tr>",
+			"moyen"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 28,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "excelread.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 27336,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								24621,
+								24621
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 9833.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "excel.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16834,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12735,
+								12735
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 124.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "assets/js/angularapp5.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 30818,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3074,
+								3277
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1521.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "export_parc.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9238,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3316,
+								3316
+							]
+						],
+						"settings":
+						{
+							"auto_name": "<?php",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1898.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "php/majparcour.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9858,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5738,
+								5738
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2613.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "php/majdestination.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10689,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7773,
+								7773
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 707.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "assets/js/angularapp6.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 28585,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								25957,
+								21788
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 11206.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 19,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "majparcour.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 18776,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								18545,
+								18632
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 5290.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 17,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "majdestination.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 32331,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13712,
+								13712
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4992.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "newdestination.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1976,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1628,
+								1737
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 18,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "assets/js/angularapp.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8881,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7547,
+								7792
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 3165.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 21,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "assets/js/angularapp1.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 567,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								342,
+								342
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 34,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "assets/js/angularapp2.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1438,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1117,
+								1117
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 141.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 22,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "saveexcelfile.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1798,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1688,
+								1688
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 78.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 24,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "savetestfile.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1096,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1074,
+								1074
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "assets/js/angularapptest.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 970,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								35,
+								35
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 33,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "test.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4949,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3405,
+								3405
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 15327.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 31,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "php/connection.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 231,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								231,
+								231
+							]
+						],
+						"settings":
+						{
+							"auto_name": "<?php",
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 30,
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "connexion pour serveur webélève/connection_back_office.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 918,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								778,
+								794
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 32,
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "connexion pour serveur webélève/connection.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1214,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								914,
+								914
+							]
+						],
+						"settings":
+						{
+							"spell_check": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 39.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 20,
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"file": "php/connection_back_office.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 231,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 29,
+					"type": "text"
+				},
+				{
+					"buffer": 21,
+					"file": "php/header.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 812,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								370,
+								370
+							]
+						],
+						"settings":
+						{
+							"auto_name": "<?php",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 27,
+					"type": "text"
+				},
+				{
+					"buffer": 22,
+					"file": "php/header_back_office.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 492,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								381,
+								381
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 28,
+					"type": "text"
+				},
+				{
+					"buffer": 23,
+					"file": "index.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7125,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								815,
+								762
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 24,
+					"file": "destinations.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 15549,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								858,
+								858
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 169.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 25,
+					"file": "destination.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 20997,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								16337,
+								16337
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 6732.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 26,
+					"file": "/C/wamp64/www/site_bde/ajout_compte.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1060,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 39.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 27,
+					"file": "/C/wamp64/www/site_bde/php/checkajoutcompte.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1330,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 28,
+					"file": "/C/Users/Corentin/Downloads/checkajoutcompte.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1330,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6,
+								6
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 29,
+					"file": "demarches.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3456,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								819,
+								819
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 149.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 30,
+					"file": "index_back_office.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2757,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1988,
+								1988
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2652.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 26,
+					"type": "text"
+				},
+				{
+					"buffer": 31,
+					"file": "contenu.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3243,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6,
+								47
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 48,
+					"type": "text"
+				},
+				{
+					"buffer": 32,
+					"file": "php/majcontenus.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 506,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15,
+								15
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 47,
+					"type": "text"
+				},
+				{
+					"buffer": 33,
+					"file": "php/querycontenus.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1419,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								16,
+								16
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 49,
+					"type": "text"
+				},
+				{
+					"buffer": 34,
+					"file": "php/PHPExcel.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 31533,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 44,
+					"type": "text"
+				},
+				{
+					"buffer": 35,
+					"file": "php/PHPExcel/Autoloader.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2884,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 41,
+					"type": "text"
+				},
+				{
+					"buffer": 36,
+					"file": "assets/js/angularapp3.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 20716,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8992,
+								9794
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3654.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 43,
+					"type": "text"
+				},
+				{
+					"buffer": 37,
+					"file": "modif_bdd.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 25922,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14147,
+								14147
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 11336.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 40,
+					"type": "text"
+				},
+				{
+					"buffer": 38,
+					"file": "assets/js/angularapp4.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 43698,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								42627,
+								42627
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 20521.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 23,
+					"type": "text"
+				},
+				{
+					"buffer": 39,
+					"file": "php/querydestinations.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7909,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3976,
+								3842
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1547.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 40,
+					"file": "newparcour.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 524,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								390,
+								49
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 39,
+					"type": "text"
+				},
+				{
+					"buffer": 41,
+					"file": "php/queryparcours.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7617,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1257,
+								46
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 42,
+					"type": "text"
+				},
+				{
+					"buffer": 42,
+					"file": "php/queryparcour.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6551,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6025,
+								5694
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3404.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 35,
+					"type": "text"
+				},
+				{
+					"buffer": 43,
+					"file": "php/queryconventions.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 545,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								44,
+								44
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 53,
+					"type": "text"
+				},
+				{
+					"buffer": 44,
+					"file": "php/querydomaines.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 338,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								43,
+								43
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 52,
+					"type": "text"
+				},
+				{
+					"buffer": 45,
+					"file": "php/querylangues.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 567,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								44,
+								44
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 46,
+					"type": "text"
+				},
+				{
+					"buffer": 46,
+					"file": "php/querynewvilles.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3690,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								43,
+								43
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 45,
+					"type": "text"
+				},
+				{
+					"buffer": 47,
+					"file": "php/querynewdomaines.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 348,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								43,
+								43
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 51,
+					"type": "text"
+				},
+				{
+					"buffer": 48,
+					"file": "php/queryvilles.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 529,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								43,
+								43
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 25,
+					"type": "text"
+				},
+				{
+					"buffer": 49,
+					"file": "savedestinationfile.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1148,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								858,
+								858
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 38,
+					"type": "text"
+				},
+				{
+					"buffer": 50,
+					"file": "php/PHPExcel/Shared/XMLWriter.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3505,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1282,
+								1282
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1846.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 37,
+					"type": "text"
+				},
+				{
+					"buffer": 51,
+					"file": "/C/wamp64/bin/apache/apache2.4.23/bin/php.ini",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 72808,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								35049,
+								35052
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 12535.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 36,
+					"type": "text"
+				},
+				{
+					"buffer": 52,
+					"file": "assets/css/back_office.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 32651,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								19013,
+								19020
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 15580.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 50,
+					"type": "text"
+				},
+				{
+					"buffer": 53,
+					"file": "assets/css/style.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8382,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8382,
+								8382
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 7710.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 22.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 28.0
+	},
+	"pinned_build_system": "",
+	"project": "site mobilité.sublime-project",
+	"replace":
+	{
+		"height": 72.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -1,0 +1,791 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pa",
+				"padding-left"
+			],
+			[
+				"padd",
+				"padding-right"
+			],
+			[
+				"al",
+				"align-content"
+			],
+			[
+				"whi",
+				"width"
+			],
+			[
+				"h",
+				"h3\tTag"
+			],
+			[
+				"f",
+				"filtre"
+			],
+			[
+				"set_",
+				"set_statut_allo"
+			],
+			[
+				"_",
+				"_POST"
+			],
+			[
+				"stat",
+				"statut"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"po",
+				"points"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"Cle",
+				"ClefG"
+			],
+			[
+				"clef",
+				"ClefG"
+			],
+			[
+				"fl",
+				"flex-direction"
+			],
+			[
+				"s",
+				"flex-start"
+			],
+			[
+				"fo",
+				"font-weight"
+			],
+			[
+				"set_t",
+				"set_tel_allo"
+			],
+			[
+				"hei",
+				"max-height"
+			],
+			[
+				"ri",
+				"margin-right"
+			],
+			[
+				"ali",
+				"align-items"
+			],
+			[
+				"sp",
+				"space-between"
+			],
+			[
+				"home",
+				"home_actualite"
+			],
+			[
+				"bor",
+				"border-color"
+			],
+			[
+				"ma",
+				"margin"
+			],
+			[
+				"w",
+				"widthmax"
+			],
+			[
+				"date_a",
+				"date_actualite"
+			],
+			[
+				"b",
+				"background-color"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"i",
+				"img\tTag"
+			],
+			[
+				"bo",
+				"border-style"
+			],
+			[
+				"logo",
+				"logo_allo"
+			],
+			[
+				"qu",
+				"query"
+			],
+			[
+				"bali",
+				"balises_trouvees"
+			],
+			[
+				"a",
+				"array\t$… = array (…)"
+			],
+			[
+				"cry",
+				"crypter"
+			],
+			[
+				"re",
+				"required\tAttr"
+			],
+			[
+				"no",
+				"nom_image"
+			],
+			[
+				"strto",
+				"strtotime"
+			],
+			[
+				"des",
+				"description_new_event"
+			],
+			[
+				"nom_",
+				"nom_image_cryptee"
+			],
+			[
+				"u",
+				"underline"
+			],
+			[
+				"t",
+				"text-decoration"
+			],
+			[
+				"try",
+				"try_code"
+			],
+			[
+				"trou",
+				"trouvée"
+			],
+			[
+				"inc",
+				"inconnu"
+			],
+			[
+				"in",
+				"indice"
+			],
+			[
+				"me",
+				"message"
+			],
+			[
+				"unse",
+				"unset"
+			],
+			[
+				"jeu",
+				"jeu_de_piste"
+			],
+			[
+				"n",
+				"new_code"
+			],
+			[
+				"co",
+				"code_indice"
+			],
+			[
+				"code",
+				"code_indice"
+			],
+			[
+				"else",
+				"elseif\telseif …"
+			],
+			[
+				"e",
+				"explode"
+			],
+			[
+				"nom",
+				"nom_jeu"
+			],
+			[
+				"ac",
+				"active"
+			],
+			[
+				"ol",
+				"old_jeu"
+			],
+			[
+				"sup",
+				"suppr_jeu"
+			],
+			[
+				"spa",
+				"space-around"
+			],
+			[
+				"titre",
+				"titre_calendrier"
+			],
+			[
+				"mk",
+				"mktime"
+			],
+			[
+				"els",
+				"else"
+			],
+			[
+				"nouve",
+				"nouveau_nom"
+			],
+			[
+				"r",
+				"rangG"
+			],
+			[
+				"N",
+				"Nb_egaliteG"
+			],
+			[
+				"p",
+				"pointsG"
+			],
+			[
+				"va",
+				"value"
+			],
+			[
+				"cle",
+				"clef_jeu"
+			],
+			[
+				"valu",
+				"value2"
+			],
+			[
+				"k",
+				"key"
+			],
+			[
+				"cl",
+				"clef_jeu"
+			],
+			[
+				"for",
+				"foreach\tforeach …"
+			],
+			[
+				"poi",
+				"points_jeu"
+			],
+			[
+				"ra",
+				"rang_persoG"
+			],
+			[
+				"wh",
+				"white"
+			],
+			[
+				"fle",
+				"flex-start"
+			],
+			[
+				"con",
+				"justify-content"
+			],
+			[
+				"jqu",
+				"jquery-ui"
+			],
+			[
+				"de",
+				"demo"
+			],
+			[
+				"fa",
+				"fancybox"
+			],
+			[
+				"fancy",
+				"fancyapps"
+			],
+			[
+				"Publ",
+				"publiée"
+			],
+			[
+				"ti",
+				"titre"
+			],
+			[
+				"ex",
+				"existe"
+			],
+			[
+				"id",
+				"id_jeu"
+			],
+			[
+				"point",
+				"points_jeu"
+			],
+			[
+				"Nb",
+				"Nb_jeu"
+			],
+			[
+				"dis",
+				"display"
+			],
+			[
+				"sty",
+				"style"
+			],
+			[
+				"image_",
+				"image_actualite"
+			],
+			[
+				"pre",
+				"prenom"
+			],
+			[
+				"Poi",
+				"PointsTop10"
+			],
+			[
+				"C",
+				"ClefTop10"
+			],
+			[
+				"c",
+				"compteur"
+			],
+			[
+				"do",
+				"donnees"
+			],
+			[
+				"session",
+				"session_start"
+			],
+			[
+				"prin",
+				"print_r"
+			],
+			[
+				"sess",
+				"session_destroy"
+			],
+			[
+				"Tr",
+				"true"
+			],
+			[
+				"bord",
+				"border"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"d",
+				"display"
+			],
+			[
+				"st",
+				"style\tAttr"
+			],
+			[
+				"M",
+				"Mail"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"borde",
+				"border-radius"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"flex",
+				"flex-wrap"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"m",
+				"margin"
+			],
+			[
+				"lo",
+				"logo_minesterstellar"
+			],
+			[
+				"rg",
+				"rgb()"
+			],
+			[
+				"border",
+				"border-top"
+			],
+			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"prix",
+				"prix_max"
+			],
+			[
+				"P",
+				"_POST"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"he",
+				"header\tTag"
+			],
+			[
+				"backgroun",
+				"background-position"
+			],
+			[
+				"back",
+				"background-image"
+			],
+			[
+				"colo",
+				"color"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "assets/css/main.css",
+			"settings":
+			{
+				"buffer_size": 30562,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 9621,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/Cours EMSE/Methode num/Tp aquifer/Ksurmu.m",
+		"/D/Cours EMSE/Methode num/TP5/Ksurmu.m",
+		"/C/Users/Corentin/Google Drive/Bureau Mines'terstellar/Pole Com/site internet/Soundbox/sounbox.html",
+		"/C/wamp64/www/SiteMinesterstellar/contenu/logo.php",
+		"/C/wamp64/www/SiteMinesterstellar/test transform css.css",
+		"/C/wamp64/www/SiteMinesterstellar/logo.php",
+		"/C/wamp64/www/SiteMinesterstellar/home_jdp.php",
+		"/C/wamp64/www/SiteMinesterstellar/contenu/actualite.php",
+		"/C/wamp64/www/SiteMinesterstellar/logs/info.php5",
+		"/C/wamp64/www/SiteMinesterstellar/logs/.htaccess",
+		"/D/Games/Sid Meiers Civilization VI/Base/Binaries/Win64Steam/steam_api.ini",
+		"/C/wamp64/www/SiteMinesterstellar/jquery-ui/jquery-ui.css",
+		"/C/wamp64/www/test_image/miniature.php",
+		"/C/wamp64/www/SiteMinesterstellar/miniature_jpg.php",
+		"/C/wamp64/www/SiteMinesterstellar/miniature_png.php",
+		"/C/wamp64/www/SiteMinesterstellar/home_galerie.php",
+		"/C/wamp64/www/SiteMinesterstellar/home_lien.php",
+		"/C/wamp64/www/SiteMinesterstellar/galerie.php",
+		"/C/wamp64/www/SiteMinesterstellar/calendrier.php",
+		"/C/wamp64/www/SiteMinesterstellar/actualite.php",
+		"/C/wamp64/www/SiteMinesterstellar/accueil.php",
+		"/C/wamp64/www/SiteMinesterstellar/affiche_micro.php",
+		"/C/wamp64/www/SiteMinesterstellar/affiche.php",
+		"/C/wamp64/www/SiteMinesterstellar/nav.php",
+		"/D/BDE EMSE/Site web/test/test.html",
+		"/C/wamp64/www/test_3/index.php",
+		"/C/wamp64/www/index.php",
+		"/C/wamp64/www/test 1/affichertexte.php",
+		"/D/BDE EMSE/Site web/test/test CSS 1.html",
+		"/D/BDE EMSE/Site web/test/style.css",
+		"/C/wamp64/www/test 1/cible.php",
+		"/C/wamp64/www/test 1/index.php",
+		"/C/wamp64/www/tests/footers.php",
+		"/C/wamp64/www/tests/menus.php",
+		"/C/wamp64/www/tests/bonjour.php",
+		"/C/wamp64/www/tests/affichertexte.php",
+		"/D/BDE EMSE/Site web/test/présentation d'Openclassrooms.html",
+		"/D/BDE EMSE/Site web/test/zozor.html"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"crypted",
+			"mini",
+			" \">"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"moyen",
+			"<tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/Amiral.png\" title=\"Amiral\"><img src=\"grade/mini_Amiral.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Amiral</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/Vice_amiral.png\" title=\"Vice-Amiral\"><img src=\"grade/mini_Vice_amiral.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Vice-Amiral</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/contre_amiral.png\" title=\"Contre Amiral\"><img src=\"grade/mini_contre_amiral.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Contre Amiral</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/capitaine de vaisseau.png\" title=\"Capitaine de Vaisseau\"><img src=\"grade/mini_capitaine de vaisseau.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Capitaine de Vaisseau</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/capitaine de frégate.png\" title=\"Capitaine de Frégate\"><img src=\"grade/mini_capitaine de frégate.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Capitaine de Frégate</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/capitaine de corvette.png\" title=\"Capitaine de Corvette\"><img src=\"grade/mini_capitaine de corvette.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Capitaine de Corvette</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/lieutenant.png\" title=\"Lieutenant\"><img src=\"grade/mini_lieutenant.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Lieutenant</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/major.png\" title=\"Major\"><img src=\"grade/mini_major.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Major</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/maitre principal.png\" title=\"Maître Principal\"><img src=\"grade/mini_maitre principal.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Maître Principal</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/premier maitre.png\" title=\"Premier Maître\"><img src=\"grade/mini_premier maitre.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Premier Maître</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/maitre.png\" title=\"Maître\"><img src=\"grade/mini_maitre.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Maître</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/second maitre.png\" title=\"Second Maître\"><img src=\"grade/mini_second maitre.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Second Maître</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/quartier maitre.png\" title=\"Quartier Maître\"><img src=\"grade/mini_quartier maitre.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Quartier Maître</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/matelot.png\" title=\"Matelot\"><img src=\"grade/mini_matelot.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Matelot</div></td>\n                            </tr>",
+			"moyen"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "assets/css/main.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 30562,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9621,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 28.0
+	},
+	"pinned_build_system": "",
+	"project": "site mobilité.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

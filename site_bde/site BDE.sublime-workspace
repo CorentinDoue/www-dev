@@ -1,0 +1,1220 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"inc",
+				"include"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"l",
+				"li\tTag"
+			],
+			[
+				"u",
+				"ul\tTag"
+			],
+			[
+				"pa",
+				"padding-left"
+			],
+			[
+				"al",
+				"align-content"
+			],
+			[
+				"whi",
+				"width"
+			],
+			[
+				"h",
+				"h3\tTag"
+			],
+			[
+				"f",
+				"filtre"
+			],
+			[
+				"set_",
+				"set_statut_allo"
+			],
+			[
+				"_",
+				"_POST"
+			],
+			[
+				"stat",
+				"statut"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"po",
+				"points"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"Cle",
+				"ClefG"
+			],
+			[
+				"clef",
+				"ClefG"
+			],
+			[
+				"fl",
+				"flex-direction"
+			],
+			[
+				"s",
+				"flex-start"
+			],
+			[
+				"fo",
+				"font-weight"
+			],
+			[
+				"set_t",
+				"set_tel_allo"
+			],
+			[
+				"hei",
+				"max-height"
+			],
+			[
+				"ri",
+				"margin-right"
+			],
+			[
+				"ali",
+				"align-items"
+			],
+			[
+				"sp",
+				"space-between"
+			],
+			[
+				"home",
+				"home_actualite"
+			],
+			[
+				"bor",
+				"border-color"
+			],
+			[
+				"ma",
+				"margin"
+			],
+			[
+				"w",
+				"widthmax"
+			],
+			[
+				"date_a",
+				"date_actualite"
+			],
+			[
+				"b",
+				"background-color"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"i",
+				"img\tTag"
+			],
+			[
+				"bo",
+				"border-style"
+			],
+			[
+				"logo",
+				"logo_allo"
+			],
+			[
+				"qu",
+				"query"
+			],
+			[
+				"bali",
+				"balises_trouvees"
+			],
+			[
+				"a",
+				"array\t$… = array (…)"
+			],
+			[
+				"cry",
+				"crypter"
+			],
+			[
+				"re",
+				"required\tAttr"
+			],
+			[
+				"no",
+				"nom_image"
+			],
+			[
+				"strto",
+				"strtotime"
+			],
+			[
+				"des",
+				"description_new_event"
+			],
+			[
+				"nom_",
+				"nom_image_cryptee"
+			],
+			[
+				"t",
+				"text-decoration"
+			],
+			[
+				"try",
+				"try_code"
+			],
+			[
+				"trou",
+				"trouvée"
+			],
+			[
+				"in",
+				"indice"
+			],
+			[
+				"me",
+				"message"
+			],
+			[
+				"unse",
+				"unset"
+			],
+			[
+				"jeu",
+				"jeu_de_piste"
+			],
+			[
+				"n",
+				"new_code"
+			],
+			[
+				"co",
+				"code_indice"
+			],
+			[
+				"code",
+				"code_indice"
+			],
+			[
+				"else",
+				"elseif\telseif …"
+			],
+			[
+				"e",
+				"explode"
+			],
+			[
+				"nom",
+				"nom_jeu"
+			],
+			[
+				"ac",
+				"active"
+			],
+			[
+				"ol",
+				"old_jeu"
+			],
+			[
+				"sup",
+				"suppr_jeu"
+			],
+			[
+				"spa",
+				"space-around"
+			],
+			[
+				"titre",
+				"titre_calendrier"
+			],
+			[
+				"mk",
+				"mktime"
+			],
+			[
+				"els",
+				"else"
+			],
+			[
+				"nouve",
+				"nouveau_nom"
+			],
+			[
+				"r",
+				"rangG"
+			],
+			[
+				"N",
+				"Nb_egaliteG"
+			],
+			[
+				"p",
+				"pointsG"
+			],
+			[
+				"va",
+				"value"
+			],
+			[
+				"cle",
+				"clef_jeu"
+			],
+			[
+				"valu",
+				"value2"
+			],
+			[
+				"k",
+				"key"
+			],
+			[
+				"cl",
+				"clef_jeu"
+			],
+			[
+				"for",
+				"foreach\tforeach …"
+			],
+			[
+				"poi",
+				"points_jeu"
+			],
+			[
+				"ra",
+				"rang_persoG"
+			],
+			[
+				"wh",
+				"white"
+			],
+			[
+				"fle",
+				"flex-start"
+			],
+			[
+				"con",
+				"justify-content"
+			],
+			[
+				"jqu",
+				"jquery-ui"
+			],
+			[
+				"de",
+				"demo"
+			],
+			[
+				"fa",
+				"fancybox"
+			],
+			[
+				"fancy",
+				"fancyapps"
+			],
+			[
+				"Publ",
+				"publiée"
+			],
+			[
+				"ti",
+				"titre"
+			],
+			[
+				"ex",
+				"existe"
+			],
+			[
+				"id",
+				"id_jeu"
+			],
+			[
+				"point",
+				"points_jeu"
+			],
+			[
+				"Nb",
+				"Nb_jeu"
+			],
+			[
+				"dis",
+				"display"
+			],
+			[
+				"sty",
+				"style"
+			],
+			[
+				"image_",
+				"image_actualite"
+			],
+			[
+				"pre",
+				"prenom"
+			],
+			[
+				"Poi",
+				"PointsTop10"
+			],
+			[
+				"C",
+				"ClefTop10"
+			],
+			[
+				"c",
+				"compteur"
+			],
+			[
+				"do",
+				"donnees"
+			],
+			[
+				"session",
+				"session_start"
+			],
+			[
+				"prin",
+				"print_r"
+			],
+			[
+				"sess",
+				"session_destroy"
+			],
+			[
+				"Tr",
+				"true"
+			],
+			[
+				"bord",
+				"border"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"d",
+				"display"
+			],
+			[
+				"st",
+				"style\tAttr"
+			],
+			[
+				"M",
+				"Mail"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"borde",
+				"border-radius"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"flex",
+				"flex-wrap"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"m",
+				"margin"
+			],
+			[
+				"lo",
+				"logo_minesterstellar"
+			],
+			[
+				"rg",
+				"rgb()"
+			],
+			[
+				"border",
+				"border-top"
+			],
+			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"prix",
+				"prix_max"
+			],
+			[
+				"P",
+				"_POST"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"he",
+				"header\tTag"
+			],
+			[
+				"backgroun",
+				"background-position"
+			],
+			[
+				"back",
+				"background-image"
+			],
+			[
+				"colo",
+				"color"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "js/autocomplete.js",
+			"settings":
+			{
+				"buffer_size": 4260,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "ajout_compte.php",
+			"settings":
+			{
+				"buffer_size": 1060,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "php/checkajoutcompte.php",
+			"settings":
+			{
+				"buffer_size": 1330,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "php/connexion.php",
+			"settings":
+			{
+				"buffer_size": 2173,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "php/connexion serveur emse/logout.php",
+			"settings":
+			{
+				"buffer_size": 513,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Corentin/Desktop/site/php/checkcreateshotgun.php",
+			"settings":
+			{
+				"buffer_size": 1722,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/Corentin/Desktop/site/php/checkedit.php",
+			"settings":
+			{
+				"buffer_size": 2498,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Corentin/Desktop/site/php/checkshotgun.php",
+			"settings":
+			{
+				"buffer_size": 599,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Corentin/Desktop/site/php/checkverifreserve.php",
+			"settings":
+			{
+				"buffer_size": 1127,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/Corentin/Desktop/site/php/login.php",
+			"settings":
+			{
+				"buffer_size": 667,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/Corentin/Desktop/site/php/profile.php",
+			"settings":
+			{
+				"buffer_size": 1055,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Corentin/Desktop/site/php/notifMail.php",
+		"/C/Users/Corentin/Desktop/site/php/mysqli.php",
+		"/C/Users/Corentin/Desktop/site/php/checkretrait.php",
+		"/C/Users/Corentin/Desktop/site/php/checklogin.php",
+		"/C/wamp64/www/site_bde/resume.php",
+		"/C/Users/Corentin/Desktop/site/php/checkcreateevent.php",
+		"/C/Users/Corentin/Desktop/site/php/checkajoutcompte.php",
+		"/C/Users/Corentin/Desktop/site/php/checkajout.php",
+		"/C/Users/Corentin/Desktop/site/php/changerfond.php",
+		"/C/Users/Corentin/Desktop/site/php/autocomplete.php",
+		"/C/wamp64/www/site_bde/index.php",
+		"/C/Users/Corentin/Desktop/site/create_event.php",
+		"/C/Users/Corentin/Desktop/site/detail_ope_admin.php",
+		"/C/Users/Corentin/Desktop/site/ajout_compte.php",
+		"/C/Users/Corentin/Desktop/site/edit_user.php",
+		"/C/Users/Corentin/Desktop/site/admin.php",
+		"/C/Users/Corentin/Desktop/site/lostPass.php",
+		"/C/Users/Corentin/Desktop/site/detail_ope.php",
+		"/C/Users/Corentin/Desktop/site/reglages.php",
+		"/C/Users/Corentin/Desktop/site/retrait.php",
+		"/C/Users/Corentin/Desktop/site/reserve.php",
+		"/C/Users/Corentin/Desktop/site/resume.php",
+		"/C/Users/Corentin/Desktop/site/index.php",
+		"/C/Users/Corentin/Desktop/site/histo_ope.php",
+		"/C/Users/Corentin/Desktop/site/ajout.php",
+		"/C/Users/Corentin/Desktop/site/shotgun.php",
+		"/C/wamp64/www/site_bde/php/login.php",
+		"/C/wamp64/www/site_cercle/php/connexion serveur emse/logout.php",
+		"/C/wamp64/www/site_bde/php/connexion serveur emse/connexion.php",
+		"/C/wamp64/www/site_cercle/php/connexion serveur emse/connexion.php",
+		"/C/wamp64/www/site_bde/php/checkretrait.php",
+		"/C/wamp64/www/site_bde/ajout.php",
+		"/C/wamp64/www/site_bde/retrait.php",
+		"/C/wamp64/www/site_bde/php/checkajout.php",
+		"/C/wamp64/www/site_bde/php/checkedit.php",
+		"/C/wamp64/www/site_bde/edit_user.php",
+		"/C/wamp64/www/site_bde/admin.php",
+		"/C/wamp64/www/site_bde/php/connexion.php",
+		"/C/wamp64/www/site_bde/php/checklogin.php",
+		"/C/wamp64/www/site_bde/create_event.php",
+		"/C/wamp64/www/site_bde/histo_ope.php",
+		"/C/wamp64/www/site_bde/php/mysqli.php",
+		"/C/wamp64/www/site_bde/php/profile.php",
+		"/C/wamp64/www/site_bde/php/notifMail.php",
+		"/C/wamp64/www/site_bde/php/logout.php",
+		"/C/wamp64/www/site_bde/php/functions.php",
+		"/C/wamp64/www/site_bde/php/checkverifreserve.php",
+		"/C/wamp64/www/site_bde/php/checkshotgun.php",
+		"/C/wamp64/www/site_bde/php/checkcreateshotgun.php",
+		"/C/wamp64/www/site_bde/php/checkcreateevent.php",
+		"/C/wamp64/www/site_bde/php/checkajoutcompte.php",
+		"/C/wamp64/www/site_bde/php/changerfond.php",
+		"/C/wamp64/www/site_bde/php/autocomplete.php",
+		"/C/wamp64/www/site_bde/verifretrait2.php",
+		"/C/wamp64/www/site_bde/verifretrait.php",
+		"/C/wamp64/www/site_bde/verifajout.php",
+		"/C/wamp64/www/site_bde/verif_reserve.php",
+		"/C/wamp64/www/site_bde/shotgun.php",
+		"/C/wamp64/www/site_bde/reserve.php",
+		"/C/wamp64/www/site_bde/reglages.php",
+		"/C/wamp64/www/site_bde/lostPass.php",
+		"/C/wamp64/www/site_bde/detail_ope_admin.php",
+		"/C/wamp64/www/site_bde/detail_ope.php",
+		"/C/wamp64/www/site_bde/checkverifreserve.php",
+		"/C/wamp64/www/site_bde/ajout_compte.php",
+		"/C/wamp64/www/site_bde/php/connection.php",
+		"/C/wamp64/www/site_bde/autocomplete.php",
+		"/C/wamp64/www/site_bde/autocomplete.js",
+		"/C/wamp64/www/site_bde/changerfond.php",
+		"/D/Cours EMSE/Projet CIT/original/assets/css/main.css",
+		"/D/Cours EMSE/Projet CIT/test/assets/js/main.js",
+		"/D/Cours EMSE/Projet CIT/test/index.html",
+		"/D/Cours EMSE/Projet CIT/test/assets/css/main.css",
+		"/D/Cours EMSE/Projet CIT/site_mobilite/assets/js/jquery.dropotron.min.js",
+		"/D/Cours EMSE/Methode num/Tp aquifer/Ksurmu.m",
+		"/D/Cours EMSE/Methode num/TP5/Ksurmu.m",
+		"/C/Users/Corentin/Google Drive/Bureau Mines'terstellar/Pole Com/site internet/Soundbox/sounbox.html",
+		"/C/wamp64/www/SiteMinesterstellar/contenu/logo.php",
+		"/C/wamp64/www/SiteMinesterstellar/test transform css.css",
+		"/C/wamp64/www/SiteMinesterstellar/logo.php",
+		"/C/wamp64/www/SiteMinesterstellar/home_jdp.php",
+		"/C/wamp64/www/SiteMinesterstellar/contenu/actualite.php",
+		"/C/wamp64/www/SiteMinesterstellar/logs/info.php5",
+		"/C/wamp64/www/SiteMinesterstellar/logs/.htaccess",
+		"/D/Games/Sid Meiers Civilization VI/Base/Binaries/Win64Steam/steam_api.ini",
+		"/C/wamp64/www/SiteMinesterstellar/jquery-ui/jquery-ui.css",
+		"/C/wamp64/www/test_image/miniature.php",
+		"/C/wamp64/www/SiteMinesterstellar/miniature_jpg.php",
+		"/C/wamp64/www/SiteMinesterstellar/miniature_png.php",
+		"/C/wamp64/www/SiteMinesterstellar/home_galerie.php",
+		"/C/wamp64/www/SiteMinesterstellar/home_lien.php",
+		"/C/wamp64/www/SiteMinesterstellar/galerie.php",
+		"/C/wamp64/www/SiteMinesterstellar/calendrier.php",
+		"/C/wamp64/www/SiteMinesterstellar/actualite.php",
+		"/C/wamp64/www/SiteMinesterstellar/accueil.php",
+		"/C/wamp64/www/SiteMinesterstellar/affiche_micro.php",
+		"/C/wamp64/www/SiteMinesterstellar/affiche.php",
+		"/C/wamp64/www/SiteMinesterstellar/nav.php",
+		"/D/BDE EMSE/Site web/test/test.html",
+		"/C/wamp64/www/test_3/index.php",
+		"/C/wamp64/www/index.php",
+		"/C/wamp64/www/test 1/affichertexte.php",
+		"/D/BDE EMSE/Site web/test/test CSS 1.html",
+		"/D/BDE EMSE/Site web/test/style.css",
+		"/C/wamp64/www/test 1/cible.php",
+		"/C/wamp64/www/test 1/index.php",
+		"/C/wamp64/www/tests/footers.php",
+		"/C/wamp64/www/tests/menus.php",
+		"/C/wamp64/www/tests/bonjour.php",
+		"/C/wamp64/www/tests/affichertexte.php",
+		"/D/BDE EMSE/Site web/test/présentation d'Openclassrooms.html",
+		"/D/BDE EMSE/Site web/test/zozor.html"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			".php",
+			"lower",
+			"h1",
+			"li",
+			"nav",
+			"scrol",
+			"nav",
+			"crypted",
+			"mini",
+			" \">"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"moyen",
+			"<tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/Amiral.png\" title=\"Amiral\"><img src=\"grade/mini_Amiral.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Amiral</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/Vice_amiral.png\" title=\"Vice-Amiral\"><img src=\"grade/mini_Vice_amiral.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Vice-Amiral</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/contre_amiral.png\" title=\"Contre Amiral\"><img src=\"grade/mini_contre_amiral.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Contre Amiral</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/capitaine de vaisseau.png\" title=\"Capitaine de Vaisseau\"><img src=\"grade/mini_capitaine de vaisseau.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Capitaine de Vaisseau</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/capitaine de frégate.png\" title=\"Capitaine de Frégate\"><img src=\"grade/mini_capitaine de frégate.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Capitaine de Frégate</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/capitaine de corvette.png\" title=\"Capitaine de Corvette\"><img src=\"grade/mini_capitaine de corvette.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Capitaine de Corvette</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/lieutenant.png\" title=\"Lieutenant\"><img src=\"grade/mini_lieutenant.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Lieutenant</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/major.png\" title=\"Major\"><img src=\"grade/mini_major.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Major</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/maitre principal.png\" title=\"Maître Principal\"><img src=\"grade/mini_maitre principal.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Maître Principal</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/premier maitre.png\" title=\"Premier Maître\"><img src=\"grade/mini_premier maitre.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Premier Maître</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/maitre.png\" title=\"Maître\"><img src=\"grade/mini_maitre.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Maître</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/second maitre.png\" title=\"Second Maître\"><img src=\"grade/mini_second maitre.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Second Maître</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/quartier maitre.png\" title=\"Quartier Maître\"><img src=\"grade/mini_quartier maitre.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Quartier Maître</div></td>\n                            </tr>\n\n                            <tr>\n                                <td><div style=\"display: flex;justify-content: center;\"><a class=\"fancybox\"  rel=\"gallery1\" href=\"grade/matelot.png\" title=\"Matelot\"><img src=\"grade/mini_matelot.png\" alt=\"image_galerie\"/></a></div></td>\n                                <td><div class=\"texte_calendrier\">Matelot</div></td>\n                            </tr>",
+			"moyen"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 10,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "js/autocomplete.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4260,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2211,
+								2211
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "ajout_compte.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1060,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								868,
+								868
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "php/checkajoutcompte.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1330,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								246,
+								246
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "php/connexion.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2173,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "php/connexion serveur emse/logout.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 513,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								354,
+								354
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/C/Users/Corentin/Desktop/site/php/checkcreateshotgun.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1722,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 156.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/C/Users/Corentin/Desktop/site/php/checkedit.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2498,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 312.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/C/Users/Corentin/Desktop/site/php/checkshotgun.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 599,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/C/Users/Corentin/Desktop/site/php/checkverifreserve.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1127,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/C/Users/Corentin/Desktop/site/php/login.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 667,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/C/Users/Corentin/Desktop/site/php/profile.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1055,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								391,
+								406
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 28.0
+	},
+	"pinned_build_system": "",
+	"project": "site BDE.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
