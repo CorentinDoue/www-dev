@@ -1,5 +1,6 @@
 <?php
-	
+include "php/connection_back_office.php";
+
 if (isset($_POST['file']) and $_POST['file']=="null")
 	$answer['statut']="error_type_fichier";
 else{
@@ -41,7 +42,55 @@ else{
 	$answer['ligne']=$highestRow;
 	$answer['date']=date('d-M-Y',$objPHPExcel->getProperties()->getModified());
 
-	
+	//try {
+		$sheet2 = $objPHPExcel->getSheet(1);
+		$highestRow2 = $sheet2->getHighestRow();
+		$highestColumn2 = $sheet2->getHighestColumn();
+
+		$Data2 = $sheet2->rangeToArray('A1:' . $highestColumn2 . $highestRow2, NULL, TRUE, FALSE);
+
+		if ($Data2[0][0]=="DOM")
+		{
+			for ($ligne=2; $ligne < $highestRow2; $ligne++) {
+				if ($Data2[$ligne][0]==""){
+					$req = $bdd->prepare('SELECT ID FROM domaines WHERE nom=?');
+					$req->execute(array(trim($Data2[$ligne][1])));
+					$i=0;
+					while ($donnees = $req->fetch())
+					    {
+					        $ligneID=$donnees['ID'];
+							$i++;
+					    }
+					if($i==0)
+					{
+						$req = $bdd->prepare('INSERT INTO domaines VALUES (NULL,:nom,:code)');
+						$req->execute(array(
+						    'nom' => $Data2[$ligne][1],
+								'code' => $Data2[$ligne][2]
+						    ));
+						$new=true;
+					}else{
+						$new=false;
+					}
+				}else{
+					$ligneID=$Data2[$ligne][0];
+					$new=false;
+				}
+				if (!$new) {
+					$rep = $bdd->prepare('UPDATE domaines SET nom=:nom, code=:code WHERE ID=:ID');
+	        $rep->execute(array(
+	            'ID' => $ligneID,
+	            'nom' => trim($Data2[$ligne][1]),
+	            'code' => trim($Data2[$ligne][2]),
+	            ));
+				}
+			}
+		}
+	//} catch (Exception $e) {
+	//}
+
+
+
 	$Data = $sheet->rangeToArray('A1:' . $highestColumn . $highestRow, NULL, TRUE, FALSE);
 	if ($Data[0][0]=="EXD1")
 	{

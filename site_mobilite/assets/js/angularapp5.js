@@ -1,8 +1,8 @@
 var app = angular.module('myApp5', ['ngSanitize', 'ngFileUpload']);
 app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sce,Upload) {
 
-	
-	
+
+
 	$scope.layer=false;
 	$scope.layer2=false;
 	$scope.layer3=false;
@@ -76,7 +76,10 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
             url: 'saveexcelfile.php',
             data: {file: file}
         }).then(function (resp) {
-        	var ans = angular.fromJson(resp.data);
+					//alert(resp.data);
+					//var ans={};
+					//ans.statut='error_excel';
+					var ans = angular.fromJson(resp.data);
         	if (ans.statut=='ok') {
         		$scope.excel.upload=false;
 				$scope.excel.confirm=true;
@@ -87,25 +90,25 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 				$scope.excel.curentligne=2;
 				//$scope.$apply();
 			}else{
-				if (ans.statut=='error_excel') 
+				if (ans.statut=='error_excel')
 				{
 					$scope.excel.upload=false;
-					$scope.excel.errorexcel=true;					
+					$scope.excel.errorexcel=true;
 					//$scope.$apply();
 				}else{
-					if (ans.statut=='error_type_fichier') 
+					if (ans.statut=='error_type_fichier')
 						{
 							alert('Le fichier n\'est pas au bon format');
 						}else{
 							alert('Une erreur est survenue');
-							$scope.unlay();	
+							$scope.unlay();
 						}
 				}
-				
+
 			}
         }, function (resp) {
             alert('Une erreur est survenue');
-            $scope.unlay();	
+            $scope.unlay();
         }, function (evt) {
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
             $scope.progress='progress: ' + progressPercentage + '% ' + evt.config.data.file.name;
@@ -114,16 +117,16 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 //fin upload
 //next
 	$scope.next=function()
-	{	
-		
-		if (!$scope.excel.errorville && !$scope.excel.errormobilite && $scope.excel.errordomaine==0 && !$scope.excel.errordestination) 
+	{
+
+		if (!$scope.excel.errorville && !$scope.excel.errormobilite && $scope.excel.errordomaine==0 && !$scope.excel.errordestination)
 		{
 			var xhttp3 = new XMLHttpRequest();
 		    xhttp3.onreadystatechange = function() {
 		        if (this.readyState == 4 && this.status == 200) {
 				var answer = angular.fromJson(this.responseText);
 					if(answer.statut=="error")
-					{	
+					{
 						$scope.excel.confirm=false;
 						$scope.excel.ville=false;
 						$scope.excel.mobilite=false;
@@ -151,27 +154,27 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 							init_type();
 						}
 						if (answer.errordomaine) {
-							
+
 							$scope.excel.unknowdomaine=answer.unknowdomaine;
 							$scope.excel.errordomaine=answer.unknowdomaine.length;
 							$scope.destination={};
 							$scope.destination.domaines=answer.domaines;
-							
+
 							$scope.init_domaine();
 						}
 
 						if (answer.errordestination) {
-							
+
 							$scope.excel.unknowdestination=answer.unknowdestination;
 							$scope.excel.errordestination=true;
 							$scope.destination={};
 							$scope.destination.destination=answer.destination;
 						}
-						
+
 						//$scope.$apply();
 						$scope.next();
 					}else{
-						if (answer.statut=="next") 
+						if (answer.statut=="next")
 						{
 							$scope.excel.ajoutee=answer.ajoutee;
 							$scope.excel.modifiee=answer.modifiee;
@@ -200,18 +203,18 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 							$scope.excel.resume=true;
 							$scope.$apply();
 						}
-					}		            
+					}
 		        }
 		     };
 		    $scope.excel.confirm=false;
 			$scope.excel.ville=false;
 			$scope.excel.mobilite=false;
-			$scope.excel.domaine=false; 
+			$scope.excel.domaine=false;
 		    $scope.excel.loading=true;
 
 	    	xhttp3.open("GET", "excelread.php?excel="+$scope.excel.name+'&ligne='+$scope.excel.curentligne+'&ajoutee='+$scope.excel.ajoutee+'&modifiee='+$scope.excel.modifiee, true);
 	    	xhttp3.send();
-	
+
 		}else{
 			if ($scope.excel.errorville) {
 				$scope.excel.loading=false;
@@ -220,7 +223,7 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 				$scope.excel.mobilite=false;
 				$scope.excel.domaine=false;
 				$scope.excel.destination=false;
-				
+
 
 				$scope.excel.errorville=false;
 				$scope.$apply();
@@ -249,7 +252,7 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 						$scope.excel.errordomaine--;
 						$scope.$apply();
 					}else{
-						if ($scope.excel.errordestination) 
+						if ($scope.excel.errordestination)
 						{
 							$scope.excel.loading=false;
 							$scope.excel.confirm=false;
@@ -266,7 +269,7 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 				}
 			}
 		}
-		
+
 	};
 //ville
 	function modif_ville(){
@@ -288,46 +291,46 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 		/*try {
 		 JSON.parse(this.responseText);          // null
 		} catch (e) {
-		  console.error("Parsing error:.test(e); 
+		  console.error("Parsing error:.test(e);
 		}*/			var answer = angular.fromJson(this.responseText);
-					
+
 					$scope.villes = answer;
-					
+
 					$scope.modif_ville.type_selection=true;
-		            
+
 		        }
 		    };
 
-		    xhttp3.open("GET", "php/queryvilles.php", true); 
+		    xhttp3.open("GET", "php/queryvilles.php", true);
 		    xhttp3.send();
 		}
 	};
 
 	$scope.sav_ville=function(Ville){
-		
+
 	  	var xhttp4 = new XMLHttpRequest();
 	    xhttp4.onreadystatechange = function() {
 	        if (this.readyState == 4 && this.status == 200) {
 	/*try {
 	 JSON.parse(this.responseText);          // null
 	} catch (e) {
-	  console.error("Parsing error:.test(e); 
+	  console.error("Parsing error:.test(e);
 	}*/			var error = angular.fromJson(this.responseText);
 				if (!error)
 				{
 					$scope.next();
-	  				
+
 				}
-				
+
 				$scope.$apply();
-	            
+
 	        }
 	    };
-	    
+
 	    xhttp4.open("POST", "php/majdestination.php", true);
 	    xhttp4.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	    xhttp4.send('ID='+$scope.excel.ligneID+'&ville='+Ville.ID);
-	  	
+
 	  };
 
 
@@ -343,38 +346,38 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 		/*try {
 		 JSON.parse(this.responseText);          // null
 		} catch (e) {
-		  console.error("Parsing error:.test(e); 
+		  console.error("Parsing error:.test(e);
 		}*/			var answer = angular.fromJson(this.responseText);
-					
+
 					$scope.villes = answer.villes;
 					$scope.pays = answer.pays;
 					$scope.continent = ["Europe","Amérique du nord","Amérique du sud","Asie","Océanie"];
 
 					$scope.modif_new_ville.type_selection=true;
-		            
-		           
+
+
 		        $scope.exist_ville_class= function(ville)
-					{	
+					{
 						if (ville)
 						{
 							if (ville.length>2)
 							{	var classe = "correct_input";
 								var i = 0;
 								var run = true;
-								while ( i < $scope.villes.length && run) 
-								{								
+								while ( i < $scope.villes.length && run)
+								{
 									if (ville==$scope.villes[i].ville)
 									{
 										classe = "wrong_input";
 										run = false;
 									}else{
 										var myRegex = new RegExp(ville, "i");
-										if ( myRegex.test($scope.villes[i].ville)) 
+										if ( myRegex.test($scope.villes[i].ville))
 										{
-											if (classe!='wrong_input') 
+											if (classe!='wrong_input')
 											{
 												classe = "weird_input";
-											}											
+											}
 										}
 									}
 									i++;
@@ -393,19 +396,19 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 							{	var text = "C'est bien une nouvelle ville";
 								var i = 0;
 								var run = true;
-								while ( i < $scope.villes.length && run) 
-								{								
+								while ( i < $scope.villes.length && run)
+								{
 									if (ville==$scope.villes[i].ville)
 									{
 										text = "Cette ville existe déjà";
 									}else{
 										var myRegex = new RegExp(ville, "i");
-										if ( myRegex.test($scope.villes[i].ville)) 
+										if ( myRegex.test($scope.villes[i].ville))
 										{
 											if (text!="Cette ville existe déjà")
 											{
 												text= "Une ville ressemble : "+$scope.villes[i].ville;
-											}											
+											}
 										}
 									}
 									i++;
@@ -417,27 +420,27 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 					};
 
 					 $scope.exist_pays_class= function(pays)
-					{	
+					{
 						if (pays)
 						{
 							if (pays.length>2)
 							{	var classe = "correct_input";
 								var i = 0;
 								var run = true;
-								while ( i < $scope.pays.length && run) 
-								{								
+								while ( i < $scope.pays.length && run)
+								{
 									if (pays==$scope.pays[i].pays)
 									{
 										classe = "wrong_input";
 										run = false;
 									}else{
 										var myRegex = new RegExp(pays, "i");
-										if ( myRegex.test($scope.pays[i].pays)) 
+										if ( myRegex.test($scope.pays[i].pays))
 										{
-											if (classe!='wrong_input') 
+											if (classe!='wrong_input')
 											{
 												classe = "weird_input";
-											}											
+											}
 										}
 									}
 									i++;
@@ -456,19 +459,19 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 							{	var text = "C'est bien un nouveau pays";
 								var i = 0;
 								var run = true;
-								while ( i < $scope.pays.length && run) 
-								{								
+								while ( i < $scope.pays.length && run)
+								{
 									if (pays==$scope.pays[i].pays)
 									{
 										text = "Ce pays existe déjà";
 									}else{
 										var myRegex = new RegExp(pays, "i");
-										if ( myRegex.test($scope.pays[i].pays)) 
+										if ( myRegex.test($scope.pays[i].pays))
 										{
 											if (text!="Ce pays existe déjà")
 											{
 												text= "Un pays ressemble : "+$scope.pays[i].pays;
-											}											
+											}
 										}
 									}
 									i++;
@@ -502,19 +505,19 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 							{
 								var xhttp6 = new XMLHttpRequest();
 							    xhttp6.onreadystatechange = function() {
-							    	if (this.readyState == 4 && this.status == 200) {						
+							    	if (this.readyState == 4 && this.status == 200) {
 										var error = angular.fromJson(this.responseText);
 											if (!error)
 											{
 												$scope.next();
-								  				
+
 											}
-											
+
 											$scope.$apply();
-							            
+
 							        }
 							    };
-							    
+
 							    xhttp6.open("POST", "php/majdestination.php", true);
 							    xhttp6.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 							    xhttp6.send('ID='+$scope.excel.ligneID+'&ville3='+ville+'&pays='+pays+'&continent='+continent);
@@ -536,19 +539,19 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 							if (continu)
 							{
 								var xhttp5 = new XMLHttpRequest();
-							    xhttp5.onreadystatechange = function() {	
-							    	if (this.readyState == 4 && this.status == 200) {					
+							    xhttp5.onreadystatechange = function() {
+							    	if (this.readyState == 4 && this.status == 200) {
 										var error = angular.fromJson(this.responseText);
 											if (!error)
 											{
 												$scope.next();
 											}
-											
+
 											$scope.$apply();
-							            
+
 							        }
 							    };
-							    
+
 							    xhttp5.open("POST", "php/majdestination.php", true);
 							    xhttp5.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 							    xhttp5.send('ID='+$scope.excel.ligneID+'&ville2='+ville+'&pays='+pays.ID);
@@ -558,9 +561,9 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 				}
 		    };
 
-		    xhttp3.open("GET", "php/querynewvilles.php", true); 
+		    xhttp3.open("GET", "php/querynewvilles.php", true);
 		    xhttp3.send();
-		
+
 	};
 	//mobilités
 	function init_type(){
@@ -642,10 +645,10 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 	  		}
 	  		answer+="DD"
 	  	}
-	  	
+
 	  	if ($scope.destination.type_TFE) {
 	  		if (first) {
-	  			first=false;	  			
+	  			first=false;
 	  		}else{
 	  			answer+=" / "
 	  		}
@@ -661,22 +664,22 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 	/*try {
 	 JSON.parse(this.responseText);          // null
 	} catch (e) {
-	  console.error("Parsing error:.test(e); 
+	  console.error("Parsing error:.test(e);
 	}*/			var error = angular.fromJson(this.responseText);
 				if (!error)
 				{
 					$scope.next();
 				}
-				
+
 				$scope.$apply();
-	            
+
 	        }
 	    };
 
 	    xhttp3.open("POST", "php/majdestination.php", true);
 	    xhttp3.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	    xhttp3.send('ID='+$scope.excel.ligneID+'&types_mobilites='+type_mobilite2str());
-	  	
+
 	  };
 //domaines
 	function extract(element,array) {
@@ -690,7 +693,7 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 			return array;
 
 		}
-	
+
 
 	$scope.modif_domaine=new modif_ville();
 
@@ -704,18 +707,18 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 		/*try {
 		 JSON.parse(this.responseText);          // null
 		} catch (e) {
-		  console.error("Parsing error:.test(e); 
+		  console.error("Parsing error:.test(e);
 		}*/			var answer = angular.fromJson(this.responseText);
-					
+
 					$scope.domaines = answer;
 
 					$scope.modif_domaine.type_selection=true;
 					$scope.$apply();
-		            
+
 		        }
 		    };
 
-		    xhttp3.open("GET", "php/querydomaines.php", true); 
+		    xhttp3.open("GET", "php/querydomaines.php", true);
 		    xhttp3.send();
 		}
 	};
@@ -731,16 +734,16 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 					$scope.excel.unknowdomaine.splice(0,1);
 					$scope.next();
 				}
-				
+
 				$scope.$apply();
-	            
+
 	        }
 	    };
 
 	    xhttp4.open("POST", "php/majdestination.php", true);
 	    xhttp4.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	    xhttp4.send('ID='+$scope.excel.ligneID+'&domaine='+selection.ID);
-	  	
+
 	  };
 
 	  $scope.sav_domaine_parc=function(selection){
@@ -754,16 +757,16 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 					$scope.excel.unknowdomaine.splice(0,1);
 					$scope.next();
 				}
-				
+
 				$scope.$apply();
-	            
+
 	        }
 	    };
 
 	    xhttp4.open("POST", "php/majparcour.php", true);
 	    xhttp4.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	    xhttp4.send('ID='+$scope.excel.ligneID+'&domaine='+selection.ID);
-	  	
+
 	  };
 
 
@@ -779,39 +782,39 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 		/*try {
 		 JSON.parse(this.responseText);          // null
 		} catch (e) {
-		  console.error("Parsing error:.test(e); 
+		  console.error("Parsing error:.test(e);
 		}*/			var answer = angular.fromJson(this.responseText);
-					
+
 					$scope.domaine = answer.domaine;
 					$scope.code = answer.code;
-					
+
 
 					$scope.modif_new_domaine.type_selection=true;
-		            
+
 		            $scope.$apply();
-		           
+
 		         $scope.exist_domaine_class= function(domaine)
-					{	
+					{
 						if (domaine)
 						{
 							if (domaine.length>2)
 							{	var classe = "correct_input";
 								var i = 0;
 								var run = true;
-								while ( i < $scope.domaine.length && run) 
-								{								
+								while ( i < $scope.domaine.length && run)
+								{
 									if (domaine==$scope.domaine[i])
 									{
 										classe = "wrong_input";
 										run = false;
 									}else{
 										var myRegex = new RegExp(domaine, "i");
-										if ( myRegex.test($scope.domaine[i])) 
+										if ( myRegex.test($scope.domaine[i]))
 										{
-											if (classe!='wrong_input') 
+											if (classe!='wrong_input')
 											{
 												classe = "weird_input";
-											}											
+											}
 										}
 									}
 									i++;
@@ -830,19 +833,19 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 							{	var text = "C'est bien un nouveau domaine";
 								var i = 0;
 								var run = true;
-								while ( i < $scope.domaine.length && run) 
-								{								
+								while ( i < $scope.domaine.length && run)
+								{
 									if (domaine==$scope.domaine[i])
 									{
 										text = "Ce domaine existe déjà";
 									}else{
 										var myRegex = new RegExp(domaine, "i");
-										if ( myRegex.test($scope.domaine[i])) 
+										if ( myRegex.test($scope.domaine[i]))
 										{
 											if (text!="Ce domaine existe déjà")
 											{
 												text= "Un domaine ressemble : "+$scope.domaine[i];
-											}											
+											}
 										}
 									}
 									i++;
@@ -854,27 +857,27 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 					};
 
 					 $scope.exist_code_class= function(code)
-					{	
+					{
 						if (code)
 						{
 							if (code.length>0)
 							{	var classe = "correct_input";
 								var i = 0;
 								var run = true;
-								while ( i < $scope.code.length && run) 
-								{								
+								while ( i < $scope.code.length && run)
+								{
 									if (code==$scope.code[i])
 									{
 										classe = "wrong_input";
 										run = false;
 									}else{
 										var myRegex = new RegExp(code, "i");
-										if ( myRegex.test($scope.code[i])) 
+										if ( myRegex.test($scope.code[i]))
 										{
-											if (classe!='wrong_input') 
+											if (classe!='wrong_input')
 											{
 												classe = "weird_input";
-											}											
+											}
 										}
 									}
 									i++;
@@ -893,19 +896,19 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 							{	var text = "C'est bien un nouveau code";
 								var i = 0;
 								var run = true;
-								while ( i < $scope.code.length && run) 
-								{								
+								while ( i < $scope.code.length && run)
+								{
 									if (code==$scope.code[i])
 									{
 										text = "Ce code existe déjà";
 									}else{
 										var myRegex = new RegExp(code, "i");
-										if ( myRegex.test($scope.code[i])) 
+										if ( myRegex.test($scope.code[i]))
 										{
 											if (text!="Ce code existe déjà")
 											{
 												text= "Un code ressemble : "+$scope.code[i];
-											}											
+											}
 										}
 									}
 									i++;
@@ -917,7 +920,7 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 					};
 
 					$scope.sav_new_domaine_dest=function(domaine, code){
-						
+
 						var continu = true;
 						if ($scope.exist_domaine(domaine)=="Ce domaine existe déjà" || $scope.exist_code(code)=="Ce code existe déjà") {
 							continu=false
@@ -934,12 +937,12 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 						if (continu)
 						{
 							var xhttp6 = new XMLHttpRequest();
-						    xhttp6.onreadystatechange = function() {	
-						    if (this.readyState == 4 && this.status == 200) {					
+						    xhttp6.onreadystatechange = function() {
+						    if (this.readyState == 4 && this.status == 200) {
 								var error = angular.fromJson(this.responseText);
 									if (!error)
 									{
-										
+
 						  				$scope.destination.domaines.push(domaine);
 						  				$scope.modif_new_domaine.domaine="";
 							  			$scope.modif_new_domaine.code="";
@@ -948,22 +951,22 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 						  				$scope.$apply();
 
 									}
-									
-								}	
-						            
-						        
+
+								}
+
+
 						    };
-						    
+
 						    xhttp6.open("POST", "php/majdestination.php", true);
 						    xhttp6.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 						    xhttp6.send('ID='+$scope.excel.ligneID+'&domaine='+domaine+'&code='+code);
 						}
-						
-						
+
+
 					};
-					
+
 					$scope.sav_new_domaine_parc=function(domaine, code){
-						
+
 						var continu = true;
 						if ($scope.exist_domaine(domaine)=="Ce domaine existe déjà" || $scope.exist_code(code)=="Ce code existe déjà") {
 							continu=false
@@ -980,12 +983,12 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 						if (continu)
 						{
 							var xhttp6 = new XMLHttpRequest();
-						    xhttp6.onreadystatechange = function() {	
-						    if (this.readyState == 4 && this.status == 200) {					
+						    xhttp6.onreadystatechange = function() {
+						    if (this.readyState == 4 && this.status == 200) {
 								var error = angular.fromJson(this.responseText);
 									if (!error)
 									{
-										
+
 						  				$scope.destination.domaines.push(domaine);
 						  				$scope.modif_new_domaine.domaine="";
 							  			$scope.modif_new_domaine.code="";
@@ -994,23 +997,23 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 						  				$scope.$apply();
 
 									}
-									
-								}	
-						            
-						        
+
+								}
+
+
 						    };
-						    
+
 						    xhttp6.open("POST", "php/majparcour.php", true);
 						    xhttp6.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 						    xhttp6.send('ID='+$scope.excel.ligneID+'&domaine='+domaine+'&code='+code);
 						}
-						
-						
+
+
 					};
 				}
 		    };
 
-		    xhttp3.open("GET", "php/querynewdomaines.php", true); 
+		    xhttp3.open("GET", "php/querynewdomaines.php", true);
 		    xhttp3.send();
 		}
 	};
@@ -1026,33 +1029,33 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 		    xhttp3.onreadystatechange = function() {
 		        if (this.readyState == 4 && this.status == 200) {
 					var answer = angular.fromJson(this.responseText);
-					
+
 					$scope.destinations = answer.destinations;
 
 					for(j=0;j<$scope.destinations.length;j++)
 					{
-						if ($scope.destinations[j].nom==$scope.destination.destination) 
+						if ($scope.destinations[j].nom==$scope.destination.destination)
 						{
 							$scope.modif_destination.selection=$scope.destinations[j];
 						}
 					}
-					
-					
-					
+
+
+
 					$scope.modif_destination.type_selection=true;
 					$scope.$apply();
-		            
+
 		        }
 		    };
 
-		    xhttp3.open("GET", "php/querydestinations.php", true); 
+		    xhttp3.open("GET", "php/querydestinations.php", true);
 		    xhttp3.send();
 		}
 	};
 
 	$scope.sav_destination=function(checked){
-		
-		
+
+
 	  	var xhttp4 = new XMLHttpRequest();
 	    xhttp4.onreadystatechange = function() {
 	        if (this.readyState == 4 && this.status == 200) {
@@ -1061,16 +1064,16 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 				{
 					$scope.next();
 				}
-				
+
 				$scope.$apply();
-	            
+
 	        }
 	    };
 
 	    xhttp4.open("POST", "php/majparcour.php", true);
 	    xhttp4.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	    xhttp4.send('ID='+$scope.excel.ligneID+'&destination='+checked.clef);
-	  	
+
 	};
 
 	$scope.init_new_destination= function(){
@@ -1081,23 +1084,23 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 		/*try {
 		 JSON.parse(this.responseText);          // null
 		} catch (e) {
-		  console.error("Parsing error:.test(e); 
+		  console.error("Parsing error:.test(e);
 		}*/
 		            answer = angular.fromJson(this.responseText);
 
 		            $scope.destinations = answer.destinations;
-		            
-		            
-		            	            
+
+
+
 		            $scope.$apply();
 
 		        }
 		    };
 		    xhttp2.open("GET", "php/querydestinations.php", true);
-		    xhttp2.send();	
-	
+		    xhttp2.send();
+
 		$scope.exist_destination_class= function(new_name)
-		{	
+		{
 			if (new_name)
 			{
 				if (new_name.length>2)
@@ -1106,21 +1109,21 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 					var run = true;
 					var myRegex = new RegExp(new_name, "i");
 
-					while ( i < $scope.destinations.length && run) 
-					{	
-						var myRegex2 = new RegExp($scope.destinations[i].nom, "i");							
+					while ( i < $scope.destinations.length && run)
+					{
+						var myRegex2 = new RegExp($scope.destinations[i].nom, "i");
 						if (myRegex.test($scope.destinations[i].nom) && myRegex2.test(new_name))
 						{
 							classe = "wrong_input";
 							run = false;
 						}else{
-							
-							if ( myRegex.test($scope.destinations[i].nom)) 
+
+							if ( myRegex.test($scope.destinations[i].nom))
 							{
-								if (classe!='wrong_input') 
+								if (classe!='wrong_input')
 								{
 									classe = "weird_input";
-								}											
+								}
 							}
 						}
 						i++;
@@ -1140,20 +1143,20 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 					var i = 0;
 					var run = true;
 					var myRegex = new RegExp(new_name, "i");
-					while ( i < $scope.destinations.length && run) 
-					{	
-						var myRegex2 = new RegExp($scope.destinations[i].nom, "i");							
+					while ( i < $scope.destinations.length && run)
+					{
+						var myRegex2 = new RegExp($scope.destinations[i].nom, "i");
 						if (myRegex.test($scope.destinations[i].nom) && myRegex2.test(new_name))
 						{
 							text = "Cette destination existe déjà";
 						}else{
-							
-							if ( myRegex.test($scope.destinations[i].nom)) 
+
+							if ( myRegex.test($scope.destinations[i].nom))
 							{
 								if (text!="Cette destination existe déjà")
 								{
 									text= "Une destination ressemble : "+$scope.destinations[i].nom;
-								}											
+								}
 							}
 						}
 						i++;
@@ -1171,7 +1174,7 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 				continu=false
 				alert("La destination existe déjà");
 			}
-			
+
 			if (!new_name || new_name=="") {
 				continu=false;
 				alert("La destination doit avoir un nom")
@@ -1185,7 +1188,7 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 	};
 //fin destination
 	if (donext)
-	{	
+	{
 		$scope.lay(2);
 		$scope.excel.name=excelname;
 		//alert(excelname);
@@ -1197,5 +1200,3 @@ app.controller('mainController', ['$scope','$sce','Upload', function ($scope,$sc
 		//$scope.$apply();
 	}
 }]);
-
-

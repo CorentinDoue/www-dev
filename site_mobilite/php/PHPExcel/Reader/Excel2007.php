@@ -73,12 +73,14 @@ class PHPExcel_Reader_Excel2007 extends PHPExcel_Reader_Abstract implements PHPE
             throw new PHPExcel_Reader_Exception("Could not open " . $pFilename . " for reading! File does not exist.");
         }
 
+        
+        //PHPExcel_Settings::setZipClass(PHPExcel_Settings::PCLZIP);
         $zipClass = PHPExcel_Settings::getZipClass();
 
         // Check if zip class exists
-//        if (!class_exists($zipClass, false)) {
-//            throw new PHPExcel_Reader_Exception($zipClass . " library is not enabled");
-//        }
+        if (!class_exists($zipClass, false)) {
+           throw new PHPExcel_Reader_Exception($zipClass . " library is not enabled");
+        }
 
         $xl = false;
         // Load file

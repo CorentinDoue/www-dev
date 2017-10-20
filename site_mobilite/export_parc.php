@@ -76,7 +76,7 @@ function correct_type_mobilite($element){
     $element='TFE';
     return $element;
     }
-    return ""; 
+    return "";
 }
 
 function correct_type_mobilite2($element){
@@ -135,7 +135,7 @@ function correct_type_mobilite2($element){
     $element='TFE';
     return $element;
     }
-    return ""; 
+    return "";
 }
 
 
@@ -170,6 +170,18 @@ while ($donnees = $rep->fetch())
         $i++;
     }
 
+    $domaines=[];
+    $rep = $bdd->query('SELECT ID, nom, code FROM domaines');
+    $i=0;
+    while ($donnees = $rep->fetch())
+        {
+
+            $domaines[$i]['ID']=$donnees['ID'];
+            $domaines[$i]['nom']=$donnees['nom'];
+            $domaines[$i]['code']=$donnees['code'];
+            $i++;
+        }
+
 $objPHPExcel = new PHPExcel();
 
 // Set document properties
@@ -203,7 +215,7 @@ $objPHPExcel->getActiveSheet()->getStyle("B1:C1")->applyFromArray(
             'size' => 18
         )
 
-        
+
     )
 );
 
@@ -241,7 +253,7 @@ foreach ($parcours as $key => $value)
 				->setCellValue('J'.$i, $value['types_mobilites'] )
 				->setCellValue('K'.$i, $value['type_convention'] )
 				->setCellValue('L'.$i, $value['remarques'] );
-}  
+}
 $objPHPExcel->getActiveSheet()->getStyle("A3:L".$i)->applyFromArray(
     array(
         'borders' => array(
@@ -269,24 +281,99 @@ $objPHPExcel->getActiveSheet()->getStyle("A2:L2")->applyFromArray(
         'alignment' => array(
             'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER
         )
-        
+
     )
 );
 
 $objPHPExcel->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
-$objPHPExcel->getActiveSheet()->getColumnDimension('B')->setAutoSize(true); 
-$objPHPExcel->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);  
-$objPHPExcel->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);  
-$objPHPExcel->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);  
-$objPHPExcel->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);  
-$objPHPExcel->getActiveSheet()->getColumnDimension('G')->setAutoSize(true);  
-$objPHPExcel->getActiveSheet()->getColumnDimension('H')->setAutoSize(true);  
-$objPHPExcel->getActiveSheet()->getColumnDimension('I')->setAutoSize(true);  
-$objPHPExcel->getActiveSheet()->getColumnDimension('J')->setAutoSize(true);  
-$objPHPExcel->getActiveSheet()->getColumnDimension('K')->setAutoSize(true);  
-$objPHPExcel->getActiveSheet()->getColumnDimension('L')->setAutoSize(true);  
- 
-       
+$objPHPExcel->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
+$objPHPExcel->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
+$objPHPExcel->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
+$objPHPExcel->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
+$objPHPExcel->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
+$objPHPExcel->getActiveSheet()->getColumnDimension('G')->setAutoSize(true);
+$objPHPExcel->getActiveSheet()->getColumnDimension('H')->setAutoSize(true);
+$objPHPExcel->getActiveSheet()->getColumnDimension('I')->setAutoSize(true);
+$objPHPExcel->getActiveSheet()->getColumnDimension('J')->setAutoSize(true);
+$objPHPExcel->getActiveSheet()->getColumnDimension('K')->setAutoSize(true);
+$objPHPExcel->getActiveSheet()->getColumnDimension('L')->setAutoSize(true);
+
+$objPHPExcel->createSheet();
+$objPHPExcel->setActiveSheetIndex(1)
+			->setCellValue('A1', "DOM" )
+			->setCellValue('B1', 'Domaines d\'études' )
+			->setCellValue('C1', "Copie de la base de données des domaines d'études du ".$datee );
+
+$objPHPExcel->getActiveSheet()->getStyle("B1:C1")->applyFromArray(
+    array(
+        'borders' => array(
+            'allborders' => array(
+                'style' => PHPExcel_Style_Border::BORDER_THICK
+        	)
+       	),
+        'font' => array(
+            'bold' => true,
+            'color' => array('rgb' => '005470'),
+            'size' => 18
+        )
+
+
+    )
+);
+
+$objPHPExcel->setActiveSheetIndex(1)
+			->setCellValue('A2', "ID" )
+			->setCellValue('B2', "Nom" )
+			->setCellValue('C2', "Code");
+
+
+//$objPHPExcel->getActiveSheet()->getStyle("A2:N2")->getFont()->setBold(true);
+
+//$objPHPExcel->getActiveSheet()->getStyle("A2:N2")->getBorders()->setBorderStyle(PHPExcel_Style_Border::BORDER_THICK);
+//$objPHPExcel->getActiveSheet()->getStyle("A2:N2")->getBorders()->setBorderStyle(PHPExcel_Style_Border::BORDER_THICK);
+$i=3;
+foreach ($domaines as $key => $value)
+{	$i=$key+3;
+	$objPHPExcel->setActiveSheetIndex(1)
+				->setCellValue('A'.$i, $value['ID'] )
+				->setCellValue('B'.$i, $value['nom'] )
+				->setCellValue('C'.$i, $value['code'] );
+}
+$objPHPExcel->getActiveSheet()->getStyle("A3:C".$i)->applyFromArray(
+    array(
+        'borders' => array(
+            'allborders' => array(
+                'style' => PHPExcel_Style_Border::BORDER_THIN
+            )
+        ),
+        'alignment' => array(
+            'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER
+        )
+    )
+);
+$objPHPExcel->getActiveSheet()->getStyle("A2:C2")->applyFromArray(
+    array(
+        'borders' => array(
+            'allborders' => array(
+                'style' => PHPExcel_Style_Border::BORDER_THICK
+        	)
+       	),
+        'font' => array(
+            'bold' => true,
+            'color' => array('rgb' => '005470'),
+            'size' => 14
+        ),
+        'alignment' => array(
+            'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER
+        )
+
+    )
+);
+
+$objPHPExcel->getActiveSheet()->getColumnDimension('A')->setAutoSize(true);
+$objPHPExcel->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
+$objPHPExcel->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
+
 // Set active sheet index to the first sheet, so Excel opens this as the first sheet
 $objPHPExcel->setActiveSheetIndex(0);
 
@@ -296,7 +383,7 @@ $objPHPExcel->setActiveSheetIndex(0);
 $callStartTime = microtime(true);
 
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
-$objWriter->save("documents/sav_BDD/BDD_Parcours_".$datee.".xlsx");	
+$objWriter->save("documents/sav_BDD/BDD_Parcours_".$datee.".xlsx");
 
-header("location: documents/sav_BDD/BDD_Parcours_".$datee.".xlsx")	
+header("location: documents/sav_BDD/BDD_Parcours_".$datee.".xlsx")
 ?>

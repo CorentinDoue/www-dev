@@ -216,6 +216,7 @@ class PHPExcel_Writer_Excel2007 extends PHPExcel_Writer_Abstract implements PHPE
             $this->drawingHashTable->addFromSource($this->getWriterPart('Drawing')->allDrawings($this->spreadSheet));
 
             // Create new ZIP file and open it for writing
+            PHPExcel_Settings::setZipClass(PHPExcel_Settings::PCLZIP);
             $zipClass = PHPExcel_Settings::getZipClass();
             $objZip = new $zipClass();
 

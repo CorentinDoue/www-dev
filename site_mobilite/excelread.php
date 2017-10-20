@@ -46,7 +46,7 @@ if ($ligne==$highestRow){
 	$answer['statut']="terminé";
 	$answer_json =json_encode($answer);
 	echo $answer_json;
-	
+
 }else{
 	function array_iunique($array) {
 	    return array_intersect_key($array, array_unique(array_map('strtolower', $array)));
@@ -108,7 +108,7 @@ if ($ligne==$highestRow){
 	    $element='TFE';
 	    return $element;
 	    }
-	    return ""; 
+	    return "";
 	}
 
 	function correct_type_mobilite($element){
@@ -167,16 +167,16 @@ if ($ligne==$highestRow){
 	    $element='TFE';
 	    return $element;
 	    }
-	    return ""; 
+	    return "";
 	}
 
 	if ($Data[0][0]=="EXD1")
 	{
 		$answer['type']="destinations";
 		//Destinations
-		
+
 		if ($Data[$ligne][1]!=NULL) {
-			
+
 			// ID
 				if ($Data[$ligne][0]==""){
 					$req = $bdd->prepare('SELECT ID FROM destinations WHERE nom=?');
@@ -212,7 +212,7 @@ if ($ligne==$highestRow){
 				$rep = $bdd->prepare('UPDATE destinations SET nom=:titre WHERE ID=:ID');
 		        $rep->execute(array(
 		            'ID' => $answer['ligneID'],
-		            'titre' => trim($Data[$ligne][1])        
+		            'titre' => trim($Data[$ligne][1])
 		            ));
 	        //complément
 		        if ($Data[$ligne][2]==NULL) {
@@ -221,7 +221,7 @@ if ($ligne==$highestRow){
 		        $rep = $bdd->prepare('UPDATE destinations SET complement_nom=:compl WHERE ID=:ID');
 		        $rep->execute(array(
 		            'ID' => $answer['ligneID'],
-		            'compl' => trim($Data[$ligne][2])        
+		            'compl' => trim($Data[$ligne][2])
 		            ));
 	        //site
 		        if ($Data[$ligne][11]==NULL) {
@@ -230,7 +230,7 @@ if ($ligne==$highestRow){
 		        $rep = $bdd->prepare('UPDATE destinations SET site_internet=:site WHERE ID=:ID');
 		        $rep->execute(array(
 		            'ID' => $answer['ligneID'],
-		            'site' => trim($Data[$ligne][11])        
+		            'site' => trim($Data[$ligne][11])
 		            ));
 	       	//Description
 		       	if ($Data[$ligne][12]==NULL) {
@@ -239,7 +239,7 @@ if ($ligne==$highestRow){
 		       	$rep = $bdd->prepare('UPDATE destinations SET description=:description WHERE ID=:ID');
 		        $rep->execute(array(
 		            'ID' => $answer['ligneID'],
-		            'description' => trim($Data[$ligne][12])        
+		            'description' => trim($Data[$ligne][12])
 		            ));
 	        //Commentaire
 		        if ($Data[$ligne][13]==NULL) {
@@ -248,7 +248,7 @@ if ($ligne==$highestRow){
 		        $rep = $bdd->prepare('UPDATE destinations SET commentaires=:com WHERE ID=:ID');
 		        $rep->execute(array(
 		            'ID' => $answer['ligneID'],
-		            'com' => trim($Data[$ligne][13])       
+		            'com' => trim($Data[$ligne][13])
 		            ));
 	        //place
 		        if ($Data[$ligne][10]==NULL) {
@@ -257,7 +257,7 @@ if ($ligne==$highestRow){
 		        $rep = $bdd->prepare('UPDATE destinations SET places=:places WHERE ID=:ID');
 		        $rep->execute(array(
 		            'ID' => $answer['ligneID'],
-		            'places' => $Data[$ligne][10]        
+		            'places' => $Data[$ligne][10]
 		            ));
 	        //ingéieurie
 		        if ($Data[$ligne][6]==NULL || $Data[$ligne][6]=="") {
@@ -269,7 +269,7 @@ if ($ligne==$highestRow){
 		       	 $rep = $bdd->prepare('UPDATE destinations SET ingenieurie=:ingenieurie WHERE ID=:ID');
 			        $rep->execute(array(
 			            'ID' => $answer['ligneID'],
-			            'ingenieurie' => $Data[$ligne][6]        
+			            'ingenieurie' => $Data[$ligne][6]
 			            ));
 	        //Ville
 			    if ($Data[$ligne][3]==NULL) {
@@ -279,7 +279,7 @@ if ($ligne==$highestRow){
 		        $rep->execute(array($Data[$ligne][3]));
 		        $i=0;
 		        while ($donnees = $rep->fetch())
-		        {   
+		        {
 		            $ID_villes= $donnees['ID'];
 		            $i++;
 		        }
@@ -292,17 +292,17 @@ if ($ligne==$highestRow){
 			        $rep = $bdd->prepare('UPDATE destinations SET ID_Ville=:ville WHERE ID=:ID');
 			        $rep->execute(array(
 			            'ID' => $answer['ligneID'],
-			            'ville' => $ID_villes        
+			            'ville' => $ID_villes
 			            ));
 			    }
 		    //Domaine
 			    if ($Data[$ligne][5]!="" AND $Data[$ligne][5]!=NULL) {
-				    	
+
 				    $rep = $bdd->prepare('SELECT do.ID FROM domaines do, domainedestination dd WHERE dd.ID_domaine= do.ID AND dd.ID_destination= ?');
 			        $rep->execute(array($answer['ligneID']));
 			        $i=0;
 			        while ($donnees = $rep->fetch())
-			        {   
+			        {
 			            $previous_domaines[$i]= $donnees['ID'];
 			            $i++;
 			        }
@@ -320,9 +320,9 @@ if ($ligne==$highestRow){
 				        $rep->execute(array($value));
 				        $i=0;
 				        while ($donnees = $rep->fetch())
-				        {   
+				        {
 				            $new_domaines[$j]= $donnees['ID'];
-				            
+
 				            $i++;
 				            $j++;
 				        }
@@ -344,7 +344,7 @@ if ($ligne==$highestRow){
 			                    ));
 			                $i=0;
 			                while ($donnees = $rep->fetch())
-			                {   
+			                {
 			                    $ID_suppr= $donnees['ID'];
 			                    $i++;
 			                }
@@ -381,17 +381,17 @@ if ($ligne==$highestRow){
 		        	}
 		        }
 		        $mobilites="";
-		        for ($i=0; $i < count($type_mobilites); $i++) { 
+		        for ($i=0; $i < count($type_mobilites); $i++) {
 		        	$mobilites=$mobilites."".$type_mobilites[$i];
 		        	if ($i<count($type_mobilites)-1) {
 		        		$mobilites=$mobilites."/";
 		        	}
 		        }
-		        	
+
 			    $rep = $bdd->prepare('UPDATE destinations SET type_mobilite=:types_mobilites WHERE ID=:ID');
 		        $rep->execute(array(
 		            'ID' => $answer['ligneID'],
-		            'types_mobilites' => $mobilites        
+		            'types_mobilites' => $mobilites
 		            ));
 	        //langues
 		        $rep = $bdd->query('SELECT langue_cours as langues FROM destinations group by langues');
@@ -422,7 +422,7 @@ if ($ligne==$highestRow){
 					}
 				}
 				$langues="";
-				for ($i=0; $i < count($langues_final); $i++) { 
+				for ($i=0; $i < count($langues_final); $i++) {
 		        	$langues=$langues."".$langues_final[$i];
 		        	if ($i<count($langues_final)-1) {
 		        		$langues=$langues."/";
@@ -431,7 +431,7 @@ if ($ligne==$highestRow){
 		        $rep = $bdd->prepare('UPDATE destinations SET langue_cours=:langues WHERE ID=:ID');
 		        $rep->execute(array(
 		            'ID' => $answer['ligneID'],
-		            'langues' => $langues        
+		            'langues' => $langues
 		            ));
 	        //convention
 		        $rep = $bdd->query('SELECT type_convention as conventions FROM destinations group by conventions');
@@ -461,7 +461,7 @@ if ($ligne==$highestRow){
 					}
 				}
 				$conventions="";
-				for ($i=0; $i < count($conventions_final); $i++) { 
+				for ($i=0; $i < count($conventions_final); $i++) {
 		        	$conventions=$conventions."".$conventions_final[$i];
 		        	if ($i<count($conventions_final)-1) {
 		        		$conventions=$conventions."/";
@@ -470,7 +470,7 @@ if ($ligne==$highestRow){
 		        $rep = $bdd->prepare('UPDATE destinations SET type_convention=:conventions WHERE ID=:ID');
 		        $rep->execute(array(
 		            'ID' => $answer['ligneID'],
-		            'conventions' => $conventions        
+		            'conventions' => $conventions
 		            ));
 		}
 	}elseif ($Data[0][0]=="EXP2") {
@@ -478,29 +478,29 @@ if ($ligne==$highestRow){
 		$answer['type']="parcours";
 		//Parcours
 		if ($Data[$ligne][1]!="" AND $Data[$ligne][1]!=NULL) {
-						
-			
+
+
 			//ID
 				if ($Data[$ligne][0]=="" OR $Data[$ligne][0]==NULL){
 					$req = $bdd->prepare('INSERT INTO parcours (nom, prenom, promo, date_debut, date_fin, tuteur, type_mobilite, type_convention, rapport, bulletin, remarques) VALUES ("NOM","PRENOM", 2000, "2017-01-01", "2017-01-01", "", "", "", "", "", "")');
 					$req->execute();
 
 					$req = $bdd->query('SELECT ID FROM parcours WHERE nom="NOM" and prenom="PRENOM"');
-						
+
 					$donnees = $req->fetch();
-				
+
 					$answer['ligneID']=$donnees['ID'];
 					$Data[$ligne][0]=$donnees['ID'];
 
 					$ajoutee++;
-					
+
 				}else{
 					$answer['ligneID']=$Data[$ligne][0];
 					$modifiee++;
 				}
 			//fin ID
 			//Nom Prenom Promo Dates Tuteur Remarques
-				function todate_debut ($str){
+			  function todate_debut ($str){
 					$array1=explode("/", $str);
 					$array2=explode("-", $str);
 					$array3=explode(":", $str);
@@ -544,10 +544,10 @@ if ($ligne==$highestRow){
 					return $ans;
 				}
 
-				for ($i=0; $i < 12; $i++) { 
+				for ($i=0; $i < 12; $i++) {
 					if ($Data[$ligne][$i]==NULL) {
-						$Data[$ligne][$i]="";						
-					}					
+						$Data[$ligne][$i]="";
+					}
 				}
 
 				$rep = $bdd->prepare('UPDATE parcours SET nom=:nom, prenom=:prenom, promo=:promo, date_debut=:date_debut, date_fin=:date_fin, tuteur=:tuteur, type_mobilite=:type_mobilite, remarques=:remarques  WHERE ID=:ID');
@@ -555,21 +555,21 @@ if ($ligne==$highestRow){
 		            'ID' => $answer['ligneID'],
 		            'nom' => trim($Data[$ligne][1]),
 		            'prenom' => trim($Data[$ligne][2]),
-		            'promo' => intval($Data[$ligne][3]),  
+		            'promo' => intval($Data[$ligne][3]),
 		            'date_debut' => todate_debut($Data[$ligne][6]),
 		            'date_fin' => todate_fin($Data[$ligne][7]),
 		            'tuteur' => trim($Data[$ligne][8]),
 		            'type_mobilite' => correct_type_mobilite($Data[$ligne][9]),
-		            'remarques' => trim($Data[$ligne][11])           
+		            'remarques' => trim($Data[$ligne][11])
 		            ));
 		    //Domaine
 			    if ($Data[$ligne][5]!="" AND $Data[$ligne][5]!=NULL) {
-				    	
+
 				    $rep = $bdd->prepare('SELECT do.ID FROM domaines do, domaineparcour dp WHERE dp.ID_domaine= do.ID AND dp.ID_parcour= ?');
 			        $rep->execute(array($answer['ligneID']));
 			        $i=0;
 			        while ($donnees = $rep->fetch())
-			        {   
+			        {
 			            $previous_domaines[$i]= $donnees['ID'];
 			            $i++;
 			        }
@@ -587,9 +587,9 @@ if ($ligne==$highestRow){
 				        $rep->execute(array($value,$value));
 				        $i=0;
 				        while ($donnees = $rep->fetch())
-				        {   
+				        {
 				            $new_domaines[$j]= $donnees['ID'];
-				            
+
 				            $i++;
 				            $j++;
 				        }
@@ -611,7 +611,7 @@ if ($ligne==$highestRow){
 			                    ));
 			                $i=0;
 			                while ($donnees = $rep->fetch())
-			                {   
+			                {
 			                    $ID_suppr= $donnees['ID'];
 			                    $i++;
 			                }
@@ -632,7 +632,7 @@ if ($ligne==$highestRow){
 			            }
 			        }
 			    }
-	        
+
 
 
 	        //convention
@@ -663,7 +663,7 @@ if ($ligne==$highestRow){
 					}
 				}
 				$conventions="";
-				for ($i=0; $i < count($conventions_final); $i++) { 
+				for ($i=0; $i < count($conventions_final); $i++) {
 		        	$conventions=$conventions."".$conventions_final[$i];
 		        	if ($i<count($conventions_final)-1) {
 		        		$conventions=$conventions."/";
@@ -672,41 +672,41 @@ if ($ligne==$highestRow){
 		        $rep = $bdd->prepare('UPDATE parcours SET type_convention=:conventions WHERE ID=:ID');
 		        $rep->execute(array(
 		            'ID' => $answer['ligneID'],
-		            'conventions' => $conventions        
+		            'conventions' => $conventions
 		            ));
 		    //Destinations
 
 		        if ($Data[$ligne][4]!="" AND $Data[$ligne][4]!=NULL) {
-				    	
+
 				    $rep = $bdd->prepare('SELECT ID_destination FROM mobilite WHERE ID_parcour= ?');
 			        $rep->execute(array($answer['ligneID']));
 			        $i=0;
 			        while ($donnees = $rep->fetch())
-			        {   
+			        {
 			            $previous_destination= $donnees['ID_destination'];
 			            $i++;
 			        }
 			        if ($i==0) {
 			             $previous_destination=NULL;
-			        } 
+			        }
 
 			        $rep = $bdd->prepare('SELECT ID FROM destinations WHERE nom LIKE ? or complement_nom LIKE ? or ? LIKE CONCAT("%",nom, "%")');
 				    $rep->execute(array('%'.$Data[$ligne][4].'%','%'.$Data[$ligne][4].'%',$Data[$ligne][4]));
 			        $i=0;
 			        while ($donnees = $rep->fetch())
-			        {   
+			        {
 			            $new_destination= $donnees['ID'];
-			            
+
 			            $i++;
-			            
+
 			        }
 			        if ($i==0) {
 			        	$new_destination="";
 
 			        	$answer['errordestination']=true;
-			        	$answer['unknowdestination']=$Data[$ligne][4];			        	
+			        	$answer['unknowdestination']=$Data[$ligne][4];
 			        }
-			        
+
 			        $answer['destination']= $new_destination;
 
 			        if ($previous_destination!=NULL and $previous_destination!=$new_destination)
@@ -720,7 +720,7 @@ if ($ligne==$highestRow){
 		                    ));
 		                $i=0;
 		                while ($donnees = $rep->fetch())
-		                {   
+		                {
 		                    $ID_suppr= $donnees['ID'];
 		                    $i++;
 		                }
@@ -728,9 +728,9 @@ if ($ligne==$highestRow){
 		                $req = $bdd->prepare('DELETE FROM mobilite WHERE ID = ?');
 		                $req->execute(array($ID_suppr));
 		            }
-			        
 
-			        
+
+
 		            if ($new_destination!="" and $previous_destination!=$new_destination) {
 		                //Ajouter la ligne
 		                $req = $bdd->prepare('INSERT INTO mobilite VALUES (NULL, :ID_destination, :ID_parcour)');
@@ -744,12 +744,12 @@ if ($ligne==$highestRow){
 				    if (!$answer['errordestination']) {
 				    	//Domaine
 					    if ($Data[$ligne][5]!="" AND $Data[$ligne][5]!=NULL) {
-						    	
+
 						    $rep = $bdd->prepare('SELECT do.ID FROM domaines do, domainedestination dd WHERE dd.ID_domaine= do.ID AND dd.ID_destination= ?');
 					        $rep->execute(array($answer['destination']));
 					        $i=0;
 					        while ($donnees = $rep->fetch())
-					        {   
+					        {
 					            $previous_domaines[$i]= $donnees['ID'];
 					            $i++;
 					        }
@@ -757,7 +757,7 @@ if ($ligne==$highestRow){
 					             $previous_domaines=[];
 					        }
 
-					        
+
 					        $new_domaines=$answer['domaines'];
 					        foreach ($new_domaines as $key => $value) {
 					            if (!in_array($value, $previous_domaines)) {
@@ -773,7 +773,7 @@ if ($ligne==$highestRow){
 					    // types_mobilités
 				        $new_mobilite=correct_type_mobilite($Data[$ligne][9]);
 				        $find=false;
-				        
+
 				        $rep = $bdd->prepare('SELECT type_mobilite FROM destinations WHERE ID=?');
 				        $rep->execute(array($answer['destination']));
 
@@ -783,7 +783,7 @@ if ($ligne==$highestRow){
         				$type_mobilites=array_map("correct_type_mobilite", $type_mobilites);
 
         				$mobilites="";
-				        for ($i=0; $i < count($type_mobilites); $i++) { 
+				        for ($i=0; $i < count($type_mobilites); $i++) {
 				        	if ($type_mobilites[$i]==$new_mobilite){
 				        		$find=true;
 				        	}
@@ -795,22 +795,22 @@ if ($ligne==$highestRow){
 				        		$mobilites=$mobilites."/".$new_mobilite;
 				        	}
 				        }
-				        	
+
 					    $rep = $bdd->prepare('UPDATE destinations SET type_mobilite=:types_mobilites WHERE ID=:ID');
 				        $rep->execute(array(
 				            'ID' => $answer['destination'],
-				            'types_mobilites' => $mobilites        
+				            'types_mobilites' => $mobilites
 				            ));
 				    }
-			        
+
 			    }
 
 
 		}
 	}
-		
 
-	
+
+
 
 
 
