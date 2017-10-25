@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html data-ng-app="demo">
+<head>
+
+  <title>ng-FitText.js</title>
+
+  <script type="text/javascript" src="demo/js/angular.min.js"></script>
+  <script type="text/javascript" src="demo/js/demo.js"></script>
+  <script type="text/javascript" src="src/ng-FitText.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="demo/styles/main.css"/>
+
+</head>
+<body>
+
+<header id="top">
+  <a href="https://github.com/patrickmarabeas/ng-FitText.js">View it on GitHub</a>
+  <a href="https://github.com/patrickmarabeas/ng-FitText.js/zipball/master">Download ZIP</a>
+  <a href="https://github.com/patrickmarabeas/ng-FitText.js/tarball/master">Download TAR</a>
+  <a href="https://github.com/patrickmarabeas">@patrickmarabeas</a>
+</header>
+
+
+<div class="page">
+
+  <header data-ng-controller="MainController as mainCtrl" class="cf">
+    <input type="text" data-ng-model="mainCtrl.data.dyn" autofocus />
+    <h1>
+      <span class="line1" data-fittext  data-fittext-max="310" data-ng-bind="mainCtrl.data.dyn"></span>
+      <span class="line2" data-fittext data-fittext-load-delay="500">
+        <span>rustled my jimmies</span>
+        <span class="right red">jimmies</span>
+        <span class="right blue">jimmies</span>
+      </span>
+    </h1>
+
+    <h2>ng-FitText.js makes font-sizes flexible. Use this directive in your fluid or responsive layout to achieve
+      scalable headlines that fill the width of a parent element.</h2>
+
+    <div id="plh-container">
+      <div id="plh-left">
+        <h3 data-fittext>And if you just happen</h3>
+        <p>to need the line-height preserved</p>
+      </div>
+      <div id="plh-right">
+        <h3 data-fittext>ng-FitText.js can do that too, at the same price</h3>
+        <p>spoiler: it's free</p>
+      </div>
+    </div>
+
+    <h1 class="setInitial" data-fittext data-fittext-max="inherit">Inherit max font size from CSS</h1>
+    <h1 class="setInitial" data-fittext data-fittext-min="inherit">Inherit min font size from CSS</h1>
+
+    <p>Child block elements will use font size of longest element</p>
+    <h1 data-fittext>
+      <span style="line-height: 0.5em">some </span>
+      <span style="line-height: 0.5em">text </span>
+      <span style="line-height: 0.5em">here lolol</span>
+    </h1>
+    <p>Child inline elements can also be used as expected</p>
+    <span data-fittext>
+      <span style="color: red;">some </span>
+      <span>text </span>
+      <span style="color: blue;">here lolol</span>
+    </span>
+
+    <hr/>
+
+  </header>
+
+  <div id="content">
+
+    <p><strong>Full README can be found on <a href="https://github.com/patrickmarabeas/ng-FitText.js">GitHub</a></strong></p>
+
+    <h3>Install and Inclusion</h3>
+
+    <p>Grab it with Bower:</p>
+
+    <code>bower install ngFitText</code>
+
+    <p>Include it in your AngularJS application</p>
+
+    <code>var myApp = angular.module( 'myApp', [ 'ngFitText' ] );</code>
+
+    <p>Apply it to your text</p>
+
+    <code>&lt;h1 data-fittext&gt;FitText&lt;/h1&gt;</code>
+
+  </div>
+
+</div>
+
+</body>
+</html>
