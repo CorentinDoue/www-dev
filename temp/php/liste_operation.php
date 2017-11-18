@@ -34,12 +34,12 @@ function prix ($float)
 	}
 }
 
-if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit"]!="aucun")
+if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit_cercle"]!="aucun")
 {
 
 
 
-	if ($_SESSION["droit"]=="user") {
+	if ($_SESSION["droit_cercle"]=="user") {
 		$_GET["id"]=$_SESSION["id_cercle"];
 	}
 	if (!isset($_GET["nb"])) {
@@ -72,7 +72,7 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit"]!="aucun")
 		//echo "id=".$_GET["id"]."<br>";
 		//echo "date_debut=".$_GET["date_debut"]."<br>";
 		//echo "date_fin=".$_GET["date_fin"]."<br>";
-		$req = $bdd -> prepare("SELECT o.id, o.B_C_A, o.id_B_C, o.datee as odatee, o.nb, o.prix, o.id_perm, o.id_user, p.datee as pdatee, np.nom as npnom, u.login_user, u.prenom, u.nom as unom, u.promo_user FROM operation_cercle o, perm p, nom_perm np, user u WHERE ( np.id=p.id_nom_perm AND p.id=o.id_perm AND o.id_user=u.id_user AND o.datee>? AND o.datee<?) ORDER BY o.datee DESC LIMIT ?");
+		$req = $bdd -> prepare("SELECT o.id, o.id_debiteur, o.B_C_A, o.id_B_C, o.datee as odatee, o.nb, o.prix, o.id_perm, o.id_user, p.datee as pdatee, np.nom as npnom, u.login_user, u.prenom, u.nom as unom, u.promo_user FROM operation_cercle o, perm p, nom_perm np, user u WHERE ( np.id=p.id_nom_perm AND p.id=o.id_perm AND o.id_user=u.id_user AND o.datee>? AND o.datee<?) ORDER BY o.datee DESC LIMIT ?");
 
 		$req -> execute(array($_GET["date_debut"],$_GET["date_fin"],$_GET["nb"]));
 		$i=0;
@@ -80,6 +80,25 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit"]!="aucun")
 		while ($donnees = $req->fetch())
 	    {		//echo "boucle ".$i;
 			$operations[$i]["id"]=$donnees["id"];
+			if ($donnees["id_debiteur"]==0) {
+				$operations[$i]["debiteur"]["id"]=$donnees["id_debiteur"];
+				$operations[$i]["debiteur"]["login"]="inconnu";
+				$operations[$i]["debiteur"]["prenom"]="inconnu";
+				$operations[$i]["debiteur"]["nom"]="";
+				$operations[$i]["debiteur"]["easy_search"]="inconnu";
+				$operations[$i]["debiteur"]["promo"]="inconnu";
+			}else{
+				$rep = $bdd -> prepare("SELECT login_user, prenom, nom, promo_user FROM user WHERE id_user=?");
+				$rep -> execute(array($donnees["id_debiteur"]));
+				$donnees3 = $rep->fetch();
+				$operations[$i]["debiteur"]["id"]=$donnees["id_debiteur"];
+				$operations[$i]["debiteur"]["login"]=$donnees3["login_user"];
+				$operations[$i]["debiteur"]["prenom"]=$donnees3["prenom"];
+				$operations[$i]["debiteur"]["nom"]=$donnees3["nom"];
+				$operations[$i]["debiteur"]["easy_search"]=$donnees3["prenom"]." ".$donnees3["nom"];
+				$operations[$i]["debiteur"]["promo"]=$donnees3["promo_user"];
+			}
+
 			$operations[$i]["type"]=$donnees["B_C_A"];
 			//$operations[$i]["date"]=date("d/m/y H:i",$donnees["odatee"]);
 			$operations[$i]["date"]=$donnees["odatee"];
@@ -157,7 +176,7 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit"]!="aucun")
 
 
 
-		$req = $bdd -> prepare("SELECT o.id, o.B_C_A, o.id_B_C, o.datee as odatee, o.nb, o.prix, o.id_perm, p.datee as pdatee, np.nom as npnom, u.login_user, u.prenom, u.nom as unom, u.promo_user FROM operation_cercle o, perm p, nom_perm np, user u WHERE ( np.id=p.id_nom_perm AND p.id=o.id_perm AND o.id_user=? AND o.id_user=u.id_user AND o.datee>? AND o.datee<? ) ORDER BY o.datee DESC");
+		$req = $bdd -> prepare("SELECT o.id, o.id_debiteur, o.B_C_A, o.id_B_C, o.datee as odatee, o.nb, o.prix, o.id_perm, p.datee as pdatee, np.nom as npnom, u.login_user, u.prenom, u.nom as unom, u.promo_user FROM operation_cercle o, perm p, nom_perm np, user u WHERE ( np.id=p.id_nom_perm AND p.id=o.id_perm AND o.id_user=? AND o.id_user=u.id_user AND o.datee>? AND o.datee<? ) ORDER BY o.datee DESC");
 		$req -> execute(array($_GET["id"],$_GET["date_debut"],$_GET["date_fin"]));
 		$i=0;
 
@@ -165,6 +184,26 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit"]!="aucun")
 		while ($donnees = $req->fetch())
 	    {
 			$operations[$i]["id"]=$donnees["id"];
+			if ($donnees["id_debiteur"]==0) {
+				$operations[$i]["debiteur"]["id"]=$donnees["id_debiteur"];
+				$operations[$i]["debiteur"]["login"]="inconnu";
+				$operations[$i]["debiteur"]["prenom"]="inconnu";
+				$operations[$i]["debiteur"]["nom"]="";
+				$operations[$i]["debiteur"]["easy_search"]="inconnu";
+				$operations[$i]["debiteur"]["promo"]="inconnu";
+			}else{
+				$rep = $bdd -> prepare("SELECT login_user, prenom, nom, promo_user FROM user WHERE id_user=?");
+				$rep -> execute(array($donnees["id_debiteur"]));
+				$donnees2 = $rep->fetch();
+
+				$operations[$i]["debiteur"]["id"]=$donnees["id_debiteur"];
+				$operations[$i]["debiteur"]["login"]=$donnees2["login_user"];
+				$operations[$i]["debiteur"]["prenom"]=$donnees2["prenom"];
+				$operations[$i]["debiteur"]["nom"]=$donnees2["nom"];
+				$operations[$i]["debiteur"]["easy_search"]=$donnees2["prenom"]." ".$donnees2["nom"];
+				$operations[$i]["debiteur"]["promo"]=$donnees2["promo_user"];
+			}
+
 			$operations[$i]["type"]=$donnees["B_C_A"];
 			$operations[$i]["date"]=$donnees["odatee"];
 			//$operations[$i]["date"]=date("d/m/y H:i",$donnees["odatee"]);
@@ -174,6 +213,7 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit"]!="aucun")
 			$operations[$i]["user"]["login"]=$donnees["login_user"];
 			$operations[$i]["user"]["prenom"]=$donnees["prenom"];
 			$operations[$i]["user"]["nom"]=$donnees["unom"];
+			$operations[$i]["user"]["easy_search"]=$donnees["prenom"]." ".$donnees["unom"];
 			$operations[$i]["user"]["promo"]=$donnees["promo_user"];
 
 			$operations[$i]["perm"]["id"]=$donnees["id_perm"];
@@ -190,7 +230,7 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit"]!="aucun")
 
 			}elseif ($donnees["B_C_A"]=='B') {
 				$operations[$i]["achat"]["type"]="B";
-				
+
 
 				$rep = $bdd -> prepare("SELECT cu.id, cu.nom FROM boisson b, contenu cu WHERE b.id_contenu=cu.id and b.id=?");
 				$rep -> execute(array($donnees["id_B_C"]));

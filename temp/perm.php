@@ -55,14 +55,22 @@ while ($donnees = $req->fetch())
             <div class="C_centre">
 								<div class="formulaire" ng-if="forum==1">
 									<div class="inventaire">
-										<div style="margin-left:10px; margin-bottom:10px;" ng-repeat="boisson in data">
-												<div class="L_center">
+										<div style="margin-left:10px; margin-bottom:10px; border:solid 2px rgb(200,51,30); padding:3px; border-radius:5px; color: rgb(200,51,30);" ng-repeat="boisson in data">
+												<div class="C_center">
 													<div>
-														{{boisson.key}} : prix_normal : <span ng-click="boisson.change_prix=true;" ng-if="!boisson.change_prix">{{prix(boisson.prix)}}</span>
+														{{boisson.key}} <br /> Prix normal : <span ng-click="boisson.change_prix=true;" ng-if="!boisson.change_prix">{{prix(boisson.prix)}}</span>
 													</div>
-													<input type="number" ng-if="boisson.change_prix"  ng-model="boisson.prix" style="width: 50px;">
+													<div class="L_center" ng-if="boisson.change_prix">
+														<div>
+															<input type="number"   ng-model="boisson.prix" style="width: 50px;">
+														</div>
+														<div style="margin-left:5px;">
+															<span ng-if="boisson.change_prix" ng-click="boisson.change_prix=false; maj_forum();" class="bouton clickable" style="font-size:0.8em; padding:3px;">Ok</span>
+														</div>
+
+													</div>
 													<div>
-														<span ng-if="boisson.change_prix" ng-click="boisson.change_prix=false; maj_forum();" class="bouton clickable">Ok</span> <span style="margin-left:5px;">  Bilan : {{prix(boisson.values)}}</span>
+														<span style="margin-left:5px;">  Bilan : {{prix(boisson.values)}}</span>
 													</div>
 												</div>
 										</div>
@@ -125,9 +133,8 @@ while ($donnees = $req->fetch())
 
                     <div class="inventaire">
 
-                        <div class="item_inventaire clickable noselect" ng-repeat="boisson in perm.forums" ng-class="color_boisson(boisson)" ng-click="plus(boisson); maj();">
-                          <?php
-                          if ($forum) { ?>
+                        	<div class="item_inventaire clickable noselect" ng-if="forum==1" ng-repeat="boisson in perm.forums" ng-class="color_boisson(boisson)" ng-click="plus(boisson); maj();">
+
                             <div class="L">
                                 <div class="L_left">
                                     <div style="height: 30px; width: 30px; " ng-if="boisson.fut_bouteille!='inconnu'">
@@ -164,7 +171,7 @@ while ($donnees = $req->fetch())
 
                             </div>
                         </div>
-                        <?php } ?>
+
                         <div class="item_inventaire clickable noselect" ng-repeat="boisson in perm.boissons | orderBy : 'order'" ng-class="color_boisson(boisson)" ng-click="plus(boisson); maj();">
 
                             <div class="L">

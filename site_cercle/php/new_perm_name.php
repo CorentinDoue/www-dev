@@ -15,13 +15,20 @@ $req->execute(array($str_json->perm_name));
 $donnees=$req->fetch();
 
 foreach ($data as $value)
-{	
+{
     $req = $bdd->prepare('INSERT INTO membre_perm VALUES (null,?,?)');
-    $req->execute(array($value,$donnees["id"]));   
+    $req->execute(array($value,$donnees["id"]));
 
-    $req = $bdd->prepare('UPDATE user SET droit_cercle="cercleux" WHERE id_user=?');
+    $req = $bdd->prepare('SELECT droit_cercle FROM user WHERE id_user=?');
     $req->execute(array($value));
-}   
+
+    $donnees2=$req->fetch();
+
+    if ($donnees2['droit_cercle']!='cercle'){
+      $req = $bdd->prepare('UPDATE user SET droit_cercle="cercleux" WHERE id_user=?');
+      $req->execute(array($value));
+    }    
+}
 
 
 $answer['ok']=true;

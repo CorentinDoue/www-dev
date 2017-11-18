@@ -58,7 +58,7 @@ if (isset($_GET['key'])) {
 	    $element='TFE';
 	    return $element;
 	    }
-	    return ""; 
+	    return "";
 	}
 
 	function correct_type_mobilite2($element){
@@ -117,7 +117,7 @@ if (isset($_GET['key'])) {
 	    $element='TFE';
 	    return $element;
 	    }
-	    return ""; 
+	    return "";
 	}
 
 	function array_iunique($array) {
@@ -196,13 +196,13 @@ if (isset($_GET['key'])) {
 		}
 		return $date[2]." ".nb_to_month($date[1])." ".$date[0];
 	}
-	/*
+
 
 		$rep = $bdd->prepare('SELECT p.ID, p.nom, p.prenom,p.promo, p.date_debut, p.date_fin, p.tuteur, p.type_mobilite, p.type_convention, p.rapport, p.bulletin, p.remarques FROM mobilite m, parcours p WHERE m.ID_parcour=p.ID AND m.ID_destination= ?');
 		$rep->execute(array($_GET['key']));
 		$i=0;
 		while ($donnees = $rep->fetch())
-		{	
+		{
 			$parcours[$i]['ID']=trim($donnees['ID']);
 			$parcours[$i]['nom']=trim($donnees['nom']);
 			$parcours[$i]['prenom']=trim($donnees['prenom']);
@@ -217,7 +217,7 @@ if (isset($_GET['key'])) {
 			}
 			$parcours[$i]['date_debut']=$donnees['date_debut'];
 			$parcours[$i]['date_fin']=$donnees['date_fin'];
-		
+
 			$parcours[$i]['tuteur']=trim($donnees['tuteur']);
 			$parcours[$i]['type_convention']=trim($donnees['type_convention']);
 			$parcours[$i]['type_mobilite']=correct_type_mobilite($donnees['type_mobilite']);
@@ -225,8 +225,8 @@ if (isset($_GET['key'])) {
 			$parcours[$i]['bulletin']=trim($donnees['bulletin']);
 			$parcours[$i]['remarques']=trim($donnees['remarques']);
 			$i++;
-		} */
-	
+		} 
+
 }else{
 	$erreur="Pas de clef de destination entrée";
 	$destination["nom"]="Erreur";
@@ -249,7 +249,7 @@ if (isset($_GET['key'])) {
 		<link rel="stylesheet" href="assets/css/style.css" />
 		<link rel="stylesheet" href="assets/css/back_office.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		
+
 	<body ng-app="myApp4"  ng-controller="mainController">
 		<div id="page-wrapper">
 			<div id="header-wrapper">
@@ -257,7 +257,7 @@ if (isset($_GET['key'])) {
 					<div class="row">
 						<div class="12u">
 
-							<?php $CP =2; 
+							<?php $CP =2;
 							include "php/header_back_office.php" ?>
 						</div>
 					</div>
@@ -277,23 +277,23 @@ if (isset($_GET['key'])) {
 				<div class="container">
 					<div style="width: 100%;">
 					<div class="row main-row" style="margin: 0;">
-						<?php 
+						<?php
 						if (isset($erreur) and $erreur!=Null) {
 							echo "<div class=\"titre_section\">Erreur</div>";
 							echo "<div class=\"erreur\">".$erreur."</div>";
 						}else{
 						?>
-							<div class="ID_block">							
+							<div class="ID_block">
 								<div class="titre_section" ng-if="!modif.titre">{{destination.nom}}<span class="bouton" ng-click="modif_titre()" ng-if="!modif.titre">Modifier</span></div>
 								<textarea class="titre_modif" ng-model="destination.nom" ng-if="modif.titre"> </textarea>
 								<div class="bouton" ng-click="sav_titre()" ng-if="modif.titre">Enregistrer</div>
 								<div style="width: 100%; display: flex; justify-content: center;">
-									<div ng-if="destination.activ==1" style="font-size: 1.2em;">La destination est visible</div>	
+									<div ng-if="destination.activ==1" style="font-size: 1.2em;">La destination est visible</div>
 									<div ng-if="destination.activ==0" style="font-size: 1.2em;">/!\ La destination n'est pas visible aux élèves</div>
 								</div>
 								<div style="width: 100%; display: flex; justify-content: center;">
-									<div class="bouton" style="font-size: 1.2em;"" ng-click="activ()">Modifier</div>									
-								</div>														
+									<div class="bouton" style="font-size: 1.2em;" ng-click="activ()">Modifier</div>
+								</div>
 								<div class="ID_card_L1">
 									<div class="ID_block_C1">
 										<p class='blackcolor' ng-if="!modif.compl">{{destination.complement_nom}}<span class="bouton" ng-click="modif_compl()" ng-if="!modif.compl">Modifier</span></p>
@@ -366,8 +366,8 @@ if (isset($_GET['key'])) {
 										</div>
 										<div class="ID_card_L3">
 											<div class="blocks_pdf">
-												
-												 				
+
+
 												 <div class="block_pdf" ng-if="destination.document">
 												 	<a href="documents/destination/{{destination.document}}" target="blank" >
 													<div class="logo_pdf">
@@ -381,23 +381,23 @@ if (isset($_GET['key'])) {
 							        					Modifier
 							        				</div>
 												 </div>
-												
-																
+
+
 												<div class="block_pdf" ng-if="!destination.document">
 													<div class="logo_pdf">
 							        					<img style="width :100%;" src="images/pdf.png">
 							        				</div>
-							  
+
 							        				<div class="bouton" ng-click="lay(6)">
 							        					Ajouter un document
 							        				</div>
 												</div>
-												
+
 											</div>
-										</div>																				
+										</div>
 									</div>
 								</div>
-								
+
 								<div class="ID_card_L2">
 									<p>
 									Domaines d'études :
@@ -435,21 +435,21 @@ if (isset($_GET['key'])) {
 								<div class="bouton" ng-click="modif_com()" ng-if="!modif.com">Modifier</div>
 								<textarea style="width: 100%;" ng-model="destination.commentaires" ng-if="modif.com"></textarea>
 								<div class="bouton" ng-click="sav_com()" ng-if="modif.com">Enregistrer</div>
-								
 
-								<?php 
+
+								<?php
 								if (isset($_GET['parcour'])) {
 									if (isset($_GET["excel"])) {
 										echo('<a href="excel.php?excel='.$_GET["excel"].'&ligne='.$_GET["ligne"].'&ajoutee='.$_GET["ajoutee"].'&modifiee='.$_GET["modifiee"].'"><div class="button">Revenir a l\'excel en cours d\'importation</div></a>');
 									}else{
 										echo("<a href='majparcour?key=".$_GET['parcour']."'><div class='button'>Revenir au parcour en cours de modification</div></a>");
 									}
-									
+
 								}
 								if (isset($parcours)) {
 									echo "<h2 style='text-align: center;'>Précédents départs :</h2>";
 									foreach ($parcours as $key => $parcour) {
-										
+
 										echo "<a href=\"majparcour.php?key=".$parcour['ID']."\">";
 										?>
 										<div class='block_parcour'>
@@ -460,7 +460,7 @@ if (isset($_GET['key'])) {
 															echo "<div class='parcour_name'>".$parcour['prenom']."</div>";
 															echo "<div class='parcour_name'>".$parcour['nom']."</div>";
 															echo "<div class='parcour_name'>Promo ".$parcour['promo']."</div>";
-														?>	
+														?>
 													</div>
 												</div>
 												<div class="ID_block_C1">
@@ -473,8 +473,8 @@ if (isset($_GET['key'])) {
 											</div>
 											<div class="ID_card_L1" style="margin-bottom: 1em;">
 												<div>
-												Date de séjour : 
-												<?php 
+												Date de séjour :
+												<?php
 													echo "<span class='blackcolor'>Du ".trans_date($parcour['date_debut'])." au ".trans_date($parcour['date_fin'])."</span></div>";
 												if ($parcour['type_convention']!=NULL) {
 													echo "<div>Convention : <span class='blackcolor'>".$parcour['type_convention']."</span></div>";
@@ -492,14 +492,14 @@ if (isset($_GET['key'])) {
 															echo ";</div>";
 														}
 													}
-												?>	
-											</div>											
+												?>
+											</div>
 											<?php
 											if ($parcour['tuteur']!=NULL) {
 												echo "<div class=\"ID_card_L2\" style=\"margin-bottom: 1.25em;\"><div class=\"titre_attribut\">Tuteur :</div><span class='blackcolor'> ".$parcour['tuteur']."</span></div>";
 											}
 
-											
+
 
 											if ($parcour['remarques']!=NULL) {
 												?>
@@ -596,23 +596,23 @@ if (isset($_GET['key'])) {
 													</div>
 											<?php
 												}
-											}												
-											?>											
+											}
+											?>
 										</div>
 										</a>
 										<?php
 									}
-								}								
+								}
 								?>
 							</div>
 
-						<?php } ?>			
+						<?php } ?>
 					</div>
 					</div>
 				</div>
 			</div>
 			<div id="footer-wrapper">
-				<div class="container">					
+				<div class="container">
 					<div class="row">
 						<div class="12u">
 
@@ -632,16 +632,16 @@ if (isset($_GET['key'])) {
 					<label><input type="radio" ng-model="modif_ville.type" value="selection" ng-click="init_ville()">Selectionner une ville</label>
 					<label><input type="radio" ng-model="modif_ville.type" value="new" ng-click="init_new_ville()">Créer une ville</label>
 				</div>
-				<div  class="form_L1" ng-if="modif_ville.type=='selection'">				
+				<div  class="form_L1" ng-if="modif_ville.type=='selection'">
 					<select ng-model="modif_ville.selection" ng-options="item.ville for item in villes"></select>
 					<div ng-if="modif_ville.selection">Pays : {{modif_ville.selection.pays}}</div>
 					<div ng-if="modif_ville.selection">Continent :{{modif_ville.selection.continent}}</div>
 					<!--<div ng-if="modif_ville.selection">ID :{{modif_ville.selection.ID}}</div>-->
-				</div>		
+				</div>
 				<div class="bouton" ng-click="sav_ville(modif_ville.selection)" ng-if="modif_ville.type=='selection'">Enregistrer</div>
 
-				<div  class="form_L1" ng-if="modif_ville.type=='new'">				
-					
+				<div  class="form_L1" ng-if="modif_ville.type=='new'">
+
 					<div class="C1">
 						<input type="text" ng-model="modif_new_ville.ville" placeholder="Taper le nom de la ville" ng-class="exist_ville_class(modif_new_ville.ville)">
 						<div style="font-size: 0.7em; margin-top: 5px; text-align: center;" ng-if="exist_ville(modif_new_ville.ville)">{{exist_ville(modif_new_ville.ville)}}</div>
@@ -659,7 +659,7 @@ if (isset($_GET['key'])) {
 						<select ng-model="modif_new_ville.continent" ng-options="item for item in continent" ng-if="modif_new_ville.new_pays"><option value="">--sélectionner un continent--</option></select>
 					</div>
 
-				</div>		
+				</div>
 				<div class="bouton" ng-click="sav_new_ville(modif_new_ville.ville, modif_new_ville.pays, modif_new_ville.continent, modif_new_ville.new_pays)" ng-if="modif_ville.type=='new'">Créer</div>
 			</div>
 		</div>
@@ -681,10 +681,10 @@ if (isset($_GET['key'])) {
 							</div>
 						</div>
 					</div>
-				</div>		
+				</div>
 				<div class="bouton" ng-click="sav_domaine(domaines.checked)" ng-if="modif_domaine.type=='selection'">Enregistrer</div>
 
-				<div  class="form_L1" ng-if="modif_domaine.type=='new'">				
+				<div  class="form_L1" ng-if="modif_domaine.type=='new'">
 					<div>Nom du domaine :</div>
 					<div class="C1">
 						<input type="text" ng-model="modif_new_domaine.domaine" placeholder="Taper le nom du domaine" ng-class="exist_domaine_class(modif_new_domaine.domaine)">
@@ -695,7 +695,7 @@ if (isset($_GET['key'])) {
 						<input type="text" ng-model="modif_new_domaine.code" placeholder="Taper le code du domaine" ng-class="exist_code_class(modif_new_domaine.code)">
 						<div style="font-size: 0.7em; margin-top: 5px; text-align: center;" ng-if="exist_code(modif_new_domaine.code)">{{exist_code(modif_new_domaine.code)}}</div>
 					</div>
-				</div>		
+				</div>
 				<div class="bouton" ng-click="sav_new_domaine(modif_new_domaine.domaine, modif_new_domaine.code)" ng-if="modif_domaine.type=='new'">Créer</div>
 			</div>
 		</div>
@@ -717,17 +717,17 @@ if (isset($_GET['key'])) {
 							</div>
 						</div>
 					</div>
-				</div>		
+				</div>
 				<div class="bouton" ng-click="sav_langue(langues.checked)" ng-if="modif_langue.type=='selection'">Enregistrer</div>
 
-				<div  class="form_L1" ng-if="modif_langue.type=='new'">				
+				<div  class="form_L1" ng-if="modif_langue.type=='new'">
 					<div>Nouvelle langue :</div>
 					<div class="C1">
 						<input type="text" ng-model="modif_new_langue.langue" placeholder="Taper le nom de la langue" ng-class="exist_langue_class(modif_new_langue.langue)">
 						<div style="font-size: 0.7em; margin-top: 5px; text-align: center;" ng-if="exist_langue(modif_new_langue.langue)">{{exist_langue(modif_new_langue.langue)}}</div>
 					</div>
 
-				</div>		
+				</div>
 				<div class="bouton" ng-click="sav_new_langue(modif_new_langue.langue)" ng-if="modif_langue.type=='new'">Créer</div>
 			</div>
 		</div>
@@ -740,17 +740,17 @@ if (isset($_GET['key'])) {
 				<div  class="form_L1" ng-if="modif_convention.type=='selection'">
 					Convention :
 					<select ng-model="modif_convention.selection" ng-options="item for item in conventions"><option value="">Aucune</option></select>
-				</div>		
+				</div>
 				<div class="bouton" ng-click="sav_convention(modif_convention.selection)" ng-if="modif_convention.type=='selection'">Enregistrer</div>
 
-				<div  class="form_L1" ng-if="modif_convention.type=='new'">				
+				<div  class="form_L1" ng-if="modif_convention.type=='new'">
 					<div>Nouvelle convention :</div>
 					<div class="C1">
 						<input type="text" ng-model="modif_new_convention.convention" placeholder="Taper le nom de la convention" ng-class="exist_convention_class(modif_new_convention.convention)">
 						<div style="font-size: 0.7em; margin-top: 5px; text-align: center;" ng-if="exist_convention(modif_new_convention.convention)">{{exist_convention(modif_new_convention.convention)}}</div>
 					</div>
 
-				</div>		
+				</div>
 				<div class="bouton" ng-click="sav_convention(modif_new_convention.convention)" ng-if="modif_convention.type=='new'">Créer</div>
 			</div>
 		</div>
@@ -765,7 +765,7 @@ if (isset($_GET['key'])) {
 					<div class="C1">
 						<div>Drop File:</div>
 						<div ngf-drop="upload($file)" class="drop-box"
-						  ngf-drag-over-class="'dragover'"  
+						  ngf-drag-over-class="'dragover'"
 						  ngf-pattern="'application/pdf'"><div>Drop</div><div>PDF file here</div></div>
 						<div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
 					</div >

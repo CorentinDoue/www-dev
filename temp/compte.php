@@ -43,6 +43,15 @@ if (!isset($_GET["id"])) {
             <?php
                 if ($_GET['id']==0){
                 ?>
+
+
+                    <div class="L_center" style="margin-bottom: 1em;">
+                      <a href="bilan_perm.php">
+                        <div class="bouton">
+                          Bilan des perms
+                        </div>
+                      </a>
+                    </div>
                     <h1>Historique</h1>
                     <div class="L_center" style="margin-top: 1em;">
                         <div class="info" style="font-size: 1em;">Du</div>
@@ -131,14 +140,16 @@ if (!isset($_GET["id"])) {
                         <div class="head_tableau clickable" ng-click="compte.order('perm.nom')">Perm</div>
                         <?php
                             if ($_GET["id"]==0) {
-                                echo "<div class=\"head_tableau clickable\" ng-click=\"compte.order('easy_search')\" style=\"width: 125%;\">Client</div>";
+                                echo "<div class=\"head_tableau clickable\" ng-click=\"compte.order('user.easy_search')\" style=\"width: 125%;\">Client</div>";
+                                echo "<div class=\"head_tableau clickable\" ng-click=\"compte.order('debiteur.easy_search')\" style=\"width: 125%;\">Débiteur</div>";
                             }
                         ?>
+
                         <div class="head_tableau clickable" ng-click="compte.order('nb')" style="width: 50%;">Quantité</div>
                         <div class="head_tableau clickable" ng-click="compte.order('achat.nom')">Produit</div>
                         <div class="head_tableau clickable" ng-click="compte.order('prix')" style="width: 50%;">Prix</div>
                          <?php
-                            if ($_GET["id"]==0 and $_SESSION["droit"]=="cercle") {
+                            if ($_GET["id"]==0 and $_SESSION["droit_cercle"]=="cercle") {
                                 echo "<div class=\"head_tableau\" style=\"width: 75%;\"></div>";
                             }
                         ?>
@@ -150,13 +161,14 @@ if (!isset($_GET["id"])) {
                         <?php
                             if ($_GET["id"]==0) {
                                 echo "<a href='compte.php?id={{operation.user.id}}' style=\"width: 125%;\"><div class=\"case_tableau\" >{{operation.user.prenom}} {{operation.user.nom}}</div></a>";
+                                echo "<a href='compte.php?id={{operation.user.id}}' style=\"width: 125%;\"><div class=\"case_tableau\" >{{operation.debiteur.prenom}} {{operation.debiteur.nom}}</div></a>";
                             }
                         ?>
                         <div class="case_tableau" style="width: 50%;">{{operation.nb}}</div>
                         <div class="case_tableau">{{operation.achat.nom}}</div>
                         <div class="case_tableau" style="width: 50%;">{{prix(operation.prix)}}</div>
                         <?php
-                            if ($_GET["id"]==0 and $_SESSION["droit"]=="cercle") {
+                            if ($_GET["id"]==0 and $_SESSION["droit_cercle"]=="cercle") {
                                 echo "<div class=\"case_tableau\" style=\"width: 75%;\"><div class='bouton' style='padding: 5px;' ng-click='annule(operation)'>Annuler</div></div>";
                             }
                         ?>

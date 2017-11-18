@@ -59,7 +59,7 @@ if (isset($_GET['key'])) {
 	    $element='TFE';
 	    return $element;
 	    }
-	    return ""; 
+	    return "";
 	}
 
 	function correct_type_mobilite2($element){
@@ -118,7 +118,7 @@ if (isset($_GET['key'])) {
 	    $element='TFE';
 	    return $element;
 	    }
-	    return ""; 
+	    return "";
 	}
 
 	function array_iunique($array) {
@@ -202,7 +202,7 @@ if (isset($_GET['key'])) {
 	$rep->execute(array($_GET['key']));
 	$i=0;
 	while ($donnees = $rep->fetch())
-	    {	
+	    {
 	    	$req = $bdd->prepare('SELECT do.nom FROM domaines do, domainedestination dd WHERE dd.ID_domaine=do.ID AND dd.ID_destination=?');
 	        $req->execute(array($_GET['key']));
 	        $j=0;
@@ -241,7 +241,7 @@ if (isset($_GET['key'])) {
 		$rep->execute(array($_GET['key']));
 		$i=0;
 		while ($donnees = $rep->fetch())
-		{	
+		{
 			$req = $bdd->prepare('SELECT do.nom FROM domaines do, domaineparcour dp WHERE dp.ID_domaine=do.ID AND dp.ID_parcour=?');
 	        $req->execute(array($donnees['clef']));
 	        $j=0;
@@ -257,7 +257,7 @@ if (isset($_GET['key'])) {
 			$parcours[$i]['domaines']=$domaines;
 			$parcours[$i]['date_debut']=$donnees['date_debut'];
 			$parcours[$i]['date_fin']=$donnees['date_fin'];
-			
+
 			$parcours[$i]['tuteur']=trim($donnees['tuteur']);
 			$parcours[$i]['type_convention']=trim($donnees['type_convention']);
 			$parcours[$i]['type_mobilite']=correct_type_mobilite($donnees['type_mobilite']);
@@ -291,7 +291,7 @@ if (isset($_GET['key'])) {
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/style.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		
+
 	<body ng-app="myApp"  ng-controller="mainController">
 		<div id="page-wrapper">
 			<div id="header-wrapper">
@@ -318,18 +318,18 @@ if (isset($_GET['key'])) {
 				<div class="container">
 					<div style="width: 100%;">
 					<div class="row main-row" style="margin: 0;">
-						<?php 
+						<?php
 						if (isset($erreur) and $erreur!=Null) {
 							echo "<div class=\"titre_section\">Erreur</div>";
 							echo "<div class=\"erreur\">".$erreur."</div>";
 						}else{
 						?>
-							<div class="ID_block">							
+							<div class="ID_block">
 								<div class="titre_section">
 								<?php
 									echo $destination['nom'];
 								?>
-								</div>							
+								</div>
 								<div class="ID_card_L1">
 									<div class="ID_block_C1">
 										<p class='blackcolor'>
@@ -367,7 +367,7 @@ if (isset($_GET['key'])) {
 												echo ";</div>";
 											}
 										}
-									?>	
+									?>
 								</div>
 									</div>
 									<div class="ID_block_C1">
@@ -390,7 +390,7 @@ if (isset($_GET['key'])) {
 													echo "Il y a ".$destination['places']." place offerte par les partenariats de l'école.<br>Cette place est en priorité pour les départs en S7.";
 												}else{
 													echo "Il y a ".$destination['places']." places offertes par les partenariats de l'école.<br>Ces places sont en priorité pour les départs en S7.";
-												}											
+												}
 											?>
 											</span>
 										</div>
@@ -406,7 +406,7 @@ if (isset($_GET['key'])) {
 										<div class="ID_card_L2 blackcolor" style="margin-bottom: 1.25em;">
 											<?php
 												echo $destination['type_convention'];
-												
+
 										echo "</div></div>";
 										}
 										if ($destination['document']!=NULL) {
@@ -414,7 +414,7 @@ if (isset($_GET['key'])) {
 										<div class="ID_card_L3">
 											<div class="blocks_pdf">
 											<?php
-						
+
 												 echo '<a href="documents/destination/'.$destination['document'].'" target="_blank">';
 												 ?>
 												 <div class="block_pdf">
@@ -426,15 +426,15 @@ if (isset($_GET['key'])) {
 							        				</div>
 												 </div>
 												 </a>
-												 
+
 											</div>
 										</div>
-										<?php 
+										<?php
 										}
-										?>										
+										?>
 									</div>
 								</div>
-								
+
 								<div class="ID_card_L2">
 									<p>
 									Domaines d'études :
@@ -448,9 +448,9 @@ if (isset($_GET['key'])) {
 										<p>
 										Domaines :
 										</p>
-									</div><div style="height: 20px;">
+									</div><!--<div style="height: 20px;">-->
 								<?php	} ?>
-								
+
 								<div class="ID_card_L2" style="margin-bottom: 1.25em;">
 									<?php
 										foreach ($destination['domaines'] as $key => $value) {
@@ -461,9 +461,9 @@ if (isset($_GET['key'])) {
 												echo ";</div>";
 											}
 										}
-									?>	
+									?>
 								</div>
-								<?php 
+								<?php
 								if ($destination['description']!="") {
 									?>
 									<div class="ID_card_L2">
@@ -478,11 +478,11 @@ if (isset($_GET['key'])) {
 									?>
 									</p>
 								</div>
-								<?php 
-								} 
+								<?php
+								}
 								if ($destination['commentaires']!="") {
 								?>
-								
+
 								<div class="ID_card_L2">
 									<p>
 									Commentaires :
@@ -492,10 +492,10 @@ if (isset($_GET['key'])) {
 									<p class='blackcolor'>
 									<?php
 										echo $destination['commentaires'];
-									?>	
+									?>
 									</p>
 								</div>
-								<?php 
+								<?php
 								}
 								if (isset($parcours)) {
 									echo "<h2 style='text-align: center;'>Précédents départs :</h2>";
@@ -509,7 +509,7 @@ if (isset($_GET['key'])) {
 															echo "<div class='parcour_name'>".$parcour['prenom']."</div>";
 															echo "<div class='parcour_name'>".$parcour['nom']."</div>";
 															echo "<div class='parcour_name'>Promo ".$parcour['promo']."</div>";
-														?>	
+														?>
 													</div>
 												</div>
 												<div class="ID_block_C1">
@@ -522,13 +522,13 @@ if (isset($_GET['key'])) {
 											</div>
 											<div class="ID_card_L1" style="margin-bottom: 1em;">
 												<div>
-												Date de séjour : 
-												<?php 
+												Date de séjour :
+												<?php
 													echo "<span class='blackcolor'>Du ".trans_date($parcour['date_debut'])." au ".trans_date($parcour['date_fin'])."</span></div>";
 												if ($parcour['type_convention']!=NULL) {
 													echo "<div>Convention : <span class='blackcolor'>".$parcour['type_convention']."</span></div>";
 												}
-											
+
 											echo "</div>";
 											if (count($parcour['domaines'])>0)
 											{
@@ -545,16 +545,16 @@ if (isset($_GET['key'])) {
 															echo ";</div>";
 														}
 													}
-												?>	
+												?>
 											</div>
-																						
+
 											<?php
 											}
 											if ($parcour['tuteur']!=NULL) {
 												echo "<div class=\"ID_card_L2\" style=\"margin-bottom: 1.25em;\"><div class=\"titre_attribut\">Tuteur :</div><span class='blackcolor'> ".$parcour['tuteur']."</span></div>";
 											}
 
-											
+
 
 											if ($parcour['remarques']!=NULL) {
 												?>
@@ -651,22 +651,22 @@ if (isset($_GET['key'])) {
 													</div>
 											<?php
 												}
-											}												
-											?>											
+											}
+											?>
 										</div>
 										<?php
 									}
-								}								
+								}
 								?>
 							</div>
 
-						<?php } ?>			
+						<?php } ?>
 					</div>
 					</div>
 				</div>
 			</div>
 			<div id="footer-wrapper">
-				<div class="container">					
+				<div class="container">
 					<div class="row">
 						<div class="12u">
 

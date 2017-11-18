@@ -10,8 +10,9 @@ $data=$str_json->data;
 foreach ($data as $value)
 {
 	if ($value->type=="B") {
-		$req = $bdd->prepare('INSERT INTO operation_cercle VALUES (null,?,?,"B",?,?,?,?)');
+		$req = $bdd->prepare('INSERT INTO operation_cercle VALUES (null,?,?,?,"B",?,?,?,?)');
         $req->execute(array($str_json->id_user,
+					$_SESSION["id_cercle"],
         	$str_json->id_perm,
         	$value->id,
         	time(),
@@ -21,8 +22,9 @@ foreach ($data as $value)
         $req = $bdd->prepare('UPDATE perm set total_litre=total_litre+? where id=?');
         $req->execute(array($value->litre,$str_json->id_perm));
 	}elseif ($value->type=="C") {
-		$req = $bdd->prepare('INSERT INTO operation_cercle VALUES (null,?,?,"C",?,?,?,?)');
+		$req = $bdd->prepare('INSERT INTO operation_cercle VALUES (null,?,?,?,"C",?,?,?,?)');
         $req->execute(array($str_json->id_user,
+					$_SESSION["id_cercle"],
         	$str_json->id_perm,
         	$value->id,
         	time(),
@@ -47,8 +49,9 @@ foreach ($data as $value)
 	        $id=$donnees["id"];
 
         }
-        $req = $bdd->prepare('INSERT INTO operation_cercle VALUES (null,?,?,"C",?,?,?,?)');
+        $req = $bdd->prepare('INSERT INTO operation_cercle VALUES (null,?,?,?,"C",?,?,?,?)');
         $req->execute(array($str_json->id_user,
+					$_SESSION["id_cercle"],
         	$str_json->id_perm,
         	$id,
         	time(),
@@ -56,8 +59,9 @@ foreach ($data as $value)
         	-$value->prix
         	));
 	}elseif ($value->type=="F") {
-		$req = $bdd->prepare('INSERT INTO operation_cercle VALUES (null,?,?,"F",?,?,?,?)');
+		$req = $bdd->prepare('INSERT INTO operation_cercle VALUES (null,?,?,?,"F",?,?,?,?)');
         $req->execute(array($str_json->id_user,
+					$_SESSION["id_cercle"],
         	$str_json->id_perm,
         	$value->id,
         	time(),

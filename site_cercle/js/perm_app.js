@@ -155,7 +155,7 @@ app.controller('mainController', function($scope) {
     };
 	$scope.prix= function (float)
 	{
-
+    float=Math.round10(float,-2);
 		if (float<0)
 		{
 			float=-float;

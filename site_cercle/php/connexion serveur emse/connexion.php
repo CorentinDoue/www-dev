@@ -40,7 +40,7 @@ if (!isset($_SESSION["id_cercle"]))
 		$_SESSION["id_cercle"]=$donnees["id_user"];
 		$_SESSION["prenom"]=$_SESSION['phpCAS']['attributes']["givenName"];
 		$_SESSION["nom"]=$_SESSION['phpCAS']['attributes']["sn"];
-		$_SESSION["droit"]=$donnees["droit_cercle"];
+		$_SESSION["droit_cercle"]=$donnees["droit_cercle"];
 		
 		
 	}else{

@@ -1,6 +1,6 @@
 var app = angular.module('gestion_app', []);
 app.controller('mainController', function($scope) {
-    
+
 
 	gestion_item=function(){
 		this.screen=false;
@@ -31,7 +31,7 @@ app.controller('mainController', function($scope) {
 			$scope.perm_list.class="";
 
 			$scope.message.statu="none";
-			
+
 			if (!activate) {
 				this.screen=true;
 				this.class= "selected";
@@ -42,19 +42,19 @@ app.controller('mainController', function($scope) {
 	        if (this.ordervalue==str) {
 	            this.ordervalue="-"+str;
 	        }else{
-	           this.ordervalue=str; 
+	           this.ordervalue=str;
 	        }
     	}
 	}
 
 
-	$scope.boisson= new gestion_item();	
+	$scope.boisson= new gestion_item();
 	$scope.contenant= new gestion_item();
 	$scope.compte= new gestion_item();
 	$scope.constante= new gestion_item();
 	$scope.perm= new gestion_item();
-	$scope.new_user= new gestion_item();	
-	$scope.perm_list= new gestion_item();	
+	$scope.new_user= new gestion_item();
+	$scope.perm_list= new gestion_item();
 
 
 	$scope.message={};
@@ -76,7 +76,7 @@ app.controller('mainController', function($scope) {
 
 		            $scope.contenus_list = answer.contenus;
 		            $scope.contenants_list = answer.contenants;
-		            
+
 		            $scope.$apply();
 		        }
 		    };
@@ -84,7 +84,7 @@ app.controller('mainController', function($scope) {
 		    xhttp.open("GET", "php/get_contenu.php", true);
 		    xhttp.send();
 		}
-		    
+
 	};
 
 	$scope.start_constante=function(){
@@ -110,7 +110,7 @@ app.controller('mainController', function($scope) {
 		    xhttp.open("GET", "php/get_constante.php", true);
 		    xhttp.send();
 		}
-		    
+
 	};
 
 	$scope.start_compte=function(){
@@ -131,14 +131,14 @@ app.controller('mainController', function($scope) {
 		            $scope.perm.new_name=true;
 		            $scope.perm.new_user={};
 		            $scope.$apply();
-		            
+
 		        }
 		    };
 
 		    xhttp2.open("GET", "php/get_users.php", true);
 		    xhttp2.send();
 		}
-		    
+
 	};
 
 	$scope.start_perm=function(){
@@ -158,26 +158,26 @@ app.controller('mainController', function($scope) {
 						var classe = "correct_input";
 						var i = 0;
 						var run = true;
-						while ( i < $scope.nom_perm_list.length && run) 
-						{	
-							var myRegex2 = new RegExp("^"+perm_name+"$", "i");							
+						while ( i < $scope.nom_perm_list.length && run)
+						{
+							var myRegex2 = new RegExp("^"+perm_name+"$", "i");
 							if (myRegex2.test($scope.nom_perm_list[i].nom))
 							{
 								classe = "wrong_input";
 								run = false;
 							}else{
 								var myRegex = new RegExp(perm_name, "i");
-								if ( myRegex.test($scope.nom_perm_list[i].nom)) 
+								if ( myRegex.test($scope.nom_perm_list[i].nom))
 								{
-									if (classe!='wrong_input') 
+									if (classe!='wrong_input')
 									{
 										classe = $scope.nom_perm_list[i].nom;
-									}											
+									}
 								}
 							}
 							i++;
 						}
-						
+
 						return classe;
 					};
 
@@ -194,7 +194,7 @@ app.controller('mainController', function($scope) {
 		    xhttp.open("GET", "php/get_nom_perm.php", true);
 		    xhttp.send();
 		}
-		    
+
 	};
 
 
@@ -206,7 +206,7 @@ app.controller('mainController', function($scope) {
 	    }
 	    value = +value;
 	    exp = +exp;
-	    // Si la valeur n'est pas un nombre 
+	    // Si la valeur n'est pas un nombre
 	    // ou si exp n'est pas un entier...
 	    if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
 	      return NaN;
@@ -245,7 +245,7 @@ app.controller('mainController', function($scope) {
 
 	$scope.prix= function (float)
 	{
-		
+		float=Math.round10(float,-2);
 		if (float<0)
 		{
 			float=-float;
@@ -260,7 +260,7 @@ app.controller('mainController', function($scope) {
 				}
 				return "- "+euro+"€"+cent;
 			}
-			
+
 		}else{
 			var cent=Math.round((float*100)%100);
 			var euro=Math.floor(float);
@@ -277,24 +277,24 @@ app.controller('mainController', function($scope) {
 	};
 
 	$scope.plus=function(boisson){
-		
+
 		$scope.client.client.montant++;
 		$scope.maj();
 	};
 
 	$scope.moins=function(boisson){
-		
+
 		if ($scope.client.client.montant>=1) {$scope.client.client.montant--;}
 		$scope.maj();
-		
-		
+
+
 	};
 
 	$scope.maj=function(){
-		
+
 		$scope.client.client.new_solde=$scope.client.client.solde+$scope.client.client.montant;
-		
-		
+
+
 	};
 
 	$scope.validate=function(){
@@ -314,14 +314,14 @@ app.controller('mainController', function($scope) {
 
 	            answer = angular.fromJson(this.responseText);
 	            if(answer.ok)
-	            {	
+	            {
 	            	$scope.users[index].solde+=$scope.client.client.montant;
 	            	$scope.client.client=null;
 	            	$scope.search=null;
 	            	$scope.client.recharge_ok=true;
 	            	$scope.$apply();
-	            	
-	            } 
+
+	            }
 	        }
 	    };
 	    xhttp.open("POST", "php/recharge.php", true);
@@ -334,7 +334,7 @@ app.controller('mainController', function($scope) {
 		return (/\S+@etu\.emse\.fr$/.test(str))
 	};
 
-	
+
 
 	$scope.valid_new_user=function()
 	{
@@ -346,8 +346,8 @@ app.controller('mainController', function($scope) {
 		{
 			continu=confirm("Le solde sera négatif, voulez vous continuer ?")
 		}
-		if (continu) 
-		{	
+		if (continu)
+		{
 			/^(\S+)@etu\.emse\.fr$/.exec($scope.new_user.mail)
 			var login = RegExp.$1
 			var answer;
@@ -357,16 +357,16 @@ app.controller('mainController', function($scope) {
 
 		            answer = angular.fromJson(this.responseText);
 		            if(answer.statu=="ok")
-		            {	
+		            {
 		            	$scope.message.statu="ok";
 						$scope.message.texte="Compte créé avec succès";
 						$scope.new_user.montant=0;
 		            	$scope.new_user.mail=null;
 		            	$scope.$apply();
 		            	window.location.replace("gestion.php#message");
-		            	
+
 		            }else{
-		            	if (answer.statu=="exist") 
+		            	if (answer.statu=="exist")
 		            	{
 		            		$scope.message.statu="error";
 							$scope.message.texte="Ce compte existe déjà";
@@ -398,7 +398,7 @@ app.controller('mainController', function($scope) {
 
 	            answer = angular.fromJson(this.responseText);
 	            if(answer.ok)
-	            {	
+	            {
 	            	$scope.message.statu="ok";
 					$scope.message.texte="Perm créée avec succès";
 	            	$scope.perm.user_array=[];
@@ -406,12 +406,12 @@ app.controller('mainController', function($scope) {
 
 	            	$scope.$apply();
 	            	window.location.replace("gestion.php#message");
-	            }				            
+	            }
 	        }
 	    };
 	    xhttp.open("POST", "php/new_perm_name.php", true);
 	    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	    xhttp.send(texte); 
+	    xhttp.send(texte);
 	};
 
 	$scope.valid_constante=function(constante){
@@ -422,13 +422,13 @@ app.controller('mainController', function($scope) {
 
 	            answer = angular.fromJson(this.responseText);
 	            if(answer=="ok")
-	            {	
+	            {
 	            	$scope.message.statu="ok";
 					$scope.message.texte="La valeur de la constante a été mise à jour";
 
 	            	$scope.$apply();
 	            }
-	            
+
 	        }
 	    };
 	    xhttp.open("POST", "php/maj_constante.php", true);
@@ -442,19 +442,19 @@ app.controller('mainController', function($scope) {
 	    }else{
 			var answer;
 			var xhttp = new XMLHttpRequest();
-			
+
 		    xhttp.onreadystatechange = function() {
 		        if (this.readyState == 4 && this.status == 200) {
 
 		            answer = angular.fromJson(this.responseText);
 		            if(answer=="ok")
-		            {	
+		            {
 		            	$scope.message.statu="ok";
 						$scope.message.texte="Le contenant a été mis à jour";
 
 		            	$scope.$apply();
 		            }
-		            
+
 		        }
 		    };
 		    xhttp.open("POST", "php/maj_contenant.php", true);
@@ -471,13 +471,13 @@ app.controller('mainController', function($scope) {
 
 	            answer = angular.fromJson(this.responseText);
 	            if(answer=="ok")
-	            {	
+	            {
 	            	$scope.message.statu="ok";
 					$scope.message.texte="Le nom de la boisson a été mise à jour";
 
 	            	$scope.$apply();
 	            }
-	            
+
 	        }
 	    };
 	    xhttp.open("POST", "php/maj_contenu.php", true);
@@ -493,13 +493,13 @@ app.controller('mainController', function($scope) {
 
 	            answer = angular.fromJson(this.responseText);
 	            if(answer=="ok")
-	            {	
+	            {
 	            	$scope.message.statu="ok";
 					$scope.message.texte="Le nom de la perm a été mise à jour";
 
 	            	$scope.$apply();
 	            }
-	            
+
 	        }
 	    };
 	    xhttp.open("POST", "php/maj_nom_perm.php", true);
@@ -515,13 +515,13 @@ app.controller('mainController', function($scope) {
 
 	            answer = angular.fromJson(this.responseText);
 	            if(answer=="ok")
-	            {	
+	            {
 	            	$scope.message.statu="ok";
 					$scope.message.texte="Le type de la boisson a été mise à jour";
 
 	            	$scope.$apply();
 	            }
-	            
+
 	        }
 	    };
 	    xhttp.open("POST", "php/maj_contenu.php", true);
@@ -537,13 +537,13 @@ app.controller('mainController', function($scope) {
 
 	            answer = angular.fromJson(this.responseText);
 	            if(answer=="ok")
-	            {	
+	            {
 	            	$scope.message.statu="ok";
 					$scope.message.texte="Le degré de la boisson a été mise à jour";
 
 	            	$scope.$apply();
 	            }
-	            
+
 	        }
 	    };
 	    xhttp.open("POST", "php/maj_contenu.php", true);
@@ -559,13 +559,13 @@ app.controller('mainController', function($scope) {
 
 	            answer = angular.fromJson(this.responseText);
 	            if(answer=="ok")
-	            {	
+	            {
 	            	$scope.message.statu="ok";
 					$scope.message.texte="Le degré de la boisson a été mis à jour";
 
 	            	$scope.$apply();
 	            }
-	            
+
 	        }
 	    };
 	    xhttp.open("POST", "php/maj_contenu.php", true);
@@ -573,7 +573,7 @@ app.controller('mainController', function($scope) {
 	    xhttp.send("id="+contenu.id+"&description="+contenu.description);
 	};
 
-	
+
 
 	$scope.maj_contenu_contenant=function(contenu,id_contenant){
 		var answer;
@@ -583,8 +583,8 @@ app.controller('mainController', function($scope) {
 
 	            answer = angular.fromJson(this.responseText);
 	            if(answer=="ok")
-	            {	
-	            	
+	            {
+
 	            	if (id_contenant>0) {var add=true;}else{var add=false; id_contenant=-id_contenant; }
 
 	            	for(var i= 0; i < $scope.contenus_list.length; i++)
@@ -623,11 +623,11 @@ app.controller('mainController', function($scope) {
 	            	{
 	            		$scope.contenus_list[index_contenu].contenants.splice(index_contenant2,1);
 	            	}
-	            	
+
 
 	            	$scope.$apply();
 	            }
-	            
+
 	        }
 	    };
 	    xhttp.open("POST", "php/maj_contenu.php", true);
@@ -643,8 +643,8 @@ app.controller('mainController', function($scope) {
 
 	            answer = angular.fromJson(this.responseText);
 	            if(answer=="ok")
-	            {	
-	            	
+	            {
+
 	            	if (id_membre>0) {var add=true;}else{var add=false; id_membre=-id_membre; }
 
 	            	for(var i= 0; i < $scope.nom_perm_list.length; i++)
@@ -675,7 +675,7 @@ app.controller('mainController', function($scope) {
 
 
 	            	if (add && !exist_in_perm) {
-	            		
+
 	            		$scope.nom_perm_list[index_perm].membres.push($scope.users_list[index_membre]);
 	            	}
 
@@ -683,11 +683,11 @@ app.controller('mainController', function($scope) {
 	            	{
 	            		$scope.nom_perm_list[index_perm].membres.splice(index_membre2,1);
 	            	}
-	            	
+
 
 	            	$scope.$apply();
 	            }
-	            
+
 	        }
 	    };
 	    xhttp.open("POST", "php/maj_nom_perm.php", true);
@@ -703,13 +703,13 @@ app.controller('mainController', function($scope) {
 
 	            answer = angular.fromJson(this.responseText);
 	            if(answer=="ok")
-	            {	
+	            {
 	            	$scope.message.statu="ok";
 					$scope.message.texte="La consigne a été mise à jour";
 
 	            	$scope.$apply();
 	            }
-	            
+
 	        }
 	    };
 	    xhttp.open("POST", "php/maj_contenu.php", true);
@@ -726,13 +726,13 @@ app.controller('mainController', function($scope) {
 
 	            answer = angular.fromJson(this.responseText);
 	            if(answer=="ok")
-	            {	
+	            {
 	            	$scope.message.statu="ok";
 					$scope.message.texte="Droit mis à jour";
 
 	            	$scope.$apply();
 	            }
-	            
+
 	        }
 	    };
 	    xhttp.open("POST", "php/maj_user_droit.php", true);
@@ -750,7 +750,7 @@ app.controller('mainController', function($scope) {
 
 	            answer = angular.fromJson(this.responseText);
 	            if(answer.ok)
-	            {	
+	            {
 	            	$scope.boisson.contenu=answer.contenu;
 	            	$scope.contenus_list.push(answer.contenu);
 	            	$scope.$apply();
@@ -759,7 +759,7 @@ app.controller('mainController', function($scope) {
 					$scope.message.texte="Cette boisson existait déjà";
 					$scope.$apply();
 	            }
-	            
+
 	        }
 	    };
 	    xhttp.open("POST", "php/new_contenu.php", true);
@@ -778,8 +778,8 @@ app.controller('mainController', function($scope) {
 
 		            answer = angular.fromJson(this.responseText);
 		            if(answer.ok)
-		            {	
-		            	
+		            {
+
 		            	$scope.contenants_list.push(answer.contenant);
 		            	$scope.$apply();
 		            }else{
@@ -787,7 +787,7 @@ app.controller('mainController', function($scope) {
 						$scope.message.texte="Ce contenant existait déjà";
 						$scope.$apply();
 		            }
-		            
+
 		        }
 		    };
 		    xhttp.open("POST", "php/new_contenant.php", true);
@@ -807,9 +807,9 @@ app.controller('mainController', function($scope) {
 
 		            answer = angular.fromJson(this.responseText);
 		            if(answer=='ok')
-		            {	
-		            	
-		            	
+		            {
+
+
 
 		            	for(var i= 0; i < $scope.contenus_list.length; i++)
 						{
@@ -827,7 +827,7 @@ app.controller('mainController', function($scope) {
 							}
 						}
 
-						
+
 						for(var i= 0; i < contenu.contenants.length; i++)
 						{
 							if (contenu.contenants[i].id==old_id) {
@@ -852,11 +852,11 @@ app.controller('mainController', function($scope) {
 		            	}
 
 		            	$scope.contenus_list[index_contenu].contenants.splice(index_old_id,1);
-		            	
+
 
 		            	$scope.$apply();
 		            }
-		            
+
 		        }
 		    };
 		    xhttp.open("POST", "php/suppr_vers_contenant.php", true);
@@ -864,7 +864,7 @@ app.controller('mainController', function($scope) {
 		    xhttp.send("old_id="+old_id+"&new_id="+new_id+"&id_contenu="+contenu.id);
 		}
 	};
-			
+
 
 	$scope.contenant_type=function(type){
 		if (type=="fut") { return "Fût";}
@@ -884,6 +884,6 @@ app.controller('mainController', function($scope) {
 		}
 
     }
-    
-    
+
+
 });

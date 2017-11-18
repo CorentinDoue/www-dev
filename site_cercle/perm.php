@@ -133,9 +133,8 @@ while ($donnees = $req->fetch())
 
                     <div class="inventaire">
 
-                        <div class="item_inventaire clickable noselect" ng-repeat="boisson in perm.forums" ng-class="color_boisson(boisson)" ng-click="plus(boisson); maj();">
-                          <?php
-                          if ($forum) { ?>
+                        	<div class="item_inventaire clickable noselect" ng-if="forum==1" ng-repeat="boisson in perm.forums" ng-class="color_boisson(boisson)" ng-click="plus(boisson); maj();">
+
                             <div class="L">
                                 <div class="L_left">
                                     <div style="height: 30px; width: 30px; " ng-if="boisson.fut_bouteille!='inconnu'">
@@ -172,7 +171,7 @@ while ($donnees = $req->fetch())
 
                             </div>
                         </div>
-                        <?php } ?>
+
                         <div class="item_inventaire clickable noselect" ng-repeat="boisson in perm.boissons | orderBy : 'order'" ng-class="color_boisson(boisson)" ng-click="plus(boisson); maj();">
 
                             <div class="L">

@@ -1,6 +1,6 @@
 var app = angular.module('recharge_app', []);
 app.controller('mainController', function($scope) {
-    
+
 
     var answer;
 	var xhttp = new XMLHttpRequest();
@@ -9,13 +9,13 @@ app.controller('mainController', function($scope) {
 
             answer = angular.fromJson(this.responseText);
 
-            
+
             $scope.client={};
             $scope.client.client=null;
             $scope.users = answer.users;
             $scope.search=null;
             $scope.client.recharge_ok=false;
-            
+
             $scope.$apply();
         }
     };
@@ -31,7 +31,7 @@ app.controller('mainController', function($scope) {
 	    }
 	    value = +value;
 	    exp = +exp;
-	    // Si la valeur n'est pas un nombre 
+	    // Si la valeur n'est pas un nombre
 	    // ou si exp n'est pas un entier...
 	    if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
 	      return NaN;
@@ -70,7 +70,7 @@ app.controller('mainController', function($scope) {
 
 	  $scope.prix= function (float)
 	{
-		
+		float=Math.round10(float,-2);
 		if (float<0)
 		{
 			float=-float;
@@ -85,7 +85,7 @@ app.controller('mainController', function($scope) {
 				}
 				return "- "+euro+"€"+cent;
 			}
-			
+
 		}else{
 			var cent=Math.round((float*100)%100);
 			var euro=Math.floor(float);
@@ -102,24 +102,24 @@ app.controller('mainController', function($scope) {
 	};
 
 	$scope.plus=function(boisson){
-		
+
 		$scope.client.client.montant++;
 		$scope.maj();
 	};
 
 	$scope.moins=function(boisson){
-		
+
 		$scope.client.client.montant--;
 		$scope.maj();
-		
-		
+
+
 	};
 
 	$scope.maj=function(){
-		
+
 		$scope.client.client.new_solde=$scope.client.client.solde+$scope.client.client.montant;
-		
-		
+
+
 	};
 
 	$scope.validate=function(){
@@ -139,19 +139,19 @@ app.controller('mainController', function($scope) {
 
 	            answer = angular.fromJson(this.responseText);
 	            if(answer.ok)
-	            {	
+	            {
 	            	$scope.users[index].solde+=$scope.client.client.montant;
 	            	$scope.client.client=null;
 	            	$scope.search=null;
 	            	$scope.client.recharge_ok=true;
 	            	$scope.$apply();
-	            	
-	            }				            
+
+	            }
 	        }
 	    };
 	    xhttp.open("POST", "php/recharge.php", true);
 	    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	    xhttp.send("id_user="+$scope.client.client.id+"&montant="+$scope.client.client.montant);
 	}
-    
+
 });

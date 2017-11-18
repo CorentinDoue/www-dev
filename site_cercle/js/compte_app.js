@@ -62,7 +62,7 @@ app.controller('mainController', function($scope) {
 
     $scope.color=function(index,operation)
     {
-    	if (operation.type=="A") 
+    	if (operation.type=="A")
     	{
     		if (index%2==0) {
     			return "color_3";
@@ -222,7 +222,7 @@ app.controller('mainController', function($scope) {
 
     $scope.prix= function (float)
     {
-
+				float=Math.round10(float,-2);
         if (float<0)
         {
             float=-float;

@@ -36,7 +36,7 @@ function prix ($float)
 	}
 }
 
-if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit"]!="aucun")
+if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit_cercle"]!="aucun")
 {
 
 
