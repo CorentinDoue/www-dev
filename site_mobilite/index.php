@@ -1,5 +1,5 @@
 <?php
-include "php/connection.php";
+include "php/connection_bdd.php";
 
 $rep = $bdd->query('SELECT ID, titre, contenu from contenu where ID < 14');
 
@@ -158,19 +158,7 @@ while ($donnees = $rep->fetch())
 					
 				</div>
 			</div>
-			<div id="footer-wrapper">
-				<div class="container">					
-					<div class="row">
-						<div class="12u">
-
-							<div id="copyright">
-								&copy; Mobilités internationales pour les nuls. All rights reserved. | Design: <a href="http://html5up.net">HTML5 UP</a>
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
+            <?php include "php/footer.php"; ?>
 		</div>
 		<div class="layer" ng-if="layer"></div>
 		<div class="layer2" ng-if="layer2">

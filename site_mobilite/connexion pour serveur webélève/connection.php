@@ -22,6 +22,7 @@ if (phpCAS::isAuthenticated()) {
     //$texte= "Bonjour ". phpCAS::getUser()."<br><br>".print_r($_SESSION);
 
     // Je place ici le code de ma page
+    $_SESSION["CAS_authentificated"]=true;
 
 
 }

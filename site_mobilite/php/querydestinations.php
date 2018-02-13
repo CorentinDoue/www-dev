@@ -1,5 +1,5 @@
 <?php
-include "connection.php"; 
+include "connection_bdd.php";
 
 function correct_type_mobilite($element){
     if (preg_match("#S\s*7#i", $element))

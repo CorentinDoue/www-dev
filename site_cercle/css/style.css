@@ -191,6 +191,16 @@ img
 	font-size: 1.3em;
 }
 
+.head_tableau_stats
+{
+	background: linear-gradient(to top, rgb(185,36,15) 0%,rgb(190,41,20) 10%,rgb(210,61,40) 100%);
+	color: white;
+	padding: 10px;
+	width:  100%;
+	font-size: 0.9em;
+	white-space:nowrap;
+}
+
 .case_tableau
 {
 	display: flex;
@@ -615,3 +625,14 @@ input {
  	flex-direction: column;
  	justify-content: flex-start;
  }
+
+ .classement
+ {
+	 display: flex;
+	 flex-direction: column;
+	 margin: 20px;
+	 border: solid black 2px;
+	 border-radius: 10px;
+ }
+
+

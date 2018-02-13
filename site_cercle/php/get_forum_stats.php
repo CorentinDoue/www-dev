@@ -1,6 +1,4 @@
 <?php
-//echo "helloworld";
-//error_reporting(E_ALL & ~E_NOTICE);
 include("connexion.php");
 
 function prix ($float)
@@ -47,10 +45,10 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit_cercle"]!="aucun")
 
 		$user=[];
 		$depense=0;
-		$req = $bdd -> query("SELECT id FROM perm WHERE id_nom_perm=18 ORDER BY id DESC LIMIT 1");
+		$req = $bdd -> query("SELECT id_perm FROM `operation_cercle` WHERE `B_C_A` = 'F' ORDER BY `operation_cercle`.`datee` DESC LIMIT 1");
 
 		$donnees = $req->fetch();
-		$id_perm=$donnees['id'];
+		$id_perm=$donnees['id_perm'];
 		//echo "id=".$_GET["id"]."<br>";
 		//echo "date_debut=".$_GET["date_debut"]."<br>";
 		//echo "date_fin=".$_GET["date_fin"]."<br>";

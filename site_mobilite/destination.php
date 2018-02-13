@@ -1,5 +1,17 @@
 <?php
-include "php/connection.php";
+session_start();
+if ( isset($_GET["authentificated"]) and $_GET["authentificated"]){
+    include "php/connection.php";
+}else{
+    if (isset($_SESSION["CAS_authentificated"]) and $_SESSION["CAS_authentificated"]){
+        include "php/connection.php";
+        $_GET["authentificated"]=true;
+    }else{
+        include "php/connection_bdd.php";
+        $_GET["authentificated"]=false;
+    }
+}
+
 
 if (isset($_GET['key'])) {
 
@@ -499,163 +511,169 @@ if (isset($_GET['key'])) {
 								}
 								if (isset($parcours)) {
 									echo "<h2 style='text-align: center;'>Précédents départs :</h2>";
-									foreach ($parcours as $key => $parcour) {
-										?>
-										<div class='block_parcour'>
-											<div class="ID_card_L1">
-												<div class="ID_block_C1">
-													<div class="ID_card_L2" style="margin-bottom: 1em;">
-														<?php
-															echo "<div class='parcour_name'>".$parcour['prenom']."</div>";
-															echo "<div class='parcour_name'>".$parcour['nom']."</div>";
-															echo "<div class='parcour_name'>Promo ".$parcour['promo']."</div>";
-														?>
-													</div>
-												</div>
-												<div class="ID_block_C1">
-													<div class="logo_type_mobilite">
-													<?php
-							        					echo '<img style="width :100%;" src="images/logo_type_mobilite/logo_'.$parcour['type_mobilite'].'.png">';
-							        				?>
-							        				</div>
-												</div>
-											</div>
-											<div class="ID_card_L1" style="margin-bottom: 1em;">
-												<div>
-												Date de séjour :
-												<?php
-													echo "<span class='blackcolor'>Du ".trans_date($parcour['date_debut'])." au ".trans_date($parcour['date_fin'])."</span></div>";
-												if ($parcour['type_convention']!=NULL) {
-													echo "<div>Convention : <span class='blackcolor'>".$parcour['type_convention']."</span></div>";
-												}
 
-											echo "</div>";
-											if (count($parcour['domaines'])>0)
-											{
+									if ($_GET["authentificated"]){
+                                        foreach ($parcours as $key => $parcour) {
+                                ?>
+                                        <div class='block_parcour'>
+                                            <div class="ID_card_L1">
+                                                <div class="ID_block_C1">
+                                                    <div class="ID_card_L2" style="margin-bottom: 1em;">
+                                                        <?php
+                                                        echo "<div class='parcour_name'>".$parcour['prenom']."</div>";
+                                                        echo "<div class='parcour_name'>".$parcour['nom']."</div>";
+                                                        echo "<div class='parcour_name'>Promo ".$parcour['promo']."</div>";
+                                                        ?>
+                                                    </div>
+                                                </div>
+                                                <div class="ID_block_C1">
+                                                    <div class="logo_type_mobilite">
+                                                        <?php
+                                                        echo '<img style="width :100%;" src="images/logo_type_mobilite/logo_'.$parcour['type_mobilite'].'.png">';
+                                                        ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="ID_card_L1" style="margin-bottom: 1em;">
+                                                <div>
+                                                    Date de séjour :
+                                                    <?php
+                                                    echo "<span class='blackcolor'>Du ".trans_date($parcour['date_debut'])." au ".trans_date($parcour['date_fin'])."</span></div>";
+                                                    if ($parcour['type_convention']!=NULL) {
+                                                        echo "<div>Convention : <span class='blackcolor'>".$parcour['type_convention']."</span></div>";
+                                                    }
 
-											?>
-											<div class="ID_card_L2" style="margin-bottom: 1.25em;">
-												<div class="titre_attribut">Domaines d'études :</div>
-												<?php
-													foreach ($parcour['domaines'] as $key => $value) {
-														echo "<div class='domaine_etude'>".$value;
-														if ($key==count($parcour['domaines'])-1) {
-															echo ".</div>";
-														}else{
-															echo ";</div>";
-														}
-													}
-												?>
-											</div>
+                                                    echo "</div>";
+                                                    if (count($parcour['domaines'])>0)
+                                                    {
 
-											<?php
-											}
-											if ($parcour['tuteur']!=NULL) {
-												echo "<div class=\"ID_card_L2\" style=\"margin-bottom: 1.25em;\"><div class=\"titre_attribut\">Tuteur :</div><span class='blackcolor'> ".$parcour['tuteur']."</span></div>";
-											}
+                                                        ?>
+                                                        <div class="ID_card_L2" style="margin-bottom: 1.25em;">
+                                                            <div class="titre_attribut">Domaines d'études :</div>
+                                                            <?php
+                                                            foreach ($parcour['domaines'] as $key => $value) {
+                                                                echo "<div class='domaine_etude'>".$value;
+                                                                if ($key==count($parcour['domaines'])-1) {
+                                                                    echo ".</div>";
+                                                                }else{
+                                                                    echo ";</div>";
+                                                                }
+                                                            }
+                                                            ?>
+                                                        </div>
+
+                                                        <?php
+                                                    }
+                                                    if ($parcour['tuteur']!=NULL) {
+                                                        echo "<div class=\"ID_card_L2\" style=\"margin-bottom: 1.25em;\"><div class=\"titre_attribut\">Tuteur :</div><span class='blackcolor'> ".$parcour['tuteur']."</span></div>";
+                                                    }
 
 
 
-											if ($parcour['remarques']!=NULL) {
-												?>
-												<div class="ID_card_L1">
-													<div class="ID_block_C1">
-														<div class="ID_card_L2">
-															<div class="titre_attribut">Remarques :</div>
-														</div>
-														<div class="ID_card_L2" style="margin-bottom: 1.25em;">
-															<?php
-															echo "<span class='blackcolor'> ".$parcour['remarques']."</span>";
-															?>
-														</div>
-													</div>
-													<?php
-													if ($parcour['rapport']!=NULL OR $parcour['bulletin']!=NULL) {
-													?>
-													<div class="ID_block_C1">
-														<div class="blocks_pdf">
-															<?php
-																if ($parcour['rapport']!=NULL) {
-																 echo '<a href="documents/rapports/'.$parcour['rapport'].'" target="_blank">';
-																 ?>
-																 <div class="block_pdf">
-																	<div class="logo_pdf">
-											        					<img style="width :100%;" src="images/pdf.png">
-											        				</div>
-											        				<div>
-											        					Rapport du séjour
-											        				</div>
-																 </div>
-																 </a>
-																 <?php
-																}
-																if ($parcour['bulletin']!=NULL) {
-																 echo '<a href="documents/bulletins/'.$parcour['bulletin'].'" target="_blank">';
-																 //echo $parcour['bulletin'];
-																 ?>
-																 <div class="block_pdf">
-																	<div class="logo_pdf">
-											        					<img style="width :100%;" src="images/pdf.png">
-											        				</div>
-											        				<div>
-											        					Bulletin
-											        				</div>
-																 </div>
-																 </a>
-																 <?php
-																}
-															?>
-														</div>
-													</div>
-													<?php
-													}
-													?>
-												</div>
-											<?php
-											}else{
-												if ($parcour['rapport']!=NULL OR $parcour['bulletin']!=NULL) {
-												?>
-													<div class="ID_card_L3">
-														<div class="blocks_pdf">
-														<?php
-															if ($parcour['rapport']!=NULL) {
-															 echo '<a href="documents/rapports/'.$parcour['rapport'].'" target="_blank">';
-															 ?>
-															 <div class="block_pdf">
-																<div class="logo_pdf">
-										        					<img style="width :100%;" src="images/pdf.png">
-										        				</div>
-										        				<div>
-										        					Rapport du séjour
-										        				</div>
-															 </div>
-															 </a>
-															 <?php
-															}
-															if ($parcour['bulletin']!=NULL) {
-															 echo '<a href="documents/bulletins/'.$parcour['bulletin'].'" target="_blank">';
-															 ?>
-															 <div class="block_pdf">
-																<div class="logo_pdf">
-										        					<img style="width :100%;" src="images/pdf.png">
-										        				</div>
-										        				<div>
-										        					Bulletin
-										        				</div>
-															 </div>
-															 </a>
-															 <?php
-															}
-														?>
-														</div>
-													</div>
-											<?php
-												}
-											}
-											?>
-										</div>
-										<?php
+                                                    if ($parcour['remarques']!=NULL) {
+                                                        ?>
+                                                        <div class="ID_card_L1">
+                                                            <div class="ID_block_C1">
+                                                                <div class="ID_card_L2">
+                                                                    <div class="titre_attribut">Remarques :</div>
+                                                                </div>
+                                                                <div class="ID_card_L2" style="margin-bottom: 1.25em;">
+                                                                    <?php
+                                                                    echo "<span class='blackcolor'> ".$parcour['remarques']."</span>";
+                                                                    ?>
+                                                                </div>
+                                                            </div>
+                                                            <?php
+                                                            if ($parcour['rapport']!=NULL OR $parcour['bulletin']!=NULL) {
+                                                                ?>
+                                                                <div class="ID_block_C1">
+                                                                    <div class="blocks_pdf">
+                                                                        <?php
+                                                                        if ($parcour['rapport']!=NULL) {
+                                                                            echo '<a href="documents/rapports/'.$parcour['rapport'].'" target="_blank">';
+                                                                            ?>
+                                                                            <div class="block_pdf">
+                                                                                <div class="logo_pdf">
+                                                                                    <img style="width :100%;" src="images/pdf.png">
+                                                                                </div>
+                                                                                <div>
+                                                                                    Rapport du séjour
+                                                                                </div>
+                                                                            </div>
+                                                                            </a>
+                                                                            <?php
+                                                                        }
+                                                                        if ($parcour['bulletin']!=NULL) {
+                                                                            echo '<a href="documents/bulletins/'.$parcour['bulletin'].'" target="_blank">';
+                                                                            //echo $parcour['bulletin'];
+                                                                            ?>
+                                                                            <div class="block_pdf">
+                                                                                <div class="logo_pdf">
+                                                                                    <img style="width :100%;" src="images/pdf.png">
+                                                                                </div>
+                                                                                <div>
+                                                                                    Bulletin
+                                                                                </div>
+                                                                            </div>
+                                                                            </a>
+                                                                            <?php
+                                                                        }
+                                                                        ?>
+                                                                    </div>
+                                                                </div>
+                                                                <?php
+                                                            }
+                                                            ?>
+                                                        </div>
+                                                        <?php
+                                                    }else{
+                                                        if ($parcour['rapport']!=NULL OR $parcour['bulletin']!=NULL) {
+                                                            ?>
+                                                            <div class="ID_card_L3">
+                                                                <div class="blocks_pdf">
+                                                                    <?php
+                                                                    if ($parcour['rapport']!=NULL) {
+                                                                        echo '<a href="documents/rapports/'.$parcour['rapport'].'" target="_blank">';
+                                                                        ?>
+                                                                        <div class="block_pdf">
+                                                                            <div class="logo_pdf">
+                                                                                <img style="width :100%;" src="images/pdf.png">
+                                                                            </div>
+                                                                            <div>
+                                                                                Rapport du séjour
+                                                                            </div>
+                                                                        </div>
+                                                                        </a>
+                                                                        <?php
+                                                                    }
+                                                                    if ($parcour['bulletin']!=NULL) {
+                                                                        echo '<a href="documents/bulletins/'.$parcour['bulletin'].'" target="_blank">';
+                                                                        ?>
+                                                                        <div class="block_pdf">
+                                                                            <div class="logo_pdf">
+                                                                                <img style="width :100%;" src="images/pdf.png">
+                                                                            </div>
+                                                                            <div>
+                                                                                Bulletin
+                                                                            </div>
+                                                                        </div>
+                                                                        </a>
+                                                                        <?php
+                                                                    }
+                                                                    ?>
+                                                                </div>
+                                                            </div>
+                                                            <?php
+                                                        }
+                                                    }
+                                                    ?>
+                                                </div>
+                                                <?php
+                                                }
+                                    }else{
+                                        echo "<footer class=\"controls\"><a class=\"button\" href='destination.php?key=".$_GET['key']."&authentificated=true'>Connectez-vous pour connaitre les élèves étant partis dans cette destination</a></footer>";
 									}
+
 								}
 								?>
 							</div>
@@ -665,19 +683,7 @@ if (isset($_GET['key'])) {
 					</div>
 				</div>
 			</div>
-			<div id="footer-wrapper">
-				<div class="container">
-					<div class="row">
-						<div class="12u">
-
-							<div id="copyright">
-								&copy; Mobilités internationales pour les nuls. All rights reserved. | Design: <a href="http://html5up.net">HTML5 UP</a>
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
+			<?php include "php/footer.php"; ?>
 		</div>
 
 		<!-- Scripts -->
@@ -690,6 +696,7 @@ if (isset($_GET['key'])) {
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/angularjs.js" type="text/javascript"></script>
 			<script src="assets/js/angularapp.js" type="text/javascript"></script>
+
 
 	</body>
 </html>

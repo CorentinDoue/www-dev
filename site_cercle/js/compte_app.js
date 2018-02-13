@@ -21,13 +21,16 @@ app.controller('mainController', function($scope) {
                 var time_fin=date_fin.getTime()/1000;
                 var depense=0;
                 for (var i = $scope.operations.length - 1; i >= 0; i--) {
-                    if($scope.operations[i].prix<0)
-                    {
-                        if ($scope.operations[i].date>time_debut && $scope.operations[i].date<time_fin)
+                    if ($scope.operations[i].nb>0){
+                        if($scope.operations[i].prix<0)
                         {
-                            depense+=$scope.operations[i].prix;
-                        }
+                            if ($scope.operations[i].date>time_debut && $scope.operations[i].date<time_fin)
+                            {
+                                depense+=$scope.operations[i].prix;
+                            }
 
+                        }
+                        //depense+=$scope.operations[i].prix;
                     }
                 }
                 return depense;
@@ -41,13 +44,13 @@ app.controller('mainController', function($scope) {
                 var time_fin=date_fin.getTime()/1000;
                 var nb=0;
                 for (var i = $scope.operations.length - 1; i >= 0; i--) {
-                    if($scope.operations[i].prix<0)
-                    {
-                        if ($scope.operations[i].date>time_debut && $scope.operations[i].date<time_fin)
-                        {
-                            nb++;
-                        }
+                    if ($scope.operations[i].nb>0) {
+                        if ($scope.operations[i].prix < 0) {
+                            if ($scope.operations[i].date > time_debut && $scope.operations[i].date < time_fin) {
+                                nb++;
+                            }
 
+                        }
                     }
                 }
                 return nb;

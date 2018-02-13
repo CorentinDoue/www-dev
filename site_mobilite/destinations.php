@@ -1,4 +1,6 @@
-<?php include "php/connection.php"; ?>
+<?php
+session_start();
+include "php/connection_bdd.php"; ?>
 <!DOCTYPE HTML>
 <!--
 	Minimaxing by HTML5 UP
@@ -240,19 +242,7 @@
 					</div>
 				</div>
 			</div>
-			<div id="footer-wrapper">
-				<div class="container">					
-					<div class="row">
-						<div class="12u">
-
-							<div id="copyright">
-								&copy; Mobilités internationales pour les nuls. All rights reserved. | Design: <a href="http://html5up.net">HTML5 UP</a>
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
+                        <?php include "php/footer.php"; ?>
 		</div>
 
 		<!-- Scripts -->
