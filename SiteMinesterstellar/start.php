@@ -1,5 +1,5 @@
 <?php try{
-    $bdd = new PDO('mysql:host=db662841232.db.1and1.com;dbname=db662841232;charset=utf8', 'dbo662841232', 'Dc171196', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    $bdd = new PDO('mysql:host=localhost;dbname=minesterstellar;charset=utf8', 'Coco', '0386479877', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 }
 catch (Exception $e)
 {

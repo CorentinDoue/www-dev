@@ -432,6 +432,7 @@ $scope.data=[];
 			for(var i= 0; i < $scope.perm.boissons.length; i++)
 			{
 				if ($scope.perm.boissons[i].quantite>0) {
+                    add_histo($scope.perm.boissons[i].quantite,$scope.perm.boissons[i].nom);
 					texte.data[j]={};
 					texte.data[j].type="B";
 					texte.data[j].id=$scope.perm.boissons[i].id;
@@ -444,31 +445,36 @@ $scope.data=[];
 				     }
 					$scope.perm.boissons[i].quantite=0;
 					j++;
+
+
 				}
 
 			}
-      for(var i= 0; i < $scope.perm.forums.length; i++)
+      		for(var i= 0; i < $scope.perm.forums.length; i++)
 			{
 
-					texte.data[j]={};
-					texte.data[j].type="F";
-					texte.data[j].id=$scope.perm.forums[i].id;
-					texte.data[j].nb=$scope.perm.forums[i].quantite;
-          if ($scope.perm.forums[i].quantite>0) {
-            texte.data[j].prix=$scope.perm.forums[i].quantite*$scope.perm.forums[i].prix_vente;
-          }else{
-            texte.data[j].prix=$scope.perm.forums[i].prix_vente;
-          }
-					if ($scope.perm.forums[i].fut_bouteille=="fut") {
-				     	texte.data[j].litre=0.25*$scope.perm.forums[i].quantite;
-				     }else{
-				     	texte.data[j].litre=$scope.perm.forums[i].capacite*$scope.perm.forums[i].quantite;
-				     }
-          for (var k = 0; k < $scope.perm.forums[i].quantite; k++) {
-            maj_prix_forum(i);
-          }
-					$scope.perm.forums[i].quantite=0;
-					j++;
+				texte.data[j]={};
+				texte.data[j].type="F";
+				texte.data[j].id=$scope.perm.forums[i].id;
+				texte.data[j].nb=$scope.perm.forums[i].quantite;
+				  if ($scope.perm.forums[i].quantite>0) {
+					texte.data[j].prix=$scope.perm.forums[i].quantite*$scope.perm.forums[i].prix_vente;
+					add_histo($scope.perm.forums[i].quantite,$scope.perm.forums[i].nom);
+				  }else{
+					texte.data[j].prix=$scope.perm.forums[i].prix_vente;
+				  }
+							if ($scope.perm.forums[i].fut_bouteille=="fut") {
+								texte.data[j].litre=0.25*$scope.perm.forums[i].quantite;
+							 }else{
+								texte.data[j].litre=$scope.perm.forums[i].capacite*$scope.perm.forums[i].quantite;
+							 }
+				  for (var k = 0; k < $scope.perm.forums[i].quantite; k++) {
+						maj_prix_forum(i);
+				  }
+				$scope.perm.forums[i].quantite=0;
+				j++;
+
+
 
 
 			}
@@ -477,6 +483,7 @@ $scope.data=[];
 
 			    if ($scope.perm.consommables[i].quantite>0)
 			    {
+                    add_histo($scope.perm.consommables[i].quantite,$scope.perm.consommables[i].nom);
 			    	if (typeof $scope.perm.consommables[i].id == 'undefined')
 	    			{
 	    				texte.data[j]={};
@@ -496,6 +503,8 @@ $scope.data=[];
 						$scope.perm.consommables[i].quantite=0;
 						j++;
 	    			}
+
+
 
 				}
 			}
@@ -545,5 +554,19 @@ $scope.data=[];
 
 
     }
+  };
+
+  $scope.histo=[];
+
+  add_histo=function(nb,nom){
+  	var transaction={};
+  	transaction.nom=$scope.perm.client.nom;
+  	transaction.prenom=$scope.perm.client.prenom;
+  	transaction.nb=nb;
+  	transaction.nom_article=nom;
+  	$scope.histo.splice(0,0,transaction);
+	  if($scope.histo.length>10){
+		$scope.histo.splice(-1,1);
+	  }
   }
 });

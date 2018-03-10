@@ -47,6 +47,7 @@ app.controller('mainController', function($scope) {
 
     $scope.stats_globales= new stats_item(true);
 
+
     $scope.stats_perso= new stats_item();
 
     $scope.start_forum=function () {
@@ -135,23 +136,61 @@ app.controller('mainController', function($scope) {
     };
 
     $scope.start_stats_globales=function (){
-        $scope.stats_globales.globale={};
-        $scope.stats_globales.globale.limit=3;
-        $scope.stats_globales.globale.classby="depense";
-        var answer;
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState === 4 && this.status === 200) {
-                answer = angular.fromJson(this.responseText);
-                $scope.stats_globales.globale.data=answer;
-                $scope.$apply();
-            }
-        };
-        xhttp.open("GET", "php/get_stats_globales.php");
-        xhttp.send();
+        if (!$scope.stats_globales.started) {
+            $scope.stats_globales.globale = {};
+            $scope.stats_globales.annee = {};
+            $scope.stats_globales.promo = {};
+            $scope.stats_globales.globale.limit = 5;
+            $scope.stats_globales.globale.classby = "depense";
+            $scope.stats_globales.annee.limit = 5;
+            $scope.stats_globales.annee.classby = "depense";
+            $scope.stats_globales.promo.limit = 5;
+            $scope.stats_globales.promo.classby = "depense";
+
+            var answer;
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    answer = angular.fromJson(this.responseText);
+                    $scope.stats_globales.globale.data = answer.globale.data;
+                    $scope.stats_globales.annee.data = answer.annee.data;
+                    $scope.stats_globales.annee.list = answer.annee.list;
+                    $scope.stats_globales.annee.annee = answer.annee.list[answer.annee.list.length-1].id;
+                    $scope.stats_globales.promo.data = answer.promo.data;
+                    $scope.stats_globales.promo.list = answer.promo.list;
+                    $scope.stats_globales.promo.promo = answer.promo.list[answer.promo.list.length-1];
+                    $scope.stats_globales.started=true;
+                    $scope.$apply();
+                }
+            };
+            xhttp.open("GET", "php/get_stats_globales.php");
+            xhttp.send();
+
+        }
     };
 
-    $scope.start_stats_perso=function (){};
+    $scope.start_stats_globales();
+
+    $scope.start_stats_perso=function (){
+        if (!$scope.stats_perso.started) {
+            $scope.stats_perso.globale = {};
+            $scope.stats_perso.annee = {};
+            var answer;
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    answer = angular.fromJson(this.responseText);
+                    $scope.stats_perso.globale = answer.globale;
+                    $scope.stats_perso.annee = answer.annee;
+                    $scope.stats_perso.annee.annee = answer.annee.list[answer.annee.list.length - 1].id;
+                    $scope.stats_perso.started = true;
+                    $scope.$apply();
+                }
+            };
+            xhttp.open("GET", "php/get_stats_perso.php");
+            xhttp.send();
+        }
+    };
 
     $scope.color=function(index)
     {
@@ -159,6 +198,98 @@ app.controller('mainController', function($scope) {
             return "color_1";
         }else{
             return "color_2";
+        }
+    }
+
+    function decimalAdjust(type, value, exp) {
+        // Si la valeur de exp n'est pas définie ou vaut zéro...
+        if (typeof exp === 'undefined' || +exp === 0) {
+            return Math[type](value);
+        }
+        value = +value;
+        exp = +exp;
+        // Si la valeur n'est pas un nombre
+        // ou si exp n'est pas un entier...
+        if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
+            return NaN;
+        }
+        // Si la valeur est négative
+        if (value < 0) {
+            return -decimalAdjust(type, -value, exp);
+        }
+        // Décalage
+        value = value.toString().split('e');
+        value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
+        // Décalage inversé
+        value = value.toString().split('e');
+        return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
+    }
+
+    // Arrondi décimal
+    if (!Math.round10) {
+        Math.round10 = function(value, exp) {
+            return decimalAdjust('round', value, exp);
+        };
+    }
+    // Arrondi décimal inférieur
+    if (!Math.floor10) {
+        Math.floor10 = function(value, exp) {
+            return decimalAdjust('floor', value, exp);
+        };
+    }
+    // Arrondi décimal supérieur
+    if (!Math.ceil10) {
+        Math.ceil10 = function(value, exp) {
+            return decimalAdjust('ceil', value, exp);
+        };
+    }
+
+
+    $scope.prix= function (float)
+    {
+        float=Math.round10(float,-2);
+        if (float<0)
+        {
+            float=-float;
+            var cent=Math.round((float*100)%100);
+            var euro=Math.floor(float);
+            if (cent==0)
+            {
+                return "- "+euro+"€";
+            }else{
+                if (cent<10) {
+                    cent="0"+cent;
+                }
+                return "- "+euro+"€"+cent;
+            }
+
+        }else{
+            var cent=Math.round((float*100)%100);
+            var euro=Math.floor(float);
+            if (cent==0)
+            {
+                return euro+"€";
+            }else{
+                if (cent<10) {
+                    cent="0"+cent;
+                }
+                return euro+"€"+cent;
+            }
+        }
+    };
+
+    $scope.volume=function (float) {
+        float=Math.round10(float,-1);
+        var dec=Math.round((float*10)%10);
+        var ent=Math.floor(float);
+        return ent+","+dec+"L";
+    }
+
+    $scope.classement=function (int) {
+        if (int===1){
+            return "1er";
+        }else{
+            return int+"ème";
         }
     }
 

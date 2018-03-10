@@ -53,34 +53,49 @@ while ($donnees = $req->fetch())
                 </div></a>
             </div>
             <div class="C_centre">
-								<div class="formulaire" ng-if="forum==1">
-									<div class="inventaire">
-										<div style="margin-left:10px; margin-bottom:10px; border:solid 2px rgb(200,51,30); padding:3px; border-radius:5px; color: rgb(200,51,30);" ng-repeat="boisson in data">
-												<div class="C_center">
-													<div>
-														{{boisson.key}} <br /> Prix normal : <span ng-click="boisson.change_prix=true;" ng-if="!boisson.change_prix">{{prix(boisson.prix)}}</span>
-													</div>
-													<div class="L_center" ng-if="boisson.change_prix">
-														<div>
-															<input type="number"   ng-model="boisson.prix" style="width: 50px;">
-														</div>
-														<div style="margin-left:5px;">
-															<span ng-if="boisson.change_prix" ng-click="boisson.change_prix=false; maj_forum();" class="bouton clickable" style="font-size:0.8em; padding:3px;">Ok</span>
-														</div>
+                <div class="formulaire" ng-if="forum==1">
+                    <div class="inventaire">
+                        <div style="margin-left:10px; margin-bottom:10px; border:solid 2px rgb(200,51,30); padding:3px; border-radius:5px; color: rgb(200,51,30);" ng-repeat="boisson in data">
+                                <div class="C_center">
+                                    <div>
+                                        {{boisson.key}} <br /> Prix normal : <span ng-click="boisson.change_prix=true;" ng-if="!boisson.change_prix">{{prix(boisson.prix)}}</span>
+                                    </div>
+                                    <div class="L_center" ng-if="boisson.change_prix">
+                                        <div>
+                                            <input type="number"   ng-model="boisson.prix" style="width: 50px;">
+                                        </div>
+                                        <div style="margin-left:5px;">
+                                            <span ng-if="boisson.change_prix" ng-click="boisson.change_prix=false; maj_forum();" class="bouton clickable" style="font-size:0.8em; padding:3px;">Ok</span>
+                                        </div>
 
-													</div>
-													<div>
-														<span style="margin-left:5px;">  Bilan : {{prix(boisson.values)}}</span>
-													</div>
-												</div>
-										</div>
-										<div class="L_center">
-											Total des écarts avec les prix réels : {{prix(total_forum)}}
-										</div>
-									</div>
-								</div>
+                                    </div>
+                                    <div>
+                                        <span style="margin-left:5px;">  Bilan : {{prix(boisson.values)}}</span>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="L_center">
+                            Total des écarts avec les prix réels : {{prix(total_forum)}}
+                        </div>
+                    </div>
+                </div>
                 <div class="formulaire" id="perm">
-
+                    <h2 ng-if="histo.length>0">Historique des 10 dernières opérations :</h2>
+                    <div class="inventaire" ng-if="histo.length>0">
+                        <div style="margin-left:10px; margin-bottom:10px; border:solid 2px rgb(200,51,30); padding:3px; border-radius:5px; color: rgb(200,51,30);" ng-repeat="transaction in histo">
+                            <div class="C_center">
+                                <div>
+                                    {{transaction.prenom}} {{transaction.nom}}
+                                </div>
+                                <div>
+                                    {{transaction.nb}}
+                                </div>
+                                <div>
+                                    {{transaction.nom_article}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="L_left">
                         <div class="item_formulaire" style="margin-left: 10%; ">Client :</div>
                         <!-- zone de saisie déclenchant l'autocomplétion -->

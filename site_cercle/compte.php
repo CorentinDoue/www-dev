@@ -161,7 +161,7 @@ if (!isset($_GET["id"])) {
                         <?php
                             if ($_GET["id"]==0) {
                                 echo "<a href='compte.php?id={{operation.user.id}}' style=\"width: 125%;\"><div class=\"case_tableau\" >{{operation.user.prenom}} {{operation.user.nom}}</div></a>";
-                                echo "<a href='compte.php?id={{operation.user.id}}' style=\"width: 125%;\"><div class=\"case_tableau\" >{{operation.debiteur.prenom}} {{operation.debiteur.nom}}</div></a>";
+                                echo "<a href='compte.php?id={{operation.debiteur.id}}' style=\"width: 125%;\"><div class=\"case_tableau\" >{{operation.debiteur.prenom}} {{operation.debiteur.nom}}</div></a>";
                             }
                         ?>
                         <div class="case_tableau" style="width: 50%;">{{operation.nb}}</div>

@@ -29,7 +29,7 @@ include ("php/connexion.php");
 
             <h1>Rechargement de compte</h1>
             <div class="C_centre">
-                <div class="formulaire" style="height: 25em;">
+                <div class="formulaire" style="min-height: 25em;">
                     <div class="L_centre" style="height: 2em;"><div ng-if="client.recharge_ok" style="color: green">Rechargement effectué</div></div>
                     <div class="L_left">
                         <div class="item_formulaire" style="margin-left: 20%; ">Client :</div>
@@ -95,7 +95,33 @@ include ("php/connexion.php");
                     </div>
 
                      <div class="L_left" ng-if="client.client!=null && client.client.montant!=0 && !client.prix" ><div class="bouton" ng-click="validate()" style="margin-left: 20%;" >Recharger</div></div>
+                    <h2>Historiques des rechargements :</h2>
+                    <div class="L_tableau" >
+                        <div class="head_tableau clickable" ng-click="compte.order('date')">Date</div>
+                        <div class="head_tableau clickable" ng-click="compte.order('perm.nom')">Perm</div>
+                        <div class="head_tableau clickable" ng-click="compte.order('user.easy_search')" style="width: 125%;">Client</div>
+                        <div class="head_tableau clickable" ng-click="compte.order('debiteur.easy_search')" style="width: 125%;">Rechargé par</div>
+                        <div class="head_tableau clickable" ng-click="compte.order('prix')" style="width: 50%;">Montant</div>
+                        <?php
+                        if ($_SESSION["droit_cercle"]=="cercle") {
+                            echo "<div class=\"head_tableau\" style=\"width: 75%;\"></div>";
+                        }
+                        ?>
+                    </div>
+                    <div class="L_tableau" ng-class="color($index,operation)" ng-if="operation.nb>0" ng-repeat="operation in operations | filter : x | orderBy : compte.ordervalue">
+                        <div class="case_tableau">{{datestr(operation.date)}}</div>
+                        <div class="case_tableau">{{operation.perm.nom}}</div>
+                        <a href='compte.php?id={{operation.user.id}}' style="width: 125%;"><div class="case_tableau" >{{operation.user.prenom}} {{operation.user.nom}}</div></a>
+                        <a href='compte.php?id={{operation.debiteur.id}}' style="width: 125%;"><div class="case_tableau" >{{operation.debiteur.prenom}} {{operation.debiteur.nom}}</div></a>
+                        <div class="case_tableau" style="width: 50%;">{{prix(operation.prix)}}</div>
+                        <?php
+                        if ($_SESSION["droit_cercle"]=="cercle") {
+                            echo "<div class=\"case_tableau\" style=\"width: 75%;\"><div class='bouton' style='padding: 5px;' ng-click='annule(operation)'>Annuler</div></div>";
+                        }
+                        ?>
+                    </div>
                 </div>
+
             </div>
 
 

@@ -38,95 +38,378 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit_cercle"]!="aucun")
 {
 	#Globale
 
-	$globale=[];
+		$globale=[];
 
-	#par dépense
+		#par dépense
 
 
-	$req = $bdd -> query("SELECT u.nom, u.prenom, u.promo, ");
-
-		$donnees = $req->fetch();
-		$id_perm=$donnees['id_perm'];
-		//echo "id=".$_GET["id"]."<br>";
-		//echo "date_debut=".$_GET["date_debut"]."<br>";
-		//echo "date_fin=".$_GET["date_fin"]."<br>";
-		$req = $bdd -> prepare("SELECT id, id_B_C, datee, nb, prix FROM operation_cercle WHERE B_C_A='F' and datee>? and id_perm=? ORDER BY datee");
-
-		$req -> execute(array($_GET["time"],$id_perm));
+		$req = $bdd -> query("SELECT u.id_user, u.login_user ,u.nom, u.prenom, u.promo_user, -a.depense-b.depense as depense, a.volume+b.volume as volume, a.alcool+b.alcool as alcool, c.perm FROM  
+	(SELECT u.id_user, SUM(op.prix) as depense, SUM(op.nb*ct.capacite) as volume, SUM(op.nb*ct.capacite*cu.degre*0.01) as alcool FROM user u, operation_cercle op, boisson b, contenant ct, contenu cu WHERE u.id_user=op.id_user and op.B_C_A='B' and op.id_B_C=b.id and b.id_contenu=cu.id and b.id_contenant=ct.id and ct.type='bouteille_unique' GROUP BY u.id_user) a,  
+	(SELECT u.id_user, SUM(op.prix) as depense, SUM(op.nb*0.25) as volume, SUM(op.nb*0.25*cu.degre*0.01) as alcool FROM user u, operation_cercle op, boisson b, contenant ct, contenu cu WHERE u.id_user=op.id_user and op.B_C_A='B' and op.id_B_C=b.id and b.id_contenu=cu.id and b.id_contenant=ct.id and ct.type!='bouteille_unique' GROUP BY u.id_user) b, 
+	(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user=op.id_user and op.B_C_A='B' GROUP BY u.id_user) c,
+	user u 
+	WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ORDER BY depense desc LIMIT 20");
 		$i=0;
-		$data=[];
-		$last_x=$_GET['time'];
-		while ($donnees = $req->fetch())
-	  {
-			$operations[$i]["id"]=$donnees["id"];
-			$operations[$i]["date"]=$donnees["datee"];
-			$point['x_time']=$donnees["datee"]*1000;
-			$operations[$i]["prix"]=-$donnees["prix"];
-			$operations[$i]["nb"]=$donnees["nb"];
-			$operations[$i]["id_boisson"]=$donnees["id_B_C"];
-
-
-
-			$rep = $bdd -> prepare("SELECT cu.id, cu.nom FROM boisson b, contenu cu WHERE b.id_contenu=cu.id and b.id=?");
-			$rep -> execute(array($donnees["id_B_C"]));
-
-			$donnees2 = $rep->fetch();
-			$operations[$i]["nom"]=$donnees2["nom"];
-			$operations[$i]["id_contenu"]=$donnees2["id"];
-
-			if (array_key_exists($donnees2["nom"],$data))
-			{
-				$j=count($data[$donnees2["nom"]]);
-			}else{
-				$j=0;
-				$data[$donnees2["nom"]]=[];
+		while ($donnees = $req->fetch()){
+			$globale["data"]["depense"][$i]["classement"]=$i+1;
+			$globale["data"]["depense"][$i]["id"]=$donnees["id_user"];
+			if ($donnees["nom"]==""){
+				$donnees["nom"]=explode(".",$donnees["login_user"])[1];
+				$donnees["prenom"]=explode(".",$donnees["login_user"])[0];
 			}
-			if ($donnees["nb"]>0) {
-				$point['y_prix']=-$donnees["prix"]/$donnees["nb"];
-			}else{
-				$point['y_prix']=-$donnees["prix"];
-			}
-			$point['z_nb']=$donnees["nb"];
-
-
-			$data[$donnees2["nom"]][$j]=$point;
-			$last_x=$donnees["datee"];
+			$globale["data"]["depense"][$i]["nom"]=$donnees["nom"];
+			$globale["data"]["depense"][$i]["prenom"]=$donnees["prenom"];
+			$globale["data"]["depense"][$i]["promo"]=$donnees["promo_user"];
+			$globale["data"]["depense"][$i]["depense"]=$donnees["depense"];
+			$globale["data"]["depense"][$i]["volume"]=$donnees["volume"];
+			$globale["data"]["depense"][$i]["alcool"]=$donnees["alcool"];
+			$globale["data"]["depense"][$i]["perm"]=$donnees["perm"];
 			$i++;
 		}
 
+		#par volume
 
 
-
-		$req = $bdd -> prepare("SELECT B_C, id_B_C FROM inventaire_perm WHERE id_perm = ? AND B_C='F'");
-
-		$req -> execute(array($id_perm));
-
-		$k=0;
-		while ($donnees = $req->fetch())
-		{
-			if ($donnees["B_C"]=="F") {
-				$rep = $bdd -> prepare("SELECT b.id, cu.nom, b.prix_vente FROM boisson b, contenu cu WHERE b.id_contenu=cu.id and b.id = ?");
-
-				$rep -> execute(array($donnees["id_B_C"]));
-
-				while ($donnees2 = $rep->fetch())
-				{
-					$boissons[$k]["id"]=$donnees2["id"];
-					$boissons[$k]["nom"]=$donnees2["nom"];
-					$boissons[$k]["prix"]=$donnees2["prix_vente"];
-					$k++;
-				}
+		$req = $bdd -> query("SELECT u.id_user, u.login_user ,u.nom, u.prenom, u.promo_user, -a.depense-b.depense as depense, a.volume+b.volume as volume, a.alcool+b.alcool as alcool, c.perm FROM  
+	(SELECT u.id_user, SUM(op.prix) as depense, SUM(op.nb*ct.capacite) as volume, SUM(op.nb*ct.capacite*cu.degre*0.01) as alcool FROM user u, operation_cercle op, boisson b, contenant ct, contenu cu WHERE u.id_user=op.id_user and op.B_C_A='B' and op.id_B_C=b.id and b.id_contenu=cu.id and b.id_contenant=ct.id and ct.type='bouteille_unique' GROUP BY u.id_user) a,  
+	(SELECT u.id_user, SUM(op.prix) as depense, SUM(op.nb*0.25) as volume, SUM(op.nb*0.25*cu.degre*0.01) as alcool FROM user u, operation_cercle op, boisson b, contenant ct, contenu cu WHERE u.id_user=op.id_user and op.B_C_A='B' and op.id_B_C=b.id and b.id_contenu=cu.id and b.id_contenant=ct.id and ct.type!='bouteille_unique' GROUP BY u.id_user) b, 
+	(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user=op.id_user and op.B_C_A='B' GROUP BY u.id_user) c,
+	user u 
+	WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ORDER BY volume desc LIMIT 20");
+		$i=0;
+		while ($donnees = $req->fetch()){
+			$globale["data"]["volume"][$i]["classement"]=$i+1;
+			$globale["data"]["volume"][$i]["id"]=$donnees["id_user"];
+			if ($donnees["nom"]==""){
+				$donnees["nom"]=explode(".",$donnees["login_user"])[1];
+				$donnees["prenom"]=explode(".",$donnees["login_user"])[0];
 			}
+			$globale["data"]["volume"][$i]["nom"]=$donnees["nom"];
+			$globale["data"]["volume"][$i]["prenom"]=$donnees["prenom"];
+			$globale["data"]["volume"][$i]["promo"]=$donnees["promo_user"];
+			$globale["data"]["volume"][$i]["depense"]=$donnees["depense"];
+			$globale["data"]["volume"][$i]["volume"]=$donnees["volume"];
+			$globale["data"]["volume"][$i]["alcool"]=$donnees["alcool"];
+			$globale["data"]["volume"][$i]["perm"]=$donnees["perm"];
+			$i++;
 		}
 
-		if ($k==0) {
-			$boissons["forums"]=[];
+		#par alcool
+
+
+		$req = $bdd -> query("SELECT u.id_user, u.login_user ,u.nom, u.prenom, u.promo_user, -a.depense-b.depense as depense, a.volume+b.volume as volume, a.alcool+b.alcool as alcool, c.perm FROM  
+	(SELECT u.id_user, SUM(op.prix) as depense, SUM(op.nb*ct.capacite) as volume, SUM(op.nb*ct.capacite*cu.degre*0.01) as alcool FROM user u, operation_cercle op, boisson b, contenant ct, contenu cu WHERE u.id_user=op.id_user and op.B_C_A='B' and op.id_B_C=b.id and b.id_contenu=cu.id and b.id_contenant=ct.id and ct.type='bouteille_unique' GROUP BY u.id_user) a,  
+	(SELECT u.id_user, SUM(op.prix) as depense, SUM(op.nb*0.25) as volume, SUM(op.nb*0.25*cu.degre*0.01) as alcool FROM user u, operation_cercle op, boisson b, contenant ct, contenu cu WHERE u.id_user=op.id_user and op.B_C_A='B' and op.id_B_C=b.id and b.id_contenu=cu.id and b.id_contenant=ct.id and ct.type!='bouteille_unique' GROUP BY u.id_user) b, 
+	(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user=op.id_user and op.B_C_A='B' GROUP BY u.id_user) c,
+	user u 
+	WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ORDER BY alcool desc LIMIT 20");
+		$i=0;
+		while ($donnees = $req->fetch()){
+			$globale["data"]["alcool"][$i]["classement"]=$i+1;
+			$globale["data"]["alcool"][$i]["id"]=$donnees["id_user"];
+			if ($donnees["nom"]==""){
+				$donnees["nom"]=explode(".",$donnees["login_user"])[1];
+				$donnees["prenom"]=explode(".",$donnees["login_user"])[0];
+			}
+			$globale["data"]["alcool"][$i]["nom"]=$donnees["nom"];
+			$globale["data"]["alcool"][$i]["prenom"]=$donnees["prenom"];
+			$globale["data"]["alcool"][$i]["promo"]=$donnees["promo_user"];
+			$globale["data"]["alcool"][$i]["depense"]=$donnees["depense"];
+			$globale["data"]["alcool"][$i]["volume"]=$donnees["volume"];
+			$globale["data"]["alcool"][$i]["alcool"]=$donnees["alcool"];
+			$globale["data"]["alcool"][$i]["perm"]=$donnees["perm"];
+			$i++;
 		}
 
-	$answer['boissons']=$boissons;
-	$answer["operations"]=$operations;
-	$answer["data"]=$data;
-	$answer["last_x"]=$last_x;
+		#par perm
+
+
+		$req = $bdd -> query("SELECT u.id_user, u.login_user ,u.nom, u.prenom, u.promo_user, -a.depense-b.depense as depense, a.volume+b.volume as volume, a.alcool+b.alcool as alcool, c.perm FROM  
+	(SELECT u.id_user, SUM(op.prix) as depense, SUM(op.nb*ct.capacite) as volume, SUM(op.nb*ct.capacite*cu.degre*0.01) as alcool FROM user u, operation_cercle op, boisson b, contenant ct, contenu cu WHERE u.id_user=op.id_user and op.B_C_A='B' and op.id_B_C=b.id and b.id_contenu=cu.id and b.id_contenant=ct.id and ct.type='bouteille_unique' GROUP BY u.id_user) a,  
+	(SELECT u.id_user, SUM(op.prix) as depense, SUM(op.nb*0.25) as volume, SUM(op.nb*0.25*cu.degre*0.01) as alcool FROM user u, operation_cercle op, boisson b, contenant ct, contenu cu WHERE u.id_user=op.id_user and op.B_C_A='B' and op.id_B_C=b.id and b.id_contenu=cu.id and b.id_contenant=ct.id and ct.type!='bouteille_unique' GROUP BY u.id_user) b, 
+	(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user=op.id_user and op.B_C_A='B' GROUP BY u.id_user) c,
+	user u 
+	WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ORDER BY perm desc LIMIT 20");
+		$i=0;
+		while ($donnees = $req->fetch()){
+			$globale["data"]["perm"][$i]["classement"]=$i+1;
+			$globale["data"]["perm"][$i]["id"]=$donnees["id_user"];
+			if ($donnees["nom"]==""){
+				$donnees["nom"]=explode(".",$donnees["login_user"])[1];
+				$donnees["prenom"]=explode(".",$donnees["login_user"])[0];
+			}
+			$globale["data"]["perm"][$i]["nom"]=$donnees["nom"];
+			$globale["data"]["perm"][$i]["prenom"]=$donnees["prenom"];
+			$globale["data"]["perm"][$i]["promo"]=$donnees["promo_user"];
+			$globale["data"]["perm"][$i]["depense"]=$donnees["depense"];
+			$globale["data"]["perm"][$i]["volume"]=$donnees["volume"];
+			$globale["data"]["perm"][$i]["alcool"]=$donnees["alcool"];
+			$globale["data"]["perm"][$i]["perm"]=$donnees["perm"];
+			$i++;
+		}
+
+    #Par année
+
+    $annee=[];
+
+	$k=0;
+
+   	$year_max = intval(date('Y'));
+   	$a = strtotime($year_max."-08-20");
+   	if (time()>$a){
+   		$year_max++;
+	}
+	for ($j=2013;$j<$year_max;$j++){
+   		//echo $j."<br>";
+   		$time_min=strtotime($j."-08-20");
+        //echo "time min :".$time_min."<br>";
+        $time_max=strtotime(($j+1)."-07-10");
+        //echo "time max :".$time_max."<br>";
+
+        #par dépense
+        $req = $bdd -> prepare("SELECT u.id_user, u.login_user ,u.nom, u.prenom, u.promo_user, -a.depense-b.depense as depense, a.volume+b.volume as volume, a.alcool+b.alcool as alcool, c.perm FROM  
+			(SELECT u.id_user, SUM(op.prix) as depense, SUM(op.nb*ct.capacite) as volume, SUM(op.nb*ct.capacite*cu.degre*0.01) as alcool FROM user u, operation_cercle op, boisson b, contenant ct, contenu cu WHERE u.id_user=op.id_user and op.B_C_A='B' and op.id_B_C=b.id and b.id_contenu=cu.id and b.id_contenant=ct.id and ct.type='bouteille_unique' and op.datee>? and op.datee<? GROUP BY u.id_user) a,  
+			(SELECT u.id_user, SUM(op.prix) as depense, SUM(op.nb*0.25) as volume, SUM(op.nb*0.25*cu.degre*0.01) as alcool FROM user u, operation_cercle op, boisson b, contenant ct, contenu cu WHERE u.id_user=op.id_user and op.B_C_A='B' and op.id_B_C=b.id and b.id_contenu=cu.id and b.id_contenant=ct.id and ct.type!='bouteille_unique' and op.datee>? and op.datee<? GROUP BY u.id_user) b, 
+			(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user=op.id_user and op.B_C_A='B' and op.datee>? and op.datee<? GROUP BY u.id_user) c,
+			user u 
+			WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ORDER BY depense desc LIMIT 20");
+        $req -> execute(array($time_min,$time_max,$time_min,$time_max,$time_min,$time_max));
+
+        $i=0;
+        while ($donnees = $req->fetch()){
+            $annee["data"][$j]["depense"][$i]["classement"]=$i+1;
+            $annee["data"][$j]["depense"][$i]["id"]=$donnees["id_user"];
+            if ($donnees["nom"]==""){
+                $donnees["nom"]=explode(".",$donnees["login_user"])[1];
+                $donnees["prenom"]=explode(".",$donnees["login_user"])[0];
+            }
+            $annee["data"][$j]["depense"][$i]["nom"]=$donnees["nom"];
+            $annee["data"][$j]["depense"][$i]["prenom"]=$donnees["prenom"];
+            $annee["data"][$j]["depense"][$i]["promo"]=$donnees["promo_user"];
+            $annee["data"][$j]["depense"][$i]["depense"]=$donnees["depense"];
+            $annee["data"][$j]["depense"][$i]["volume"]=$donnees["volume"];
+            $annee["data"][$j]["depense"][$i]["alcool"]=$donnees["alcool"];
+            $annee["data"][$j]["depense"][$i]["perm"]=$donnees["perm"];
+            $i++;
+        }
+        if ($i!=0){
+        	$annee['list'][$k]["id"]=$j;
+            $annee['list'][$k]["name"]=$j."/".($j+1);
+        	$k++;
+		}
+
+        #par volume
+        $req = $bdd -> prepare("SELECT u.id_user, u.login_user ,u.nom, u.prenom, u.promo_user, -a.depense-b.depense as depense, a.volume+b.volume as volume, a.alcool+b.alcool as alcool, c.perm FROM  
+			(SELECT u.id_user, SUM(op.prix) as depense, SUM(op.nb*ct.capacite) as volume, SUM(op.nb*ct.capacite*cu.degre*0.01) as alcool FROM user u, operation_cercle op, boisson b, contenant ct, contenu cu WHERE u.id_user=op.id_user and op.B_C_A='B' and op.id_B_C=b.id and b.id_contenu=cu.id and b.id_contenant=ct.id and ct.type='bouteille_unique' and op.datee>? and op.datee<? GROUP BY u.id_user) a,  
+			(SELECT u.id_user, SUM(op.prix) as depense, SUM(op.nb*0.25) as volume, SUM(op.nb*0.25*cu.degre*0.01) as alcool FROM user u, operation_cercle op, boisson b, contenant ct, contenu cu WHERE u.id_user=op.id_user and op.B_C_A='B' and op.id_B_C=b.id and b.id_contenu=cu.id and b.id_contenant=ct.id and ct.type!='bouteille_unique' and op.datee>? and op.datee<? GROUP BY u.id_user) b, 
+			(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user=op.id_user and op.B_C_A='B' and op.datee>? and op.datee<? GROUP BY u.id_user) c,
+			user u 
+			WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ORDER BY volume desc LIMIT 20");
+        $req -> execute(array($time_min,$time_max,$time_min,$time_max,$time_min,$time_max));
+
+        $i=0;
+        while ($donnees = $req->fetch()){
+            $annee["data"][$j]["volume"][$i]["classement"]=$i+1;
+            $annee["data"][$j]["volume"][$i]["id"]=$donnees["id_user"];
+            if ($donnees["nom"]==""){
+                $donnees["nom"]=explode(".",$donnees["login_user"])[1];
+                $donnees["prenom"]=explode(".",$donnees["login_user"])[0];
+            }
+            $annee["data"][$j]["volume"][$i]["nom"]=$donnees["nom"];
+            $annee["data"][$j]["volume"][$i]["prenom"]=$donnees["prenom"];
+            $annee["data"][$j]["volume"][$i]["promo"]=$donnees["promo_user"];
+            $annee["data"][$j]["volume"][$i]["depense"]=$donnees["depense"];
+            $annee["data"][$j]["volume"][$i]["volume"]=$donnees["volume"];
+            $annee["data"][$j]["volume"][$i]["alcool"]=$donnees["alcool"];
+            $annee["data"][$j]["volume"][$i]["perm"]=$donnees["perm"];
+            $i++;
+        }
+
+        #par alcool
+        $req = $bdd -> prepare("SELECT u.id_user, u.login_user ,u.nom, u.prenom, u.promo_user, -a.depense-b.depense as depense, a.volume+b.volume as volume, a.alcool+b.alcool as alcool, c.perm FROM  
+			(SELECT u.id_user, SUM(op.prix) as depense, SUM(op.nb*ct.capacite) as volume, SUM(op.nb*ct.capacite*cu.degre*0.01) as alcool FROM user u, operation_cercle op, boisson b, contenant ct, contenu cu WHERE u.id_user=op.id_user and op.B_C_A='B' and op.id_B_C=b.id and b.id_contenu=cu.id and b.id_contenant=ct.id and ct.type='bouteille_unique' and op.datee>? and op.datee<? GROUP BY u.id_user) a,  
+			(SELECT u.id_user, SUM(op.prix) as depense, SUM(op.nb*0.25) as volume, SUM(op.nb*0.25*cu.degre*0.01) as alcool FROM user u, operation_cercle op, boisson b, contenant ct, contenu cu WHERE u.id_user=op.id_user and op.B_C_A='B' and op.id_B_C=b.id and b.id_contenu=cu.id and b.id_contenant=ct.id and ct.type!='bouteille_unique' and op.datee>? and op.datee<? GROUP BY u.id_user) b, 
+			(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user=op.id_user and op.B_C_A='B' and op.datee>? and op.datee<? GROUP BY u.id_user) c,
+			user u 
+			WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ORDER BY alcool desc LIMIT 20");
+        $req -> execute(array($time_min,$time_max,$time_min,$time_max,$time_min,$time_max));
+
+        $i=0;
+        while ($donnees = $req->fetch()){
+            $annee["data"][$j]["alcool"][$i]["classement"]=$i+1;
+            $annee["data"][$j]["alcool"][$i]["id"]=$donnees["id_user"];
+            if ($donnees["nom"]==""){
+                $donnees["nom"]=explode(".",$donnees["login_user"])[1];
+                $donnees["prenom"]=explode(".",$donnees["login_user"])[0];
+            }
+            $annee["data"][$j]["alcool"][$i]["nom"]=$donnees["nom"];
+            $annee["data"][$j]["alcool"][$i]["prenom"]=$donnees["prenom"];
+            $annee["data"][$j]["alcool"][$i]["promo"]=$donnees["promo_user"];
+            $annee["data"][$j]["alcool"][$i]["depense"]=$donnees["depense"];
+            $annee["data"][$j]["alcool"][$i]["volume"]=$donnees["volume"];
+            $annee["data"][$j]["alcool"][$i]["alcool"]=$donnees["alcool"];
+            $annee["data"][$j]["alcool"][$i]["perm"]=$donnees["perm"];
+            $i++;
+        }
+
+        #par perm
+        $req = $bdd -> prepare("SELECT u.id_user, u.login_user ,u.nom, u.prenom, u.promo_user, -a.depense-b.depense as depense, a.volume+b.volume as volume, a.alcool+b.alcool as alcool, c.perm FROM  
+			(SELECT u.id_user, SUM(op.prix) as depense, SUM(op.nb*ct.capacite) as volume, SUM(op.nb*ct.capacite*cu.degre*0.01) as alcool FROM user u, operation_cercle op, boisson b, contenant ct, contenu cu WHERE u.id_user=op.id_user and op.B_C_A='B' and op.id_B_C=b.id and b.id_contenu=cu.id and b.id_contenant=ct.id and ct.type='bouteille_unique' and op.datee>? and op.datee<? GROUP BY u.id_user) a,  
+			(SELECT u.id_user, SUM(op.prix) as depense, SUM(op.nb*0.25) as volume, SUM(op.nb*0.25*cu.degre*0.01) as alcool FROM user u, operation_cercle op, boisson b, contenant ct, contenu cu WHERE u.id_user=op.id_user and op.B_C_A='B' and op.id_B_C=b.id and b.id_contenu=cu.id and b.id_contenant=ct.id and ct.type!='bouteille_unique' and op.datee>? and op.datee<? GROUP BY u.id_user) b, 
+			(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user=op.id_user and op.B_C_A='B' and op.datee>? and op.datee<? GROUP BY u.id_user) c,
+			user u 
+			WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ORDER BY perm desc LIMIT 20");
+        $req -> execute(array($time_min,$time_max,$time_min,$time_max,$time_min,$time_max));
+
+        $i=0;
+        while ($donnees = $req->fetch()){
+            $annee["data"][$j]["perm"][$i]["classement"]=$i+1;
+            $annee["data"][$j]["perm"][$i]["id"]=$donnees["id_user"];
+            if ($donnees["nom"]==""){
+                $donnees["nom"]=explode(".",$donnees["login_user"])[1];
+                $donnees["prenom"]=explode(".",$donnees["login_user"])[0];
+            }
+            $annee["data"][$j]["perm"][$i]["nom"]=$donnees["nom"];
+            $annee["data"][$j]["perm"][$i]["prenom"]=$donnees["prenom"];
+            $annee["data"][$j]["perm"][$i]["promo"]=$donnees["promo_user"];
+            $annee["data"][$j]["perm"][$i]["depense"]=$donnees["depense"];
+            $annee["data"][$j]["perm"][$i]["volume"]=$donnees["volume"];
+            $annee["data"][$j]["perm"][$i]["alcool"]=$donnees["alcool"];
+            $annee["data"][$j]["perm"][$i]["perm"]=$donnees["perm"];
+            $i++;
+        }
+	}
+
+    #Par promo
+
+    $promo=[];
+
+    $k=0;
+
+    $promo_max = intval(date('Y'));
+    $a = strtotime($promo_max."-08-20");
+    if (time()>$a){
+        $year_max++;
+    }
+    for ($j=2013;$j<$year_max;$j++){
+
+        #par dépense
+        $req = $bdd -> prepare("SELECT u.id_user, u.login_user ,u.nom, u.prenom, u.promo_user, -a.depense-b.depense as depense, a.volume+b.volume as volume, a.alcool+b.alcool as alcool, c.perm FROM  
+			(SELECT u.id_user, SUM(op.prix) as depense, SUM(op.nb*ct.capacite) as volume, SUM(op.nb*ct.capacite*cu.degre*0.01) as alcool FROM user u, operation_cercle op, boisson b, contenant ct, contenu cu WHERE u.id_user=op.id_user and op.B_C_A='B' and op.id_B_C=b.id and b.id_contenu=cu.id and b.id_contenant=ct.id and ct.type='bouteille_unique' and u.promo_user = ? GROUP BY u.id_user) a,  
+			(SELECT u.id_user, SUM(op.prix) as depense, SUM(op.nb*0.25) as volume, SUM(op.nb*0.25*cu.degre*0.01) as alcool FROM user u, operation_cercle op, boisson b, contenant ct, contenu cu WHERE u.id_user=op.id_user and op.B_C_A='B' and op.id_B_C=b.id and b.id_contenu=cu.id and b.id_contenant=ct.id and ct.type!='bouteille_unique' and u.promo_user = ? GROUP BY u.id_user) b, 
+			(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user=op.id_user and op.B_C_A='B' and u.promo_user = ? GROUP BY u.id_user) c,
+			user u 
+			WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ORDER BY depense desc LIMIT 20");
+        $req -> execute(array($j,$j,$j));
+
+        $i=0;
+        while ($donnees = $req->fetch()){
+            $promo["data"][$j]["depense"][$i]["classement"]=$i+1;
+            $promo["data"][$j]["depense"][$i]["id"]=$donnees["id_user"];
+            if ($donnees["nom"]==""){
+                $donnees["nom"]=explode(".",$donnees["login_user"])[1];
+                $donnees["prenom"]=explode(".",$donnees["login_user"])[0];
+            }
+            $promo["data"][$j]["depense"][$i]["nom"]=$donnees["nom"];
+            $promo["data"][$j]["depense"][$i]["prenom"]=$donnees["prenom"];
+            $promo["data"][$j]["depense"][$i]["promo"]=$donnees["promo_user"];
+            $promo["data"][$j]["depense"][$i]["depense"]=$donnees["depense"];
+            $promo["data"][$j]["depense"][$i]["volume"]=$donnees["volume"];
+            $promo["data"][$j]["depense"][$i]["alcool"]=$donnees["alcool"];
+            $promo["data"][$j]["depense"][$i]["perm"]=$donnees["perm"];
+            $i++;
+        }
+        if ($i!=0){
+            $promo['list'][$k]=$j;
+            $k++;
+        }
+
+        #par volume
+        $req = $bdd -> prepare("SELECT u.id_user, u.login_user ,u.nom, u.prenom, u.promo_user, -a.depense-b.depense as depense, a.volume+b.volume as volume, a.alcool+b.alcool as alcool, c.perm FROM  
+			(SELECT u.id_user, SUM(op.prix) as depense, SUM(op.nb*ct.capacite) as volume, SUM(op.nb*ct.capacite*cu.degre*0.01) as alcool FROM user u, operation_cercle op, boisson b, contenant ct, contenu cu WHERE u.id_user=op.id_user and op.B_C_A='B' and op.id_B_C=b.id and b.id_contenu=cu.id and b.id_contenant=ct.id and ct.type='bouteille_unique' and u.promo_user = ? GROUP BY u.id_user) a,  
+			(SELECT u.id_user, SUM(op.prix) as depense, SUM(op.nb*0.25) as volume, SUM(op.nb*0.25*cu.degre*0.01) as alcool FROM user u, operation_cercle op, boisson b, contenant ct, contenu cu WHERE u.id_user=op.id_user and op.B_C_A='B' and op.id_B_C=b.id and b.id_contenu=cu.id and b.id_contenant=ct.id and ct.type!='bouteille_unique' and u.promo_user = ? GROUP BY u.id_user) b, 
+			(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user=op.id_user and op.B_C_A='B' and u.promo_user = ? GROUP BY u.id_user) c,
+			user u 
+			WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ORDER BY volume desc LIMIT 20");
+        $req -> execute(array($j,$j,$j));
+
+        $i=0;
+        while ($donnees = $req->fetch()){
+            $promo["data"][$j]["volume"][$i]["classement"]=$i+1;
+            $promo["data"][$j]["volume"][$i]["id"]=$donnees["id_user"];
+            if ($donnees["nom"]==""){
+                $donnees["nom"]=explode(".",$donnees["login_user"])[1];
+                $donnees["prenom"]=explode(".",$donnees["login_user"])[0];
+            }
+            $promo["data"][$j]["volume"][$i]["nom"]=$donnees["nom"];
+            $promo["data"][$j]["volume"][$i]["prenom"]=$donnees["prenom"];
+            $promo["data"][$j]["volume"][$i]["promo"]=$donnees["promo_user"];
+            $promo["data"][$j]["volume"][$i]["depense"]=$donnees["depense"];
+            $promo["data"][$j]["volume"][$i]["volume"]=$donnees["volume"];
+            $promo["data"][$j]["volume"][$i]["alcool"]=$donnees["alcool"];
+            $promo["data"][$j]["volume"][$i]["perm"]=$donnees["perm"];
+            $i++;
+        }
+
+        #par alcool
+        $req = $bdd -> prepare("SELECT u.id_user, u.login_user ,u.nom, u.prenom, u.promo_user, -a.depense-b.depense as depense, a.volume+b.volume as volume, a.alcool+b.alcool as alcool, c.perm FROM  
+			(SELECT u.id_user, SUM(op.prix) as depense, SUM(op.nb*ct.capacite) as volume, SUM(op.nb*ct.capacite*cu.degre*0.01) as alcool FROM user u, operation_cercle op, boisson b, contenant ct, contenu cu WHERE u.id_user=op.id_user and op.B_C_A='B' and op.id_B_C=b.id and b.id_contenu=cu.id and b.id_contenant=ct.id and ct.type='bouteille_unique' and u.promo_user = ? GROUP BY u.id_user) a,  
+			(SELECT u.id_user, SUM(op.prix) as depense, SUM(op.nb*0.25) as volume, SUM(op.nb*0.25*cu.degre*0.01) as alcool FROM user u, operation_cercle op, boisson b, contenant ct, contenu cu WHERE u.id_user=op.id_user and op.B_C_A='B' and op.id_B_C=b.id and b.id_contenu=cu.id and b.id_contenant=ct.id and ct.type!='bouteille_unique' and u.promo_user = ? GROUP BY u.id_user) b, 
+			(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user=op.id_user and op.B_C_A='B' and u.promo_user = ? GROUP BY u.id_user) c,
+			user u 
+			WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ORDER BY alcool desc LIMIT 20");
+        $req -> execute(array($j,$j,$j));
+
+        $i=0;
+        while ($donnees = $req->fetch()){
+            $promo["data"][$j]["alcool"][$i]["classement"]=$i+1;
+            $promo["data"][$j]["alcool"][$i]["id"]=$donnees["id_user"];
+            if ($donnees["nom"]==""){
+                $donnees["nom"]=explode(".",$donnees["login_user"])[1];
+                $donnees["prenom"]=explode(".",$donnees["login_user"])[0];
+            }
+            $promo["data"][$j]["alcool"][$i]["nom"]=$donnees["nom"];
+            $promo["data"][$j]["alcool"][$i]["prenom"]=$donnees["prenom"];
+            $promo["data"][$j]["alcool"][$i]["promo"]=$donnees["promo_user"];
+            $promo["data"][$j]["alcool"][$i]["depense"]=$donnees["depense"];
+            $promo["data"][$j]["alcool"][$i]["volume"]=$donnees["volume"];
+            $promo["data"][$j]["alcool"][$i]["alcool"]=$donnees["alcool"];
+            $promo["data"][$j]["alcool"][$i]["perm"]=$donnees["perm"];
+            $i++;
+        }
+
+        #par perm
+        $req = $bdd -> prepare("SELECT u.id_user, u.login_user ,u.nom, u.prenom, u.promo_user, -a.depense-b.depense as depense, a.volume+b.volume as volume, a.alcool+b.alcool as alcool, c.perm FROM  
+			(SELECT u.id_user, SUM(op.prix) as depense, SUM(op.nb*ct.capacite) as volume, SUM(op.nb*ct.capacite*cu.degre*0.01) as alcool FROM user u, operation_cercle op, boisson b, contenant ct, contenu cu WHERE u.id_user=op.id_user and op.B_C_A='B' and op.id_B_C=b.id and b.id_contenu=cu.id and b.id_contenant=ct.id and ct.type='bouteille_unique' and u.promo_user = ? GROUP BY u.id_user) a,  
+			(SELECT u.id_user, SUM(op.prix) as depense, SUM(op.nb*0.25) as volume, SUM(op.nb*0.25*cu.degre*0.01) as alcool FROM user u, operation_cercle op, boisson b, contenant ct, contenu cu WHERE u.id_user=op.id_user and op.B_C_A='B' and op.id_B_C=b.id and b.id_contenu=cu.id and b.id_contenant=ct.id and ct.type!='bouteille_unique' and u.promo_user = ? GROUP BY u.id_user) b, 
+			(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user=op.id_user and op.B_C_A='B' and u.promo_user = ? GROUP BY u.id_user) c,
+			user u 
+			WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ORDER BY perm desc LIMIT 20");
+        $req -> execute(array($j,$j,$j));
+
+        $i=0;
+        while ($donnees = $req->fetch()){
+            $promo["data"][$j]["perm"][$i]["classement"]=$i+1;
+            $promo["data"][$j]["perm"][$i]["id"]=$donnees["id_user"];
+            if ($donnees["nom"]==""){
+                $donnees["nom"]=explode(".",$donnees["login_user"])[1];
+                $donnees["prenom"]=explode(".",$donnees["login_user"])[0];
+            }
+            $promo["data"][$j]["perm"][$i]["nom"]=$donnees["nom"];
+            $promo["data"][$j]["perm"][$i]["prenom"]=$donnees["prenom"];
+            $promo["data"][$j]["perm"][$i]["promo"]=$donnees["promo_user"];
+            $promo["data"][$j]["perm"][$i]["depense"]=$donnees["depense"];
+            $promo["data"][$j]["perm"][$i]["volume"]=$donnees["volume"];
+            $promo["data"][$j]["perm"][$i]["alcool"]=$donnees["alcool"];
+            $promo["data"][$j]["perm"][$i]["perm"]=$donnees["perm"];
+            $i++;
+        }
+    }
+
+
+	$answer["globale"]=$globale;
+   	$answer["promo"]=$promo;
+    $answer["annee"]=$annee;
 	$answer=json_encode($answer);
 	echo $answer;
 }
