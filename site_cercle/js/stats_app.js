@@ -45,10 +45,7 @@ app.controller('mainController', function($scope) {
 
     $scope.forum= new stats_item();
 
-    $scope.stats_globales= new stats_item(true);
 
-
-    $scope.stats_perso= new stats_item();
 
     $scope.start_forum=function () {
         if (!$scope.forum.started){
@@ -153,6 +150,7 @@ app.controller('mainController', function($scope) {
                 if (this.readyState === 4 && this.status === 200) {
                     answer = angular.fromJson(this.responseText);
                     $scope.stats_globales.globale.data = answer.globale.data;
+                    $scope.stats_globales.globale.data_diagramme_biere = answer.globale.diagramme_biere;
                     $scope.stats_globales.annee.data = answer.annee.data;
                     $scope.stats_globales.annee.list = answer.annee.list;
                     $scope.stats_globales.annee.annee = answer.annee.list[answer.annee.list.length-1].id;
@@ -169,7 +167,7 @@ app.controller('mainController', function($scope) {
         }
     };
 
-    $scope.start_stats_globales();
+
 
     $scope.start_stats_perso=function (){
         if (!$scope.stats_perso.started) {
@@ -187,7 +185,7 @@ app.controller('mainController', function($scope) {
                     $scope.$apply();
                 }
             };
-            xhttp.open("GET", "php/get_stats_perso.php");
+            xhttp.open("GET", "php/get_stats_perso.php?id="+id_search);
             xhttp.send();
         }
     };
@@ -195,11 +193,11 @@ app.controller('mainController', function($scope) {
     $scope.color=function(index)
     {
         if (index%2===0) {
-            return "color_1";
+                return "color_1";
         }else{
             return "color_2";
         }
-    }
+    };
 
     function decimalAdjust(type, value, exp) {
         // Si la valeur de exp n'est pas définie ou vaut zéro...
@@ -291,6 +289,39 @@ app.controller('mainController', function($scope) {
         }else{
             return int+"ème";
         }
+    }
+
+    $scope.options_diagramme_biere = {
+        chart: {
+            type: 'pieChart',
+            height: 500,
+            width: 1000,
+            x: function(d){return d.key;},
+            y: function(d){return d.y;},
+            showLabels: true,
+            duration: 500,
+            labelThreshold: 0.01,
+            labelSunbeamLayout: true,
+            legend: {
+                margin: {
+                    top: 5,
+                    right: 50,
+                    bottom: 5,
+                    left: 0
+                }
+            }
+        }
+    };
+
+
+    if(perso){
+        $scope.stats_globales= new stats_item();
+        $scope.stats_perso= new stats_item(true);
+        $scope.start_stats_perso();
+    }else{
+        $scope.stats_globales= new stats_item(true);
+        $scope.stats_perso= new stats_item();
+        $scope.start_stats_globales();
     }
 
 });

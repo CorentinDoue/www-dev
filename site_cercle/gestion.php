@@ -136,6 +136,7 @@ include ("php/connexion.php");
                         </div>
 
                     </div>
+
                     <div class="accordion" ng-class="contenant.class" ng-click="contenant.activate(); start_boissons();">
                         <div style="height: 20px; width: 20px;" ng-if="contenant.screen">
                             <img style="width :100%;" src="images/accordion_activate.png">
@@ -198,7 +199,6 @@ include ("php/connexion.php");
                         </div>
                         <div style="margin-left: 10px">Comptes</div>
                     </div>
-
                     <div ng-if="compte.screen" class="screen" style="padding-left: 0; padding-right: 0;">
                         <div class="L_center">
                             <div class="item_formulaire">Recherche :</div>
@@ -217,6 +217,7 @@ include ("php/connexion.php");
                                 <div class="head_tableau clickable" ng-click="compte.order('droit')" style="width: 50%;">Droit</div>
                                 <div class="head_tableau clickable" style="width: 50%;" ng-click="compte.order('solde')">Solde</div>
                                 <div class="head_tableau" ></div>
+                                <div class="head_tableau" ></div>
                             </div>
                             <div class="L_tableau" ng-class="color($index)" ng-repeat="user in users_list | filter : compte.search | orderBy : compte.ordervalue">
 
@@ -234,8 +235,10 @@ include ("php/connexion.php");
                                 </div>
                                 <div class="case_tableau" style="width: 50%;">{{prix(user.solde)}}</div>
                                 <div class="case_tableau clickable">
-                                    <a href="compte.php?id={{user.id}}" style="color: black">Historique</a>
-
+                                    <a href="compte.php?id={{user.id}}" style="color: black"><div class="bouton">Historique</div></a>
+                                </div>
+                                <div class="case_tableau clickable">
+                                    <a href="stats.php?id={{user.id}}" style="color: black"><div class="bouton">Stats</div></a>
                                 </div>
                             </div>
                         </div>

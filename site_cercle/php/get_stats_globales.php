@@ -148,6 +148,15 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit_cercle"]!="aucun")
 			$i++;
 		}
 
+        $req = $bdd -> query("(SELECT SUM(op.nb) AS nb, cu.type FROM operation_cercle op, contenu cu, boisson b WHERE op.B_C_A='B' AND op.id_B_C=b.id AND b.id_contenu=cu.id AND cu.id!=21 AND cu.id!=25 GROUP BY cu.type) UNION
+                                       (SELECT SUM(op.nb) AS nb, cu.nom AS type FROM operation_cercle op, contenu cu, boisson b WHERE op.B_C_A='B' AND op.id_B_C=b.id AND b.id_contenu=cu.id AND (cu.id=21 OR cu.id=25) GROUP BY cu.id) ORDER BY nb desc");
+        $i=0;
+        while ($donnees = $req->fetch()){
+            $globale["diagramme_biere"][$i]["key"]=$donnees["type"];
+            $globale["diagramme_biere"][$i]["y"]=$donnees["nb"];
+            $i++;
+        }
+
     #Par année
 
     $annee=[];
@@ -278,6 +287,16 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit_cercle"]!="aucun")
             $annee["data"][$j]["perm"][$i]["perm"]=$donnees["perm"];
             $i++;
         }
+
+        $req = $bdd -> prepare("(SELECT SUM(op.nb) AS nb, cu.type FROM operation_cercle op, contenu cu, boisson b WHERE op.B_C_A='B' AND op.id_B_C=b.id AND b.id_contenu=cu.id AND cu.id!=21 AND cu.id!=25 and op.datee>? and op.datee<? GROUP BY cu.type) UNION
+                                       (SELECT SUM(op.nb) AS nb, cu.nom AS type FROM operation_cercle op, contenu cu, boisson b WHERE op.B_C_A='B' AND op.id_B_C=b.id AND b.id_contenu=cu.id AND (cu.id=21 OR cu.id=25) and op.datee>? and op.datee<? GROUP BY cu.id) ORDER BY nb desc");
+        $req -> execute(array($time_min,$time_max,$time_min,$time_max));
+        $i=0;
+        while ($donnees = $req->fetch()){
+            $annee["data"][$j]["diagramme_biere"][$i]["key"]=$donnees["type"];
+            $annee["data"][$j]["diagramme_biere"][$i]["y"]=$donnees["nb"];
+            $i++;
+        }
 	}
 
     #Par promo
@@ -402,6 +421,16 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit_cercle"]!="aucun")
             $promo["data"][$j]["perm"][$i]["volume"]=$donnees["volume"];
             $promo["data"][$j]["perm"][$i]["alcool"]=$donnees["alcool"];
             $promo["data"][$j]["perm"][$i]["perm"]=$donnees["perm"];
+            $i++;
+        }
+
+        $req = $bdd -> prepare("(SELECT SUM(op.nb) AS nb, cu.type FROM operation_cercle op, user u, contenu cu, boisson b WHERE u.id_user=op.id_user and u.promo_user=? AND op.B_C_A='B' AND op.id_B_C=b.id AND b.id_contenu=cu.id AND cu.id!=21 AND cu.id!=25 GROUP BY cu.type) UNION
+                                       (SELECT SUM(op.nb) AS nb, cu.nom AS type FROM operation_cercle op, user u, contenu cu, boisson b WHERE u.id_user=op.id_user and u.promo_user=? AND op.B_C_A='B' AND op.id_B_C=b.id AND b.id_contenu=cu.id AND (cu.id=21 OR cu.id=25) GROUP BY cu.id) ORDER BY nb desc");
+        $req -> execute(array($j,$j));
+        $i=0;
+        while ($donnees = $req->fetch()){
+            $promo["data"][$j]["diagramme_biere"][$i]["key"]=$donnees["type"];
+            $promo["data"][$j]["diagramme_biere"][$i]["y"]=$donnees["nb"];
             $i++;
         }
     }

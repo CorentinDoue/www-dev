@@ -4,6 +4,9 @@ include ("php/connexion.php");
 
 if (!isset($_GET["id"])) {
     $_GET["id"]=$_SESSION["id_cercle"];
+    $perso=false;
+}else{
+    $perso=true;
 }
 ?>
 
@@ -115,6 +118,8 @@ if (!isset($_GET["id"])) {
                                 </div>
                                 <div class="bouton" ng-if="stats_globales.globale.limit==5" ng-click="stats_globales.globale.limit=20" style="margin-top: 10px;">Top 20</div>
                                 <div class="bouton" ng-if="stats_globales.globale.limit==20" ng-click="stats_globales.globale.limit=5" style="margin-top: 10px;">Hide</div>
+                                <h2 style="margin-top: 10px;">Répartition du nombre de boissons totales par type de boisson :</h2>
+                                <nvd3 options="options_diagramme_biere" data="stats_globales.globale.data_diagramme_biere"></nvd3>
                             </div>
                         </div>
                     </div>
@@ -191,6 +196,8 @@ if (!isset($_GET["id"])) {
                                 </div>
                                 <div class="bouton" ng-if="stats_globales.annee.limit==5" ng-click="stats_globales.annee.limit=20" style="margin-top: 10px;">Top 20</div>
                                 <div class="bouton" ng-if="stats_globales.annee.limit==20" ng-click="stats_globales.annee.limit=5" style="margin-top: 10px;">Hide</div>
+                                <h2 style="margin-top: 10px;">Répartition du nombre de boissons sur l'année {{stats_globales.annee.annee}}/{{stats_globales.annee.annee+1}} par type de boisson :</h2>
+                                <nvd3 options="options_diagramme_biere" data="stats_globales.annee.data[stats_globales.annee.annee].diagramme_biere"></nvd3>
                             </div>
                         </div>
                     </div>
@@ -262,6 +269,8 @@ if (!isset($_GET["id"])) {
                                 </div>
                                 <div class="bouton" ng-if="stats_globales.promo.limit==5" ng-click="stats_globales.promo.limit=20" style="margin-top: 10px;">Top 20</div>
                                 <div class="bouton" ng-if="stats_globales.promo.limit==20" ng-click="stats_globales.promo.limit=5" style="margin-top: 10px;">Hide</div>
+                                <h2 style="margin-top: 10px;">Répartition du nombre de boissons totales de la promo {{stats_globales.promo.promo}} par type de boisson :</h2>
+                                <nvd3 options="options_diagramme_biere" data="stats_globales.promo.data[stats_globales.promo.promo].diagramme_biere"></nvd3>
                             </div>
                         </div>
                     </div>
@@ -320,6 +329,8 @@ if (!isset($_GET["id"])) {
                                     <div class="case_tableau">{{classement(stats_perso.globale.rang_alcool_p)}}</div>
                                     <div class="case_tableau">{{classement(stats_perso.globale.rang_perm_p)}}</div>
                                 </div>
+                                <h2 style="margin-top: 10px;">Répartition du nombre de boissons totales de {{stats_perso.globale.data.prenom}} {{stats_perso.globale.data.nom}} par type de boisson :</h2>
+                                <nvd3 options="options_diagramme_biere" data="stats_perso.globale.diagramme_biere"></nvd3>
                             </div>
                         </div>
                     </div>
@@ -355,6 +366,8 @@ if (!isset($_GET["id"])) {
                                     <div class="case_tableau">{{classement(stats_perso.annee.data[stats_perso.annee.annee].rang_alcool)}}</div>
                                     <div class="case_tableau">{{classement(stats_perso.annee.data[stats_perso.annee.annee].rang_perm)}}</div>
                                 </div>
+                                <h2 style="margin-top: 10px;">Répartition du nombre de boissons de {{stats_perso.globale.data.prenom}} {{stats_perso.globale.data.nom}} sur l'année {{stats_perso.annee.annee}}/{{stats_perso.annee.annee+1}} par type de boisson :</h2>
+                                <nvd3 options="options_diagramme_biere" data="stats_perso.annee.data[stats_perso.annee.annee].diagramme_biere"></nvd3>
                             </div>
                         </div>
                     </div>
@@ -386,6 +399,12 @@ if (!isset($_GET["id"])) {
         <script src="js/nv.d3.js" type="text/javascript"></script>
         <script src="js/angular-nvd3.js" type="text/javascript"></script>
         <?php
+        if ($perso) {
+            echo "<script type=\"text/javascript\">var perso=true;</script>";
+        }else{
+            echo "<script type=\"text/javascript\">var perso=false;</script>";
+        }
+        echo"<script type=\"text/javascript\">var id_search=".$_GET["id"]."</script>";
         echo "<script src=\"js/stats_app.js?".time()."\" type=\"text/javascript\"></script>";
         ?>
 

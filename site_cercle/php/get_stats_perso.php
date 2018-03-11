@@ -36,6 +36,9 @@ function prix ($float)
 
 if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit_cercle"]!="aucun")
 {
+    if (!isset($_GET["id"]) or $_GET["id"]==0){
+        $_GET["id"]=$_SESSION["id_cercle"];
+    }
 	#Globale
 
     $globale=[];
@@ -46,7 +49,7 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit_cercle"]!="aucun")
 			(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user= ? and u.id_user=op.id_user and op.B_C_A='B' GROUP BY u.id_user) c,
 			user u 
 			WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ");
-    $req -> execute(array($_SESSION["id_cercle"],$_SESSION["id_cercle"],$_SESSION["id_cercle"]));
+    $req -> execute(array($_GET["id"],$_GET["id"],$_GET["id"]));
 
 
     $donnees = $req->fetch();
@@ -77,7 +80,7 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit_cercle"]!="aucun")
 	(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user=op.id_user and op.B_C_A='B' GROUP BY u.id_user) c,
 	user u
 	WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ORDER BY depense desc) e ) f WHERE f.id_user=?");
-    $req -> execute(array($_SESSION["id_cercle"]));
+    $req -> execute(array($_GET["id"]));
     $donnees = $req->fetch();
     $globale["rang_depense_g"]=$donnees["Rank"];
 
@@ -92,7 +95,7 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit_cercle"]!="aucun")
 	(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user=op.id_user and op.B_C_A='B' and u.promo_user = ? GROUP BY u.id_user) c,
 	user u
 	WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ORDER BY depense desc) e ) f WHERE f.id_user=?");
-    $req -> execute(array($globale["data"]["promo"],$globale["data"]["promo"],$globale["data"]["promo"],$_SESSION["id_cercle"]));
+    $req -> execute(array($globale["data"]["promo"],$globale["data"]["promo"],$globale["data"]["promo"],$_GET["id"]));
     $donnees = $req->fetch();
     $globale["rang_depense_p"]=$donnees["Rank"];
 
@@ -109,7 +112,7 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit_cercle"]!="aucun")
 	(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user=op.id_user and op.B_C_A='B' GROUP BY u.id_user) c,
 	user u
 	WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ORDER BY volume desc) e ) f WHERE f.id_user=?");
-    $req -> execute(array($_SESSION["id_cercle"]));
+    $req -> execute(array($_GET["id"]));
     $donnees = $req->fetch();
     $globale["rang_volume_g"]=$donnees["Rank"];
 
@@ -123,7 +126,7 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit_cercle"]!="aucun")
 	(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user=op.id_user and op.B_C_A='B' and u.promo_user = ? GROUP BY u.id_user) c,
 	user u
 	WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ORDER BY volume desc) e ) f WHERE f.id_user=?");
-    $req -> execute(array($globale["data"]["promo"],$globale["data"]["promo"],$globale["data"]["promo"],$_SESSION["id_cercle"]));
+    $req -> execute(array($globale["data"]["promo"],$globale["data"]["promo"],$globale["data"]["promo"],$_GET["id"]));
     $donnees = $req->fetch();
     $globale["rang_volume_p"]=$donnees["Rank"];
 
@@ -140,7 +143,7 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit_cercle"]!="aucun")
 	(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user=op.id_user and op.B_C_A='B' GROUP BY u.id_user) c,
 	user u
 	WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ORDER BY alcool desc) e ) f WHERE f.id_user=?");
-    $req -> execute(array($_SESSION["id_cercle"]));
+    $req -> execute(array($_GET["id"]));
     $donnees = $req->fetch();
     $globale["rang_alcool_g"]=$donnees["Rank"];
 
@@ -154,7 +157,7 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit_cercle"]!="aucun")
 	(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user=op.id_user and op.B_C_A='B' and u.promo_user = ? GROUP BY u.id_user) c,
 	user u
 	WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ORDER BY alcool desc) e ) f WHERE f.id_user=?");
-    $req -> execute(array($globale["data"]["promo"],$globale["data"]["promo"],$globale["data"]["promo"],$_SESSION["id_cercle"]));
+    $req -> execute(array($globale["data"]["promo"],$globale["data"]["promo"],$globale["data"]["promo"],$_GET["id"]));
     $donnees = $req->fetch();
     $globale["rang_alcool_p"]=$donnees["Rank"];
 
@@ -171,7 +174,7 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit_cercle"]!="aucun")
 	(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user=op.id_user and op.B_C_A='B' GROUP BY u.id_user) c,
 	user u
 	WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ORDER BY perm desc) e ) f WHERE f.id_user=?");
-    $req -> execute(array($_SESSION["id_cercle"]));
+    $req -> execute(array($_GET["id"]));
     $donnees = $req->fetch();
     $globale["rang_perm_g"]=$donnees["Rank"];
 
@@ -185,9 +188,20 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit_cercle"]!="aucun")
 	(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user=op.id_user and op.B_C_A='B' and u.promo_user = ? GROUP BY u.id_user) c,
 	user u
 	WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ORDER BY perm desc) e ) f WHERE f.id_user=?");
-    $req -> execute(array($globale["data"]["promo"],$globale["data"]["promo"],$globale["data"]["promo"],$_SESSION["id_cercle"]));
+    $req -> execute(array($globale["data"]["promo"],$globale["data"]["promo"],$globale["data"]["promo"],$_GET["id"]));
     $donnees = $req->fetch();
     $globale["rang_perm_p"]=$donnees["Rank"];
+
+
+    $req = $bdd -> prepare("(SELECT SUM(op.nb) AS nb, cu.type FROM operation_cercle op, contenu cu, boisson b WHERE op.id_user=? AND op.B_C_A='B' AND op.id_B_C=b.id AND b.id_contenu=cu.id AND cu.id!=21 AND cu.id!=25 GROUP BY cu.type) UNION
+                                       (SELECT SUM(op.nb) AS nb, cu.nom AS type FROM operation_cercle op, contenu cu, boisson b WHERE op.id_user=? AND op.B_C_A='B' AND op.id_B_C=b.id AND b.id_contenu=cu.id AND (cu.id=21 OR cu.id=25) GROUP BY cu.id) ORDER BY nb desc");
+    $req -> execute(array($_GET["id"],$_GET["id"]));
+    $i=0;
+    while ($donnees = $req->fetch()){
+        $globale["diagramme_biere"][$i]["key"]=$donnees["type"];
+        $globale["diagramme_biere"][$i]["y"]=$donnees["nb"];
+        $i++;
+    }
 
 
 
@@ -219,7 +233,7 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit_cercle"]!="aucun")
 			(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user= ? and u.id_user=op.id_user and op.B_C_A='B' and op.datee>? and op.datee<? GROUP BY u.id_user) c,
 			user u 
 			WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user");
-        $req -> execute(array($_SESSION["id_cercle"],$time_min,$time_max,$_SESSION["id_cercle"],$time_min,$time_max,$_SESSION["id_cercle"],$time_min,$time_max));
+        $req -> execute(array($_GET["id"],$time_min,$time_max,$_GET["id"],$time_min,$time_max,$_GET["id"],$time_min,$time_max));
 
         $i=0;
         while($donnees = $req->fetch()) {
@@ -255,7 +269,7 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit_cercle"]!="aucun")
 	(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user=op.id_user and op.B_C_A='B' and op.datee>? and op.datee<? GROUP BY u.id_user) c,
 	user u
 	WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ORDER BY depense desc) e ) f WHERE f.id_user=?");
-        $req -> execute(array($time_min,$time_max,$time_min,$time_max,$time_min,$time_max,$_SESSION["id_cercle"]));
+        $req -> execute(array($time_min,$time_max,$time_min,$time_max,$time_min,$time_max,$_GET["id"]));
         $donnees = $req->fetch();
         $annee["data"][$j]["rang_depense"]=$donnees["Rank"];
 
@@ -270,7 +284,7 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit_cercle"]!="aucun")
 	(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user=op.id_user and op.B_C_A='B' and op.datee>? and op.datee<? GROUP BY u.id_user) c,
 	user u
 	WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ORDER BY volume  desc) e ) f WHERE f.id_user=?");
-        $req -> execute(array($time_min,$time_max,$time_min,$time_max,$time_min,$time_max,$_SESSION["id_cercle"]));
+        $req -> execute(array($time_min,$time_max,$time_min,$time_max,$time_min,$time_max,$_GET["id"]));
         $donnees = $req->fetch();
         $annee["data"][$j]["rang_volume"]=$donnees["Rank"];
 
@@ -285,7 +299,7 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit_cercle"]!="aucun")
 	(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user=op.id_user and op.B_C_A='B' and op.datee>? and op.datee<? GROUP BY u.id_user) c,
 	user u
 	WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ORDER BY alcool  desc) e ) f WHERE f.id_user=?");
-        $req -> execute(array($time_min,$time_max,$time_min,$time_max,$time_min,$time_max,$_SESSION["id_cercle"]));
+        $req -> execute(array($time_min,$time_max,$time_min,$time_max,$time_min,$time_max,$_GET["id"]));
         $donnees = $req->fetch();
         $annee["data"][$j]["rang_alcool"]=$donnees["Rank"];
 
@@ -300,9 +314,19 @@ if (isset($_SESSION["id_cercle"]) AND $_SESSION["droit_cercle"]!="aucun")
 	(SELECT u.id_user, COUNT(DISTINCT op.id_perm) as perm FROM user u, operation_cercle op WHERE u.id_user=op.id_user and op.B_C_A='B' and op.datee>? and op.datee<? GROUP BY u.id_user) c,
 	user u
 	WHERE u.id_user=a.id_user and u.id_user=b.id_user and u.id_user=c.id_user ORDER BY perm  desc) e ) f WHERE f.id_user=?");
-        $req -> execute(array($time_min,$time_max,$time_min,$time_max,$time_min,$time_max,$_SESSION["id_cercle"]));
+        $req -> execute(array($time_min,$time_max,$time_min,$time_max,$time_min,$time_max,$_GET["id"]));
         $donnees = $req->fetch();
         $annee["data"][$j]["rang_perm"]=$donnees["Rank"];
+        }
+
+        $req = $bdd -> prepare("(SELECT SUM(op.nb) AS nb, cu.type FROM operation_cercle op, contenu cu, boisson b WHERE op.id_user=? AND op.B_C_A='B' AND op.id_B_C=b.id AND b.id_contenu=cu.id AND cu.id!=21 AND cu.id!=25 and op.datee>? and op.datee<? GROUP BY cu.type) UNION
+                                       (SELECT SUM(op.nb) AS nb, cu.nom AS type FROM operation_cercle op, contenu cu, boisson b WHERE op.id_user=? AND op.B_C_A='B' AND op.id_B_C=b.id AND b.id_contenu=cu.id AND (cu.id=21 OR cu.id=25) and op.datee>? and op.datee<? GROUP BY cu.id)  ORDER BY nb desc");
+        $req -> execute(array($_GET["id"],$time_min,$time_max,$_GET["id"],$time_min,$time_max));
+        $i=0;
+        while ($donnees = $req->fetch()){
+            $annee["data"][$j]["diagramme_biere"][$i]["key"]=$donnees["type"];
+            $annee["data"][$j]["diagramme_biere"][$i]["y"]=$donnees["nb"];
+            $i++;
         }
 	}
 
