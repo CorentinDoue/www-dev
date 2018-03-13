@@ -569,4 +569,124 @@ $scope.data=[];
 		$scope.histo.splice(-1,1);
 	  }
   }
+	// dégradé de couleur
+    function colorTypeChecker(color) {
+        var errMsg = 'ERREUR: Il y a un problème avec les paramètres';
+        var colorType = '';
+        switch (color.substr(0, 1)) {
+            case '#':
+                if (color.length !== 7) {
+                    return errMsg;
+                    /*Attention, les couleurs hex+alpha ne sont pas supportées dans ce snippet,
+                    et la couleur hex entrée doit contenir les 6 caractères prévus */
+                } else {
+                    colorType = 'hex';
+                }
+                break;
+
+            case 'r':
+                if (color.substr(0, 4).toLowerCase() === 'rgba') {
+                    colorType = 'rgba';
+                } else if (color.substr(0, 3).toLowerCase() === 'rgb') {
+                    colorType = 'rgb';
+                }
+                break;
+
+            default:
+                console.log('Type de couleur inconnu');
+                return errMsg;
+                break;
+        }
+        return colorType;
+    }
+
+    function hexToRgb(hex) {
+        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result ? {
+            r: parseInt(result[1], 16),
+            g: parseInt(result[2], 16),
+            b: parseInt(result[3], 16)
+        } : null;
+    }
+
+    function anythingToRgba(color, colorStringType) {
+        switch (colorStringType) {
+            case 'hex':
+                var colorObj = hexToRgb(color);
+                colorObj.a = parseFloat('1');
+                break;
+
+            case 'rgb':
+                var rgbRaw = color.replace(/[^\d,]/g, '').split(',');
+                var colorObj = new Object();
+                colorObj.r = rgbRaw[0];
+                colorObj.g = rgbRaw[1];
+                colorObj.b = rgbRaw[2];
+                colorObj.a = parseFloat('1');
+                break;
+
+            case 'rgba':
+                var rgbaRaw = color.replace(/[^\d,.]/g, '').split(',');
+                var colorObj = new Object();
+                colorObj.r = rgbaRaw[0];
+                colorObj.g = rgbaRaw[1];
+                colorObj.b = rgbaRaw[2];
+                colorObj.a = parseFloat(rgbaRaw[3]);
+                break;
+        }
+
+        return colorObj;
+    }
+
+    function gradientCalculator(startColor, endColor, steps) {
+        //On vérifie que les paramètres en entrée soient corrects, pour la forme
+        var errMsg = 'ERREUR: Il y a un problème avec les paramètres';
+
+        if (typeof (steps) !== 'number') { return errMsg; }
+        if (typeof (startColor) !== 'string' || typeof (endColor) !== 'string') { return errMsg }
+
+        //On détermine le type de la couleur en entrée
+        var startColorType = colorTypeChecker(startColor);
+        var endColorType = colorTypeChecker(endColor);
+
+        //On convertit tout en RGBA
+        startRgbaObj = anythingToRgba(startColor, startColorType);
+        endRgbaObj = anythingToRgba(endColor, endColorType);
+
+
+        //On calcule la différence entre les éléments
+        var deltaRgbaObj = new Object();
+        deltaRgbaObj.r = endRgbaObj.r - startRgbaObj.r;
+        deltaRgbaObj.g = endRgbaObj.g - startRgbaObj.g;
+        deltaRgbaObj.b = endRgbaObj.b - startRgbaObj.b;
+        deltaRgbaObj.a = endRgbaObj.a - startRgbaObj.a;
+
+        //On calcule le différentiel en fonction du nombre d'étapes
+        var deltaStep = new Object();
+        deltaStep.r = Math.round(deltaRgbaObj.r / steps);
+        deltaStep.g = Math.round(deltaRgbaObj.g / steps);
+        deltaStep.b = Math.round(deltaRgbaObj.b / steps);
+        deltaStep.a = Number(deltaRgbaObj.a / steps).toFixed(3);
+
+        //On retourne l'objet contenant les delta relatifs à chaque élément.
+        return deltaStep;
+    }
+
+    $scope.colorLader=function (i) {
+  		i=Math.round(i);
+		var style = {};
+		//var deltaStep=gradientCalculator("#D10000","#00CC18",100);
+		style.backgroundColor="hsl("+i+",100%,50%)"
+			//"rgb("+(209+deltaStep.r*i)+","+(deltaStep.g*i)+","+(deltaStep.b*i)+")";
+		return style;
+    };
+
+
+    $scope.cuitePrix=function (boisson) {
+		if (boisson.fut_bouteille=='bouteille_unique'){
+			return Math.round(50*(boisson.degre*boisson.capacite)/(boisson.prix_vente));
+		}else{
+			return Math.round(50*(boisson.degre*0.25)/(boisson.prix_vente));
+		}
+    };
 });

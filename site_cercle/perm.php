@@ -80,6 +80,7 @@ while ($donnees = $req->fetch())
                     </div>
                 </div>
                 <div class="formulaire" id="perm">
+
                     <h2 ng-if="histo.length>0">Historique des 10 dernières opérations :</h2>
                     <div class="inventaire" ng-if="histo.length>0">
                         <div style="margin-left:10px; margin-bottom:10px; border:solid 2px rgb(200,51,30); padding:3px; border-radius:5px; color: rgb(200,51,30);" ng-repeat="transaction in histo">
@@ -96,6 +97,7 @@ while ($donnees = $req->fetch())
                             </div>
                         </div>
                     </div>
+
                     <div class="L_left">
                         <div class="item_formulaire" style="margin-left: 10%; ">Client :</div>
                         <!-- zone de saisie déclenchant l'autocomplétion -->
@@ -147,8 +149,8 @@ while ($donnees = $req->fetch())
                     </div>
 
                     <div class="inventaire">
-
-                        	<div class="item_inventaire clickable noselect" ng-if="forum==1" ng-repeat="boisson in perm.forums" ng-class="color_boisson(boisson)" ng-click="plus(boisson); maj();">
+<!--                        boissons forum-->
+                        <div class="item_inventaire clickable noselect" ng-if="forum==1" ng-repeat="boisson in perm.forums" ng-class="color_boisson(boisson)" ng-click="plus(boisson); maj();">
 
                             <div class="L">
                                 <div class="L_left">
@@ -177,16 +179,16 @@ while ($donnees = $req->fetch())
                             <div class="L_left">
                                 <div class="info_inventaire">Prix : <span style="font-size: 1.5em;">{{prix(boisson.prix_vente)}}</span></div>
                             </div>
-                            <div class="L_left">
-                                <div class="info_inventaire">Quantité :</div>
-                            </div>
-                            <div class="L_space_a">
-
+                            <div class="L_space_a" style="align-items: center">
+                                <div class="info_inventaire" >Quantité :</div>
                                 <div class="prix">{{boisson.quantite}}</div>
-
+                            </div>
+                            <div class="L_space_a" style="align-items: center">
+                                <div class="info_inventaire" style="font-size: 0.9em;">Degré : {{boisson.degre}}°</div>
+                                <div class="info_inventaire" ><span style="font-size: 0.8em;">Cuite/Prix : </span><span ng-style="colorLader(cuitePrix(boisson))" style="border-radius: 0.5em; padding: 3px;">{{arrondi(cuitePrix(boisson))}}</span></div>
                             </div>
                         </div>
-
+<!--                        boissons-->
                         <div class="item_inventaire clickable noselect" ng-repeat="boisson in perm.boissons | orderBy : 'order'" ng-class="color_boisson(boisson)" ng-click="plus(boisson); maj();">
 
                             <div class="L">
@@ -213,15 +215,16 @@ while ($donnees = $req->fetch())
                             <div class="L_left">
                                 <div class="info_inventaire">Prix : <span style="font-size: 1.5em;">{{prix(boisson.prix_vente)}}</span></div>
                             </div>
-                            <div class="L_left">
-                                <div class="info_inventaire">Quantité :</div>
-                            </div>
-                            <div class="L_space_a">
-
+                            <div class="L_space_a" style="align-items: center">
+                                <div class="info_inventaire" >Quantité :</div>
                                 <div class="prix">{{boisson.quantite}}</div>
-
+                            </div>
+                            <div class="L_space_a" style="align-items: center">
+                                <div class="info_inventaire" style="font-size: 0.9em;">Degré : {{boisson.degre}}°</div>
+                                <div class="info_inventaire" ><span style="font-size: 0.8em;">Cuite/Prix : </span><span ng-style="colorLader(cuitePrix(boisson))" style="border-radius: 0.5em; padding: 3px;">{{arrondi(cuitePrix(boisson))}}</span></div>
                             </div>
                         </div>
+<!--                        consommables (non boissons)-->
                         <div class="item_inventaire autre clickable noselect" ng-repeat="consommable in perm.consommables" ng-click="plus(consommable); maj();">
 
                             <div class="L_right">
@@ -255,9 +258,7 @@ while ($donnees = $req->fetch())
                     </div>
 
                     <div class="centreur">
-
                         <div class="bouton" ng-click="validate()" ng-if="perm.client!=null && perm.total!=0">Encaisser</div>
-
                     </div>
                 </div>
             </div>
