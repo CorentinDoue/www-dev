@@ -635,6 +635,33 @@ app.controller('mainController', function($scope) {
 	    xhttp.send("id="+contenu.id+"&contenant="+id_contenant);
 	};
 
+	$scope.desactiv_perm=function(perm){
+		if (confirm("Voulez vous vraiment désactiver cette perm ? \n Ceci est irréversible")){
+            var answer;
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    answer = angular.fromJson(this.responseText);
+                    if(answer=="ok")
+                    {
+                        for(var i= 0; i < $scope.nom_perm_list.length; i++)
+                        {
+                            if ($scope.nom_perm_list[i]==perm) {
+                                $scope.nom_perm_list.splice(i,1);
+                            }
+                        }
+
+                        $scope.$apply();
+                    }
+                }
+            };
+            xhttp.open("POST", "php/desactiv_perm.php", true);
+            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhttp.send("id="+perm.id);
+		}
+	};
+
 	$scope.maj_membre_perm=function(perm,id_membre){
 		var answer;
 		var xhttp = new XMLHttpRequest();

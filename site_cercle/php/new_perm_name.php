@@ -6,7 +6,7 @@ $str_json = file_get_contents('php://input');
 $str_json =json_decode($str_json);
 $data=$str_json->data;
 
-$req = $bdd->prepare('INSERT INTO nom_perm VALUES (null,?,?)');
+$req = $bdd->prepare('INSERT INTO nom_perm VALUES (null,?,?,1)');
 $req->execute(array($str_json->perm_name,date("Y")));
 
 $req = $bdd->prepare('SELECT id from nom_perm WHERE nom=?');

@@ -56,6 +56,7 @@ app.controller('mainController', function($scope) {
             $scope.limit=answer.limite;
             $scope.coef_forum=answer.coef_forum;
             $scope.limite_forum=answer.limite_forum;
+            $scope.moy_forum=answer.moy_forum;
             $scope.forum=answer.forum;
 
 
@@ -542,7 +543,7 @@ $scope.data=[];
       for(var i= 0; i < $scope.perm.forums.length; i++)
       {
 
-        $scope.perm.forums[i].prix_vente=Math.round10((Math.random()+1)*0.8,-2);
+        $scope.perm.forums[i].prix_vente=Math.round10((Math.random()-0.5)*0.5+$scope.moy_forum,-2);
 
 
         var answer;

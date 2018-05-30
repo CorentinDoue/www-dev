@@ -51,6 +51,10 @@ $req = $bdd -> query("SELECT valeur FROM constante WHERE id=4");
 $donnees = $req->fetch();
 $answer["forum"]=floatval($donnees['valeur']);
 
+$req = $bdd -> query("SELECT valeur FROM constante WHERE id=7");
+$donnees = $req->fetch();
+$answer["moy_forum"]=floatval($donnees['valeur']);
+
 
 $req = $bdd -> query("SELECT np.nom, p.datee, p.total_vente, p.id, p.total_litre FROM perm p, nom_perm np WHERE np.id=p.id_nom_perm ORDER BY p.id DESC LIMIT 1");
 

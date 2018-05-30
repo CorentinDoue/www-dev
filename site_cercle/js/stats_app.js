@@ -281,7 +281,7 @@ app.controller('mainController', function($scope) {
         var dec=Math.round((float*10)%10);
         var ent=Math.floor(float);
         return ent+","+dec+"L";
-    }
+    };
 
     $scope.classement=function (int) {
         if (int===1){
@@ -289,7 +289,7 @@ app.controller('mainController', function($scope) {
         }else{
             return int+"ème";
         }
-    }
+    };
 
     $scope.options_diagramme_biere = {
         chart: {
@@ -313,7 +313,6 @@ app.controller('mainController', function($scope) {
         }
     };
 
-
     if(perso){
         $scope.stats_globales= new stats_item();
         $scope.stats_perso= new stats_item(true);
@@ -323,5 +322,4 @@ app.controller('mainController', function($scope) {
         $scope.stats_perso= new stats_item();
         $scope.start_stats_globales();
     }
-
 });

@@ -116,7 +116,7 @@ if ($k==0) {
 	$derniere_perm["forums"]=[];
 }
 
-$req = $bdd -> query("SELECT nom, id, annee FROM  nom_perm WHERE id<>1");
+$req = $bdd -> query("SELECT nom, id, annee FROM  nom_perm WHERE id<>1 and isactiv=1");
 $i=0;
 while ($donnees = $req->fetch())
 {

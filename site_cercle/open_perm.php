@@ -120,7 +120,7 @@ while ($donnees = $req->fetch())
                                   <div class="L_center" ng-if="boisson.fut_bouteille!='bouteille_unique'">0.25L</div>
 
                                   <div class="L_right">
-                                      <div class="clickable" style="height: 30px; width: 30px;" ng-click="delete_boisson(boisson)">
+                                      <div class="clickable" style="height: 30px; width: 30px;" ng-click="delete_forum(boisson)">
                                           <img style="width :100%;" src="images/croix rouge.jpg">
                                       </div>
                                   </div>

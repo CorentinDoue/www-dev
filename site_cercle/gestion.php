@@ -274,6 +274,7 @@ include ("php/connexion.php");
                                     <div><input type="text" ng-model="perm.nom"></div>
                                 </div>
                                 <div class="case_tableau" ng-if="!perm.new_nom"><div><div class="bouton"  ng-click="perm.new_nom=true;">Changer le nom</div></div></div>
+                                <div class="case_tableau"><div><div class="bouton"  ng-click="desactiv_perm(perm);">Désactiver la perm</div></div></div>
                                 <div class="case_tableau" ng-if="perm.new_nom"><div><div class="bouton"  ng-click="maj_perm_nom(perm); perm.new_nom=false;">Valider</div></div></div>
                                 <div class="case_tableau" ng-if="!perm.view"><div class="bouton"  ng-click="reset_perm_list(); perm.view=true;">Voir les membres</div></div>
                                 <div class="case_tableau" ng-if="perm.view">
@@ -302,6 +303,7 @@ include ("php/connexion.php");
                                         </div>
                                     </div>
                                 </div>
+
 
                                 <div class="case_tableau" ng-if="!perm.view"></div>
 
@@ -332,8 +334,8 @@ include ("php/connexion.php");
                     <div ng-if="constante.screen" class="screen">
                         <div class="L_left" ng-repeat="constante in constantes_list" style="margin-top: 0.8em;">
                             <div class="item_formulaire" style="margin-left: 1em;">{{constante.nom}} :</div>
-                            <div class="item_formulaire" ng-if="!constante.modif && ($index==0 || $index==1 || $index==5)">{{prix(constante.valeur)}}</div>
-                            <div class="item_formulaire" ng-if="!constante.modif && ($index==2 || $index==4)">{{constante.valeur}}</div>
+                            <div class="item_formulaire" ng-if="!constante.modif && ($index==0 || $index==1 || $index==5 || $index==6)">{{prix(constante.valeur)}}</div>
+                            <div class="item_formulaire" ng-if="!constante.modif && ($index==2 || $index==4 )">{{constante.valeur}}</div>
                             <div class="item_formulaire" ng-if="$index==3 && constante.valeur==1">Activé</div>
                             <div class="item_formulaire" ng-if="$index==3 && constante.valeur==0">Désactivé</div>
                             <input type="number" ng-model="constante.valeur" ng-if="constante.modif ">
