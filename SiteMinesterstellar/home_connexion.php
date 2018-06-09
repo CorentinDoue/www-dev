@@ -1,7 +1,7 @@
 <?php include("start.php");
 if (isset($_POST['mail'])AND($_POST['mail']!=NULL)AND isset($_POST['mdp'])AND($_POST['mdp']!=NULL))
     {           //préparer une requète pour l'utilisé avec des variables
-                $req = $bdd->prepare('SELECT clef, Prenom, Nom, Mail, Mdp, Droits FROM user WHERE Mail = ?');
+                $req = $bdd->prepare('SELECT clef, Prenom, Nom, Mail, Mdp, Droits FROM user_minesterstellar WHERE Mail = ?');
                 $req->execute(array($_POST['mail']));
                 $compteur=0;
                 while ($donnees = $req->fetch())

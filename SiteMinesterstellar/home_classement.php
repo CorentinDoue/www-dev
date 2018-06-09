@@ -24,7 +24,7 @@ $bdd->exec('SET @rank := 0');
 
     for ($i=1;$i<$compteurG;$i++)
     {
-        $req = $bdd->prepare('SELECT Prenom, Nom FROM user WHERE clef = ?');
+        $req = $bdd->prepare('SELECT Prenom, Nom FROM user_minesterstellar WHERE clef = ?');
         $req->execute(array($ClefG[$i]));
         
         while ($donnees = $req->fetch())
@@ -55,7 +55,7 @@ $bdd->exec('SET @rank := 0');
 
     for ($i=1;$i<$compteurB;$i++)
     {
-        $req = $bdd->prepare('SELECT Prenom, Nom FROM user WHERE clef = ?');
+        $req = $bdd->prepare('SELECT Prenom, Nom FROM user_minesterstellar WHERE clef = ?');
         $req->execute(array($ClefB[$i]));
         
         while ($donnees = $req->fetch())
@@ -65,7 +65,7 @@ $bdd->exec('SET @rank := 0');
         }
     }
 
-$rep = $bdd->query('SELECT clef, Nom, Prenom FROM user ');
+$rep = $bdd->query('SELECT clef, Nom, Prenom FROM user_minesterstellar ');
 $i=1;
 while ($donnees = $rep->fetch())
     {

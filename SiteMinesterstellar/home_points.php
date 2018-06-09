@@ -465,7 +465,7 @@ if (isset($_POST['old_jeu']) AND $_POST['old_jeu']!=NULL AND isset($_POST['set_j
 }
 
 
-$rep = $bdd->query('SELECT clef, Nom, Prenom FROM user ');
+$rep = $bdd->query('SELECT clef, Nom, Prenom FROM user_minesterstellar ');
 $i=1;
 while ($donnees = $rep->fetch())
     {

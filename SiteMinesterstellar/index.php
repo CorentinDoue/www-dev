@@ -14,7 +14,7 @@ if (isset($_GET['droits']) AND $_GET['droits']=='MOD' AND isset($_SESSION['droit
 }
 if (!isset($_SESSION['clef']) AND isset($_COOKIE['mail']) AND isset($_COOKIE['mdp']) AND !isset($_SESSION['logout']))
 {
-    $req = $bdd->prepare('SELECT clef, Prenom, Nom, Mail, Mdp, Droits FROM user WHERE Mail = ?');
+    $req = $bdd->prepare('SELECT clef, Prenom, Nom, Mail, Mdp, Droits FROM user_minesterstellar WHERE Mail = ?');
     $req->execute(array($_COOKIE['mail']));
     while ($donnees = $req->fetch())
     {   

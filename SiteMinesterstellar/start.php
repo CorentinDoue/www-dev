@@ -105,10 +105,10 @@ if(!isset($_SESSION['compte_connect']) AND isset($_SESSION['droits']) AND $_SESS
 	if($_SESSION['mobile_device'])
 	{
 		$req = $bdd->exec('UPDATE stats SET no_connect = no_connect - 1 WHERE device="mobile"');
-		$req = $bdd->exec('UPDATE stats SET user = user + 1 WHERE device="mobile"');
+		$req = $bdd->exec('UPDATE stats SET user_minesterstellar = user_minesterstellar + 1 WHERE device="mobile"');
 	}else{
 		$req = $bdd->exec('UPDATE stats SET no_connect = no_connect - 1 WHERE device="computer"');
-		$req = $bdd->exec('UPDATE stats SET user = user + 1 WHERE device="computer"');
+		$req = $bdd->exec('UPDATE stats SET user_minesterstellar = user_minesterstellar + 1 WHERE device="computer"');
 	}
 }
 

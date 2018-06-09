@@ -23,7 +23,7 @@ if (isset($_SESSION['clef']))
 
     for ($i=1;$i<=10;$i++)
     {
-        $req = $bdd->prepare('SELECT Prenom, Nom FROM user WHERE clef = ?');
+        $req = $bdd->prepare('SELECT Prenom, Nom FROM user_minesterstellar WHERE clef = ?');
         $req->execute(array($ClefTop10[$i]));
         
         while ($donnees = $req->fetch())

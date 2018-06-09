@@ -18,7 +18,7 @@ if (isset($_POST['prenom'])AND($_POST['prenom']!=NULL) AND isset($_POST['nom'])A
 {
     if ($_POST['mdp']==$_POST['mdp2'])
     {
-        $req = $bdd->prepare('SELECT * FROM user WHERE Mail = ?');
+        $req = $bdd->prepare('SELECT * FROM user_minesterstellar WHERE Mail = ?');
 
         $req->execute(array($_POST['mail']));
         $compteur=0;
@@ -29,7 +29,7 @@ if (isset($_POST['prenom'])AND($_POST['prenom']!=NULL) AND isset($_POST['nom'])A
         }
         if ($compteur==0)
         {   
-            $req = $bdd->prepare('INSERT INTO user (Prenom, Nom, Mail, Mdp) VALUES (:prenom, :nom, :mail, :mdp )');
+            $req = $bdd->prepare('INSERT INTO user_minesterstellar (Prenom, Nom, Mail, Mdp) VALUES (:prenom, :nom, :mail, :mdp )');
             $req->execute(array(
                 'prenom' => $_POST['prenom'],
                 'nom' => $_POST['nom'],

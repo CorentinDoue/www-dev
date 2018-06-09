@@ -26,7 +26,7 @@ if (isset($_GET["goto"]) AND $_GET["goto"]=="allo")
 }
 
 
-$rep = $bdd->query('SELECT * FROM user ');
+$rep = $bdd->query('SELECT * FROM user_minesterstellar ');
 while ($donnees = $rep->fetch())
     {
         $user[]=$donnees;
