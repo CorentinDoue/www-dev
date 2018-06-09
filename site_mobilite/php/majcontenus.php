@@ -4,10 +4,10 @@ include "connection_back_office.php";
 if (isset($_POST['ID']))
 {
 
-    $rep = $bdd->prepare('UPDATE contenu SET contenu=:contenu, titre=:titre WHERE ID=:ID');
+    $rep = $bdd->prepare('UPDATE contenu_mob SET contenu_mob=:contenu_mob, titre=:titre WHERE ID=:ID');
     $rep->execute(array(
         'ID' => $_POST['ID'],
-        'contenu' => $_POST['contenu'],
+        'contenu_mob' => $_POST['contenu_mob'],
         'titre' => $_POST['titre']        
         ));
     //$answer_json =json_encode('false');

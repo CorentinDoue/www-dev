@@ -1,12 +1,12 @@
 <?php
 include "php/connection_bdd.php";
 
-$rep = $bdd->query('SELECT ID, titre, contenu from contenu where ID > 13');
+$rep = $bdd->query('SELECT ID, titre, contenu_mob from contenu_mob where ID > 13');
 
 while ($donnees = $rep->fetch())
     {
-    	$contenu[$donnees["ID"]]['titre']=$donnees["titre"];
-    	$contenu[$donnees["ID"]]['contenu']=$donnees["contenu"];
+    	$contenu_mob[$donnees["ID"]]['titre']=$donnees["titre"];
+    	$contenu_mob[$donnees["ID"]]['contenu_mob']=$donnees["contenu_mob"];
     }
 
 ?>
@@ -54,12 +54,12 @@ while ($donnees = $rep->fetch())
 			<div id="main">
 				<div class="container">
 					<div class="row main-row">
-						<div class="titre_section"><?php echo $contenu[19]['titre']; ?></div>
+						<div class="titre_section"><?php echo $contenu_mob[19]['titre']; ?></div>
 						<div class="12u">
 							
 							<section id="doc">
-								<h2><?php echo $contenu[14]['titre']; ?></h2>
-								<p><?php echo $contenu[14]['contenu']; ?></p>
+								<h2><?php echo $contenu_mob[14]['titre']; ?></h2>
+								<p><?php echo $contenu_mob[14]['contenu_mob']; ?></p>
 								
 							</section>
 
@@ -67,8 +67,8 @@ while ($donnees = $rep->fetch())
 						<div class="12u">
 							
 							<section id="bours">
-								<h2><?php echo $contenu[15]['titre']; ?></h2>
-								<p><?php echo $contenu[15]['contenu']; ?></p>
+								<h2><?php echo $contenu_mob[15]['titre']; ?></h2>
+								<p><?php echo $contenu_mob[15]['contenu_mob']; ?></p>
 								
 							</section>
 
@@ -76,28 +76,28 @@ while ($donnees = $rep->fetch())
 						<div class="12u">
 							
 							<section id="ass">
-								<h2><?php echo $contenu[16]['titre']; ?></h2>
-								<p><?php echo $contenu[16]['contenu']; ?></p>
+								<h2><?php echo $contenu_mob[16]['titre']; ?></h2>
+								<p><?php echo $contenu_mob[16]['contenu_mob']; ?></p>
 								
 							</section>
 
 						</div>
-						<div class="titre_section" id="lang"><?php echo $contenu[17]['titre']; ?></div>
+						<div class="titre_section" id="lang"><?php echo $contenu_mob[17]['titre']; ?></div>
 						<div class="12u">
 							
 							<section>
 					
-								<p><?php echo $contenu[17]['contenu']; ?></p>
+								<p><?php echo $contenu_mob[17]['contenu_mob']; ?></p>
 								
 							</section>
 
 						</div>
-						<div class="titre_section" id="contact"><?php echo $contenu[18]['titre']; ?></div>
+						<div class="titre_section" id="contact"><?php echo $contenu_mob[18]['titre']; ?></div>
 						<div class="12u">
 							
 							<section>
 					
-								<p><?php echo $contenu[18]['contenu']; ?></p>
+								<p><?php echo $contenu_mob[18]['contenu_mob']; ?></p>
 								
 							</section>
 

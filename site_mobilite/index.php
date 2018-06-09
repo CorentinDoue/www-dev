@@ -1,12 +1,12 @@
 <?php
 include "php/connection_bdd.php";
 
-$rep = $bdd->query('SELECT ID, titre, contenu from contenu where ID < 14');
+$rep = $bdd->query('SELECT ID, titre, contenu_mob from contenu_mob where ID < 14');
 
 while ($donnees = $rep->fetch())
     {
-    	$contenu[$donnees["ID"]]['titre']=$donnees["titre"];
-    	$contenu[$donnees["ID"]]['contenu']=$donnees["contenu"];
+    	$contenu_mob[$donnees["ID"]]['titre']=$donnees["titre"];
+    	$contenu_mob[$donnees["ID"]]['contenu_mob']=$donnees["contenu_mob"];
     }
 
 ?>
@@ -80,12 +80,12 @@ while ($donnees = $rep->fetch())
 						</div>
 					<?php } ?>
 					<div class="row main-row">
-						<div class="titre_section"><?php echo $contenu[1]['titre']; ?></div>
+						<div class="titre_section"><?php echo $contenu_mob[1]['titre']; ?></div>
 						<div class="12u">
 							
 							<section>
 								
-								<p><?php echo $contenu[1]['contenu']; ?></p>
+								<p><?php echo $contenu_mob[1]['contenu_mob']; ?></p>
 								
 							</section>
 
@@ -96,8 +96,8 @@ while ($donnees = $rep->fetch())
 						<div class="12u">
 							
 							<section>
-								<h2><?php echo $contenu[2]['titre']; ?></h2>
-								<p><?php echo $contenu[2]['contenu']; ?></p>
+								<h2><?php echo $contenu_mob[2]['titre']; ?></h2>
+								<p><?php echo $contenu_mob[2]['contenu_mob']; ?></p>
 								<footer class="controls">
 									<a class="button" ng-click="lay(2)">En savoir plus</a>
 								</footer>
@@ -109,8 +109,8 @@ while ($donnees = $rep->fetch())
 						<div class="4u 12u(mobile)">
 
 							<section>
-								<h2><?php echo $contenu[3]['titre']; ?></h2>
-								<p><?php echo $contenu[3]['contenu']; ?></p>
+								<h2><?php echo $contenu_mob[3]['titre']; ?></h2>
+								<p><?php echo $contenu_mob[3]['contenu_mob']; ?></p>
 							</section>
 
 						</div>
@@ -118,8 +118,8 @@ while ($donnees = $rep->fetch())
 						<div class="4u 12u(mobile)">
 
 							<section>
-								<h2><?php echo $contenu[4]['titre']; ?></h2>
-								<p><?php echo $contenu[4]['contenu']; ?></p>
+								<h2><?php echo $contenu_mob[4]['titre']; ?></h2>
+								<p><?php echo $contenu_mob[4]['contenu_mob']; ?></p>
 							</section>
 
 						</div>
@@ -127,8 +127,8 @@ while ($donnees = $rep->fetch())
 						<div class="4u 12u(mobile)">
 
 							<section>
-								<h2><?php echo $contenu[5]['titre']; ?></h2>
-								<p><?php echo $contenu[5]['contenu']; ?></p>
+								<h2><?php echo $contenu_mob[5]['titre']; ?></h2>
+								<p><?php echo $contenu_mob[5]['contenu_mob']; ?></p>
 							</section>
 
 						</div>
@@ -136,8 +136,8 @@ while ($donnees = $rep->fetch())
 						<div class="4u 12u(mobile)">
 
 							<section>
-								<h2><?php echo $contenu[6]['titre']; ?></h2>
-								<p><?php echo $contenu[6]['contenu']; ?></p>
+								<h2><?php echo $contenu_mob[6]['titre']; ?></h2>
+								<p><?php echo $contenu_mob[6]['contenu_mob']; ?></p>
 								<footer class="controls">
 									<a class="button" ng-click="lay(3)">En savoir plus</a>
 								</footer>
@@ -147,8 +147,8 @@ while ($donnees = $rep->fetch())
 						<div class="4u 12u(mobile)">
 
 							<section>
-								<h2><?php echo $contenu[7]['titre']; ?></h2>
-								<p><?php echo $contenu[7]['contenu']; ?></p>
+								<h2><?php echo $contenu_mob[7]['titre']; ?></h2>
+								<p><?php echo $contenu_mob[7]['contenu_mob']; ?></p>
 							</section>
 
 						</div>
@@ -165,25 +165,25 @@ while ($donnees = $rep->fetch())
 			<div class="container readable_layer" style="margin-top: 50px; >
 
 					<div class="row main-row">
-						<div class="titre_section"><?php echo $contenu[8]['titre']; ?></div>
+						<div class="titre_section"><?php echo $contenu_mob[8]['titre']; ?></div>
 						<div class="12u">
 							
 							<section>
-								<p><?php echo $contenu[8]['contenu']; ?></p>
+								<p><?php echo $contenu_mob[8]['contenu_mob']; ?></p>
 							</section>
 
 						</div>
 						<div class="12u">
-							<h2><?php echo $contenu[9]['titre']; ?></h2>
+							<h2><?php echo $contenu_mob[9]['titre']; ?></h2>
 							<div style="display: flex; justify-content: center; width: 100%;">
-								<img src="images/<?php echo $contenu[9]['contenu']; ?>">
+								<img src="images/<?php echo $contenu_mob[9]['contenu_mob']; ?>">
 							</div>
 
 						</div>
 						<div class="12u">
-							<h2><?php echo $contenu[10]['titre']; ?></h2>
+							<h2><?php echo $contenu_mob[10]['titre']; ?></h2>
 							<section>
-								<p><?php echo $contenu[10]['contenu']; ?></p>
+								<p><?php echo $contenu_mob[10]['contenu_mob']; ?></p>
 							</section>
 
 						</div>
@@ -194,25 +194,25 @@ while ($donnees = $rep->fetch())
 			<div class="container readable_layer" style="margin-top: 50px; ">
 
 				<div class="row main-row">
-					<div class="titre_section"><?php echo $contenu[11]['titre']; ?></div>
+					<div class="titre_section"><?php echo $contenu_mob[11]['titre']; ?></div>
 					<div class="12u">
 						
 						<section>
-							<p><?php echo $contenu[11]['contenu']; ?></p>
+							<p><?php echo $contenu_mob[11]['contenu_mob']; ?></p>
 						</section>
 
 					</div>
 					<div class="12u">
-						<h2><?php echo $contenu[12]['titre']; ?></h2>
+						<h2><?php echo $contenu_mob[12]['titre']; ?></h2>
 						<div style="display: flex; justify-content: center; width: 100%;">
-							<img src="images/<?php echo $contenu[12]['contenu']; ?>">
+							<img src="images/<?php echo $contenu_mob[12]['contenu_mob']; ?>">
 						</div>
 
 					</div>
 					<div class="12u">
-						<h2><?php echo $contenu[13]['titre']; ?></h2>
+						<h2><?php echo $contenu_mob[13]['titre']; ?></h2>
 						<section>
-							<p><?php echo $contenu[13]['contenu']; ?></p>
+							<p><?php echo $contenu_mob[13]['contenu_mob']; ?></p>
 						</section>
 
 					</div>
