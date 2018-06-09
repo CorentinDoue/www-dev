@@ -26,11 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index_back_office.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index_back_office.php">
+      <file leaf-file-name="connection_bdd.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/php/connection_bdd.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1029">
-              <caret line="49" column="44" lean-forward="false" selection-start-line="49" selection-start-column="44" selection-end-line="49" selection-end-column="44" />
+            <state relative-caret-position="63">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -59,8 +59,8 @@
       <file leaf-file-name="connection_back_office.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/connection_back_office.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="42">
+              <caret line="2" column="4" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -113,7 +113,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mobinfo sav 25-09-17.sql" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mobinfo sav 25-09-17.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sql/mobinfo sav 25-09-17.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -142,7 +142,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/connexion pour serveur webélève/connection_unsecure.php" />
-        <option value="$PROJECT_DIR$/php/connection_bdd.php" />
         <option value="$PROJECT_DIR$/connexion pour serveur webélève/connection.php" />
         <option value="$PROJECT_DIR$/destination.php" />
         <option value="$PROJECT_DIR$/php/footer.php" />
@@ -157,6 +156,7 @@
         <option value="$PROJECT_DIR$/index_back_office.php" />
         <option value="$PROJECT_DIR$/demarches.php" />
         <option value="$PROJECT_DIR$/sql/mobinfo sav 25-09-17.sql" />
+        <option value="$PROJECT_DIR$/php/connection_bdd.php" />
       </list>
     </option>
   </component>
@@ -257,12 +257,12 @@
       <option name="presentableId" value="Default" />
       <updated>1518514457301</updated>
       <workItem from="1518514458467" duration="7984000" />
-      <workItem from="1528545546596" duration="881000" />
+      <workItem from="1528545546596" duration="1300000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8865000" />
+    <option name="totallyTimeSpent" value="9284000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -360,14 +360,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/connection_bdd.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -523,14 +515,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/connection_back_office.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/php/header_back_office.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -546,16 +530,6 @@
           <folding>
             <element signature="n#style#0;n#div#0;n#section#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="45" lean-forward="false" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="45" />
-          <folding>
-            <marker date="1528545974947" expanded="true" signature="61:121" ph="SELECT ID, t... contenu" />
           </folding>
         </state>
       </provider>
@@ -584,6 +558,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="58" column="58" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="58" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="45" lean-forward="false" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="45" />
+          <folding>
+            <marker date="1528545974947" expanded="true" signature="61:121" ph="SELECT ID, t... contenu" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/connection_back_office.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="4" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/connection_bdd.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
