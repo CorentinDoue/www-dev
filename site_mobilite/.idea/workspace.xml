@@ -48,45 +48,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="connection.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/connection.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="connection_back_office.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/connection_back_office.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="42">
-              <caret line="2" column="4" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header_back_office.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/header_back_office.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="contenu.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/contenu.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1134">
-              <caret line="54" column="70" lean-forward="false" selection-start-line="54" selection-start-column="70" selection-end-line="54" selection-end-column="70" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#section#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -103,7 +70,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="majcontenus.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="majcontenus.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/majcontenus.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
@@ -115,11 +82,97 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="destination.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/destination.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="8988">
+              <caret line="515" column="81" lean-forward="false" selection-start-line="515" selection-start-column="81" selection-end-line="515" selection-end-column="81" />
+              <folding>
+                <element signature="e#14722#27612#0#PHP" expanded="false" />
+                <marker date="1518519263295" expanded="true" signature="4230:4532" ph="SELECT d.nom... destinations" />
+                <marker date="1518519263295" expanded="true" signature="4649:4752" ph="SELECT do.no... domaines" />
+                <marker date="1518519263295" expanded="true" signature="6205:6433" ph="SELECT p.ID mobilite" />
+                <marker date="1518519263295" expanded="true" signature="6547:6642" ph="SELECT do.no... domaines" />
+                <marker date="1518519263295" expanded="true" signature="10746:10873" ph="..." />
+                <marker date="1518519263295" expanded="false" signature="10781:10793" ph="..." />
+                <marker date="1518519263295" expanded="true" signature="14592:14611" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="export_parc.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/export_parc.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1514506896491" expanded="true" signature="3037:3305" ph="SELECT p.ID parcours" />
+                <marker date="1514506896491" expanded="true" signature="3384:3480" ph="SELECT do.co... domaines" />
+                <marker date="1514506896491" expanded="true" signature="4527:4561" ph="SELECT ID, n... domaines" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="excelread.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/excelread.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="78">
+              <caret line="477" column="4" lean-forward="false" selection-start-line="477" selection-start-column="4" selection-end-line="477" selection-end-column="4" />
+              <folding>
+                <element signature="e#4212#26344#0#PHP" expanded="false" />
+                <marker date="1528550524198" expanded="true" signature="4392:4431" ph="SELECT ID FR... destinations" />
+                <marker date="1528550524198" expanded="true" signature="4668:4941" ph="INSERT INTO destinations... " />
+                <marker date="1528550524198" expanded="true" signature="5051:5090" ph="SELECT ID FR... destinations" />
+                <marker date="1528550524198" expanded="true" signature="5420:5467" ph="UPDATE destinations... " />
+                <marker date="1528550524198" expanded="true" signature="5748:5806" ph="UPDATE destinations... " />
+                <marker date="1528550524198" expanded="true" signature="6083:6139" ph="UPDATE destinations... " />
+                <marker date="1528550524198" expanded="true" signature="6423:6484" ph="UPDATE destinations... " />
+                <marker date="1528550524198" expanded="true" signature="6775:6829" ph="UPDATE destinations... " />
+                <marker date="1528550524198" expanded="true" signature="7105:7156" ph="UPDATE destinations... " />
+                <marker date="1528550524198" expanded="true" signature="7613:7674" ph="UPDATE destinations... " />
+                <marker date="1528550524198" expanded="true" signature="7951:7986" ph="SELECT ID FR... villes" />
+                <marker date="1528550524198" expanded="true" signature="8409:8461" ph="UPDATE destinations... " />
+                <marker date="1528550524198" expanded="true" signature="8714:8818" ph="SELECT do.ID... domaines" />
+                <marker date="1528550524198" expanded="true" signature="9386:9423" ph="SELECT ID FR... domaines" />
+                <marker date="1528550524198" expanded="true" signature="10064:10161" ph="SELECT ID FR... domainedestination" />
+                <marker date="1528550524198" expanded="true" signature="10581:10624" ph="DELETE FROM domainedestination... " />
+                <marker date="1528550524198" expanded="true" signature="10905:11002" ph="INSERT INTO domainedestination... " />
+                <marker date="1528550524198" expanded="true" signature="11984:12051" ph="UPDATE destinations... " />
+                <marker date="1528550524198" expanded="true" signature="12241:12306" ph="SELECT langu... destinations" />
+                <marker date="1528550524198" expanded="true" signature="13281:13339" ph="UPDATE destinations... " />
+                <marker date="1528550524198" expanded="true" signature="13522:13598" ph="SELECT type_... destinations" />
+                <marker date="1528550524198" expanded="true" signature="14646:14711" ph="UPDATE destinations... " />
+                <marker date="1528550524198" expanded="true" signature="15085:15300" ph="INSERT INTO parcours... " />
+                <marker date="1528550524198" expanded="true" signature="15352:15411" ph="SELECT ID FR... parcours" />
+                <marker date="1528550524198" expanded="true" signature="16873:17057" ph="UPDATE parcours... " />
+                <marker date="1528550524198" expanded="true" signature="17706:17802" ph="SELECT do.ID... domaines" />
+                <marker date="1528550524198" expanded="true" signature="18370:18416" ph="SELECT ID FR... domaines" />
+                <marker date="1528550524198" expanded="true" signature="19064:19149" ph="SELECT ID FR... domaineparcour" />
+                <marker date="1528550524198" expanded="true" signature="19565:19604" ph="DELETE FROM domaineparcour... " />
+                <marker date="1528550524198" expanded="true" signature="19885:19970" ph="INSERT INTO domaineparcour... " />
+                <marker date="1528550524198" expanded="true" signature="20240:20316" ph="SELECT type_... destinations" />
+                <marker date="1528550524198" expanded="true" signature="21365:21426" ph="UPDATE parcours... " />
+                <marker date="1528550524198" expanded="true" signature="21683:21738" ph="SELECT ID_de... mobilite" />
+                <marker date="1528550524198" expanded="true" signature="22084:22184" ph="SELECT ID FR... destinations" />
+                <marker date="1528550524198" expanded="true" signature="22857:22944" ph="SELECT ID FR... mobilite" />
+                <marker date="1528550524198" expanded="true" signature="23368:23401" ph="DELETE FROM mobilite... " />
+                <marker date="1528550524198" expanded="true" signature="23638:23702" ph="INSERT INTO mobilite... " />
+                <marker date="1528550524198" expanded="true" signature="24110:24214" ph="SELECT do.ID... domaines" />
+                <marker date="1528550524198" expanded="true" signature="24786:24883" ph="INSERT INTO domainedestination... " />
+                <marker date="1528550524198" expanded="true" signature="25275:25324" ph="SELECT type_... destinations" />
+                <marker date="1528550524198" expanded="true" signature="26096:26163" ph="UPDATE destinations... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="mobinfo sav 25-09-17.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sql/mobinfo sav 25-09-17.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="58" column="58" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="58" selection-end-column="58" />
+              <caret line="58" column="58" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="58" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -161,6 +214,7 @@
         <option value="$PROJECT_DIR$/php/connection_bdd.php" />
         <option value="$PROJECT_DIR$/php/querycontenus.php" />
         <option value="$PROJECT_DIR$/php/majcontenus.php" />
+        <option value="$PROJECT_DIR$/excelread.php" />
       </list>
     </option>
   </component>
@@ -261,12 +315,12 @@
       <option name="presentableId" value="Default" />
       <updated>1518514457301</updated>
       <workItem from="1518514458467" duration="7984000" />
-      <workItem from="1528545546596" duration="2105000" />
+      <workItem from="1528545546596" duration="3832000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10089000" />
+    <option name="totallyTimeSpent" value="11816000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -299,7 +353,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -355,7 +411,7 @@
         <state relative-caret-position="84">
           <caret line="4" column="38" lean-forward="false" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
           <folding>
-            <element signature="e#852#858#0#HTML" expanded="true" />
+            <element signature="e#852#858#0#HTML" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -457,7 +513,7 @@
         <state relative-caret-position="84">
           <caret line="4" column="38" lean-forward="false" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
           <folding>
-            <element signature="e#852#858#0#HTML" expanded="true" />
+            <element signature="e#852#858#0#HTML" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -475,23 +531,6 @@
         <state relative-caret-position="186">
           <caret line="2286" column="38" lean-forward="false" selection-start-line="2286" selection-start-column="38" selection-end-line="2286" selection-end-column="38" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/destination.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8337">
-          <caret line="685" column="46" lean-forward="false" selection-start-line="685" selection-start-column="12" selection-end-line="685" selection-end-column="46" />
-          <folding>
-            <marker date="1518519263295" expanded="true" signature="4230:4532" ph="SELECT d.nom... destinations" />
-            <marker date="1518519263295" expanded="true" signature="4649:4752" ph="SELECT do.no... domaines" />
-            <marker date="1518519263295" expanded="true" signature="6205:6433" ph="SELECT p.ID mobilite" />
-            <marker date="1518519263295" expanded="true" signature="6547:6642" ph="SELECT do.no... domaines" />
-            <marker date="1518519263295" expanded="true" signature="10746:10873" ph="..." />
-            <marker date="1518519263295" expanded="false" signature="10781:10793" ph="..." />
-            <marker date="1518519263295" expanded="true" signature="14592:14611" ph="..." />
-            <marker date="1518519263295" expanded="true" signature="18749:18771" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -514,7 +553,7 @@
     <entry file="file://$PROJECT_DIR$/php/connection.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -522,7 +561,7 @@
     <entry file="file://$PROJECT_DIR$/php/header_back_office.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -551,7 +590,7 @@
     <entry file="file://$PROJECT_DIR$/sql/mobinfo sav 25-09-17.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="58" column="58" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="58" selection-end-column="58" />
+          <caret line="58" column="58" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="58" selection-end-column="58" />
           <folding />
         </state>
       </provider>
@@ -569,7 +608,7 @@
     <entry file="file://$PROJECT_DIR$/php/connection_back_office.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
-          <caret line="2" column="4" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -598,6 +637,86 @@
           <caret line="9" column="40" lean-forward="false" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
           <folding>
             <marker date="1528549009492" expanded="true" signature="99:173" ph="UPDATE contenu_mob... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/destination.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8988">
+          <caret line="515" column="81" lean-forward="false" selection-start-line="515" selection-start-column="81" selection-end-line="515" selection-end-column="81" />
+          <folding>
+            <element signature="e#14722#27612#0#PHP" expanded="false" />
+            <marker date="1518519263295" expanded="true" signature="4230:4532" ph="SELECT d.nom... destinations" />
+            <marker date="1518519263295" expanded="true" signature="4649:4752" ph="SELECT do.no... domaines" />
+            <marker date="1518519263295" expanded="true" signature="6205:6433" ph="SELECT p.ID mobilite" />
+            <marker date="1518519263295" expanded="true" signature="6547:6642" ph="SELECT do.no... domaines" />
+            <marker date="1518519263295" expanded="true" signature="10746:10873" ph="..." />
+            <marker date="1518519263295" expanded="false" signature="10781:10793" ph="..." />
+            <marker date="1518519263295" expanded="true" signature="14592:14611" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/export_parc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1514506896491" expanded="true" signature="3037:3305" ph="SELECT p.ID parcours" />
+            <marker date="1514506896491" expanded="true" signature="3384:3480" ph="SELECT do.co... domaines" />
+            <marker date="1514506896491" expanded="true" signature="4527:4561" ph="SELECT ID, n... domaines" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/excelread.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="477" column="4" lean-forward="false" selection-start-line="477" selection-start-column="4" selection-end-line="477" selection-end-column="4" />
+          <folding>
+            <element signature="e#4212#26344#0#PHP" expanded="false" />
+            <marker date="1528550524198" expanded="true" signature="4392:4431" ph="SELECT ID FR... destinations" />
+            <marker date="1528550524198" expanded="true" signature="4668:4941" ph="INSERT INTO destinations... " />
+            <marker date="1528550524198" expanded="true" signature="5051:5090" ph="SELECT ID FR... destinations" />
+            <marker date="1528550524198" expanded="true" signature="5420:5467" ph="UPDATE destinations... " />
+            <marker date="1528550524198" expanded="true" signature="5748:5806" ph="UPDATE destinations... " />
+            <marker date="1528550524198" expanded="true" signature="6083:6139" ph="UPDATE destinations... " />
+            <marker date="1528550524198" expanded="true" signature="6423:6484" ph="UPDATE destinations... " />
+            <marker date="1528550524198" expanded="true" signature="6775:6829" ph="UPDATE destinations... " />
+            <marker date="1528550524198" expanded="true" signature="7105:7156" ph="UPDATE destinations... " />
+            <marker date="1528550524198" expanded="true" signature="7613:7674" ph="UPDATE destinations... " />
+            <marker date="1528550524198" expanded="true" signature="7951:7986" ph="SELECT ID FR... villes" />
+            <marker date="1528550524198" expanded="true" signature="8409:8461" ph="UPDATE destinations... " />
+            <marker date="1528550524198" expanded="true" signature="8714:8818" ph="SELECT do.ID... domaines" />
+            <marker date="1528550524198" expanded="true" signature="9386:9423" ph="SELECT ID FR... domaines" />
+            <marker date="1528550524198" expanded="true" signature="10064:10161" ph="SELECT ID FR... domainedestination" />
+            <marker date="1528550524198" expanded="true" signature="10581:10624" ph="DELETE FROM domainedestination... " />
+            <marker date="1528550524198" expanded="true" signature="10905:11002" ph="INSERT INTO domainedestination... " />
+            <marker date="1528550524198" expanded="true" signature="11984:12051" ph="UPDATE destinations... " />
+            <marker date="1528550524198" expanded="true" signature="12241:12306" ph="SELECT langu... destinations" />
+            <marker date="1528550524198" expanded="true" signature="13281:13339" ph="UPDATE destinations... " />
+            <marker date="1528550524198" expanded="true" signature="13522:13598" ph="SELECT type_... destinations" />
+            <marker date="1528550524198" expanded="true" signature="14646:14711" ph="UPDATE destinations... " />
+            <marker date="1528550524198" expanded="true" signature="15085:15300" ph="INSERT INTO parcours... " />
+            <marker date="1528550524198" expanded="true" signature="15352:15411" ph="SELECT ID FR... parcours" />
+            <marker date="1528550524198" expanded="true" signature="16873:17057" ph="UPDATE parcours... " />
+            <marker date="1528550524198" expanded="true" signature="17706:17802" ph="SELECT do.ID... domaines" />
+            <marker date="1528550524198" expanded="true" signature="18370:18416" ph="SELECT ID FR... domaines" />
+            <marker date="1528550524198" expanded="true" signature="19064:19149" ph="SELECT ID FR... domaineparcour" />
+            <marker date="1528550524198" expanded="true" signature="19565:19604" ph="DELETE FROM domaineparcour... " />
+            <marker date="1528550524198" expanded="true" signature="19885:19970" ph="INSERT INTO domaineparcour... " />
+            <marker date="1528550524198" expanded="true" signature="20240:20316" ph="SELECT type_... destinations" />
+            <marker date="1528550524198" expanded="true" signature="21365:21426" ph="UPDATE parcours... " />
+            <marker date="1528550524198" expanded="true" signature="21683:21738" ph="SELECT ID_de... mobilite" />
+            <marker date="1528550524198" expanded="true" signature="22084:22184" ph="SELECT ID FR... destinations" />
+            <marker date="1528550524198" expanded="true" signature="22857:22944" ph="SELECT ID FR... mobilite" />
+            <marker date="1528550524198" expanded="true" signature="23368:23401" ph="DELETE FROM mobilite... " />
+            <marker date="1528550524198" expanded="true" signature="23638:23702" ph="INSERT INTO mobilite... " />
+            <marker date="1528550524198" expanded="true" signature="24110:24214" ph="SELECT do.ID... domaines" />
+            <marker date="1528550524198" expanded="true" signature="24786:24883" ph="INSERT INTO domainedestination... " />
+            <marker date="1528550524198" expanded="true" signature="25275:25324" ph="SELECT type_... destinations" />
+            <marker date="1528550524198" expanded="true" signature="26096:26163" ph="UPDATE destinations... " />
           </folding>
         </state>
       </provider>

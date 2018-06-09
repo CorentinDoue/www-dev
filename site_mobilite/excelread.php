@@ -473,7 +473,9 @@ if ($ligne==$highestRow){
 		            'conventions' => $conventions
 		            ));
 		}
-	}elseif ($Data[0][0]=="EXP2") {
+	}
+
+	elseif ($Data[0][0]=="EXP2") {
 
 		$answer['type']="parcours";
 		//Parcours
