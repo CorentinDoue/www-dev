@@ -59,8 +59,8 @@
       <file leaf-file-name="start.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/start.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="110" column="64" lean-forward="false" selection-start-line="110" selection-start-column="44" selection-end-line="110" selection-end-column="64" />
+            <state relative-caret-position="21">
+              <caret line="1" column="186" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="186" />
               <folding>
                 <marker date="1528543663648" expanded="true" signature="1530:1576" ph="SELECT date_... dates" />
                 <marker date="1528543663648" expanded="true" signature="4028:4094" ph="UPDATE stats... " />
@@ -237,16 +237,15 @@
       <updated>1518711355502</updated>
       <workItem from="1518711357358" duration="1282000" />
       <workItem from="1519835919192" duration="3463000" />
-      <workItem from="1528542264508" duration="1550000" />
+      <workItem from="1528542264508" duration="2224000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6295000" />
+    <option name="totallyTimeSpent" value="6969000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25349087" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -582,8 +581,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/start.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="110" column="64" lean-forward="false" selection-start-line="110" selection-start-column="44" selection-end-line="110" selection-end-column="64" />
+        <state relative-caret-position="21">
+          <caret line="1" column="186" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="186" />
           <folding>
             <marker date="1528543663648" expanded="true" signature="1530:1576" ph="SELECT date_... dates" />
             <marker date="1528543663648" expanded="true" signature="4028:4094" ph="UPDATE stats... " />
