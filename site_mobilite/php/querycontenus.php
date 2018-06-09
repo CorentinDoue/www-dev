@@ -7,7 +7,7 @@ $rep = $bdd->query('SELECT ID, titre, contenu_mob from contenu_mob');
 while ($donnees = $rep->fetch())
     {
         $contenu_mob[$donnees["ID"]]['titre']=$donnees["titre"];
-        $contenu_mob[$donnees["ID"]]['contenu_mob']=$donnees["contenu_mob"];
+        $contenu_mob[$donnees["ID"]]['contenu']=$donnees["contenu_mob"];
         $contenu_mob[$donnees["ID"]]['ID']=$donnees["ID"];
         if ($donnees["ID"]==1 OR $donnees["ID"]==8 OR $donnees["ID"]==11 OR $donnees["ID"]==17 OR $donnees["ID"]==18 OR $donnees["ID"]==19)
         {
