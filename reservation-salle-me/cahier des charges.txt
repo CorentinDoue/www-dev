@@ -1,0 +1,68 @@
+# Site de réservation des salles de la Me #
+
+1. Le site serais hébergé sur un serveur de la Me donc accessible seulement sur le réseau local.
+
+2. Un systhème d'authentification avec les droits suivant sera en place :
+- Non authentifié : 
+	* accès au calendrier de réservation en lecture seule (pas de réservation possible ni aucune autre modification) 
+
+- authentifié avec un compte "élève" :
+	* accès au calendrier de réservation avec possiblité de réserver mais pas certaine salle (ex: kfet) et seulement pour des périodes courtes (exemple : 2h/j max sur le terrain de tennis) : durée maximal quotidienne commune à toutes les salles ? à ajuster par salle ?
+	* gestion de son compte : modification des informations personnelles et changement de son mot de passe
+
+- authentifié avec un compte "asso" (et on poura en créer un par liste pendant les campagnes pour rebondir sur votre précédent mail) :
+	* accès au calendrier de réservation avec possiblité de réserver sans limite de durée. Accès à la réservation de toute les salles (kfet). ? priorité sur les élèves (possibilité de réserver alors que la salle était déjà prise par un élève et de lui envoyer un mail automatique lui expliquant que son créneau a été réquisitionné) ? 
+	* gestion de son compte : modification des informations personnelles et changement de son mot de passe
+
+- auhentifié avec un compte "admin" (les Roots et l'administration de la Me) :
+	* accès au calendrier de réservation avec possiblité de réserver sans limite de durée et avec priorité sur les autres comptes. (envoie autmatique de mail en cas de réservation sur un créneau déjà utilisé par un autre compte)
+	* gestion des comptes (ajout - modification - suppression)
+
+3. Les informations suivantes seront stockée sur les utilisateurs :
+- Nom
+- Prénom
+? N° de chambre ?
+? Type de locataire (ICM, ISTP, court séjour) ?
+- adresse email
+- mot de passe (krypté)
+
+Je ne sais pas sous quelle forme sont stockées ces informations actuellement au secrétariat. Si elles sont sous excel, il sera facile de les importer dans la base de donnée. Je ne sais pas non plus si vous avez un identifiant par locataire autre que le nom-prenom ou adresse mail. Si un tel identifiant éxiste il pourrait permettre de mettre facilement à jour la liste des locataires en créant les comptes dont l'identifiant n'existe pas sur la base de donnée et en supprimant les comptes dont l'identifiant n'apparait plus.
+
+Pour faciliter l'ajout d'une liste de nouveaux comptes, j'opterais pour la génération automatique du mot de passe associé au compte et qui serait envoyé automatiquement à l'adresse mail associé au compte. Ainsi pas besoin que chaque nouvel arrivant définisse son mot de passe, il suffira d'importer la liste des nouveaux arrivants et ils recevront tous un mail avec leur mot de passe et une courte explication du système de réservation des salles.
+
+4. Liste des salles :
+à compléter avec :
+- nom de la salle
+- particularité de la salle (horaires particuliers, restriction d'accès aux assos)
+- description de la salle
+- instruction vis à vis de la salle
+
+5. Interface :
+- page de connexion
+- page de gestion de son compte
+- page de gestions des comptes (admin)
+- page d'accueil avec :
+	* résumé des réservations de l'utilisateur actif
+	* affichage du calendrier de réservations de (2 ou 4 je verrais) salles favorites
+- 1 page par salle avec :
+	* sa description
+	* les instructions particulière vis à vis de cette salle
+	* son calendrier de réservation avec possibilité de l'édité selon les conditions évoquées en 2.
+
+6. Technique :
+Je ne vais pas renter dans les détails avec du vocabulaire technique mais je vais utiliser des outils qui sont facile à maintenir et mettre au point un manuel d'utilisation et de manutention pour que même dans plusieurs années un roots puisse reprendre le code.
+Pour la partie hébergement à la Me, je passe par les roots.
+
+
+
+Apparté :
+Je comprends votre désir de garder le controle de l'hebergement de ce site mais à mon sens il y plusieurs avantages au fait qu'il soit intégré au nouvel webélèves : 
+premièrement je ne sais pas comment était géré webélèves qu'il tombe à l'abandon, mais le nouveau webélèves sera entièrement gérer par les élèves (roots ou d'autre motivés comme moi). Donc il revient au même pour les roots de maintenir un serveur à la Me qu'un serveur à l'école. Mais le serveur école disposes d'avantage suplémentaire : 
+	- il est relié au système de connexion de l'école, ce qui permet d'avoir un mot de passe unique pour tout les services de l'école. Actuellement, le site BDE et le site cercle sont déjà relié à ce système ce qui facilite grandement la vie des élèves qui n'ont qu'un mot de passe à retenir. Ce n'est maleuresement disponible que pour les ICM donc il y aura un sytème de connexion avec mot de passe classique pour les autres utilisateur, qui ne profiterons pas de cet avantage.
+	- il est sur internet. Ce qui veut dire qu'il n'est pas seulement accessible depuis la Me. Celà permet deux choses :
+		* lorsque le réseau de la Me ne fonctionne pas (celà arrive malheuresement trop souvent), le site est toujours accessible.
+		* le site serait accessible depuis les téléphones portables. La possibilité de réserver une salle depuis son smartphone serait signicativement plus simple pour la plupart des cas.
+De plus l'intégrer au nouvel webélèves permettrait de le syncroniser avec les événements organiser par les associations. Nous comptons effectivement dématérialiser le calendrier des évènements associatifs pour le rendre plus intéractif. Ainsi une association pourrait créer son événement sur le calendier des événements en précisant le lieu et si c'est une salle de la Me elle serait automatiquement réservée au nom de l'asso.
+
+
+Dans tout les cas celà ne change rien à la façon dont le site va être conçu et mis en ligne pour septembre, celà serait une hypothétique seconde phase. Et la première version resterait à la Me pour prendre le relais en cas de coupure de webélèves. Nous auront tout le temps d'en discuter l'année prochaine en fonction de ce que devient réellement webélèves.
