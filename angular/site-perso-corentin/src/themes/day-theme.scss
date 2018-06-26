@@ -1,0 +1,9 @@
+$spc-day-primary: mat-palette($mat-grey, 700, 300, 900);
+$spc-day-accent: mat-palette($mat-blue-grey, 400);
+$spc-day-warn: mat-palette($mat-red, 500);
+
+$spc-day-theme: mat-light-theme(
+  $spc-day-primary,
+  $spc-day-accent,
+  $spc-day-warn
+);

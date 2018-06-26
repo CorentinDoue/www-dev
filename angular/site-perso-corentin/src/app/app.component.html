@@ -16,13 +16,21 @@
   </mat-sidenav>
 
   <div class="toolbar">
-    <mat-toolbar color="black">
+    <mat-toolbar color="primary">
       <button mat-icon-button class="d-md-none" (click)="sidenav.open()">
         <mat-icon fontSet="fas" fontIcon="fa-bars"></mat-icon>
       </button>
 
-      <span routerLink="" class="branding spacer center d-inline d-md-none">Corentin Doué</span>
-      <span routerLink="" class="branding spacer d-none d-md-inline">Corentin Doué</span>
+
+
+      <span routerLink="" class="branding spacer center d-inline d-md-none">
+        <mat-icon fontSet="fas" fontIcon="fa-code-branch" class="d-none d-sm-inline"></mat-icon>
+        Corentin Doué
+      </span>
+      <span routerLink="" class="branding spacer d-none d-md-inline">
+        <mat-icon fontSet="fas" fontIcon="fa-code-branch"></mat-icon>
+        Corentin Doué
+      </span>
 
       <span class="d-none d-md-inline">
           <button mat-button class="nav-button" *ngFor="let item of navigation"
@@ -36,13 +44,17 @@
   <div class="wrapper">
 
     <div class="content"
-         [@routeAnimations]="o.isActivated && o.activatedRoute.routeConfig.path">
+         [@routeAnimations]="getState(o)">
       <router-outlet #o="outlet"></router-outlet>
     </div>
 
     <div class="footer">
       <div class="row">
         <div class="col-sm-12 links">
+          <a href="https://www.linkedin.com/in/corentin-doue" target="_blank">
+            <mat-icon fontSet="fab" fontIcon="fa-linkedin-in"></mat-icon>
+            <span>Linkedin</span>
+          </a>
           <a href="https://www.github.com/corentindoue" target="_blank">
             <mat-icon fontSet="fab" fontIcon="fa-github"></mat-icon>
             <span>Github</span>
@@ -50,6 +62,14 @@
           <a href="mailto:corentin.doue@etu.emse.fr" target="_blank">
             <mat-icon fontSet="fas" fontIcon="fa-at"></mat-icon>
             <span>corentin.doue@etu.emse.fr</span>
+          </a>
+          <a href="tel:+33602389814">
+            <mat-icon fontSet="fas" fontIcon="fa-phone"></mat-icon>
+            <span>+33 (0)6023 89814</span>
+          </a>
+          <a href="https://goo.gl/maps/c2GonWtoTEv" target="_blank" matTooltip="20 Bd Alexandre de Fraissinette 42100 Saint-Etienne (France)">
+            <mat-icon fontSet="fas" fontIcon="fa-map-marker-alt"></mat-icon>
+            <span>Saint-Etienne (France)</span>
           </a>
         </div>
       </div>

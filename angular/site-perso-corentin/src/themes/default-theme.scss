@@ -1,0 +1,5 @@
+$spc-primary: mat-palette($mat-indigo, 800, 300, 900);
+$spc-accent: mat-palette($mat-light-blue);
+$spc-warn: mat-palette($mat-pink, 600);
+
+$spc-theme: mat-light-theme($spc-primary, $spc-accent, $spc-warn);

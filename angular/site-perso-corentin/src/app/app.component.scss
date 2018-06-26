@@ -1,5 +1,9 @@
 @import '../styles-variables';
 
+@import "../themes/R-theme";
+
+
+
 mat-sidenav-container {
   height: 100%;
   width: 100%;
@@ -8,6 +12,20 @@ mat-sidenav-container {
     position: fixed;
     width: 100%;
     display: flex;
+
+    mat-toolbar {
+      //height: 50px;
+
+      button {
+        //height: 50px;
+      }
+
+      .branding {
+        font-size: 1.2em;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      }
+
+    }
 
     .nav-button {
       margin: 0 10px 0 0;
@@ -175,6 +193,3 @@ mat-sidenav {
   }
 }
 
-.active{
-  background: red;
-}

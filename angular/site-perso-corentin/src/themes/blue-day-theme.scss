@@ -1,0 +1,36 @@
+$spc-blue-day-primary: mat-palette($mat-indigo, 500, 900, 50);
+$spc-blue-day-accent: mat-palette($mat-light-blue);
+$spc-blue-day-warn: mat-palette($mat-pink, 600);
+
+// Foreground palette for light themes.
+$spc-blue-day-foreground: (
+  base:              black,
+  divider:           $dark-dividers,
+  dividers:          $dark-dividers,
+  disabled:          $dark-disabled-text,
+  disabled-button:   rgba(black, 0.26),
+  disabled-text:     $dark-disabled-text,
+  hint-text:         $dark-disabled-text,
+  secondary-text:    $dark-secondary-text,
+  icon:              rgba(black, 0.54),
+  icons:             rgba(black, 0.54),
+  text:              rgba(#060c25, 0.87),
+  text2:             rgba(#3a3a60, 0.87),
+  slider-min:        rgba(black, 0.87),
+  slider-off:        rgba(black, 0.26),
+  slider-off-active: rgba(black, 0.38),
+  h1:                rgb(19, 33, 67),
+  h2:                rgb(40, 59, 141),
+  h3:                rgb(17, 75, 200),
+  p:                 rgba(#060c25, 0.87),
+);
+
+$spc-blue-day-theme: (
+  primary: $spc-blue-day-primary,
+  accent: $spc-blue-day-accent,
+  warn: $spc-blue-day-warn,
+  is-dark: false,
+  foreground: $spc-blue-day-foreground,
+  background: $mat-light-theme-background,
+);
+

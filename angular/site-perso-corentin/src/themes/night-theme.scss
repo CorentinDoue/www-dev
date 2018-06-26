@@ -1,0 +1,9 @@
+$spc-night-primary: mat-palette($mat-grey, 700, 300, 900);
+$spc-night-accent: mat-palette($mat-blue-grey, 400);
+$spc-night-warn: mat-palette($mat-red, 500);
+
+$spc-night-theme: mat-dark-theme(
+  $spc-night-primary,
+  $spc-night-accent,
+  $spc-night-warn
+);

@@ -1,9 +1,14 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, HostBinding, OnDestroy, OnInit} from '@angular/core';
 import {routeAnimations} from './core/animations/route.animations';
+import { OverlayContainer } from '@angular/cdk/overlay';
 import {Title} from '@angular/platform-browser';
 import {ActivationEnd, NavigationEnd, Router} from '@angular/router';
 import {Subject} from 'rxjs';
 import {filter, takeUntil} from 'rxjs/internal/operators';
+import browser from 'browser-detect';
+import {AnimationsService} from './core/animations/animations.service';
+import {ThemeHoursService} from './theme-hours.service';
+
 
 @Component({
   selector: 'spc-root',
@@ -12,67 +17,56 @@ import {filter, takeUntil} from 'rxjs/internal/operators';
   animations: [routeAnimations]
 })
 
-export class AppComponent implements OnInit, OnDestroy {
-  private unsubscribe$: Subject<void> = new Subject<void>();
+export class AppComponent implements OnInit{
+
+  @HostBinding('class') componentCssClass;
 
   year = new Date().getFullYear();
-  logo = '../assets/logo.png';
+
   navigation = [
-    { link: 'home', label: 'Home' },
-    { link: 'cv', label: 'Curriculum vitae' },
-    { link: 'skills', label: 'Skills' },
-    { link: 'projects', label: 'Projects' },
-    { link: 'bio', label: 'Biography' },
-    { link: 'hobbies', label: 'Hobbies' }
+    { link: 'about', label: 'About'},
+    { link: 'cv', label: 'Curriculum vitae'},
+    { link: 'skills', label: 'Skills'},
+    { link: 'projects', label: 'Projects'},
+    { link: 'hobbies', label: 'Hobbies'}
   ];
 
   constructor(
-    private router: Router,
-    private titleService: Title
+    public overlayContainer: OverlayContainer,
+    private animationService: AnimationsService,
+    public themeHoursService: ThemeHoursService
   ) {}
-
-  // private static trackPageView(event: NavigationEnd) {
-  //   (<any>window).ga('set', 'page', event.urlAfterRedirects);
-  //   (<any>window).ga('send', 'pageview');
-  // }
+  private static isIEorEdge() {
+    return ['ie', 'edge'].includes(browser().name);
+  }
 
   ngOnInit(): void {
-    //  this.subscribeToRouterEvents();
+    this.initTheme();
+    if (AppComponent.isIEorEdge()) {
+      this.animationService.updateRouteAnimationType(false, true);
+    }
   }
 
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
+  private initTheme() {
+    const hours = new Date().getHours();
+    const effectiveTheme = ((hours >= this.themeHoursService.sunset || hours <= this.themeHoursService.sunrise)
+        ? 'night-theme'
+        : 'day-theme'
+    );
+    this.componentCssClass = effectiveTheme;
+    const classList = this.overlayContainer.getContainerElement().classList;
+    const toRemove = Array.from(classList).filter((item: string) =>
+      item.includes('-theme')
+    );
+    if (toRemove.length) {
+      classList.remove(...toRemove);
+    }
+    classList.add(effectiveTheme);
   }
 
-  // private subscribeToRouterEvents() {
-  //   this.router.events
-  //     .pipe(
-  //       filter(
-  //         event =>
-  //           event instanceof ActivationEnd || event instanceof NavigationEnd
-  //       ),
-  //       takeUntil(this.unsubscribe$)
-  //     )
-  //     .subscribe(event => {
-  //       if (event instanceof ActivationEnd) {
-  //         this.setPageTitle(event);
-  //       }
-  //
-  //       if (event instanceof NavigationEnd) {
-  //         AppComponent.trackPageView(event);
-  //       }
-  //     });
-  // }
-  //
-  // private setPageTitle(event: ActivationEnd) {
-  //   let lastChild = event.snapshot;
-  //   while (lastChild.children.length) {
-  //     lastChild = lastChild.children[0];
-  //   }
-  //   const { title } = lastChild.data;
-  //   this.titleService.setTitle(
-  //     title ? `${title} - Corentin Doué` : 'Corentin Doué'
-  //   );
-  // }
+  getState(outlet) {
+    return outlet.activatedRouteData.state;
+  }
+
+
 }

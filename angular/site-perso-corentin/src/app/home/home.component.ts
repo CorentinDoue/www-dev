@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ROUTE_ANIMATIONS_ELEMENTS} from '../core/animations/route.animations';
+
+
 
 @Component({
   selector: 'spc-home',
@@ -7,9 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
-  }
+  routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
+
+  constructor() {}
+
+  ngOnInit() {}
 
 }

@@ -1,0 +1,9 @@
+$spc-nature-primary: mat-palette($mat-brown, 700, 300, 900);
+$spc-nature-accent: mat-palette($mat-deep-purple, 300);
+$spc-nature-warn: mat-palette($mat-red, 600);
+
+$spc-nature-theme: mat-light-theme(
+  $spc-nature-primary,
+  $spc-nature-accent,
+  $spc-nature-warn
+);

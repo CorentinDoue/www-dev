@@ -1,0 +1,37 @@
+$spc-blue-night-primary: mat-palette($mat-indigo, 500, 50, 900);
+$spc-blue-night-accent: mat-palette($mat-light-blue);
+$spc-blue-night-warn: mat-palette($mat-pink, 600);
+
+// Foreground palette for light themes.
+$spc-blue-night-foreground: (
+  base:              white,
+  divider:           $light-dividers,
+  dividers:          $light-dividers,
+  disabled:          $light-disabled-text,
+  disabled-button:   rgba(white, 0.3),
+  disabled-text:     $light-disabled-text,
+  hint-text:         $light-disabled-text,
+  secondary-text:    $light-secondary-text,
+  icon:              white,
+  icons:             white,
+  text:              white,
+  text2:             rgba(#d8dee7, 0.87),
+  slider-min:        white,
+  slider-off:        rgba(white, 0.3),
+  slider-off-active: rgba(white, 0.3),
+  h1:                white,
+  h2: rgb(172, 178, 255),
+  h3: rgb(244, 248, 243),
+  p: rgb(105, 141, 255)
+);
+
+
+$spc-blue-night-theme: (
+  primary: $spc-blue-night-primary,
+  accent: $spc-blue-night-accent,
+  warn: $spc-blue-night-warn,
+  is-dark: false,
+  foreground: $spc-blue-night-foreground,
+  background: $mat-light-theme-background,
+);
+

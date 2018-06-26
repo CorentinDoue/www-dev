@@ -1,0 +1,32 @@
+@import '../../../styles-variables';
+
+.container {
+  position: relative;
+
+  .centrer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 2em;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+    padding: 10px;
+    margin: 0;
+  }
+}
+
+@media (max-width: map-get($grid-breakpoints, sm)) {
+  .centrer {
+    height: 70px;
+  }
+
+  h1 {
+    font-size: 1.4em;
+  }
+}

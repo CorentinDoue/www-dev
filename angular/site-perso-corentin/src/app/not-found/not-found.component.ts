@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ROUTE_ANIMATIONS_ELEMENTS} from '../core/animations/route.animations';
 
 @Component({
   selector: 'spc-not-found',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./not-found.component.scss']
 })
 export class NotFoundComponent implements OnInit {
+
+  routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
 
   constructor() { }
 

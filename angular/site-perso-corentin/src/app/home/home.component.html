@@ -1,3 +1,32 @@
-<p>
-  home works!
-</p>
+<!--<img src="../../assets/abstract-wallpaper.png" style="width: 100%">-->
+
+<div class="background">
+  <div class="gradient">
+    <div class="container">
+      <div class="centrer">
+        <div><h1 [ngClass]="routeAnimationsElements">About Me</h1></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <p [ngClass]="routeAnimationsElements">
+    I am a french engineering student at <a href="https://www.mines-stetienne.fr/">Mines Saint-Etienne</a>.
+    I majored in Computer Sciences and Artificial Intelligence during the past year.
+    For my last year before graduation, I am going to major in Data Sciences and Big Data.
+  </p>
+  <p [ngClass]="routeAnimationsElements">
+    In parallel with my courses, I have most of the time a web development project. To achieve them, I take a lot of MOOCs and read many articles.
+    That is why I acquired plenty of skills. <a class="more" routerLink="/skills">Learn more ...</a>
+  </p>
+  <p [ngClass]="routeAnimationsElements">
+    The engineering school makes me also discover the student's associations.
+    I spend the last year in three Executive Committee of associations including the Student Union of the school.
+    It learns me a lot about team management and commitment.
+  </p>
+  <p [ngClass]="routeAnimationsElements">
+    Moreover I find time for my hobbies. I run at least ones a week. I also regularly practise climbing and skiing. I enjoy cooking too.
+  </p>
+</div>
+
+

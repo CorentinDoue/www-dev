@@ -7,39 +7,38 @@ import {HomeComponent} from './home/home.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    redirectTo: 'about',
+    pathMatch: 'full'
   },
   {
-    path: 'home',
-    component: HomeComponent
+    path: 'about',
+    component: HomeComponent,
+    data: { state: 'home' }
   },
   {
     path: 'cv',
-    redirectTo: '',
-    pathMatch: 'full'
+    loadChildren: './cv/cv.module#CvModule',
+    data: { state: 'cv' }
   },
   {
     path: 'skills',
-    redirectTo: '',
-    pathMatch: 'full'
+    loadChildren: './skills/skills.module#SkillsModule',
+    data: { state: 'skills' }
   },
   {
     path: 'projects',
-    redirectTo: '',
-    pathMatch: 'full'
-  },
-  {
-    path: 'bio',
-    redirectTo: '',
-    pathMatch: 'full'
+    loadChildren: './projects/projects.module#ProjectsModule',
+    data: { state: 'projects' }
   },
   {
     path: 'hobbies',
-    loadChildren: './hobbies/hobbies.module#HobbiesModule'
+    loadChildren: './hobbies/hobbies.module#HobbiesModule',
+    data: { state: 'hobbies' }
   },
   {
     path: '**',
-    component: NotFoundComponent
+    component: NotFoundComponent,
+    data: { state: '404' }
   }
 ];
 
