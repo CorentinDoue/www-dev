@@ -1,0 +1,115 @@
+@import '../../../styles-variables';
+
+@mixin spc-step-progress-bar($iconWidth, $svgWidth){
+  .spc-step-progress-bar{
+    margin: 20px;
+    display: flex;
+    margin-right: $iconWidth/2;
+    margin-left: $iconWidth/2;
+
+    .skill-logo{
+      z-index: 2;
+      position: absolute;
+      left: 0;
+      width: $iconWidth;
+      height: $iconWidth;
+      border-radius: $iconWidth/2;
+
+      border: solid 1px;
+
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .step{
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      height: $iconWidth;
+
+      .progress {
+        position: absolute;
+        width: 100%;
+      }
+
+      .step-label{
+        z-index: 2;
+        position: absolute;
+        right: -$iconWidth/2;
+        width: $iconWidth;
+        height: $iconWidth;
+        border-radius: $iconWidth/2;
+
+        border: solid 1px;
+
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .advanced{
+        background-color: #00cd00;
+        border-color: white;
+
+        svg-icon{
+          fill: white;
+        }
+      }
+
+
+
+      .bg-danger{
+
+        border-color: white;
+        svg-icon{
+          fill: white;
+        }
+      }
+
+      .elementary{
+        background-color: #ff7200;
+        border-color: white;
+        svg-icon{
+          fill: white;
+        }
+      }
+
+      .intermediate{
+        background-color: rgb(238, 238, 0);
+        border-color: black;
+        svg-icon{
+          fill: black;
+        }
+      }
+
+      .bg-success{
+        border-color: white;
+        svg-icon{
+          fill: white;
+        }
+      }
+
+      svg-icon{
+        width: $svgWidth;
+        height: $svgWidth;
+      }
+    }
+  }
+}
+
+@include spc-step-progress-bar(50px,30px);
+
+@media (max-width: map-get($grid-breakpoints, lg)) {
+  @include spc-step-progress-bar(40px,25px);
+}
+
+
+@media (max-width: map-get($grid-breakpoints, sm)) {
+  @include spc-step-progress-bar(30px, 20px);
+}
+
+

@@ -1,8 +1,32 @@
-<div class="container" [ngClass]="theme">
+<div [ngClass]="theme">
+  <div class="skills">
+    <div class="container">
   <div class="centrer">
     <div><h1 [ngClass]="routeAnimationsElements">Skills</h1></div>
   </div>
-  <div class="row justify-content-center">
-    <img src="../../../assets/comingsoon.jpg" style="max-width: 100%" [ngClass]="routeAnimationsElements">
+  <mat-tab-group>
+    <mat-tab label="Languages">
+      <h2>Programming Languages</h2>
+      <spc-skills-list></spc-skills-list>
+    </mat-tab>
+    <mat-tab label="Web">
+      <h2>Web</h2>
+      <spc-skills-list></spc-skills-list>
+    </mat-tab>
+    <mat-tab label="AI">
+      <h2>Artificial Intelligence</h2>
+      <spc-skills-list></spc-skills-list>
+    </mat-tab>
+    <mat-tab label="Data">
+      <h2>Data Science</h2>
+      <spc-skills-list></spc-skills-list>
+    </mat-tab>
+    <mat-tab label="Other">
+      <h1>Other</h1>
+      <spc-skills-list></spc-skills-list>
+    </mat-tab>
+  </mat-tab-group>
+
+</div>
   </div>
 </div>

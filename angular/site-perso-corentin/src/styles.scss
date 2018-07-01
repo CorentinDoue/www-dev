@@ -34,6 +34,7 @@
 @import "app/projects/projects-home/projects-home.component.scss-theme";
 @import "app/hobbies/hobbies/hobbies.component.scss-theme";
 @import "app/not-found/not-found.component.scss-theme";
+@import "app/skills/progress-bar/progress-bar.component.scss-theme";
 
 @mixin custom-components-theme($theme) {
   @include spc-app-component-theme($theme);
@@ -49,6 +50,7 @@
   @include spc-cv-component-theme($theme);
   @include spc-projects-component-theme($theme);
   @include spc-hobbies-component-theme($theme);
+  @include spc-progress-bar-component-theme($theme);
 }
 
 .default-theme {

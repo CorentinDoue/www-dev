@@ -7,11 +7,12 @@
   $background: map-get($theme, background);
 
 
-
-  h1{
-    background-color: mat-color($primary, darker, 0.3);
-    color: mat-color($foreground, h1);
-    border: solid 2px mat-color($foreground, h1);
+  .skills {
+    h1 {
+      //background-color: mat-color($primary, darker, 0.3);
+      color: mat-color($foreground, h1);
+      //border: solid 2px mat-color($foreground, h1);
+    }
   }
 
 }

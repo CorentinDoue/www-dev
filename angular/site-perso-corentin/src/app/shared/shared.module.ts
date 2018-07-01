@@ -19,7 +19,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
-
+import { AngularSvgIconModule } from 'angular-svg-icon';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -43,7 +44,9 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
     MatSnackBarModule,
     MatSlideToggleModule,
 
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    AngularSvgIconModule,
+    HttpClientModule
   ],
   declarations: [],
   exports: [
@@ -65,7 +68,11 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
     MatIconModule,
     MatTooltipModule,
     MatSnackBarModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+
+    AngularFontAwesomeModule,
+    AngularSvgIconModule,
+    HttpClientModule
   ]
 })
 export class SharedModule {}
