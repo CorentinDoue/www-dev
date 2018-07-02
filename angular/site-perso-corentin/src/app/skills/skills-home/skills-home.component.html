@@ -1,32 +1,31 @@
 <div [ngClass]="theme">
   <div class="skills">
     <div class="container">
-  <div class="centrer">
-    <div><h1 [ngClass]="routeAnimationsElements">Skills</h1></div>
-  </div>
-  <mat-tab-group>
-    <mat-tab label="Languages">
-      <h2>Programming Languages</h2>
-      <spc-skills-list></spc-skills-list>
-    </mat-tab>
-    <mat-tab label="Web">
-      <h2>Web</h2>
-      <spc-skills-list></spc-skills-list>
-    </mat-tab>
-    <mat-tab label="AI">
-      <h2>Artificial Intelligence</h2>
-      <spc-skills-list></spc-skills-list>
-    </mat-tab>
-    <mat-tab label="Data">
-      <h2>Data Science</h2>
-      <spc-skills-list></spc-skills-list>
-    </mat-tab>
-    <mat-tab label="Other">
-      <h1>Other</h1>
-      <spc-skills-list></spc-skills-list>
-    </mat-tab>
-  </mat-tab-group>
-
-</div>
+      <div class="centrer">
+        <div><h1 [ngClass]="routeAnimationsElements">Skills</h1></div>
+      </div>
+      <mat-tab-group>
+        <mat-tab label="Languages">
+          <h2>Programming Languages</h2>
+          <spc-skills-list [skills]="skills.language"></spc-skills-list>
+        </mat-tab>
+        <mat-tab label="Web">
+          <h2>Web</h2>
+          <spc-skills-list></spc-skills-list>
+        </mat-tab>
+        <mat-tab label="AI">
+          <h2>Artificial Intelligence</h2>
+          <spc-skills-list [skills]="skills.ia"></spc-skills-list>
+        </mat-tab>
+        <mat-tab label="Graphical">
+          <h2>Graphical</h2>
+          <spc-skills-list [skills]="skills.graphical"></spc-skills-list>
+        </mat-tab>
+        <mat-tab label="Other">
+          <h1>Other</h1>
+          <spc-skills-list [skills]="skills.other"></spc-skills-list>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
   </div>
 </div>

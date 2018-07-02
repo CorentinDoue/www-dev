@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ROUTE_ANIMATIONS_ELEMENTS, routeAnimations} from '../../core/animations/route.animations';
 import {ThemeHoursService} from '../../theme-hours.service';
+import {SKILLS} from '../../../data/skills.data';
 
 @Component({
   selector: 'spc-skills-home',
@@ -12,6 +13,8 @@ export class SkillsHomeComponent implements OnInit {
 
   theme;
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
+
+  skills = SKILLS;
 
   constructor(
     public themeHoursService: ThemeHoursService

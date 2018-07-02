@@ -1,3 +1,8 @@
-<spc-progress-bar *ngFor="let rank of ranks"
-                [rank]="rank"  [logo]="'../../../assets/skills/angular.png'">
-</spc-progress-bar>
+<div class="row" *ngFor="let skill of skills">
+  <div class="col-2">{{skill.name}}</div>
+  <div class="col-10">
+    <spc-progress-bar [rank]="skill.mark" [logo]="'../../../assets/skills/angular.png'">
+    </spc-progress-bar>
+  </div>
+</div>
+
