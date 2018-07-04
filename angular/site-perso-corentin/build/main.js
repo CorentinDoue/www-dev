@@ -160,9 +160,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _core_animations_route_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./core/animations/route.animations */ "./src/app/core/animations/route.animations.ts");
 /* harmony import */ var _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/cdk/overlay */ "./node_modules/@angular/cdk/esm5/overlay.es5.js");
-/* harmony import */ var browser_detect__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! browser-detect */ "./node_modules/browser-detect/dist/browser-detect.es5.js");
-/* harmony import */ var _core_animations_animations_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./core/animations/animations.service */ "./src/app/core/animations/animations.service.ts");
-/* harmony import */ var _theme_hours_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./theme-hours.service */ "./src/app/theme-hours.service.ts");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var browser_detect__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! browser-detect */ "./node_modules/browser-detect/dist/browser-detect.es5.js");
+/* harmony import */ var _core_animations_animations_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./core/animations/animations.service */ "./src/app/core/animations/animations.service.ts");
+/* harmony import */ var _theme_hours_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./theme-hours.service */ "./src/app/theme-hours.service.ts");
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/esm5/icon.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -178,11 +180,15 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var AppComponent = /** @class */ (function () {
-    function AppComponent(overlayContainer, animationService, themeHoursService) {
+    function AppComponent(overlayContainer, animationService, themeHoursService, iconReg, sanitizer) {
         this.overlayContainer = overlayContainer;
         this.animationService = animationService;
         this.themeHoursService = themeHoursService;
+        this.iconReg = iconReg;
+        this.sanitizer = sanitizer;
         this.year = new Date().getFullYear();
         this.navigation = [
             { link: 'about', label: 'About' },
@@ -194,13 +200,14 @@ var AppComponent = /** @class */ (function () {
     }
     AppComponent_1 = AppComponent;
     AppComponent.isIEorEdge = function () {
-        return ['ie', 'edge'].includes(Object(browser_detect__WEBPACK_IMPORTED_MODULE_3__["default"])().name);
+        return ['ie', 'edge'].includes(Object(browser_detect__WEBPACK_IMPORTED_MODULE_4__["default"])().name);
     };
     AppComponent.prototype.ngOnInit = function () {
         this.initTheme();
         if (AppComponent_1.isIEorEdge()) {
             this.animationService.updateRouteAnimationType(false, true);
         }
+        this.initIcon();
     };
     AppComponent.prototype.initTheme = function () {
         var hours = new Date().getHours();
@@ -220,6 +227,14 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.getState = function (outlet) {
         return outlet.activatedRouteData.state;
     };
+    AppComponent.prototype.initIcon = function () {
+        this.iconReg.addSvgIcon('advanced', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/progress-bar/advanced.svg'))
+            .addSvgIcon('code', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/programming-language.svg'))
+            .addSvgIcon('web', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/web.svg'))
+            .addSvgIcon('ai', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/brain.svg'))
+            .addSvgIcon('paint', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/paint.svg'))
+            .addSvgIcon('tech', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/technology.svg'));
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"])('class'),
         __metadata("design:type", Object)
@@ -232,8 +247,10 @@ var AppComponent = /** @class */ (function () {
             animations: [_core_animations_route_animations__WEBPACK_IMPORTED_MODULE_1__["routeAnimations"]]
         }),
         __metadata("design:paramtypes", [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__["OverlayContainer"],
-            _core_animations_animations_service__WEBPACK_IMPORTED_MODULE_4__["AnimationsService"],
-            _theme_hours_service__WEBPACK_IMPORTED_MODULE_5__["ThemeHoursService"]])
+            _core_animations_animations_service__WEBPACK_IMPORTED_MODULE_5__["AnimationsService"],
+            _theme_hours_service__WEBPACK_IMPORTED_MODULE_6__["ThemeHoursService"],
+            _angular_material_icon__WEBPACK_IMPORTED_MODULE_7__["MatIconRegistry"],
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["DomSanitizer"]])
     ], AppComponent);
     return AppComponent;
     var AppComponent_1;
@@ -615,6 +632,46 @@ var NotFoundComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/shared/pipes/iter-obj.pipe.ts":
+/*!***********************************************!*\
+  !*** ./src/app/shared/pipes/iter-obj.pipe.ts ***!
+  \***********************************************/
+/*! exports provided: IterObjPipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IterObjPipe", function() { return IterObjPipe; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var IterObjPipe = /** @class */ (function () {
+    function IterObjPipe() {
+    }
+    IterObjPipe.prototype.transform = function (value, args) {
+        var keys = [];
+        for (var key in value) {
+            if (value.hasOwnProperty(key)) {
+                keys.push({ key: key, value: value[key] });
+            }
+        }
+        return keys;
+    };
+    IterObjPipe = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Pipe"])({ name: 'iterObj' })
+    ], IterObjPipe);
+    return IterObjPipe;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/shared/shared.module.ts":
 /*!*****************************************!*\
   !*** ./src/app/shared/shared.module.ts ***!
@@ -645,12 +702,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/snack-bar */ "./node_modules/@angular/material/esm5/snack-bar.es5.js");
 /* harmony import */ var _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/slide-toggle */ "./node_modules/@angular/material/esm5/slide-toggle.es5.js");
 /* harmony import */ var angular_font_awesome__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! angular-font-awesome */ "./node_modules/angular-font-awesome/dist/angular-font-awesome.es5.js");
+/* harmony import */ var angular_svg_icon__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! angular-svg-icon */ "./node_modules/angular-svg-icon/esm5/angular-svg-icon.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _pipes_iter_obj_pipe__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./pipes/iter-obj.pipe */ "./src/app/shared/pipes/iter-obj.pipe.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
 
 
 
@@ -695,9 +760,12 @@ var SharedModule = /** @class */ (function () {
                 _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_16__["MatTooltipModule"],
                 _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_17__["MatSnackBarModule"],
                 _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_18__["MatSlideToggleModule"],
-                angular_font_awesome__WEBPACK_IMPORTED_MODULE_19__["AngularFontAwesomeModule"]
+                _angular_material__WEBPACK_IMPORTED_MODULE_22__["MatExpansionModule"],
+                angular_font_awesome__WEBPACK_IMPORTED_MODULE_19__["AngularFontAwesomeModule"],
+                angular_svg_icon__WEBPACK_IMPORTED_MODULE_20__["AngularSvgIconModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_21__["HttpClientModule"]
             ],
-            declarations: [],
+            declarations: [_pipes_iter_obj_pipe__WEBPACK_IMPORTED_MODULE_23__["IterObjPipe"]],
             exports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
@@ -716,7 +784,12 @@ var SharedModule = /** @class */ (function () {
                 _angular_material_icon__WEBPACK_IMPORTED_MODULE_15__["MatIconModule"],
                 _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_16__["MatTooltipModule"],
                 _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_17__["MatSnackBarModule"],
-                _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_18__["MatSlideToggleModule"]
+                _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_18__["MatSlideToggleModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_22__["MatExpansionModule"],
+                angular_font_awesome__WEBPACK_IMPORTED_MODULE_19__["AngularFontAwesomeModule"],
+                angular_svg_icon__WEBPACK_IMPORTED_MODULE_20__["AngularSvgIconModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_21__["HttpClientModule"],
+                _pipes_iter_obj_pipe__WEBPACK_IMPORTED_MODULE_23__["IterObjPipe"]
             ]
         })
     ], SharedModule);

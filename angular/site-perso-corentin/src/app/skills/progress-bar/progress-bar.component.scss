@@ -6,11 +6,12 @@
     display: flex;
     margin-right: $iconWidth/2;
     margin-left: $iconWidth/2;
+    position: relative;
 
     .skill-logo{
       z-index: 2;
       position: absolute;
-      left: 0;
+      left: -$iconWidth/2;
       width: $iconWidth;
       height: $iconWidth;
       border-radius: $iconWidth/2;

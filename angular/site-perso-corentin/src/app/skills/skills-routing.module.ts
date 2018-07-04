@@ -1,12 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {SkillsHomeComponent} from './skills-home/skills-home.component';
+import {SkillsListComponent} from './skills-list/skills-list.component';
+import {SKILLS} from '../../data/skills.data';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: SkillsHomeComponent
+    redirectTo: 'languages',
+    pathMatch: 'full'
+  },
+  {
+    path: ':id',
+    component: SkillsHomeComponent,
   }
 ];
 

@@ -1,18 +1,35 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Skill} from '../../../data/skill';
+import {ROUTE_ANIMATIONS_ELEMENTS} from '../../core/animations/route.animations';
+import {animate, state, style, transition, trigger} from '@angular/animations';
+import {ActivatedRoute} from '@angular/router';
 
 
 @Component({
   selector: 'spc-skills-list',
   templateUrl: './skills-list.component.html',
-  styleUrls: ['./skills-list.component.scss']
+  styleUrls: ['./skills-list.component.scss'],
+  animations: [
+    trigger('skillLearnState', [
+      transition(':enter', [
+        style({ opacity: 0, height: 0 }),
+        animate(200)
+      ]),
+      transition(':leave', [
+        animate(200, style({ opacity: 0, height: 0 }))
+      ]),
+    ])
+  ]
 })
 export class SkillsListComponent implements OnInit {
 
-  ranks = [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
+
   @Input() skills: Skill[];
 
-  constructor() { }
+  routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

@@ -5,6 +5,7 @@ export class Skill {
   private _img: string;
   private _mark: number;
   private _projects: string[];
+  private _learn: boolean;
 
 
   constructor(name: string, mark: number, description: string, experience: string, projects: string[], img: string) {
@@ -14,6 +15,7 @@ export class Skill {
     this._img = img;
     this._mark = mark;
     this._projects = projects;
+    this._learn = false;
   }
 
 
@@ -63,6 +65,14 @@ export class Skill {
 
   set projects(value: string[]) {
     this._projects = value;
+  }
+
+  get learn(): boolean {
+    return this._learn;
+  }
+
+  set learn(value: boolean) {
+    this._learn = value;
   }
 }
 

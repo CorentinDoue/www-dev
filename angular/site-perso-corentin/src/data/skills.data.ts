@@ -93,7 +93,7 @@ export const SKILLS = {
     )
   ],
   'web': {
-    'front': [
+    'Front-end': [
       new Skill(
         'Html',
         4.5,
@@ -167,7 +167,7 @@ export const SKILLS = {
         'android.png'
       )
     ],
-    'back': [
+    'Back-end': [
       new Skill(
         'Spring',
         3,
@@ -185,7 +185,7 @@ export const SKILLS = {
         'symfony.png'
       )
     ],
-    'manager': [
+    'Managers': [
       new Skill(
         'Gradle',
         4,
@@ -283,7 +283,7 @@ export const SKILLS = {
     ),
     new Skill(
       'Microsoft Office Suite',
-      4.5,
+      4,
       'Family of client software and services developed by Microsoft',
       'I always use Word, Powerpoint and Excel for my personal and scholar projects',
       [],

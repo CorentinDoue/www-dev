@@ -1,0 +1,13 @@
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let skillsList of skillsLists | iterObj">
+    <mat-expansion-panel-header>
+      {{skillsList.key}}
+    </mat-expansion-panel-header>
+
+    <spc-skills-list [skills]="skillsList.value"></spc-skills-list>
+
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+

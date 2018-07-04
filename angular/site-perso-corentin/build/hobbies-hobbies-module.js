@@ -98,7 +98,7 @@ var HobbiesModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\" [ngClass]=\"theme\">\n  <div class=\"centrer\">\n    <div><h1 [ngClass]=\"routeAnimationsElements\">Hobbies</h1></div>\n  </div>\n  <div class=\"row justify-content-center\">\n    <img src=\"../../../assets/comingsoon.jpg\" style=\"max-width: 100%\" [ngClass]=\"routeAnimationsElements\">\n  </div>\n</div>\n"
+module.exports = "<div [ngClass]=\"theme\">\n  <div class=\"hobbies\">\n    <div class=\"container\">\n  <div class=\"centrer\">\n    <div><h1 [ngClass]=\"routeAnimationsElements\">Hobbies</h1></div>\n  </div>\n  <div class=\"row justify-content-center\">\n    <img src=\"../../../assets/comingsoon.jpg\" style=\"max-width: 100%\" [ngClass]=\"routeAnimationsElements\">\n  </div>\n</div>\n  </div>\n</div>\n"
 
 /***/ }),
 

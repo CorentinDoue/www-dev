@@ -21,6 +21,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import {HttpClientModule} from '@angular/common/http';
+import {MatExpansionModule} from '@angular/material';
+
+import {IterObjPipe} from './pipes/iter-obj.pipe';
 
 @NgModule({
   imports: [
@@ -43,12 +46,13 @@ import {HttpClientModule} from '@angular/common/http';
     MatTooltipModule,
     MatSnackBarModule,
     MatSlideToggleModule,
+    MatExpansionModule,
 
     AngularFontAwesomeModule,
     AngularSvgIconModule,
     HttpClientModule
   ],
-  declarations: [],
+  declarations: [IterObjPipe],
   exports: [
     CommonModule,
     FormsModule,
@@ -69,10 +73,13 @@ import {HttpClientModule} from '@angular/common/http';
     MatTooltipModule,
     MatSnackBarModule,
     MatSlideToggleModule,
+    MatExpansionModule,
 
     AngularFontAwesomeModule,
     AngularSvgIconModule,
-    HttpClientModule
+    HttpClientModule,
+
+    IterObjPipe
   ]
 })
 export class SharedModule {}

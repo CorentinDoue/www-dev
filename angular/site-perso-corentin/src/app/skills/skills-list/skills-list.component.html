@@ -1,8 +1,39 @@
-<div class="row" *ngFor="let skill of skills">
-  <div class="col-2">{{skill.name}}</div>
-  <div class="col-10">
-    <spc-progress-bar [rank]="skill.mark" [logo]="'../../../assets/skills/angular.png'">
-    </spc-progress-bar>
+<mat-card *ngFor="let skill of skills" [ngClass]="routeAnimationsElements">
+  <div class="row">
+    <div class="col-lg-2 skill-name">
+      <h3>{{skill.name}}</h3>
+    </div>
+    <div class="col-lg-10">
+      <spc-progress-bar [rank]="skill.mark" [logo]="'../../../assets/skills/angular.png'">
+      </spc-progress-bar>
+    </div>
+    <div class="col-12" style="overflow: hidden" *ngIf="skill.learn" [@skillLearnState]="skill.learn ? 'open' : 'close'">
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-2">
+          <h4>Description :</h4>
+        </div>
+        <div class="col-lg-8">
+          <p>{{skill.description}}</p>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-2">
+          <h4>Experience :</h4>
+        </div>
+        <div class="col-lg-8">
+          <p>{{skill.experience}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="row d-flex justify-content-end" *ngIf="!skill.learn">
+        <button class="mat-button" (click)="skill.learn = true">Learn more ...</button>
+      </div>
+      <div class="row d-flex justify-content-end" *ngIf="skill.learn">
+        <button class="mat-button" (click)="skill.learn = false">Less</button>
+      </div>
+    </div>
   </div>
-</div>
+</mat-card>
+
 
