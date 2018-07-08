@@ -1,9 +1,5 @@
 @import '../styles-variables';
 
-@import "../themes/R-theme";
-
-
-
 mat-sidenav-container {
   height: 100%;
   width: 100%;
@@ -18,6 +14,10 @@ mat-sidenav-container {
 
       button {
         //height: 50px;
+      }
+
+      a{
+        color: inherit;
       }
 
       .branding {

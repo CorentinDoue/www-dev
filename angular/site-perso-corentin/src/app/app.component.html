@@ -21,21 +21,19 @@
         <mat-icon fontSet="fas" fontIcon="fa-bars"></mat-icon>
       </button>
 
-
-
       <span routerLink="" class="branding spacer center d-inline d-md-none">
-        <mat-icon fontSet="fas" fontIcon="fa-code-branch" class="d-none d-sm-inline"></mat-icon>
-        Corentin Doué
+        <a routerLink=""><mat-icon fontSet="fas" fontIcon="fa-code-branch" class="d-none d-sm-inline"></mat-icon>
+        Corentin Doué</a>
       </span>
       <span routerLink="" class="branding spacer d-none d-md-inline">
-        <mat-icon fontSet="fas" fontIcon="fa-code-branch"></mat-icon>
-        Corentin Doué
+        <a routerLink=""><mat-icon fontSet="fas" fontIcon="fa-code-branch"></mat-icon>
+          Corentin Doué</a>
       </span>
 
       <span class="d-none d-md-inline">
           <button mat-button class="nav-button" *ngFor="let item of navigation"
-                  [routerLink]="[item.link]" routerLinkActive="active">
-            {{item.label}}
+                      [routerLink]="[item.link]" routerLinkActive="active">
+            <a [routerLink]="[item.link]">{{item.label}}</a>
           </button>
         </span>
     </mat-toolbar>

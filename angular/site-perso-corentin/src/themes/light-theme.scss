@@ -1,9 +1,0 @@
-$spc-light-primary: mat-palette($mat-grey, 200, 500, 300);
-$spc-light-accent: mat-palette($mat-brown, 200);
-$spc-light-warn: mat-palette($mat-deep-orange, 200);
-
-$spc-light-theme: mat-light-theme(
-  $spc-light-primary,
-  $spc-light-accent,
-  $spc-light-warn
-);

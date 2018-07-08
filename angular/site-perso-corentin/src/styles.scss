@@ -14,11 +14,6 @@
 
 @include mat-core();
 
-@import 'themes/default-theme.scss';
-@import 'themes/light-theme.scss';
-@import 'themes/black-theme.scss';
-@import 'themes/nature-theme.scss';
-@import 'themes/R-theme.scss';
 
 @import 'themes/night-theme.scss';
 @import 'themes/day-theme.scss';
@@ -51,31 +46,6 @@
   @include spc-projects-component-theme($theme);
   @include spc-hobbies-component-theme($theme);
   @include spc-progress-bar-component-theme($theme);
-}
-
-.default-theme {
-  @include angular-material-theme($spc-theme);
-  @include custom-components-theme($spc-theme);
-}
-
-.light-theme {
-  @include angular-material-theme($spc-light-theme);
-  @include custom-components-theme($spc-light-theme);
-}
-
-.black-theme {
-  @include angular-material-theme($spc-black-theme);
-  @include custom-components-theme($spc-black-theme);
-}
-
-.nature-theme {
-  @include angular-material-theme($spc-nature-theme);
-  @include custom-components-theme($spc-nature-theme);
-}
-
-.R-theme {
-  @include angular-material-theme($spc-R-theme);
-  @include custom-components-theme($spc-R-theme);
 }
 
 .day-theme {

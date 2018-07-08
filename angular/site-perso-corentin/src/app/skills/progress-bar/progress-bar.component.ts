@@ -20,35 +20,33 @@ export class ProgressBarComponent implements OnInit {
   ];
 
   bgColor = '';
+  barStyle;
 
   constructor() { }
 
   ngOnInit() {
     this.bgColor = this.getBgColor();
+    this.barStyle = this.getWidth();
   }
 
   getBgColor() {
-    let bgColor = '';
-    const minValue = this.getInterval()[1];
-    this.steps.forEach(function(step) {
-      if ((this.rank > step.minValue && this.rank <= step.maxValue) || (this.rank === minValue && this.rank === step.minValue)){
-        bgColor = step.bgColor;
-      }
-    }, this);
-    return bgColor;
+    if (this.rank === 0) {
+      return this.steps[0].bgColor;
+    } else if (this.rank > 0 && this.rank <= 1) {
+      return this.steps[0].bgColor;
+    } else if (this.rank > 1 && this.rank <= 2) {
+      return this.steps[1].bgColor;
+    } else if (this.rank > 2 && this.rank <= 3) {
+      return this.steps[2].bgColor;
+    } else if (this.rank > 3 && this.rank <= 4) {
+      return this.steps[3].bgColor;
+    } else if (this.rank > 4 && this.rank <= 5) {
+      return this.steps[4].bgColor;
+    }
   }
 
-  getInterval() {
-    let minValue = Infinity, maxValue = -Infinity;
-    this.steps.forEach(function(step) {
-      if (minValue > step.minValue){
-        minValue = step.minValue;
-      }
-      if (maxValue < step.maxValue){
-        maxValue = step.maxValue;
-      }
-    });
-    return [minValue, maxValue];
+  getWidth() {
+      return {'width' : '' + Math.floor((this.rank) * 100 / 5) + '%'};
   }
 
 }

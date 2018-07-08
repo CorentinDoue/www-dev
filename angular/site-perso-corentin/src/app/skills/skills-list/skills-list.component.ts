@@ -28,10 +28,20 @@ export class SkillsListComponent implements OnInit {
 
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
 
-  constructor() {
+  ngOnInit() {
+    this.sortSkills();
   }
 
-  ngOnInit() {
+  sortSkills() {
+    this.skills.sort((a: Skill, b: Skill) => {
+      if (a.mark > b.mark) {
+        return -1;
+      } else if (a.mark < b.mark) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
   }
 
 }

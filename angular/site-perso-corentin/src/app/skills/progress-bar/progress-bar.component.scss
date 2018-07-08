@@ -7,14 +7,20 @@
     margin-right: $iconWidth/2;
     margin-left: $iconWidth/2;
     position: relative;
+    align-items: center;
+
+    .progress {
+      position: absolute;
+      width: 100%;
+    }
 
     .skill-logo{
       z-index: 2;
       position: absolute;
-      left: -$iconWidth/2;
-      width: $iconWidth;
-      height: $iconWidth;
-      border-radius: $iconWidth/2;
+      left: -$iconWidth*1.5/2;
+      width: $iconWidth*1.5;
+      height: $iconWidth*1.5;
+      border-radius: $iconWidth*1.5/2;
 
       border: solid 1px;
 
@@ -24,6 +30,48 @@
       align-items: center;
     }
 
+    .advanced{
+      background-color: #00cd00;
+      border-color: white;
+
+      svg-icon{
+        fill: white;
+      }
+    }
+
+
+
+    .bg-danger{
+
+      border-color: white;
+      svg-icon{
+        fill: white;
+      }
+    }
+
+    .elementary{
+      background-color: #ff7200;
+      border-color: white;
+      svg-icon{
+        fill: white;
+      }
+    }
+
+    .intermediate{
+      background-color: rgb(238, 238, 0);
+      border-color: black;
+      svg-icon{
+        fill: black;
+      }
+    }
+
+    .bg-success{
+      border-color: white;
+      svg-icon{
+        fill: white;
+      }
+    }
+
     .step{
       position: relative;
       display: flex;
@@ -31,10 +79,7 @@
       align-items: center;
       height: $iconWidth;
 
-      .progress {
-        position: absolute;
-        width: 100%;
-      }
+
 
       .step-label{
         z-index: 2;
@@ -55,43 +100,24 @@
       .advanced{
         background-color: #00cd00;
         border-color: white;
-
-        svg-icon{
-          fill: white;
-        }
       }
 
-
-
       .bg-danger{
-
         border-color: white;
-        svg-icon{
-          fill: white;
-        }
       }
 
       .elementary{
         background-color: #ff7200;
         border-color: white;
-        svg-icon{
-          fill: white;
-        }
       }
 
       .intermediate{
         background-color: rgb(238, 238, 0);
         border-color: black;
-        svg-icon{
-          fill: black;
-        }
       }
 
       .bg-success{
         border-color: white;
-        svg-icon{
-          fill: white;
-        }
       }
 
       svg-icon{

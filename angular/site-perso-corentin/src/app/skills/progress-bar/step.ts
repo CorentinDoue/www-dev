@@ -14,15 +14,6 @@ export class Step{
     this._svg = svg;
   }
 
-  getWidth(rank){
-    if (rank <= this._minValue) {
-      return {'width' : '0%'};
-    } else if (rank >= this._maxValue){
-      return {'width' : '100%'};
-    } else {
-      return {'width' : '' + Math.floor((rank - this._minValue) * 100 / (this._maxValue - this._minValue)) + '%'};
-    }
-  }
 
   labelBg(rank, bgColor){
     if (rank >= this._maxValue) {

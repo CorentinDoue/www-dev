@@ -39,6 +39,22 @@
       background-color: mat-color($accent, darker);
       color: mat-contrast($accent, 900);
     }
+
+    .mat-expansion-panel-content .mat-expansion-panel-body {
+      padding: 0;
+      background-color: mat-color($background, background);
+    }
+
+    .specific-class {
+      background-color: mat-color($primary, 300);
+      color: mat-contrast($primary, 300);
+      margin-bottom: 5px;
+    }
+
+    .specific-class .mat-expansion-indicator:after {
+      color: mat-contrast($primary, 300);
+    }
+
   }
 
 }

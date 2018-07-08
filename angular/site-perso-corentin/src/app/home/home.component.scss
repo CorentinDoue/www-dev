@@ -1,5 +1,5 @@
 @import '../../styles-variables';
-
+@import url('https://fonts.googleapis.com/css?family=Alegreya|Anton|Galada');
 
 p{
   font-size: 1.5em;
@@ -47,20 +47,8 @@ p{
       justify-content: center;
       height: 500px;
     }
-
-    @media (max-width: map-get($grid-breakpoints, md)) {
-      .centrer{
-        height: 300px;
-      }
-    }
-
-    @media (max-width: map-get($grid-breakpoints, sm)) {
-      .centrer{
-        height: 200px;
-      }
-    }
-
     h1 {
+      font-family: 'Roboto', sans-serif;
       text-align: center;
       font-size: 3em;
       text-transform: uppercase;
@@ -72,6 +60,28 @@ p{
       color: white;
       border: solid 2px white;
     }
+
+    @media (max-width: map-get($grid-breakpoints, md)) {
+      .centrer{
+        height: 300px;
+      }
+      h1{
+        font-size: 2em;
+        padding: 15px;
+      }
+    }
+
+    @media (max-width: map-get($grid-breakpoints, sm)) {
+      .centrer{
+        height: 200px;
+      }
+      h1{
+        font-size: 1.5em;
+        padding: 10px;
+      }
+    }
+
+
   }
 }
 

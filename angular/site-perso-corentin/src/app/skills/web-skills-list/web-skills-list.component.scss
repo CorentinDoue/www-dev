@@ -1,5 +1,37 @@
 @import '../../../styles-variables';
 
+mat-expansion-panel {
+  background-color: transparent;
+
+}
+
+div.mat-expansion-panel-content:not(.mat-expanded) {
+  height: 0px;
+  visibility: hidden;
+}
+
+.mat-expansion-panel-header:not(.mat-expanded)  {
+  height: 48px;
+}
+
+.mat-expansion-panel-header  {
+  height: 64px;
+
+  .mat-content {
+    font-weight: 100;
+    font-size: 18px;
+  }
+  &.mat-expanded {
+    .mat-expansion-indicator {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.mat-expansion-panel-content .mat-expansion-panel-body {
+  padding: 0;
+  background-color: transparent;
+}
 
 .row{
   margin: 0;
