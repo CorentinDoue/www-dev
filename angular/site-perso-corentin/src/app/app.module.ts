@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import {BrowserModule, HAMMER_GESTURE_CONFIG, HammerGestureConfig} from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -9,6 +9,15 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import {CoreModule} from './core/core.module';
 
+declare var Hammer: any;
+
+export class MyHammerConfig extends HammerGestureConfig  {
+  buildHammer(element: HTMLElement) {
+    return new Hammer(element, {
+      touchAction: 'pan-y'
+    });
+  }
+}
 
 @NgModule({
   declarations: [
@@ -28,7 +37,11 @@ import {CoreModule} from './core/core.module';
     // app
     AppRoutingModule
   ],
-  providers: [],
+  providers: [{
+    // hammer instantion with custom config
+    provide: HAMMER_GESTURE_CONFIG,
+    useClass: MyHammerConfig ,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

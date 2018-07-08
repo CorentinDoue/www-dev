@@ -8,7 +8,6 @@ export class ThemeHoursService {
   private _sunset = 20;
   constructor() { }
 
-
   get sunrise(): number {
     return this._sunrise;
   }

@@ -1,8 +1,5 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {ROUTE_ANIMATIONS_ELEMENTS} from '../../core/animations/route.animations';
-import {Skill} from '../../../data/skill';
-
-
 
 @Component({
   selector: 'spc-web-skills-list',
@@ -15,7 +12,6 @@ export class WebSkillsListComponent implements OnInit {
 
   @Input() skillsLists;
   @Input() selectedIndex;
-  sortedList;
 
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
 

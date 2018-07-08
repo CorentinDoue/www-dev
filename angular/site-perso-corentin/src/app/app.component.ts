@@ -1,14 +1,12 @@
-import {Component, HostBinding, OnDestroy, OnInit} from '@angular/core';
+import {Component, HostBinding, OnInit} from '@angular/core';
 import {routeAnimations} from './core/animations/route.animations';
 import { OverlayContainer } from '@angular/cdk/overlay';
-import {DomSanitizer, Title} from '@angular/platform-browser';
-import {ActivationEnd, NavigationEnd, Router} from '@angular/router';
-import {Subject} from 'rxjs';
-import {filter, takeUntil} from 'rxjs/internal/operators';
+import {DomSanitizer} from '@angular/platform-browser';
 import browser from 'browser-detect';
 import {AnimationsService} from './core/animations/animations.service';
 import {ThemeHoursService} from './theme-hours.service';
 import {MatIconRegistry} from '@angular/material/icon';
+
 
 
 @Component({
@@ -18,7 +16,7 @@ import {MatIconRegistry} from '@angular/material/icon';
   animations: [routeAnimations]
 })
 
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
 
   @HostBinding('class') componentCssClass;
 
@@ -40,12 +38,20 @@ export class AppComponent implements OnInit{
     public sanitizer: DomSanitizer
   ) {}
   private static isIEorEdge() {
-    return ['ie', 'edge'].includes(browser().name);
+    return ['ie', 'edge', 'ios', 'safari'].includes(browser().name);
+  }
+
+  private static isMobile() {
+    return browser().mobile;
+  }
+
+  getState(outlet) {
+    return outlet.activatedRouteData.state;
   }
 
   ngOnInit(): void {
     this.initTheme();
-    if (AppComponent.isIEorEdge()) {
+    if (AppComponent.isIEorEdge() || AppComponent.isMobile()) {
       this.animationService.updateRouteAnimationType(false, true);
     }
     this.initIcon();
@@ -68,10 +74,6 @@ export class AppComponent implements OnInit{
     classList.add(effectiveTheme);
   }
 
-  getState(outlet) {
-    return outlet.activatedRouteData.state;
-  }
-
   initIcon() {
     this.iconReg.addSvgIcon('advanced', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/progress-bar/advanced.svg'))
       .addSvgIcon('code', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/programming-language.svg'))
@@ -80,6 +82,4 @@ export class AppComponent implements OnInit{
       .addSvgIcon('paint', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/paint.svg'))
       .addSvgIcon('tech', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/technology.svg'));
   }
-
-
 }

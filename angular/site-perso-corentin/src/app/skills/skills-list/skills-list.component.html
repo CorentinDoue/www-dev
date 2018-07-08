@@ -1,39 +1,39 @@
-<mat-card *ngFor="let skill of skills" [ngClass]="routeAnimationsElements">
-  <div class="row">
-    <div class="col-lg-2 skill-name">
-      <h3>{{skill.name}}</h3>
-    </div>
-    <div class="col-lg-10">
-      <spc-progress-bar [rank]="skill.mark" [logo]="'../../../assets/skills/'+skill.img">
-      </spc-progress-bar>
-    </div>
-    <div class="col-12 p-0" style="overflow: hidden" *ngIf="skill.learn" [@skillLearnState]="skill.learn ? 'open' : 'close'">
-      <div class="row d-flex justify-content-center">
-        <div class="col-lg-2 p-0">
-          <h4>Description :</h4>
+<div [ngClass]="routeAnimationsElements">
+  <mat-card *ngFor="let skill of skills">
+    <div class="row">
+      <div class="col-lg-2 skill-name">
+        <h3>{{skill.name}}</h3>
+      </div>
+      <div class="col-lg-10">
+        <spc-progress-bar [rank]="skill.mark" [logo]="'../../../assets/skills/'+skill.img">
+        </spc-progress-bar>
+      </div>
+      <div class="col-12 p-0" style="overflow: hidden" *ngIf="skill.learn" [@skillLearnState]="skill.learn ? 'open' : 'close'">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-2 p-0">
+            <h4>Description :</h4>
+          </div>
+          <div class="col-lg-8 p-0">
+            <p>{{skill.description}}</p>
+          </div>
         </div>
-        <div class="col-lg-8 p-0">
-          <p>{{skill.description}}</p>
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-2 p-0">
+            <h4>Experience :</h4>
+          </div>
+          <div class="col-lg-8 p-0">
+            <p>{{skill.experience}}</p>
+          </div>
         </div>
       </div>
-      <div class="row d-flex justify-content-center">
-        <div class="col-lg-2 p-0">
-          <h4>Experience :</h4>
+      <div class="col-12">
+        <div class="row d-flex justify-content-end" *ngIf="!skill.learn">
+          <button class="mat-button" (click)="skill.learn = true">Learn more ...</button>
         </div>
-        <div class="col-lg-8 p-0">
-          <p>{{skill.experience}}</p>
+        <div class="row d-flex justify-content-end" *ngIf="skill.learn">
+          <button class="mat-button" (click)="skill.learn = false">Less</button>
         </div>
       </div>
     </div>
-    <div class="col-12">
-      <div class="row d-flex justify-content-end" *ngIf="!skill.learn">
-        <button class="mat-button" (click)="skill.learn = true">Learn more ...</button>
-      </div>
-      <div class="row d-flex justify-content-end" *ngIf="skill.learn">
-        <button class="mat-button" (click)="skill.learn = false">Less</button>
-      </div>
-    </div>
-  </div>
-</mat-card>
-
-
+  </mat-card>
+</div>

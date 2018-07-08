@@ -17,11 +17,11 @@
         </div>
       </div>
       <div class="row mt-2 mt-sm-4">
-        <div class="col-lg-9 order-lg-last">
+        <div class="col-lg-9 order-lg-last" [ngClass]="routeAnimationsElements">
           <div class="row">
             <div class="col-xl-12">
-              <h2 [ngClass]="routeAnimationsElements"> <mat-icon fontSet="fas" fontIcon="fa-book"></mat-icon>Education</h2>
-              <div class="row cv-card" [ngClass]="routeAnimationsElements">
+              <h2> <mat-icon fontSet="fas" fontIcon="fa-book"></mat-icon>Education</h2>
+              <div class="row cv-card">
                 <div class="col-2 col-sm-1"><p>2019 2016</p></div>
                 <div class="col-10 col-sm-11">
                   <h3>École des Mines de Saint-Etienne (France)</h3>
@@ -39,7 +39,7 @@
                   </ul>
                 </div>
               </div>
-              <div class="row cv-card" [ngClass]="routeAnimationsElements">
+              <div class="row cv-card">
                 <div class="col-2 col-sm-1"><p>2016 2014</p></div>
                 <div class="col-10 col-sm-11">
                   <h3>Lycée Carnot (High school) - Dijon (France)</h3>
@@ -51,7 +51,7 @@
                   </ul>
                 </div>
               </div>
-              <div class="row cv-card" [ngClass]="routeAnimationsElements">
+              <div class="row cv-card">
                 <div class="col-2 col-sm-1"><p>2014 2011</p></div>
                 <div class="col-10 col-sm-11">
                   <h3>Lycée Fourier (High School) - Auxerre (France)</h3>
@@ -65,9 +65,9 @@
                 </div>
               </div>
             </div>
-            <div class="col-xl-12" [ngClass]="routeAnimationsElements">
-              <h2 [ngClass]="routeAnimationsElements"> <mat-icon fontSet="fab" fontIcon="fa-hubspot"></mat-icon>Experience</h2>
-              <div class="row cv-card" [ngClass]="routeAnimationsElements">
+            <div class="col-xl-12">
+              <h2> <mat-icon fontSet="fab" fontIcon="fa-hubspot"></mat-icon>Experience</h2>
+              <div class="row cv-card">
                 <div class="col-2 col-sm-1"><p>2018 2017</p></div>
                 <div class="col-10 col-sm-11">
                   <h3>President of a student association</h3>
@@ -82,7 +82,7 @@
                   </ul>
                 </div>
               </div>
-              <div class="row cv-card" [ngClass]="routeAnimationsElements">
+              <div class="row cv-card">
                 <div class="col-2 col-sm-1"><p>2018 2017</p></div>
                 <div class="col-10 col-sm-11">
                   <h3>Vice-President of a student association</h3>
@@ -100,7 +100,7 @@
                   </ul>
                 </div>
               </div>
-              <div class="row cv-card" [ngClass]="routeAnimationsElements">
+              <div class="row cv-card">
                 <div class="col-2 col-sm-1"><p>2016</p></div>
                 <div class="col-10 col-sm-11">
                   <h3>Industrial placement (4 weeks)</h3>
@@ -117,7 +117,7 @@
                   </ul>
                 </div>
               </div>
-              <div class="row cv-card" [ngClass]="routeAnimationsElements">
+              <div class="row cv-card">
                 <div class="col-2 col-sm-1"><p>2015</p></div>
                 <div class="col-10 col-sm-11">
                   <h3>Summer job (3 weeks)</h3>
@@ -137,9 +137,9 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-3 order-lg-first">
+        <div class="col-lg-3 order-lg-first" [ngClass]="routeAnimationsElements">
           <div class="row">
-            <div class="col-xl-12" [ngClass]="routeAnimationsElements">
+            <div class="col-xl-12">
               <h2><mat-icon fontSet="fas" fontIcon="fa-code"></mat-icon>Codes</h2>
               <ul>
                 <li>Html/CSS</li>
@@ -154,7 +154,7 @@
               </ul>
             </div>
 
-            <div class="col-xl-12" [ngClass]="routeAnimationsElements">
+            <div class="col-xl-12">
               <h2><mat-icon fontSet="fas" fontIcon="fa-cogs"></mat-icon>Skills</h2>
               <ul>
                 <li>Pack Office</li>
@@ -166,11 +166,11 @@
               </ul>
             </div>
 
-            <div class="col-xl-12" [ngClass]="routeAnimationsElements">
+            <div class="col-xl-12">
               <a routerLink="/skills" target="_blank" class="mat-button download">Learn more about my skills</a>
             </div>
 
-            <div class="col-xl-12" [ngClass]="routeAnimationsElements">
+            <div class="col-xl-12">
               <h2> <mat-icon fontSet="fas" fontIcon="fa-language"></mat-icon>Languages</h2>
               <ul>
                 <li>French (mother tongue)</li>
@@ -179,7 +179,7 @@
               </ul>
             </div>
 
-            <div class="col-xl-12" [ngClass]="routeAnimationsElements">
+            <div class="col-xl-12">
               <h2><mat-icon fontSet="fas" fontIcon="fa-volleyball-ball"></mat-icon>Hobbies</h2>
               <ul>
                 <li>Climbing</li>

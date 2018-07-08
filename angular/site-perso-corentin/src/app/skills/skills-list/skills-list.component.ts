@@ -1,8 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Skill} from '../../../data/skill';
 import {ROUTE_ANIMATIONS_ELEMENTS} from '../../core/animations/route.animations';
-import {animate, state, style, transition, trigger} from '@angular/animations';
-import {ActivatedRoute} from '@angular/router';
+import {animate, style, transition, trigger} from '@angular/animations';
 
 
 @Component({

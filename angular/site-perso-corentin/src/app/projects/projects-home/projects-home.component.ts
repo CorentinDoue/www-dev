@@ -23,10 +23,9 @@ export class ProjectsHomeComponent implements OnInit {
 
   private initTheme() {
     const hours = new Date().getHours();
-    const effectiveTheme = ((hours >= this.themeHoursService.sunset || hours <= this.themeHoursService.sunrise)
+    this.theme = ((hours >= this.themeHoursService.sunset || hours <= this.themeHoursService.sunrise)
         ? 'blue-night-theme'
         : 'blue-day-theme'
     );
-    this.theme = effectiveTheme;
   }
 }

@@ -57,10 +57,9 @@ var ProjectsHomeComponent = /** @class */ (function () {
     };
     ProjectsHomeComponent.prototype.initTheme = function () {
         var hours = new Date().getHours();
-        var effectiveTheme = ((hours >= this.themeHoursService.sunset || hours <= this.themeHoursService.sunrise)
+        this.theme = ((hours >= this.themeHoursService.sunset || hours <= this.themeHoursService.sunrise)
             ? 'blue-night-theme'
             : 'blue-day-theme');
-        this.theme = effectiveTheme;
     };
     ProjectsHomeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({

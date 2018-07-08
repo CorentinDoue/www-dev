@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
 import {ROUTE_ANIMATIONS_ELEMENTS} from '../core/animations/route.animations';
 
 
