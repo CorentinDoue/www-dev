@@ -27,6 +27,7 @@
 @import "app/cv/cv-home/cv-home.component.scss-theme";
 @import "app/skills/skills-home/skills-home.component.scss-theme";
 @import "app/projects/projects-home/projects-home.component.scss-theme";
+@import "app/projects/project/project.component.scss-theme";
 @import "app/hobbies/hobbies/hobbies.component.scss-theme";
 @import "app/not-found/not-found.component.scss-theme";
 @import "app/skills/progress-bar/progress-bar.component.scss-theme";
@@ -44,6 +45,7 @@
   @include spc-skills-component-theme($theme);
   @include spc-cv-component-theme($theme);
   @include spc-projects-component-theme($theme);
+  @include spc-project-component-theme($theme);
   @include spc-hobbies-component-theme($theme);
   @include spc-progress-bar-component-theme($theme);
 }

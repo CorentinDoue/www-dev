@@ -1,0 +1,60 @@
+@import '~@angular/material/theming';
+
+@mixin spc-project-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+
+
+  spc-project{
+
+
+    .line{
+      background: mat-color($foreground, h2);
+    }
+
+
+    .marker{
+      .title{
+        background: mat-color($background, card);
+        border: solid 2px mat-color($foreground, h2);
+        color: mat-color($foreground, h2);
+      }
+
+      .logo{
+        border: solid 4px mat-color($foreground, h2);
+        background: white;
+      }
+    }
+
+    .head{
+      background: mat-color($background, card);
+      border: solid 2px mat-color($foreground, h2);
+
+      .head-title{
+        color: mat-color($foreground, h2);
+      }
+
+      .logo{
+        border: solid 4px mat-color($foreground, h2);
+        background: white;
+      }
+    }
+
+    .project-body{
+      .link{
+        color: mat-color($foreground, h2);
+      }
+
+      h4{
+        color: mat-color($foreground, text2);
+      }
+
+      h3{
+        color: mat-color($foreground, text2);
+      }
+    }
+
+  }
+}

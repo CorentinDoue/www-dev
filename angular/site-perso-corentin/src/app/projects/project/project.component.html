@@ -1,0 +1,106 @@
+
+<div class="marker">
+  <div class="lines" *ngIf="index%2==0 && !open">
+    <div class="line"></div>
+    <div class="blankline"></div>
+  </div>
+
+  <div class="lines" *ngIf="index%2==1 && !open">
+    <div class="blankline"></div>
+    <div class="line"></div>
+  </div>
+
+  <div class="left" *ngIf="!open" [@markerState]="open ? 'open' : 'close'">
+    <div class="title mat-button mrt"  *ngIf="index%2==0" (click)="switch()">{{project.name}}</div>
+    <div class="date mrd" *ngIf="index%2==1">{{project.dateFin}}</div>
+  </div>
+
+  <div class="major-labels" *ngIf="index%2==1 && !open" [@markerState]="open ? 'open' : 'close'">
+    <div class="logo" *ngFor="let label of project.majorLabels">
+      <img src="{{'../../../assets/skills/'+label.logo+'.png'}}" style="max-width: 80%; max-height: 80%;">
+    </div>
+  </div>
+
+  <div class="head mat-button" *ngIf="open" (click)="switch()" [@headState]="open ? 'open' : 'close'">
+    <div class="head-title" *ngIf="index%2==0">{{project.name}}</div>
+
+    <div class="major-labels">
+      <div class="logo" *ngFor="let label of project.majorLabels">
+        <img src="{{'../../../assets/skills/'+label.logo+'.png'}}" style="max-width: 80%; max-height: 80%;">
+      </div>
+    </div>
+
+    <div class="head-title" *ngIf="index%2==1">{{project.name}}</div>
+  </div>
+
+  <div class="major-labels" *ngIf="index%2==0 && !open" [@markerState]="open ? 'open' : 'close'">
+    <div class="logo" *ngFor="let label of project.majorLabels">
+      <img src="{{'../../../assets/skills/'+label.logo+'.png'}}" style="max-width: 80%; max-height: 80%;">
+    </div>
+  </div>
+
+  <div class="right" *ngIf="!open" [@markerState]="open ? 'open' : 'close'">
+    <div class="title mat-button mlt"  *ngIf="index%2==1" (click)="switch()">{{project.name}}</div>
+    <div class="date mld"  *ngIf="index%2==0">{{project.dateFin}}</div>
+  </div>
+</div>
+
+<mat-card class="project-body" [@bodyState]="open ? 'open' : 'close'" *ngIf="open">
+  <div class="row">
+   <div class="col" *ngIf="project.mainLink">
+     <div class="row" style="align-items: center">
+       <h4>Link to the project :</h4>
+       <a href="{{project.mainLink.link}}">
+         <button mat-button class="link">{{project.mainLink.name}}</button>
+       </a>
+     </div>
+   </div>
+
+   <div class="col">
+     <div class="date">Started in {{project.dateDebut}}</div>
+     <div class="date" *ngIf="project.dateFin!='now'">Finished in {{project.dateFin}}</div>
+     <div class="date" *ngIf="project.dateFin=='now'">Still working on it</div>
+   </div>
+ </div>
+
+  <div class="row" *ngIf="project.context">
+    <h4>Context :</h4>
+  </div>
+
+  <div class="row" *ngIf="project.context">
+    <p>{{project.context}}</p>
+  </div>
+
+  <div class="row" *ngIf="project.description">
+    <h4>Description :</h4>
+  </div>
+
+  <div class="row" *ngIf="project.description">
+    <p>{{project.description}}</p>
+  </div>
+
+  <div class="row" *ngIf="project.labels">
+    <h4>Tags :</h4>
+  </div>
+
+  <mat-chip-list *ngIf="project.labels">
+    <mat-chip [disabled]="true" *ngFor="let label of project.labels">
+      <span class="label-logo">
+        <img src="{{'../../../assets/skills/'+label.logo+'.png'}}" style="max-width: 90%; max-height: 90%;">
+      </span>
+      {{label.name}}
+    </mat-chip>
+  </mat-chip-list>
+
+  <div class="row" style="margin-top: 10px" *ngIf="project.links">
+    <h4>Links :</h4>
+  </div>
+
+  <div class="row" *ngIf="project.links">
+    <a *ngFor="let link of project.links" href="{{link.link}}" target="_blank">
+      <button mat-stroked-button color="primary">
+        <div class="link">{{link.name}}</div>
+      </button>
+    </a>
+  </div>
+</mat-card>

@@ -7,12 +7,25 @@
   $background: map-get($theme, background);
 
 
-  .project {
+  .projects{
     h1 {
-      background-color: mat-color($primary, darker, 0.3);
+      //background-color: mat-color($primary, darker, 0.3);
       color: mat-color($foreground, h1);
-      border: solid 2px mat-color($foreground, h1);
+      //border: solid 2px mat-color($foreground, h1);
     }
+
+    .timeline{
+
+      svg-icon{
+        fill: mat-color($foreground, h2);
+      }
+
+      .line{
+        background-color: mat-color($foreground, h2);
+      }
+    }
+
+
   }
 
 }

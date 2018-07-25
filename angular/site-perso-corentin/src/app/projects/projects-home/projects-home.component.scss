@@ -1,5 +1,29 @@
 @import '../../../styles-variables';
 
+
+.timeline{
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  padding-top: 90px;
+
+  svg-icon{
+    position: absolute;
+    z-index: 1;
+    width: 60px;
+    margin-top: -20px;
+  }
+
+  .line{
+    height: 100%;
+    width: 8px;
+    z-index: 0;
+  }
+}
+
 .container {
   position: relative;
 
@@ -19,6 +43,29 @@
     padding: 10px;
     margin: 0;
   }
+
+
+
+  .projects-list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 60px;
+    z-index: 2;
+
+    spc-project{
+      width: 100%;
+      margin-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  }
+
+
 }
 
 @media (max-width: map-get($grid-breakpoints, sm)) {
@@ -29,4 +76,5 @@
   h1 {
     font-size: 1.4em;
   }
+
 }

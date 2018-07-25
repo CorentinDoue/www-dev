@@ -1,59 +1,58 @@
 @import '../../../styles-variables';
 
-.container {
-  position: relative;
+.skills{
+  .container {
+    position: relative;
 
-  .centrer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 90px;
-  }
+    .centrer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 90px;
+    }
 
-  h1 {
-    text-align: center;
-    font-size: 2em;
-    text-transform: uppercase;
-    font-weight: bold;
-    display: inline-block;
-    padding: 10px;
-    margin: 0;
-  }
+    h1 {
+      text-align: center;
+      font-size: 2em;
+      text-transform: uppercase;
+      font-weight: bold;
+      display: inline-block;
+      padding: 10px;
+      margin: 0;
+    }
 
-  h2{
-    text-align: center;
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
+    h2{
+      text-align: center;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
 
 
-    mat-icon{
-      margin-right: 10px;
-      width: 40px;
-      height: 40px;
+      mat-icon{
+        margin-right: 10px;
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .mat-tab-body-active{
+      overflow:hidden;
+    }
+
+    .mat-tab-label{
+      font-size: 1.6em;
     }
   }
 
-  .mat-tab-body-active{
-    overflow:hidden;
-  }
+  @media (max-width: map-get($grid-breakpoints, sm)) {
+    .centrer {
+      height: 70px;
+    }
 
-  .mat-tab-label{
-    font-size: 1.6em;
-  }
-
-
-
-
-}
-
-@media (max-width: map-get($grid-breakpoints, sm)) {
-  .centrer {
-    height: 70px;
-  }
-
-  h1 {
-    font-size: 1.4em;
+    h1 {
+      font-size: 1.4em;
+    }
   }
 }
+

@@ -80,6 +80,7 @@ export class AppComponent implements OnInit {
       .addSvgIcon('web', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/web.svg'))
       .addSvgIcon('ai', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/brain.svg'))
       .addSvgIcon('paint', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/paint.svg'))
-      .addSvgIcon('tech', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/technology.svg'));
+      .addSvgIcon('tech', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/technology.svg'))
+      .addSvgIcon('arrow', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/arrow.svg'));
   }
 }

@@ -1,11 +1,15 @@
 <div [ngClass]="theme">
   <div class="projects">
+    <div class="timeline" [ngClass]="routeAnimationsElements">
+      <svg-icon src="{{'../../../assets/arrow.svg'}}" [svgStyle]="{}"></svg-icon>
+      <div class="line"></div>
+    </div>
     <div class="container">
       <div class="centrer">
         <div><h1 [ngClass]="routeAnimationsElements">Projects</h1></div>
       </div>
-      <div class="row justify-content-center">
-        <img src="../../../assets/comingsoon.jpg" style="max-width: 100%" [ngClass]="routeAnimationsElements">
+      <div class="projects-list">
+        <spc-project *ngFor="let project of projects; index as i" [project]="project" [index]="i" [open]="project.open" (opened)="onOpened($event, i)" [ngClass]="routeAnimationsElements"></spc-project>
       </div>
     </div>
   </div>
