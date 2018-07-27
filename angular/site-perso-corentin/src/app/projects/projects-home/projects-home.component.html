@@ -8,8 +8,8 @@
       <div class="centrer">
         <div><h1 [ngClass]="routeAnimationsElements">Projects</h1></div>
       </div>
-      <div class="projects-list">
-        <spc-project *ngFor="let project of projects; index as i" [project]="project" [index]="i" [open]="project.open" (opened)="onOpened($event, i)" [ngClass]="routeAnimationsElements"></spc-project>
+      <div class="projects-list" id="stage_2a">
+        <spc-project *ngFor="let project of projects; index as i" [project]="project" [index]="i" [open]="project.open" (opened)="open($event)" [ngClass]="routeAnimationsElements" id="{{project.id}}"></spc-project>
       </div>
     </div>
   </div>

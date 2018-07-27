@@ -236,7 +236,8 @@ var AppComponent = /** @class */ (function () {
             .addSvgIcon('web', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/web.svg'))
             .addSvgIcon('ai', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/brain.svg'))
             .addSvgIcon('paint', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/paint.svg'))
-            .addSvgIcon('tech', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/technology.svg'));
+            .addSvgIcon('tech', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/technology.svg'))
+            .addSvgIcon('arrow', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/arrow.svg'));
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"])('class'),
@@ -283,6 +284,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _not_found_not_found_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./not-found/not-found.component */ "./src/app/not-found/not-found.component.ts");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
 /* harmony import */ var _core_core_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./core/core.module */ "./src/app/core/core.module.ts");
+/* harmony import */ var _nicky_lenaers_ngx_scroll_to__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @nicky-lenaers/ngx-scroll-to */ "./node_modules/@nicky-lenaers/ngx-scroll-to/fesm5/nicky-lenaers-ngx-scroll-to.js");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -299,6 +301,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -339,13 +342,16 @@ var AppModule = /** @class */ (function () {
                 _shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"],
                 _core_core_module__WEBPACK_IMPORTED_MODULE_8__["CoreModule"],
                 // app
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"]
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"],
+                _nicky_lenaers_ngx_scroll_to__WEBPACK_IMPORTED_MODULE_9__["ScrollToModule"].forRoot()
             ],
-            providers: [{
+            providers: [
+                {
                     // hammer instantion with custom config
                     provide: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["HAMMER_GESTURE_CONFIG"],
                     useClass: MyHammerConfig,
-                }],
+                }
+            ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
         })
     ], AppModule);
@@ -539,7 +545,7 @@ var CoreModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--<img src=\"../../assets/abstract-wallpaper.png\" style=\"width: 100%\">-->\n\n<div class=\"background\">\n  <div class=\"gradient\">\n    <div class=\"container\">\n      <div class=\"centrer\">\n        <div><h1 [ngClass]=\"routeAnimationsElements\">About Me</h1></div>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"container\">\n  <p [ngClass]=\"routeAnimationsElements\">\n    I am a french engineering student at <a href=\"https://www.mines-stetienne.fr/\">Mines Saint-Etienne</a>.\n    I majored in Computer Sciences and Artificial Intelligence during the past year.\n    For my last year before graduation, I am going to major in Data Sciences and Big Data.\n  </p>\n  <p [ngClass]=\"routeAnimationsElements\">\n    In parallel with my courses, I have most of the time a web development project. To achieve them, I take a lot of MOOCs and read many articles.\n    That is why I acquired plenty of skills. <a class=\"more\" routerLink=\"/skills\">Learn more ...</a>\n  </p>\n  <p [ngClass]=\"routeAnimationsElements\">\n    The engineering school makes me also discover the student's associations.\n    I spend the last year in three Executive Committee of associations including the Student Union of the school.\n    It learns me a lot about team management and commitment.\n  </p>\n  <p [ngClass]=\"routeAnimationsElements\">\n    Moreover I find time for my hobbies. I run at least ones a week. I also regularly practise climbing and skiing. I enjoy cooking and tinkering too.\n  </p>\n</div>\n\n\n"
+module.exports = "<!--<img src=\"../../assets/abstract-wallpaper.png\" style=\"width: 100%\">-->\n\n<div class=\"background\">\n  <div class=\"gradient\">\n    <div class=\"container\">\n      <div class=\"centrer\">\n        <div><h1 [ngClass]=\"routeAnimationsElements\">About Me</h1></div>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"container\">\n  <!-- Works for including '#' -->\n  <button [ngx-scroll-to]=\"'#destination'\">Go to destination</button>\n\n  <!-- Works for excluding '#' -->\n  <button [ngx-scroll-to]=\"'destination'\">Go to destination</button>\n  <button\n    ngx-scroll-to\n    [ngx-scroll-to-offset]=\"200\">\n    Go down 200 pixels\n  </button>\n  <p [ngClass]=\"routeAnimationsElements\">\n    I am a french engineering student at <a href=\"https://www.mines-stetienne.fr/\">Mines Saint-Etienne</a>.\n    I majored in Computer Sciences and Artificial Intelligence during the past year.\n    For my last year before graduation, I am going to major in Data Sciences and Big Data.\n  </p>\n  <p [ngClass]=\"routeAnimationsElements\">\n    In parallel with my courses, I have most of the time a web development project. To achieve them, I take a lot of MOOCs and read many articles.\n    That is why I acquired plenty of skills. <a class=\"more\" routerLink=\"/skills\">Learn more ...</a>\n  </p>\n  <p [ngClass]=\"routeAnimationsElements\">\n    The engineering school makes me also discover the student's associations.\n    I spend the last year in three Executive Committee of associations including the Student Union of the school.\n    It learns me a lot about team management and commitment.\n  </p>\n  <p [ngClass]=\"routeAnimationsElements\">\n    Moreover I find time for my hobbies. I run at least ones a week. I also regularly practise climbing and skiing. I enjoy cooking and tinkering too.\n  </p>\n  <div id=\"destination\">\n    You've reached your destination.\n  </div>\n</div>\n\n\n"
 
 /***/ }),
 

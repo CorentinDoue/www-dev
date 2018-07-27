@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Project} from '../../../data/project';
 import {animate, style, transition, trigger} from '@angular/animations';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'spc-project',
@@ -41,9 +42,7 @@ export class ProjectComponent implements OnInit {
   @Input() index: number;
   @Input() open: boolean;
 
-  @Output() opened = new EventEmitter<boolean>();
-
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -52,7 +51,7 @@ export class ProjectComponent implements OnInit {
     if (this.open) {
       this.open = false;
     } else {
-      this.opened.emit(true);
+      // this.router.navigate(['/projects'], {fragment: this.project.id});
       this.open = true;
     }
   }

@@ -9,6 +9,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import {CoreModule} from './core/core.module';
 
+
 declare var Hammer: any;
 
 export class MyHammerConfig extends HammerGestureConfig  {
@@ -20,11 +21,6 @@ export class MyHammerConfig extends HammerGestureConfig  {
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NotFoundComponent,
-    HomeComponent
-  ],
   imports: [
     // angular
     BrowserAnimationsModule,
@@ -35,13 +31,22 @@ export class MyHammerConfig extends HammerGestureConfig  {
     CoreModule,
 
     // app
-    AppRoutingModule
+    AppRoutingModule,
+
+
   ],
-  providers: [{
+  declarations: [
+    AppComponent,
+    NotFoundComponent,
+    HomeComponent
+  ],
+  providers: [
+    {
     // hammer instantion with custom config
     provide: HAMMER_GESTURE_CONFIG,
     useClass: MyHammerConfig ,
-  }],
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

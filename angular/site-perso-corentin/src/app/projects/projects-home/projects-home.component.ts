@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ROUTE_ANIMATIONS_ELEMENTS, routeAnimations} from '../../core/animations/route.animations';
 import {ThemeHoursService} from '../../theme-hours.service';
 import {PROJECTS} from '../../../data/projects.data';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'spc-projects-home',
@@ -16,10 +17,15 @@ export class ProjectsHomeComponent implements OnInit {
   projects = PROJECTS;
 
   constructor(
-    public themeHoursService: ThemeHoursService
+    public themeHoursService: ThemeHoursService,
+    private route: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit() {
+    this.route.fragment.subscribe(fragment => {
+      this.open(fragment);
+    });
     this.initTheme();
   }
 
@@ -31,10 +37,21 @@ export class ProjectsHomeComponent implements OnInit {
     );
   }
 
-  public onOpened(opened: boolean, index: number){
+  public open(id: string) {
+    let found = false;
     for (let i = 0, len = this.projects.length; i < len; i++) {
-      this.projects[i].open = i === index;
+      if (this.projects[i].id === id){
+        this.projects[i].open = true;
+        found = true;
+      } else {
+        this.projects[i].open = false;
+      }
     }
     this.projects = [...this.projects];
+    if (!found && id != null) {
+      this.router.navigate(['/404']);
+    }
   }
+
+
 }

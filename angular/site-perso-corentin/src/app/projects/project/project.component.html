@@ -11,7 +11,7 @@
   </div>
 
   <div class="left" *ngIf="!open" [@markerState]="open ? 'open' : 'close'">
-    <div class="title mat-button mrt"  *ngIf="index%2==0" (click)="switch()">{{project.name}}</div>
+    <a routerLink="." fragment="{{project.id}}" class="title mat-button mrt"  *ngIf="index%2==0" (click)="switch()">{{project.name}}</a>
     <div class="date mrd" *ngIf="index%2==1">{{project.dateFin}}</div>
   </div>
 
@@ -40,7 +40,7 @@
   </div>
 
   <div class="right" *ngIf="!open" [@markerState]="open ? 'open' : 'close'">
-    <div class="title mat-button mlt"  *ngIf="index%2==1" (click)="switch()">{{project.name}}</div>
+    <a routerLink="." fragment="{{project.id}}" class="title mat-button mlt"  *ngIf="index%2==1" (click)="switch()">{{project.name}}</a>
     <div class="date mld"  *ngIf="index%2==0">{{project.dateFin}}</div>
   </div>
 </div>

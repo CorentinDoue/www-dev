@@ -26,7 +26,7 @@ export const PROJECTS: Project[] = [
   ),
   new Project(
     'Site perso',
-    'stage_2a',
+    'spc',
     'ia',
     'june 2018',
     'now',
@@ -50,7 +50,7 @@ export const PROJECTS: Project[] = [
   ),
   new Project(
     'Site cercle',
-    'stage_2a',
+    'cercle',
     'ia',
     'june 2018',
     'august 2018',
@@ -75,7 +75,7 @@ export const PROJECTS: Project[] = [
   ),
   new Project(
     'Site Mobilité',
-    'stage_2a',
+    'mobilite',
     'ia',
     'june 2018',
     'august 2018',
@@ -98,7 +98,7 @@ export const PROJECTS: Project[] = [
   ),
   new Project(
     'Site Minesterstellar',
-    'stage_2a',
+    'minesterstellar',
     'ia',
     'june 2018',
     'august 2018',

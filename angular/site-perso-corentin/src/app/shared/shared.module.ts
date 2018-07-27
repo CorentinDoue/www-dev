@@ -24,6 +24,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatExpansionModule} from '@angular/material';
 
 import {IterObjPipe} from './pipes/iter-obj.pipe';
+import {FragmentPolyfillModule} from './fragment-polyfill.module';
 
 @NgModule({
   imports: [
