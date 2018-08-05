@@ -25,6 +25,21 @@
             <p>{{skill.experience}}</p>
           </div>
         </div>
+
+        <div class="row d-flex justify-content-center" *ngIf="skill.projects.length>0">
+          <div class="col-lg-2 p-0">
+            <h4>Related projects :</h4>
+          </div>
+          <div class="col-lg-8 p-0">
+            <mat-chip-list>
+              <a *ngFor="let project of skill.projects" routerLink="/projects" fragment="{{project.link}}">
+                <mat-chip  routerLink="/projects" fragment="{{project.link}}">
+                  {{project.name}}
+                </mat-chip>
+              </a>
+            </mat-chip-list>
+          </div>
+        </div>
       </div>
       <div class="col-12">
         <div class="row d-flex justify-content-end" *ngIf="!skill.learn">

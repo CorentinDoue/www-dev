@@ -11,7 +11,7 @@
   </div>
 
   <div class="left" *ngIf="!open" [@markerState]="open ? 'open' : 'close'">
-    <a routerLink="." fragment="{{project.id}}" class="title mat-button mrt"  *ngIf="index%2==0" (click)="switch()">{{project.name}}</a>
+    <a routerLink="." fragment="{{project.id}}" class="title mat-button mrt"  *ngIf="index%2==0" >{{project.name}}</a>
     <div class="date mrd" *ngIf="index%2==1">{{project.dateFin}}</div>
   </div>
 
@@ -40,7 +40,7 @@
   </div>
 
   <div class="right" *ngIf="!open" [@markerState]="open ? 'open' : 'close'">
-    <a routerLink="." fragment="{{project.id}}" class="title mat-button mlt"  *ngIf="index%2==1" (click)="switch()">{{project.name}}</a>
+    <a routerLink="." fragment="{{project.id}}" class="title mat-button mlt"  *ngIf="index%2==1">{{project.name}}</a>
     <div class="date mld"  *ngIf="index%2==0">{{project.dateFin}}</div>
   </div>
 </div>
@@ -50,7 +50,7 @@
    <div class="col" *ngIf="project.mainLink">
      <div class="row" style="align-items: center">
        <h4>Link to the project :</h4>
-       <a href="{{project.mainLink.link}}">
+       <a href="{{project.mainLink.link}}" target="_blank">
          <button mat-button class="link">{{project.mainLink.name}}</button>
        </a>
      </div>
@@ -68,7 +68,11 @@
   </div>
 
   <div class="row" *ngIf="project.context">
-    <p>{{project.context}}</p>
+    <p [innerHTML]="project.context | keepHtml"></p>
+  </div>
+
+  <div class="row" *ngIf="project.img">
+    <div style="width: 100%"><img src="{{'../../../assets/'+project.img}}" style="max-width: 100%; max-height:100%"></div>
   </div>
 
   <div class="row" *ngIf="project.description">
@@ -76,15 +80,15 @@
   </div>
 
   <div class="row" *ngIf="project.description">
-    <p>{{project.description}}</p>
+    <p [innerHTML]="project.description | keepHtml"></p>
   </div>
 
-  <div class="row" *ngIf="project.labels">
+  <div class="row" *ngIf="project.labels.length>0">
     <h4>Tags :</h4>
   </div>
 
-  <mat-chip-list *ngIf="project.labels">
-    <mat-chip [disabled]="true" *ngFor="let label of project.labels">
+  <mat-chip-list *ngIf="project.labels.length>0">
+    <mat-chip *ngFor="let label of project.labels" (click)="onNavigate(label.link)">
       <span class="label-logo">
         <img src="{{'../../../assets/skills/'+label.logo+'.png'}}" style="max-width: 90%; max-height: 90%;">
       </span>
@@ -92,11 +96,11 @@
     </mat-chip>
   </mat-chip-list>
 
-  <div class="row" style="margin-top: 10px" *ngIf="project.links">
-    <h4>Links :</h4>
+  <div class="row" style="margin-top: 10px" *ngIf="project.links.length>0">
+    <h4>Other links :</h4>
   </div>
 
-  <div class="row" *ngIf="project.links">
+  <div class="row" *ngIf="project.links.length>0">
     <a *ngFor="let link of project.links" href="{{link.link}}" target="_blank">
       <button mat-stroked-button color="primary">
         <div class="link">{{link.name}}</div>

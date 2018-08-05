@@ -1,0 +1,10 @@
+.colorizer{
+    /* makes input (color swatch) 100% size of container */
+    background-color: black;
+    position: absolute;
+    width: 222px;
+    height: 222px;
+    /* mix blend mode makes the color of the swatch alter the image behind it. */
+    mix-blend-mode: lighten;/* try screen, multiply or other blend modes for different effects */
+
+}

@@ -18,10 +18,12 @@ var map = {
 	],
 	"./projects/projects.module": [
 		"./src/app/projects/projects.module.ts",
+		"common",
 		"projects-projects-module"
 	],
 	"./skills/skills.module": [
 		"./src/app/skills/skills.module.ts",
+		"common",
 		"skills-skills-module"
 	]
 };
@@ -34,7 +36,7 @@ function webpackAsyncContext(req) {
 			throw e;
 		});
 	}
-	return __webpack_require__.e(ids[1]).then(function() {
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
 		var module = __webpack_require__(ids[0]);
 		return module;
 	});
@@ -132,7 +134,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-sidenav-container>\n\n  <mat-sidenav #sidenav mode=\"push\">\n    <mat-toolbar color=\"primary\" ><span class=\"w-100 text-center\">Corentin Doué</span></mat-toolbar>\n    <mat-nav-list>\n      <a mat-list-item *ngFor=\"let item of navigation\" (click)=\"sidenav.close()\"\n         [routerLink]=\"[item.link]\" routerLinkActive=\"active\">\n        {{item.label}}\n      </a>\n      <a mat-list-item\n         href=\"https://github.com/corentindoue/\"\n         target=\"_blank\">\n        Github\n      </a>\n    </mat-nav-list>\n  </mat-sidenav>\n\n  <div class=\"toolbar\">\n    <mat-toolbar color=\"primary\">\n      <button mat-icon-button class=\"d-md-none\" (click)=\"sidenav.open()\">\n        <mat-icon fontSet=\"fas\" fontIcon=\"fa-bars\"></mat-icon>\n      </button>\n\n      <span routerLink=\"\" class=\"branding spacer center d-inline d-md-none\">\n        <a routerLink=\"\"><mat-icon fontSet=\"fas\" fontIcon=\"fa-code-branch\" class=\"d-none d-sm-inline\"></mat-icon>\n        Corentin Doué</a>\n      </span>\n      <span routerLink=\"\" class=\"branding spacer d-none d-md-inline\">\n        <a routerLink=\"\"><mat-icon fontSet=\"fas\" fontIcon=\"fa-code-branch\"></mat-icon>\n          Corentin Doué</a>\n      </span>\n\n      <span class=\"d-none d-md-inline\">\n          <button mat-button class=\"nav-button\" *ngFor=\"let item of navigation\"\n                      [routerLink]=\"[item.link]\" routerLinkActive=\"active\">\n            <a [routerLink]=\"[item.link]\">{{item.label}}</a>\n          </button>\n        </span>\n    </mat-toolbar>\n  </div>\n\n  <div class=\"wrapper\">\n\n    <div class=\"content\"\n         [@routeAnimations]=\"getState(o)\">\n      <router-outlet #o=\"outlet\"></router-outlet>\n    </div>\n\n    <div class=\"footer\">\n      <div class=\"row\">\n        <div class=\"col-sm-12 links\">\n          <a href=\"https://www.linkedin.com/in/corentin-doue\" target=\"_blank\">\n            <mat-icon fontSet=\"fab\" fontIcon=\"fa-linkedin-in\"></mat-icon>\n            <span>Linkedin</span>\n          </a>\n          <a href=\"https://www.github.com/corentindoue\" target=\"_blank\">\n            <mat-icon fontSet=\"fab\" fontIcon=\"fa-github\"></mat-icon>\n            <span>Github</span>\n          </a>\n          <a href=\"mailto:corentin.doue@etu.emse.fr\" target=\"_blank\">\n            <mat-icon fontSet=\"fas\" fontIcon=\"fa-at\"></mat-icon>\n            <span>corentin.doue@etu.emse.fr</span>\n          </a>\n          <a href=\"tel:+33602389814\">\n            <mat-icon fontSet=\"fas\" fontIcon=\"fa-phone\"></mat-icon>\n            <span>+33 (0)6023 89814</span>\n          </a>\n          <a href=\"https://goo.gl/maps/c2GonWtoTEv\" target=\"_blank\" matTooltip=\"20 Bd Alexandre de Fraissinette 42100 Saint-Etienne (France)\">\n            <mat-icon fontSet=\"fas\" fontIcon=\"fa-map-marker-alt\"></mat-icon>\n            <span>Saint-Etienne (France)</span>\n          </a>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-12 signature\">\n          &#169; <span class=\"year\">{{year}}</span> - Corentin Doué\n        </div>\n      </div>\n    </div>\n\n  </div>\n\n</mat-sidenav-container>\n"
+module.exports = "<mat-sidenav-container>\r\n\r\n  <mat-sidenav #sidenav mode=\"push\">\r\n    <mat-toolbar color=\"primary\" ><span class=\"w-100 text-center\">Corentin Doué</span></mat-toolbar>\r\n    <mat-nav-list>\r\n      <a mat-list-item *ngFor=\"let item of navigation\" (click)=\"sidenav.close()\"\r\n         [routerLink]=\"[item.link]\" routerLinkActive=\"active\">\r\n        {{item.label}}\r\n      </a>\r\n      <a mat-list-item\r\n         href=\"https://github.com/corentindoue/\"\r\n         target=\"_blank\">\r\n        Github\r\n      </a>\r\n    </mat-nav-list>\r\n  </mat-sidenav>\r\n\r\n  <div class=\"toolbar\">\r\n    <mat-toolbar color=\"primary\">\r\n      <button mat-icon-button class=\"d-md-none\" (click)=\"sidenav.open()\">\r\n        <mat-icon fontSet=\"fas\" fontIcon=\"fa-bars\"></mat-icon>\r\n      </button>\r\n\r\n      <span routerLink=\"\" class=\"branding spacer center d-inline d-md-none\">\r\n        <a routerLink=\"\"><mat-icon fontSet=\"fas\" fontIcon=\"fa-code-branch\" class=\"d-none d-sm-inline\"></mat-icon>\r\n        Corentin Doué</a>\r\n      </span>\r\n      <span routerLink=\"\" class=\"branding spacer d-none d-md-inline\">\r\n        <a routerLink=\"\"><mat-icon fontSet=\"fas\" fontIcon=\"fa-code-branch\"></mat-icon>\r\n          Corentin Doué</a>\r\n      </span>\r\n\r\n      <span class=\"d-none d-md-inline\">\r\n          <button mat-button class=\"nav-button\" *ngFor=\"let item of navigation\"\r\n                      [routerLink]=\"[item.link]\" routerLinkActive=\"active\">\r\n            <a [routerLink]=\"[item.link]\">{{item.label}}</a>\r\n          </button>\r\n        </span>\r\n    </mat-toolbar>\r\n  </div>\r\n\r\n  <div class=\"wrapper\">\r\n\r\n    <div class=\"content\"\r\n         [@routeAnimations]=\"getState(o)\">\r\n      <router-outlet #o=\"outlet\"></router-outlet>\r\n    </div>\r\n\r\n    <div class=\"footer\">\r\n      <div class=\"row\">\r\n        <div class=\"col-sm-12 links\">\r\n          <a href=\"https://www.linkedin.com/in/corentin-doue\" target=\"_blank\">\r\n            <mat-icon fontSet=\"fab\" fontIcon=\"fa-linkedin-in\"></mat-icon>\r\n            <span>Linkedin</span>\r\n          </a>\r\n          <a href=\"https://www.github.com/corentindoue\" target=\"_blank\">\r\n            <mat-icon fontSet=\"fab\" fontIcon=\"fa-github\"></mat-icon>\r\n            <span>Github</span>\r\n          </a>\r\n          <a href=\"mailto:corentin.doue@etu.emse.fr\" target=\"_blank\">\r\n            <mat-icon fontSet=\"fas\" fontIcon=\"fa-at\"></mat-icon>\r\n            <span>corentin.doue@etu.emse.fr</span>\r\n          </a>\r\n          <a href=\"tel:+33602389814\">\r\n            <mat-icon fontSet=\"fas\" fontIcon=\"fa-phone\"></mat-icon>\r\n            <span>+33 (0)6023 89814</span>\r\n          </a>\r\n          <a href=\"https://goo.gl/maps/c2GonWtoTEv\" target=\"_blank\" matTooltip=\"20 Bd Alexandre de Fraissinette 42100 Saint-Etienne (France)\">\r\n            <mat-icon fontSet=\"fas\" fontIcon=\"fa-map-marker-alt\"></mat-icon>\r\n            <span>Saint-Etienne (France)</span>\r\n          </a>\r\n        </div>\r\n      </div>\r\n      <div class=\"row\">\r\n        <div class=\"col-12 signature\">\r\n          &#169; <span class=\"year\">{{year}}</span> - Corentin Doué\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n\r\n</mat-sidenav-container>\r\n"
 
 /***/ }),
 
@@ -237,7 +239,12 @@ var AppComponent = /** @class */ (function () {
             .addSvgIcon('ai', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/brain.svg'))
             .addSvgIcon('paint', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/paint.svg'))
             .addSvgIcon('tech', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/technology.svg'))
-            .addSvgIcon('arrow', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/arrow.svg'));
+            .addSvgIcon('arrow', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/arrow.svg'))
+            .addSvgIcon('running', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/running.svg'))
+            .addSvgIcon('climbing', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/climbing.svg'))
+            .addSvgIcon('skiing', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/skiing.svg'))
+            .addSvgIcon('cooking', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/cooking.svg'))
+            .addSvgIcon('crafting', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/technology.svg'));
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostBinding"])('class'),
@@ -284,7 +291,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _not_found_not_found_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./not-found/not-found.component */ "./src/app/not-found/not-found.component.ts");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
 /* harmony import */ var _core_core_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./core/core.module */ "./src/app/core/core.module.ts");
-/* harmony import */ var _nicky_lenaers_ngx_scroll_to__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @nicky-lenaers/ngx-scroll-to */ "./node_modules/@nicky-lenaers/ngx-scroll-to/fesm5/nicky-lenaers-ngx-scroll-to.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/index.js");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -329,21 +336,21 @@ var AppModule = /** @class */ (function () {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"],
-                _not_found_not_found_component__WEBPACK_IMPORTED_MODULE_6__["NotFoundComponent"],
-                _home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"]
-            ],
             imports: [
                 // angular
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_3__["BrowserAnimationsModule"],
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 // core & shared
+                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_9__["NgbModule"].forRoot(),
                 _shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"],
                 _core_core_module__WEBPACK_IMPORTED_MODULE_8__["CoreModule"],
                 // app
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"],
-                _nicky_lenaers_ngx_scroll_to__WEBPACK_IMPORTED_MODULE_9__["ScrollToModule"].forRoot()
+            ],
+            declarations: [
+                _app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"],
+                _not_found_not_found_component__WEBPACK_IMPORTED_MODULE_6__["NotFoundComponent"],
+                _home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"]
             ],
             providers: [
                 {
@@ -545,7 +552,7 @@ var CoreModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--<img src=\"../../assets/abstract-wallpaper.png\" style=\"width: 100%\">-->\n\n<div class=\"background\">\n  <div class=\"gradient\">\n    <div class=\"container\">\n      <div class=\"centrer\">\n        <div><h1 [ngClass]=\"routeAnimationsElements\">About Me</h1></div>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"container\">\n  <!-- Works for including '#' -->\n  <button [ngx-scroll-to]=\"'#destination'\">Go to destination</button>\n\n  <!-- Works for excluding '#' -->\n  <button [ngx-scroll-to]=\"'destination'\">Go to destination</button>\n  <button\n    ngx-scroll-to\n    [ngx-scroll-to-offset]=\"200\">\n    Go down 200 pixels\n  </button>\n  <p [ngClass]=\"routeAnimationsElements\">\n    I am a french engineering student at <a href=\"https://www.mines-stetienne.fr/\">Mines Saint-Etienne</a>.\n    I majored in Computer Sciences and Artificial Intelligence during the past year.\n    For my last year before graduation, I am going to major in Data Sciences and Big Data.\n  </p>\n  <p [ngClass]=\"routeAnimationsElements\">\n    In parallel with my courses, I have most of the time a web development project. To achieve them, I take a lot of MOOCs and read many articles.\n    That is why I acquired plenty of skills. <a class=\"more\" routerLink=\"/skills\">Learn more ...</a>\n  </p>\n  <p [ngClass]=\"routeAnimationsElements\">\n    The engineering school makes me also discover the student's associations.\n    I spend the last year in three Executive Committee of associations including the Student Union of the school.\n    It learns me a lot about team management and commitment.\n  </p>\n  <p [ngClass]=\"routeAnimationsElements\">\n    Moreover I find time for my hobbies. I run at least ones a week. I also regularly practise climbing and skiing. I enjoy cooking and tinkering too.\n  </p>\n  <div id=\"destination\">\n    You've reached your destination.\n  </div>\n</div>\n\n\n"
+module.exports = "<!--<img src=\"../../assets/abstract-wallpaper.png\" style=\"width: 100%\">-->\r\n<div class=\"background\" #top>\r\n  <div class=\"gradient\">\r\n    <div class=\"container\">\r\n      <div class=\"centrer\">\r\n        <div><h1 [ngClass]=\"routeAnimationsElements\">About Me</h1></div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"container\">\r\n  <!-- Works for including '#' -->\r\n  <p [ngClass]=\"routeAnimationsElements\">\r\n    I am a french engineering student at <a href=\"https://www.mines-stetienne.fr/\">Mines Saint-Etienne</a>.\r\n    I majored in Computer Sciences and Artificial Intelligence during the past year.\r\n    For my last year before graduation, I am going to major in Data Sciences and Big Data.\r\n  </p>\r\n  <p [ngClass]=\"routeAnimationsElements\">\r\n    In parallel with my courses, I have most of the time a web development project. To achieve them, I take a lot of MOOCs and read many articles.\r\n    That is why I acquired plenty of skills. <a class=\"more\" routerLink=\"/skills\">Learn more ...</a>\r\n  </p>\r\n  <p [ngClass]=\"routeAnimationsElements\">\r\n    The engineering school makes me also discover the student's associations.\r\n    I spend the last year in three Executive Committee of associations including the Student Union of the school.\r\n    It learns me a lot about team management and commitment.\r\n  </p>\r\n  <p [ngClass]=\"routeAnimationsElements\">\r\n    Moreover I find time for my hobbies. I run at least ones a week. I also regularly practise climbing and skiing. I enjoy cooking and crafting too.\r\n  </p>\r\n</div>\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -587,7 +594,16 @@ var HomeComponent = /** @class */ (function () {
     function HomeComponent() {
         this.routeAnimationsElements = _core_animations_route_animations__WEBPACK_IMPORTED_MODULE_1__["ROUTE_ANIMATIONS_ELEMENTS"];
     }
-    HomeComponent.prototype.ngOnInit = function () { };
+    HomeComponent.prototype.ngOnInit = function () {
+        this.top.nativeElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('top'),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
+    ], HomeComponent.prototype, "top", void 0);
     HomeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'spc-home',
@@ -610,7 +626,7 @@ var HomeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"background\">\n  <div class=\"gradient\">\n    <div class=\"container\">\n      <div class=\"centrer\">\n        <div>\n          <h1 [ngClass]=\"routeAnimationsElements\">< / 404 ></h1>\n        </div>\n        <p [ngClass]=\"routeAnimationsElements\">There is nothing here</p>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"background\">\r\n  <div class=\"gradient\">\r\n    <div class=\"container\">\r\n      <div class=\"centrer\">\r\n        <div>\r\n          <h1 [ngClass]=\"routeAnimationsElements\">< / 404 ></h1>\r\n        </div>\r\n        <p [ngClass]=\"routeAnimationsElements\">There is nothing here</p>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -669,6 +685,47 @@ var NotFoundComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/shared/pipes/escape-html.pipe.ts":
+/*!**************************************************!*\
+  !*** ./src/app/shared/pipes/escape-html.pipe.ts ***!
+  \**************************************************/
+/*! exports provided: EscapeHtmlPipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EscapeHtmlPipe", function() { return EscapeHtmlPipe; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var EscapeHtmlPipe = /** @class */ (function () {
+    function EscapeHtmlPipe(sanitizer) {
+        this.sanitizer = sanitizer;
+    }
+    EscapeHtmlPipe.prototype.transform = function (content) {
+        return this.sanitizer.bypassSecurityTrustHtml(content);
+    };
+    EscapeHtmlPipe = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Pipe"])({ name: 'keepHtml', pure: false }),
+        __metadata("design:paramtypes", [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["DomSanitizer"]])
+    ], EscapeHtmlPipe);
+    return EscapeHtmlPipe;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/shared/pipes/iter-obj.pipe.ts":
 /*!***********************************************!*\
   !*** ./src/app/shared/pipes/iter-obj.pipe.ts ***!
@@ -709,6 +766,47 @@ var IterObjPipe = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/shared/pipes/safe.pipe.ts":
+/*!*******************************************!*\
+  !*** ./src/app/shared/pipes/safe.pipe.ts ***!
+  \*******************************************/
+/*! exports provided: SafePipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SafePipe", function() { return SafePipe; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var SafePipe = /** @class */ (function () {
+    function SafePipe(sanitizer) {
+        this.sanitizer = sanitizer;
+    }
+    SafePipe.prototype.transform = function (url) {
+        return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    };
+    SafePipe = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Pipe"])({ name: 'safe' }),
+        __metadata("design:paramtypes", [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["DomSanitizer"]])
+    ], SafePipe);
+    return SafePipe;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/shared/shared.module.ts":
 /*!*****************************************!*\
   !*** ./src/app/shared/shared.module.ts ***!
@@ -743,12 +841,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var _pipes_iter_obj_pipe__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./pipes/iter-obj.pipe */ "./src/app/shared/pipes/iter-obj.pipe.ts");
+/* harmony import */ var _pipes_escape_html_pipe__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./pipes/escape-html.pipe */ "./src/app/shared/pipes/escape-html.pipe.ts");
+/* harmony import */ var _pipes_safe_pipe__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./pipes/safe.pipe */ "./src/app/shared/pipes/safe.pipe.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -802,7 +904,7 @@ var SharedModule = /** @class */ (function () {
                 angular_svg_icon__WEBPACK_IMPORTED_MODULE_20__["AngularSvgIconModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_21__["HttpClientModule"]
             ],
-            declarations: [_pipes_iter_obj_pipe__WEBPACK_IMPORTED_MODULE_23__["IterObjPipe"]],
+            declarations: [_pipes_iter_obj_pipe__WEBPACK_IMPORTED_MODULE_23__["IterObjPipe"], _pipes_escape_html_pipe__WEBPACK_IMPORTED_MODULE_24__["EscapeHtmlPipe"], _pipes_safe_pipe__WEBPACK_IMPORTED_MODULE_25__["SafePipe"]],
             exports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
@@ -826,7 +928,9 @@ var SharedModule = /** @class */ (function () {
                 angular_font_awesome__WEBPACK_IMPORTED_MODULE_19__["AngularFontAwesomeModule"],
                 angular_svg_icon__WEBPACK_IMPORTED_MODULE_20__["AngularSvgIconModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_21__["HttpClientModule"],
-                _pipes_iter_obj_pipe__WEBPACK_IMPORTED_MODULE_23__["IterObjPipe"]
+                _pipes_iter_obj_pipe__WEBPACK_IMPORTED_MODULE_23__["IterObjPipe"],
+                _pipes_escape_html_pipe__WEBPACK_IMPORTED_MODULE_24__["EscapeHtmlPipe"],
+                _pipes_safe_pipe__WEBPACK_IMPORTED_MODULE_25__["SafePipe"]
             ]
         })
     ], SharedModule);
@@ -959,7 +1063,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/corentin/Documents/www-dev/angular/site-perso-corentin/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! D:\www-dev\angular\site-perso-corentin\src\main.ts */"./src/main.ts");
 
 
 /***/ })

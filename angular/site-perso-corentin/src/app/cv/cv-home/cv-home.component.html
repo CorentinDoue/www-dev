@@ -1,4 +1,4 @@
-<div [ngClass]="theme">
+<div [ngClass]="theme" #top>
   <div class="cv">
     <div class="row justify-content-end position-absolute mt-2 download-tab">
         <a href="../../../assets/cv.pdf" target="_blank" class="mat-button download" [ngClass]="routeAnimationsElements">Download PDF version</a>
@@ -166,9 +166,9 @@
               </ul>
             </div>
 
-            <div class="col-xl-12">
-              <a routerLink="/skills" target="_blank" class="mat-button download">Learn more about my skills</a>
-            </div>
+            <!--<div class="col-xl-12">-->
+              <!--<a routerLink="/skills" class="mat-button download">Learn more about my skills</a>-->
+            <!--</div>-->
 
             <div class="col-xl-12">
               <h2> <mat-icon fontSet="fas" fontIcon="fa-language"></mat-icon>Languages</h2>

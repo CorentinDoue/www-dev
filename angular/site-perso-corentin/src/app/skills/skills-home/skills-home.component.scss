@@ -49,9 +49,28 @@
     .centrer {
       height: 70px;
     }
+    .container{
+      h1 {
+        font-size: 1.3em;
+      }
 
-    h1 {
-      font-size: 1.4em;
+      h2{
+        font-size: 1.2em;
+
+        mat-icon{
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      h3{
+        font-size: 1.1em;
+      }
+      .mat-tab-label{
+        font-size: 1em;
+        padding: 0;
+        margin: 0 -10px 0 -10px;;
+      }
     }
   }
 }

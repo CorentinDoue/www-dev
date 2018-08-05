@@ -81,6 +81,11 @@ export class AppComponent implements OnInit {
       .addSvgIcon('ai', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/brain.svg'))
       .addSvgIcon('paint', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/paint.svg'))
       .addSvgIcon('tech', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/technology.svg'))
-      .addSvgIcon('arrow', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/arrow.svg'));
+      .addSvgIcon('arrow', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/arrow.svg'))
+      .addSvgIcon('running', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/running.svg'))
+      .addSvgIcon('climbing', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/climbing.svg'))
+      .addSvgIcon('skiing', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/skiing.svg'))
+      .addSvgIcon('cooking', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/cooking.svg'))
+      .addSvgIcon('crafting', this.sanitizer.bypassSecurityTrustResourceUrl('../assets/technology.svg'));
   }
 }

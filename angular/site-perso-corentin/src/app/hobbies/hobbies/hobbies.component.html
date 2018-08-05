@@ -1,12 +1,57 @@
-<div [ngClass]="theme">
+<div [ngClass]="theme" #top>
   <div class="hobbies">
     <div class="container">
-  <div class="centrer">
-    <div><h1 [ngClass]="routeAnimationsElements">Hobbies</h1></div>
-  </div>
-  <div class="row justify-content-center">
-    <img src="../../../assets/comingsoon.jpg" style="max-width: 100%" [ngClass]="routeAnimationsElements">
-  </div>
-</div>
+      <div class="centrer">
+        <div><h1 [ngClass]="routeAnimationsElements">Hobbies</h1></div>
+      </div>
+      <div (swipeleft)="swipe($event)" (swiperight)="swipe($event)">
+        <mat-tab-group [dynamicHeight]="true" [selectedIndex]="selectedHobby" >
+          <mat-tab *ngFor="let hobby of hobbies">
+            <ng-template mat-tab-label>
+              <span class="mat-tab-label" (click)="goTo(hobby.id)">{{hobby.name}}</span>
+            </ng-template>
+
+            <h2 [ngClass]="routeAnimationsElements"> <mat-icon svgIcon="{{hobby.id}}"></mat-icon>{{hobby.name}}</h2>
+
+            <div class="row justify-content-center mb-3">
+              <div class="col" style="display: flex; justify-content: center">
+                <p style="text-align: justify" [innerHTML]="hobby.description | keepHtml"></p>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-lg-10">
+                <ngb-carousel *ngIf="hobby.images.length>0" (slide)="hobby.currentId=imgIndex($event.current)">
+                  <ng-template ngbSlide *ngFor="let image of hobby.images; let i = index" [id]="hobby.id+'-'+i">
+                    <img *ngIf="image.name!='video'" [src]="'../../../assets/hobbies/'+ image.url" alt="{{image.name}}" style="width: 100%">
+                    <div class="row justify-content-center" *ngIf="image.name=='video'">
+                      <div class="col-1" style="background-color: black"></div>
+                      <div class="col-10" style="background-color: black">
+                        <iframe [src]="image.url | safe" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                      </div>
+                      <div class="col-1" style="background-color: black"></div>
+                    </div>
+
+                    <div class="carousel-caption" *ngIf="image.name!='video'">
+                      <div style="display: flex; justify-content: center">
+                        <h3 style="padding: 10px;" [ngStyle]="{'color':image.dark ? 'white' : 'black', 'backgroundColor': image.dark ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.5)'}">
+                          {{image.name}}
+                        </h3>
+                      </div>
+                      <!--<p style="padding: 10px;" [ngStyle]="{'color':image.dark ? 'white' : 'black', 'backgroundColor': image.dark ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.5)'}">{{image.description}}</p>-->
+                    </div>
+                  </ng-template>
+                </ngb-carousel>
+              </div>
+            </div>
+
+            <div class="row justify-content-center mt-2 mb-3" *ngIf="hobby.images.length>0">
+              <div class="col-lg-10" style="display: flex; justify-content: center">
+                <p style="text-align: justify" [innerHTML]="hobby.images[hobby.currentId].description | keepHtml"></p>
+              </div>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
   </div>
 </div>

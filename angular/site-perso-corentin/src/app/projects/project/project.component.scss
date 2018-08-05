@@ -143,6 +143,14 @@
   h4{
     margin: 0;
   }
+
+  p{
+    text-align: justify;
+  }
+
+  mat-chip{
+    cursor: pointer;
+  }
 }
 
 @media (max-width: map-get($grid-breakpoints, lg)) {
@@ -198,24 +206,75 @@
       }
     }
 
+    .logo{
+
+      width: 30px;
+      height: 30px;
+      border-radius: 15px;
+    }
+
     .mrt {
-      margin-right: 20px;
+      margin-right: 0px;
     }
 
     .mrd {
-      margin-right: 10px;
+      margin-right: 5px;
     }
 
     .mlt {
-      margin-left: 20px;
+      margin-left: 0px;
     }
 
     .mld {
-      margin-left: 10px;
+      margin-left: 5px;
     }
 
     .title {
+      padding: 5px;
+      font-size: 0.8em;
+    }
+  }
+
+  .head{
+
+    height: 40px;
+    padding: 0 20px 0 20px;
+
+
+    .head-title{
       font-size: 0.9em;
+    }
+
+    .logo{
+      width: 30px;
+      height: 30px;
+      border-radius: 15px;
+    }
+  }
+
+  .project-body {
+    h4 {
+      font-size: 1em;
+    }
+
+    .link {
+      font-size: 0.9em;
+    }
+
+    .date{
+      font-size: 0.8em;
+    }
+
+    p{
+      font-size: 0.8em;
+    }
+
+    mat-chip{
+      font-size: 0.8em;
+
+      .label-logo{
+        width: 15px;
+      }
     }
   }
 }

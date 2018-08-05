@@ -1,14 +1,16 @@
+import {Link} from './project';
+
 export class Skill {
   private _name: string;
   private _description: string;
   private _experience: string;
   private _img: string;
   private _mark: number;
-  private _projects: string[];
+  private _projects: Link[];
   private _learn: boolean;
 
 
-  constructor(name: string, mark: number, description: string, experience: string, projects: string[], img: string) {
+  constructor(name: string, mark: number, description: string, experience: string, projects: Link[], img: string) {
     this._name = name;
     this._description = description;
     this._experience = experience;
@@ -59,11 +61,11 @@ export class Skill {
     this._mark = value;
   }
 
-  get projects(): string[] {
+  get projects(): Link[] {
     return this._projects;
   }
 
-  set projects(value: string[]) {
+  set projects(value: Link[]) {
     this._projects = value;
   }
 

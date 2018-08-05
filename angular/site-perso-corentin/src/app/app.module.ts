@@ -8,6 +8,7 @@ import {AppRoutingModule} from './app-routing.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import {CoreModule} from './core/core.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 declare var Hammer: any;
@@ -27,13 +28,12 @@ export class MyHammerConfig extends HammerGestureConfig  {
     BrowserModule,
 
     // core & shared
+    NgbModule.forRoot(),
     SharedModule,
     CoreModule,
 
     // app
     AppRoutingModule,
-
-
   ],
   declarations: [
     AppComponent,

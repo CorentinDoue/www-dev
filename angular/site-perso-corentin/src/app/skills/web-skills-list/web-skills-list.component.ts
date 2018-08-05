@@ -11,7 +11,6 @@ export class WebSkillsListComponent implements OnInit {
 
 
   @Input() skillsLists;
-  @Input() selectedIndex;
 
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
 

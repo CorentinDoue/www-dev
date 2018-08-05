@@ -155,8 +155,6 @@ export class FragmentTargetDirective implements OnInit, OnDestroy {
 
         }
         setTimeout(() => { this.windowScroller.scrollIntoView( this.elementRef ); }, 300);
-
-
       }
     );
 

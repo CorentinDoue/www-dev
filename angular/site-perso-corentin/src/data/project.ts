@@ -11,10 +11,11 @@ export class Project {
   private _links: Link[];
   private _mainLink: Link;
   public open: boolean;
+  private _img: string;
 
   constructor(name: string, id: string, type: string, dateDebut: string, dateFin: string,
               majorLabels: Label[], labels: Label[], context: string, description: string,
-              links: Link[], mainLink: Link) {
+              links: Link[], mainLink: Link, img: string = null) {
     this._name = name;
     this._id = id;
     this._type = type;
@@ -27,6 +28,7 @@ export class Project {
     this._links = links;
     this._mainLink = mainLink;
     this.open = false;
+    this._img = img;
   }
 
   get name(): string {
@@ -116,17 +118,27 @@ export class Project {
   set mainLink(value: Link) {
     this._mainLink = value;
   }
+
+  get img(): string {
+    return this._img;
+  }
+
+  set img(value: string) {
+    this._img = value;
+  }
 }
 
 export class Label {
   private _name: string;
   private _type: string;
   private _logo: string;
+  private _link: string;
 
-  constructor(name: string, type: string, logo: string) {
+  constructor(name: string, type: string, logo: string, link: string) {
     this._name = name;
     this._type = type;
     this._logo = logo;
+    this._link = link;
   }
 
   get name(): string {
@@ -151,6 +163,14 @@ export class Label {
 
   set logo(value: string) {
     this._logo = value;
+  }
+
+  get link(): string {
+    return this._link;
+  }
+
+  set link(value: string) {
+    this._link = value;
   }
 }
 

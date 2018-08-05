@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ROUTE_ANIMATIONS_ELEMENTS, routeAnimations} from '../../core/animations/route.animations';
 import {ThemeHoursService} from '../../theme-hours.service';
 
@@ -9,6 +9,7 @@ import {ThemeHoursService} from '../../theme-hours.service';
   animations: [routeAnimations]
 })
 export class CvHomeComponent implements OnInit {
+  @ViewChild('top') top: ElementRef;
   theme;
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
 
@@ -17,6 +18,10 @@ export class CvHomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.top.nativeElement.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
     this.initTheme();
   }
 

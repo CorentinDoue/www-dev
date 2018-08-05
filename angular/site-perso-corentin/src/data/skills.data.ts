@@ -1,4 +1,5 @@
 import {Skill} from './skill';
+import {Link} from './project';
 
 export const SKILLS = {
   'language': [
@@ -25,7 +26,7 @@ export const SKILLS = {
       'Interpreted high-level programming language for general-purpose programming.',
       'I used it a lot in pratical works in courses during my preparatory classes. ' +
       'I worked also with it during a three month internship to implement neural network.',
-      ['stage_2a'],
+      [new Link('Lesion segmentation by deep learning', 'stage_2a')],
       'python.png'
     ),
     new Skill(
@@ -34,7 +35,7 @@ export const SKILLS = {
       'Script designed to be run by the shell command-line interpreter of Unix devices.',
       'I used it a lot in pratical works in courses of Computer sciences and Big Data. ' +
       'I worked also with it during a three month internship to preprocess and move the datas.',
-      ['stage_2a'],
+      [new Link('Lesion segmentation by deep learning', 'stage_2a')],
       'shell.png'
     ),
     new Skill(
@@ -44,7 +45,9 @@ export const SKILLS = {
       ' general-purpose programming language.',
       'I learned it by myself with MOOCs to develop my first web site. Then I worked with ' +
       'it to develop the backend of other websites. I used it also when I learned the framework Symfony in courses.',
-      ['minesterstellar', 'mobilite', 'cercle'],
+      [new Link('Minesterstellar Website', 'minesterstellar'),
+        new Link('International mobility website', 'mobilite'),
+        new Link('Cercle Website', 'cercle')],
       'php.png'
     ),
     new Skill(
@@ -54,7 +57,9 @@ export const SKILLS = {
       'a relational database management system, or for stream processing in a relational data stream management system.',
       'I learned it in preparatory classes and had courses on it at the École des Mines. ' +
       'I used MySQL a lot to manage the data of my three first websites.',
-      ['minesterstellar', 'mobilite', 'cercle'],
+      [new Link('Minesterstellar Website', 'minesterstellar'),
+        new Link('International mobility website', 'mobilite'),
+        new Link('Cercle Website', 'cercle')],
       'sql.png'
     ),
     new Skill(
@@ -63,7 +68,7 @@ export const SKILLS = {
       'General-purpose computer-programming language that is concurrent, class-based and object-oriented.',
       'I learned it in Java courses and had lot of pratical works with it. I used also as backend' +
       ' language for a Computer sciences project.',
-      ['project_majeure_info'],
+      [new Link('Computer Science Course Project', 'project_majeure_info')],
       'java.png'
     ),
     new Skill(
@@ -72,7 +77,11 @@ export const SKILLS = {
       'High-level, interpreted programming language used in web development.',
       'I learned it by myself with MOOCs to animate my first web site. I used also as frontend language ' +
       'for all the websites I did after.',
-      ['minesterstellar', 'mobilite', 'cercle', 'project_majeure_info', 'spc'],
+      [new Link('Minesterstellar Website', 'minesterstellar'),
+        new Link('International mobility website', 'mobilite'),
+        new Link('Cercle Website', 'cercle'),
+        new Link('Computer Science Course Project', 'project_majeure_info'),
+        new Link('Personal Website', 'spc')],
       'js.png'
     ),
     new Skill(
@@ -80,7 +89,7 @@ export const SKILLS = {
       2,
       'Open-source programming language which is a strict syntactical superset of JavaScript.',
       'I learned it by using Angular.',
-      ['spc'],
+      [new Link('Personal Website', 'spc')],
       'ts.png'
     ),
     new Skill(
@@ -99,7 +108,11 @@ export const SKILLS = {
         4.5,
         'Standard markup language for creating web pages and web applications.',
         'I learned it by myself with MOOCs to create my first web site. I used also for all the websites I did after.',
-        ['minesterstellar', 'mobilite', 'cercle', 'project_majeure_info', 'spc'],
+        [new Link('Minesterstellar Website', 'minesterstellar'),
+          new Link('International mobility website', 'mobilite'),
+          new Link('Cercle Website', 'cercle'),
+          new Link('Computer Science Course Project', 'project_majeure_info'),
+          new Link('Personal Website', 'spc')],
         'html.png'
       ),
       new Skill(
@@ -107,7 +120,11 @@ export const SKILLS = {
         4,
         'Style sheet language used for describing the presentation of a document written in a markup language like HTML.',
         'I learned it by myself with MOOCs to create my first web site. I used also for all the websites I did after.',
-        ['minesterstellar', 'mobilite', 'cercle', 'project_majeure_info', 'spc'],
+        [new Link('Minesterstellar Website', 'minesterstellar'),
+          new Link('International mobility website', 'mobilite'),
+          new Link('Cercle Website', 'cercle'),
+          new Link('Computer Science Course Project', 'project_majeure_info'),
+          new Link('Personal Website', 'spc')],
         'css.png'
       ),
       new Skill(
@@ -115,7 +132,7 @@ export const SKILLS = {
         4,
         'Preprocessor scripting language that is interpreted or compiled into CSS.',
         'I learned it by myself on internet to properly use Bootstrap 4 and Material.',
-        ['spc'],
+        [new Link('Personal Website', 'spc')],
         'scss.png'
       ),
       new Skill(
@@ -123,7 +140,7 @@ export const SKILLS = {
         4,
         'Free and open-source front-end framework for designing websites and web applications.',
         'I learned it by myself on internet to make quick responsive web sites.',
-        ['project_majeure_info', 'spc'],
+        [new Link('Computer Science Course Project', 'project_majeure_info'), new Link('Personal Website', 'spc')],
         'bootstrap.png'
       ),
       new Skill(
@@ -131,7 +148,7 @@ export const SKILLS = {
         3,
         'Design system – backed by open-source code – that helps teams build digital experiences.',
         'I learned it by myself on internet to build this web site.',
-        ['spc'],
+        [new Link('Personal Website', 'spc')],
         'material.png'
       ),
       new Skill(
@@ -139,7 +156,7 @@ export const SKILLS = {
         4,
         'JavaScript-based open-source front-end web application framework.',
         'I learned it by myself with MOOCs to use it as frontend for my second and third websites.',
-        ['mobilite', 'cercle'],
+        [new Link('International mobility website', 'mobilite'), new Link('Cercle Website', 'cercle')],
         'angular.png'
       ),
       new Skill(
@@ -147,7 +164,7 @@ export const SKILLS = {
         3,
         'Open-source JavaScript framework for building user interfaces.',
         'I learned it in Computer sciences courses.',
-        ['project_majeure_info'],
+        [new Link('Computer Science Course Project', 'project_majeure_info')],
         'vuejs.png'
       ),
       new Skill(
@@ -155,7 +172,7 @@ export const SKILLS = {
         3,
         'TypeScript-based open-source front-end web application framework.',
         'I learned it by myself on internet to build this web site.',
-        ['spc'],
+        [new Link('Personal Website', 'spc')],
         'angular.png'
       ),
       new Skill(
@@ -163,7 +180,7 @@ export const SKILLS = {
         2.5,
         'Mobile operating system designed primarily for touchscreen mobile devices such as smartphones and tablets.',
         'I learned it in Computer sciences courses.',
-        ['project_majeure_info'],
+        [new Link('Computer Science Course Project', 'project_majeure_info')],
         'android.png'
       )
     ],
@@ -173,7 +190,7 @@ export const SKILLS = {
         3,
         'Java framework to develop web applications.',
         'I learned it in Computer sciences courses.',
-        ['project_majeure_info'],
+        [new Link('Computer Science Course Project', 'project_majeure_info')],
         'spring.png'
       ),
       new Skill(
@@ -191,7 +208,7 @@ export const SKILLS = {
         4,
         'Open-source build automation system mostly used with java.',
         'I learned it in Computer sciences courses with Spring and Android.',
-        ['project_majeure_info'],
+        [new Link('Computer Science Course Project', 'project_majeure_info')],
         'gradle.png'
       ),
       new Skill(
@@ -207,7 +224,7 @@ export const SKILLS = {
         3.5,
         'Package manager for the JavaScript programming language.',
         'I learned it by using Angular.',
-        ['spc'],
+        [new Link('Personal Website', 'spc')],
         'npm.png'
       )
     ]
@@ -218,7 +235,7 @@ export const SKILLS = {
       4,
       'open-source software library for dataflow programming. It is used for machine learning applications such as neural networks.',
       'I learned it during my three month internship à Erasmus MC.',
-      ['stage_2a'],
+      [new Link('Lesion segmentation by deep learning', 'stage_2a')],
       'tensorflow.png'
     ),
     new Skill(
@@ -226,7 +243,7 @@ export const SKILLS = {
       4.5,
       'Open source neural network library written in Python.',
       'I used it with Tensorflow backend during my three month internship à Erasmus MC.',
-      ['stage_2a'],
+      [new Link('Lesion segmentation by deep learning', 'stage_2a')],
       'keras.png'
     )
   ],
@@ -252,7 +269,7 @@ export const SKILLS = {
       3,
       'Professional, free and open-source 3D computer graphics software.',
       'I used it to make some 3D annimations for an association film.',
-      ['film_campagne'],
+      [new Link('Minesterstellar Film', 'film_campagne')],
       'blender.png'
     )
   ],

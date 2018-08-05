@@ -23,12 +23,14 @@
       border-radius: $iconWidth*1.5/2;
 
       border: solid 1px;
-
+      background-color: whitesmoke;
+      border-color: #181818;
 
       display: flex;
       justify-content: center;
       align-items: center;
     }
+
 
     .advanced{
       background-color: #00cd00;

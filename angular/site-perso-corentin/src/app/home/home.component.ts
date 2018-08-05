@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ROUTE_ANIMATIONS_ELEMENTS} from '../core/animations/route.animations';
 
 
@@ -10,11 +10,16 @@ import {ROUTE_ANIMATIONS_ELEMENTS} from '../core/animations/route.animations';
 })
 export class HomeComponent implements OnInit {
 
-
+  @ViewChild('top') top: ElementRef;
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.top.nativeElement.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
 
 }

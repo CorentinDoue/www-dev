@@ -1,4 +1,4 @@
-<div [ngClass]="theme" xmlns="http://www.w3.org/1999/html">
+<div [ngClass]="theme" #top>
   <div class="skills">
     <div class="container">
       <div class="centrer">
@@ -18,7 +18,7 @@
             <span class="mat-tab-label" (click)="goTo('web')">Web</span>
           </ng-template>
           <h2 [ngClass]="routeAnimationsElements"><mat-icon svgIcon="web"></mat-icon>Web</h2>
-          <spc-web-skills-list [skillsLists]="skills.web" [selectedIndex]='skillType$ | async | activeSkill'></spc-web-skills-list>
+          <spc-web-skills-list [skillsLists]="skills.web"></spc-web-skills-list>
         </mat-tab>
         <mat-tab>
           <ng-template mat-tab-label>

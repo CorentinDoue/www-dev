@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ROUTE_ANIMATIONS_ELEMENTS, routeAnimations} from '../../core/animations/route.animations';
 import {ThemeHoursService} from '../../theme-hours.service';
 import {PROJECTS} from '../../../data/projects.data';
@@ -11,7 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   animations: [routeAnimations]
 })
 export class ProjectsHomeComponent implements OnInit {
-
+  @ViewChild('top') top: ElementRef;
   theme;
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
   projects = PROJECTS;
@@ -23,6 +23,10 @@ export class ProjectsHomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.top.nativeElement.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
     this.route.fragment.subscribe(fragment => {
       this.open(fragment);
     });

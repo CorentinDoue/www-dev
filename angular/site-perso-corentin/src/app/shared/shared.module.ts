@@ -24,7 +24,9 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatExpansionModule} from '@angular/material';
 
 import {IterObjPipe} from './pipes/iter-obj.pipe';
-import {FragmentPolyfillModule} from './fragment-polyfill.module';
+import {EscapeHtmlPipe} from './pipes/escape-html.pipe';
+import {SafePipe} from './pipes/safe.pipe';
+
 
 @NgModule({
   imports: [
@@ -53,7 +55,7 @@ import {FragmentPolyfillModule} from './fragment-polyfill.module';
     AngularSvgIconModule,
     HttpClientModule
   ],
-  declarations: [IterObjPipe],
+  declarations: [IterObjPipe, EscapeHtmlPipe, SafePipe],
   exports: [
     CommonModule,
     FormsModule,
@@ -80,7 +82,9 @@ import {FragmentPolyfillModule} from './fragment-polyfill.module';
     AngularSvgIconModule,
     HttpClientModule,
 
-    IterObjPipe
+    IterObjPipe,
+    EscapeHtmlPipe,
+    SafePipe
   ]
 })
 export class SharedModule {}

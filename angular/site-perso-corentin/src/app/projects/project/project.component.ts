@@ -50,9 +50,14 @@ export class ProjectComponent implements OnInit {
   switch() {
     if (this.open) {
       this.open = false;
+      this.router.navigate(['/projects']);
     } else {
       // this.router.navigate(['/projects'], {fragment: this.project.id});
       this.open = true;
     }
+  }
+
+  onNavigate(link: string) {
+    window.open(link, '_blank');
   }
 }

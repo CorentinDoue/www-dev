@@ -1,11 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ROUTE_ANIMATIONS_ELEMENTS, routeAnimations} from '../../core/animations/route.animations';
 import {ThemeHoursService} from '../../theme-hours.service';
 import {SKILLS} from '../../../data/skills.data';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Observable} from 'rxjs';
-
-
 
 @Component({
   selector: 'spc-skills-home',
@@ -14,15 +11,11 @@ import {Observable} from 'rxjs';
   animations: [routeAnimations]
 })
 export class SkillsHomeComponent implements OnInit {
-
-
+  @ViewChild('top') top: ElementRef;
   SWIPE_ACTION = { LEFT: 'swipeleft', RIGHT: 'swiperight' };
-
   theme;
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
-
   skills = SKILLS;
-  skillType$: Observable<string>;
   selectedSkill;
 
   constructor(
@@ -32,6 +25,10 @@ export class SkillsHomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.top.nativeElement.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
     this.route.paramMap.subscribe(params => {
       this.selectedSkill = this.selectedNumber(params.get('id'));
     });
