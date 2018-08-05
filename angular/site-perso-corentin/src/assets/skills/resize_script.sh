@@ -1,4 +1,4 @@
-#!bin/sh
+#!bin/bash
 for image in *.png; 
 do
 	echo resize "${image}" ...
