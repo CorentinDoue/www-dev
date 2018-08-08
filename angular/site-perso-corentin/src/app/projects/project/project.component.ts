@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Project} from '../../../data/project';
 import {animate, style, transition, trigger} from '@angular/animations';
 import {Router} from '@angular/router';
@@ -41,6 +41,7 @@ export class ProjectComponent implements OnInit {
   @Input() project: Project;
   @Input() index: number;
   @Input() open: boolean;
+  @ViewChild('topp') top: ElementRef;
 
   constructor(private router: Router) { }
 

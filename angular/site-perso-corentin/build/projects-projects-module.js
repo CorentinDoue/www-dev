@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"marker\">\r\n  <div class=\"lines\" *ngIf=\"index%2==0 && !open\">\r\n    <div class=\"line\"></div>\r\n    <div class=\"blankline\"></div>\r\n  </div>\r\n\r\n  <div class=\"lines\" *ngIf=\"index%2==1 && !open\">\r\n    <div class=\"blankline\"></div>\r\n    <div class=\"line\"></div>\r\n  </div>\r\n\r\n  <div class=\"left\" *ngIf=\"!open\" [@markerState]=\"open ? 'open' : 'close'\">\r\n    <a routerLink=\".\" fragment=\"{{project.id}}\" class=\"title mat-button mrt\"  *ngIf=\"index%2==0\" >{{project.name}}</a>\r\n    <div class=\"date mrd\" *ngIf=\"index%2==1\">{{project.dateFin}}</div>\r\n  </div>\r\n\r\n  <div class=\"major-labels\" *ngIf=\"index%2==1 && !open\" [@markerState]=\"open ? 'open' : 'close'\">\r\n    <div class=\"logo\" *ngFor=\"let label of project.majorLabels\">\r\n      <img src=\"{{'../../../assets/skills/'+label.logo+'.png'}}\" style=\"max-width: 80%; max-height: 80%;\">\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"head mat-button\" *ngIf=\"open\" (click)=\"switch()\" [@headState]=\"open ? 'open' : 'close'\">\r\n    <div class=\"head-title\" *ngIf=\"index%2==0\">{{project.name}}</div>\r\n\r\n    <div class=\"major-labels\">\r\n      <div class=\"logo\" *ngFor=\"let label of project.majorLabels\">\r\n        <img src=\"{{'../../../assets/skills/'+label.logo+'.png'}}\" style=\"max-width: 80%; max-height: 80%;\">\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"head-title\" *ngIf=\"index%2==1\">{{project.name}}</div>\r\n  </div>\r\n\r\n  <div class=\"major-labels\" *ngIf=\"index%2==0 && !open\" [@markerState]=\"open ? 'open' : 'close'\">\r\n    <div class=\"logo\" *ngFor=\"let label of project.majorLabels\">\r\n      <img src=\"{{'../../../assets/skills/'+label.logo+'.png'}}\" style=\"max-width: 80%; max-height: 80%;\">\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"right\" *ngIf=\"!open\" [@markerState]=\"open ? 'open' : 'close'\">\r\n    <a routerLink=\".\" fragment=\"{{project.id}}\" class=\"title mat-button mlt\"  *ngIf=\"index%2==1\">{{project.name}}</a>\r\n    <div class=\"date mld\"  *ngIf=\"index%2==0\">{{project.dateFin}}</div>\r\n  </div>\r\n</div>\r\n\r\n<mat-card class=\"project-body\" [@bodyState]=\"open ? 'open' : 'close'\" *ngIf=\"open\">\r\n  <div class=\"row\">\r\n   <div class=\"col\" *ngIf=\"project.mainLink\">\r\n     <div class=\"row\" style=\"align-items: center\">\r\n       <h4>Link to the project :</h4>\r\n       <a href=\"{{project.mainLink.link}}\" target=\"_blank\">\r\n         <button mat-button class=\"link\">{{project.mainLink.name}}</button>\r\n       </a>\r\n     </div>\r\n   </div>\r\n\r\n   <div class=\"col\">\r\n     <div class=\"date\">Started in {{project.dateDebut}}</div>\r\n     <div class=\"date\" *ngIf=\"project.dateFin!='now'\">Finished in {{project.dateFin}}</div>\r\n     <div class=\"date\" *ngIf=\"project.dateFin=='now'\">Still working on it</div>\r\n   </div>\r\n </div>\r\n\r\n  <div class=\"row\" *ngIf=\"project.context\">\r\n    <h4>Context :</h4>\r\n  </div>\r\n\r\n  <div class=\"row\" *ngIf=\"project.context\">\r\n    <p [innerHTML]=\"project.context | keepHtml\"></p>\r\n  </div>\r\n\r\n  <div class=\"row\" *ngIf=\"project.img\">\r\n    <div style=\"width: 100%\"><img src=\"{{'../../../assets/'+project.img}}\" style=\"max-width: 100%; max-height:100%\"></div>\r\n  </div>\r\n\r\n  <div class=\"row\" *ngIf=\"project.description\">\r\n    <h4>Description :</h4>\r\n  </div>\r\n\r\n  <div class=\"row\" *ngIf=\"project.description\">\r\n    <p [innerHTML]=\"project.description | keepHtml\"></p>\r\n  </div>\r\n\r\n  <div class=\"row\" *ngIf=\"project.labels.length>0\">\r\n    <h4>Tags :</h4>\r\n  </div>\r\n\r\n  <mat-chip-list *ngIf=\"project.labels.length>0\">\r\n    <mat-chip *ngFor=\"let label of project.labels\" (click)=\"onNavigate(label.link)\">\r\n      <span class=\"label-logo\">\r\n        <img src=\"{{'../../../assets/skills/'+label.logo+'.png'}}\" style=\"max-width: 90%; max-height: 90%;\">\r\n      </span>\r\n      {{label.name}}\r\n    </mat-chip>\r\n  </mat-chip-list>\r\n\r\n  <div class=\"row\" style=\"margin-top: 10px\" *ngIf=\"project.links.length>0\">\r\n    <h4>Other links :</h4>\r\n  </div>\r\n\r\n  <div class=\"row\" *ngIf=\"project.links.length>0\">\r\n    <a *ngFor=\"let link of project.links\" href=\"{{link.link}}\" target=\"_blank\">\r\n      <button mat-stroked-button color=\"primary\">\r\n        <div class=\"link\">{{link.name}}</div>\r\n      </button>\r\n    </a>\r\n  </div>\r\n</mat-card>\r\n"
+module.exports = "\r\n<div class=\"marker\" #topp>\r\n  <div class=\"lines\" *ngIf=\"index%2==0 && !open\">\r\n    <div class=\"line\"></div>\r\n    <div class=\"blankline\"></div>\r\n  </div>\r\n\r\n  <div class=\"lines\" *ngIf=\"index%2==1 && !open\">\r\n    <div class=\"blankline\"></div>\r\n    <div class=\"line\"></div>\r\n  </div>\r\n\r\n  <div class=\"left\" *ngIf=\"!open\" [@markerState]=\"open ? 'open' : 'close'\">\r\n    <a routerLink=\".\" fragment=\"{{project.id}}\" class=\"title mat-button mrt\"  *ngIf=\"index%2==0\" >{{project.name}}</a>\r\n    <div class=\"date mrd\" *ngIf=\"index%2==1\">{{project.dateFin}}</div>\r\n  </div>\r\n\r\n  <div class=\"major-labels\" *ngIf=\"index%2==1 && !open\" [@markerState]=\"open ? 'open' : 'close'\">\r\n    <div class=\"logo\" *ngFor=\"let label of project.majorLabels\">\r\n      <img src=\"{{'../../../assets/skills/'+label.logo+'.png'}}\" style=\"max-width: 80%; max-height: 80%;\">\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"head mat-button\" *ngIf=\"open\" (click)=\"switch()\" [@headState]=\"open ? 'open' : 'close'\">\r\n    <div class=\"head-title\" *ngIf=\"index%2==0\">{{project.name}}</div>\r\n\r\n    <div class=\"major-labels\">\r\n      <div class=\"logo\" *ngFor=\"let label of project.majorLabels\">\r\n        <img src=\"{{'../../../assets/skills/'+label.logo+'.png'}}\" style=\"max-width: 80%; max-height: 80%;\">\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"head-title\" *ngIf=\"index%2==1\">{{project.name}}</div>\r\n  </div>\r\n\r\n  <div class=\"major-labels\" *ngIf=\"index%2==0 && !open\" [@markerState]=\"open ? 'open' : 'close'\">\r\n    <div class=\"logo\" *ngFor=\"let label of project.majorLabels\">\r\n      <img src=\"{{'../../../assets/skills/'+label.logo+'.png'}}\" style=\"max-width: 80%; max-height: 80%;\">\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"right\" *ngIf=\"!open\" [@markerState]=\"open ? 'open' : 'close'\">\r\n    <a routerLink=\".\" fragment=\"{{project.id}}\" class=\"title mat-button mlt\"  *ngIf=\"index%2==1\">{{project.name}}</a>\r\n    <div class=\"date mld\"  *ngIf=\"index%2==0\">{{project.dateFin}}</div>\r\n  </div>\r\n</div>\r\n\r\n<mat-card class=\"project-body\" [@bodyState]=\"open ? 'open' : 'close'\" *ngIf=\"open\">\r\n  <div class=\"row\">\r\n   <div class=\"col\" *ngIf=\"project.mainLink\">\r\n     <div class=\"row\" style=\"align-items: center\">\r\n       <h4>Link to the project :</h4>\r\n       <a href=\"{{project.mainLink.link}}\" target=\"_blank\">\r\n         <button mat-button class=\"link\">{{project.mainLink.name}}</button>\r\n       </a>\r\n     </div>\r\n   </div>\r\n\r\n   <div class=\"col\">\r\n     <div class=\"date\">Started in {{project.dateDebut}}</div>\r\n     <div class=\"date\" *ngIf=\"project.dateFin!='now'\">Finished in {{project.dateFin}}</div>\r\n     <div class=\"date\" *ngIf=\"project.dateFin=='now'\">Still working on it</div>\r\n   </div>\r\n </div>\r\n\r\n  <div class=\"row\" *ngIf=\"project.context\">\r\n    <h4>Context :</h4>\r\n  </div>\r\n\r\n  <div class=\"row\" *ngIf=\"project.context\">\r\n    <p [innerHTML]=\"project.context | keepHtml\"></p>\r\n  </div>\r\n\r\n  <div class=\"row\" *ngIf=\"project.img\">\r\n    <div style=\"width: 100%\"><img src=\"{{'../../../assets/'+project.img}}\" style=\"max-width: 100%; max-height:100%\"></div>\r\n  </div>\r\n\r\n  <div class=\"row\" *ngIf=\"project.description\">\r\n    <h4>Description :</h4>\r\n  </div>\r\n\r\n  <div class=\"row\" *ngIf=\"project.description\">\r\n    <p [innerHTML]=\"project.description | keepHtml\"></p>\r\n  </div>\r\n\r\n  <div class=\"row\" *ngIf=\"project.labels.length>0\">\r\n    <h4>Tags :</h4>\r\n  </div>\r\n\r\n  <mat-chip-list *ngIf=\"project.labels.length>0\">\r\n    <mat-chip *ngFor=\"let label of project.labels\" (click)=\"onNavigate(label.link)\">\r\n      <span class=\"label-logo\">\r\n        <img src=\"{{'../../../assets/skills/'+label.logo+'.png'}}\" style=\"max-width: 90%; max-height: 90%;\">\r\n      </span>\r\n      {{label.name}}\r\n    </mat-chip>\r\n  </mat-chip-list>\r\n\r\n  <div class=\"row\" style=\"margin-top: 10px\" *ngIf=\"project.links.length>0\">\r\n    <h4>Other links :</h4>\r\n  </div>\r\n\r\n  <div class=\"row\" *ngIf=\"project.links.length>0\">\r\n    <a *ngFor=\"let link of project.links\" href=\"{{link.link}}\" target=\"_blank\">\r\n      <button mat-stroked-button color=\"primary\">\r\n        <div class=\"link\">{{link.name}}</div>\r\n      </button>\r\n    </a>\r\n  </div>\r\n</mat-card>\r\n"
 
 /***/ }),
 
@@ -18,7 +18,7 @@ module.exports = "\r\n<div class=\"marker\">\r\n  <div class=\"lines\" *ngIf=\"i
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".marker {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: relative;\n  height: 60px;\n  width: 100%; }\n  .marker .lines {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center; }\n  .marker .lines .line {\n      width: 150px;\n      height: 4px; }\n  .marker .lines .blankline {\n      width: 150px; }\n  .marker .right {\n    width: 50%;\n    display: flex;\n    justify-content: flex-start; }\n  .marker .left {\n    width: 50%;\n    display: flex;\n    justify-content: flex-end; }\n  .marker .logo {\n    z-index: 2;\n    width: 50px;\n    height: 50px;\n    border-radius: 25px;\n    display: flex;\n    justify-content: center;\n    align-items: center; }\n  .marker .title {\n    padding: 5px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    z-index: 3;\n    font-size: 1.2em;\n    white-space: normal; }\n  .marker .date {\n    padding: 5px;\n    display: flex;\n    align-items: center;\n    font-size: 0.9em; }\n  .marker .mrt {\n    margin-right: 60px; }\n  .marker .mrd {\n    margin-right: 20px; }\n  .marker .mlt {\n    margin-left: 60px; }\n  .marker .mld {\n    margin-left: 20px; }\n  .major-labels {\n  display: flex;\n  align-items: center; }\n  .head {\n  display: flex;\n  justify-content: space-between;\n  height: 60px;\n  padding: 0 30px 0 30px;\n  width: 100%;\n  overflow: hidden; }\n  .head .head-title {\n    padding: 5px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    z-index: 3;\n    font-size: 1.5em;\n    white-space: normal; }\n  .head .logo {\n    z-index: 2;\n    width: 50px;\n    height: 50px;\n    border-radius: 25px;\n    display: flex;\n    justify-content: center;\n    align-items: center; }\n  .project-body {\n  width: 100%;\n  padding: 20px 50px; }\n  .project-body .date {\n    text-align: right; }\n  .project-body .label-logo {\n    width: 30px; }\n  .project-body .link {\n    margin: 0;\n    font-size: 1.2em;\n    text-decoration: underline; }\n  .project-body .row a {\n    margin: 0 10px; }\n  .project-body h4 {\n    margin: 0; }\n  .project-body p {\n    text-align: justify; }\n  .project-body mat-chip {\n    cursor: pointer; }\n  @media (max-width: 992px) {\n  .marker .lines .line {\n    width: 120px; }\n  .marker .lines .blankline {\n    width: 120px; }\n  .marker .mrt {\n    margin-right: 40px; }\n  .marker .mrd {\n    margin-right: 20px; }\n  .marker .mlt {\n    margin-left: 40px; }\n  .marker .mld {\n    margin-left: 20px; } }\n  @media (max-width: 768px) {\n  .marker .title {\n    font-size: 1em; } }\n  @media (max-width: 576px) {\n  .marker .lines .line {\n    width: 100px; }\n  .marker .lines .blankline {\n    width: 100px; }\n  .marker .logo {\n    width: 30px;\n    height: 30px;\n    border-radius: 15px; }\n  .marker .mrt {\n    margin-right: 0px; }\n  .marker .mrd {\n    margin-right: 5px; }\n  .marker .mlt {\n    margin-left: 0px; }\n  .marker .mld {\n    margin-left: 5px; }\n  .marker .title {\n    padding: 5px;\n    font-size: 0.8em; }\n  .head {\n    height: 40px;\n    padding: 0 20px 0 20px; }\n    .head .head-title {\n      font-size: 0.9em; }\n    .head .logo {\n      width: 30px;\n      height: 30px;\n      border-radius: 15px; }\n  .project-body h4 {\n    font-size: 1em; }\n  .project-body .link {\n    font-size: 0.9em; }\n  .project-body .date {\n    font-size: 0.8em; }\n  .project-body p {\n    font-size: 0.8em; }\n  .project-body mat-chip {\n    font-size: 0.8em; }\n    .project-body mat-chip .label-logo {\n      width: 15px; } }\n"
+module.exports = ".marker {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: relative;\n  height: 60px;\n  width: 100%; }\n  .marker .lines {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center; }\n  .marker .lines .line {\n      width: 150px;\n      height: 4px; }\n  .marker .lines .blankline {\n      width: 150px; }\n  .marker .right {\n    width: 50%;\n    display: flex;\n    justify-content: flex-start; }\n  .marker .left {\n    width: 50%;\n    display: flex;\n    justify-content: flex-end; }\n  .marker .logo {\n    z-index: 2;\n    width: 50px;\n    height: 50px;\n    border-radius: 25px;\n    display: flex;\n    justify-content: center;\n    align-items: center; }\n  .marker .title {\n    padding: 5px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    z-index: 3;\n    font-size: 1.2em;\n    white-space: normal; }\n  .marker .date {\n    padding: 5px;\n    display: flex;\n    align-items: center;\n    font-size: 0.9em; }\n  .marker .mrt {\n    margin-right: 60px; }\n  .marker .mrd {\n    margin-right: 20px; }\n  .marker .mlt {\n    margin-left: 60px; }\n  .marker .mld {\n    margin-left: 20px; }\n  .major-labels {\n  display: flex;\n  align-items: center; }\n  .head {\n  display: flex;\n  justify-content: space-between;\n  height: 60px;\n  padding: 0 30px 0 30px;\n  width: 100%;\n  overflow: hidden; }\n  .head .head-title {\n    padding: 5px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    z-index: 3;\n    font-size: 1.5em;\n    white-space: normal; }\n  .head .logo {\n    z-index: 2;\n    width: 50px;\n    height: 50px;\n    border-radius: 25px;\n    display: flex;\n    justify-content: center;\n    align-items: center; }\n  .project-body {\n  width: 100%;\n  padding: 20px 50px; }\n  .project-body .date {\n    text-align: right; }\n  .project-body .label-logo {\n    width: 30px; }\n  .project-body .link {\n    margin: 0;\n    font-size: 1.2em;\n    text-decoration: underline; }\n  .project-body .row a {\n    margin: 0 10px; }\n  .project-body h4 {\n    margin: 0; }\n  .project-body p {\n    text-align: justify; }\n  .project-body mat-chip {\n    cursor: pointer; }\n  @media (max-width: 992px) {\n  .marker .lines .line {\n    width: 120px; }\n  .marker .lines .blankline {\n    width: 120px; }\n  .marker .mrt {\n    margin-right: 40px; }\n  .marker .mrd {\n    margin-right: 20px; }\n  .marker .mlt {\n    margin-left: 40px; }\n  .marker .mld {\n    margin-left: 20px; } }\n  @media (max-width: 768px) {\n  .marker .title {\n    font-size: 1em; } }\n  @media (max-width: 576px) {\n  .marker {\n    height: 40px; }\n    .marker .lines .line {\n      width: 100px; }\n    .marker .lines .blankline {\n      width: 100px; }\n    .marker .logo {\n      width: 30px;\n      height: 30px;\n      border-radius: 15px; }\n    .marker .mrt {\n      margin-right: 0px; }\n    .marker .mrd {\n      margin-right: 5px; }\n    .marker .mlt {\n      margin-left: 0px; }\n    .marker .mld {\n      margin-left: 5px; }\n    .marker .title {\n      padding: 5px;\n      font-size: 0.8em; }\n  .head {\n    height: 40px;\n    padding: 0 20px 0 20px; }\n    .head .head-title {\n      font-size: 0.9em; }\n    .head .logo {\n      width: 30px;\n      height: 30px;\n      border-radius: 15px; }\n  .project-body {\n    padding: 10px 30px; }\n    .project-body h4 {\n      font-size: 1em; }\n    .project-body .link {\n      font-size: 0.9em; }\n    .project-body .date {\n      font-size: 0.8em; }\n    .project-body p {\n      font-size: 0.8em; }\n    .project-body mat-chip {\n      font-size: 0.8em; }\n      .project-body mat-chip .label-logo {\n        width: 15px; } }\n"
 
 /***/ }),
 
@@ -80,6 +80,10 @@ var ProjectComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Boolean)
     ], ProjectComponent.prototype, "open", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('topp'),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
+    ], ProjectComponent.prototype, "top", void 0);
     ProjectComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'spc-project',
@@ -131,7 +135,7 @@ var ProjectComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div [ngClass]=\"theme\" #top>\r\n  <div class=\"projects\">\r\n    <div class=\"timeline\" [ngClass]=\"routeAnimationsElements\">\r\n      <svg-icon src=\"{{'../../../assets/arrow.svg'}}\" [svgStyle]=\"{}\"></svg-icon>\r\n      <div class=\"line\"></div>\r\n    </div>\r\n    <div class=\"container\">\r\n      <div class=\"centrer\">\r\n        <div><h1 [ngClass]=\"routeAnimationsElements\">Projects</h1></div>\r\n      </div>\r\n      <div class=\"projects-list\" id=\"stage_2a\">\r\n        <spc-project *ngFor=\"let project of projects; index as i\" [project]=\"project\" [index]=\"i\" [open]=\"project.open\" (opened)=\"open($event)\" [ngClass]=\"routeAnimationsElements\" id=\"{{project.id}}\"></spc-project>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div [ngClass]=\"theme\" #top>\r\n  <div class=\"projects\">\r\n    <div class=\"timeline\" [ngClass]=\"routeAnimationsElements\">\r\n      <svg-icon src=\"{{'../../../assets/arrow.svg'}}\" [svgStyle]=\"{}\"></svg-icon>\r\n      <div class=\"line\"></div>\r\n    </div>\r\n    <div class=\"container\">\r\n      <div class=\"centrer\">\r\n        <div><h1 [ngClass]=\"routeAnimationsElements\">Projects</h1></div>\r\n      </div>\r\n      <div class=\"projects-list\">\r\n        <spc-project *ngFor=\"let project of projects; index as i\" [project]=\"project\" [index]=\"i\" [open]=\"project.open\" (opened)=\"open($event)\" [ngClass]=\"routeAnimationsElements\" #projects></spc-project>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -142,7 +146,7 @@ module.exports = "<div [ngClass]=\"theme\" #top>\r\n  <div class=\"projects\">\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".timeline {\n  display: flex;\n  justify-content: center;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  z-index: -1;\n  padding-top: 90px; }\n  .timeline svg-icon {\n    position: absolute;\n    z-index: 1;\n    width: 60px;\n    margin-top: -20px; }\n  .timeline .line {\n    height: 100%;\n    width: 8px;\n    z-index: 0; }\n  .container {\n  position: relative; }\n  .container .centrer {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    height: 90px; }\n  .container h1 {\n    text-align: center;\n    font-size: 2em;\n    text-transform: uppercase;\n    font-weight: bold;\n    display: inline-block;\n    padding: 10px;\n    margin: 0; }\n  .container .projects-list {\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n    justify-content: flex-start;\n    align-items: center;\n    margin-top: 60px;\n    z-index: 2; }\n  .container .projects-list spc-project {\n      width: 100%;\n      margin-bottom: 40px;\n      display: flex;\n      flex-direction: column;\n      justify-content: flex-start;\n      align-items: center; }\n  @media (max-width: 576px) {\n  .centrer {\n    height: 70px; }\n  h1 {\n    font-size: 1.4em; } }\n"
+module.exports = ".timeline {\n  display: flex;\n  justify-content: center;\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  z-index: -1;\n  padding-top: 90px; }\n  .timeline svg-icon {\n    position: absolute;\n    z-index: 1;\n    width: 60px;\n    margin-top: -20px; }\n  .timeline .line {\n    height: 100%;\n    width: 8px;\n    z-index: 0; }\n  .container {\n  position: relative; }\n  .container .centrer {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    height: 90px; }\n  .container h1 {\n    text-align: center;\n    font-size: 2em;\n    text-transform: uppercase;\n    font-weight: bold;\n    display: inline-block;\n    padding: 10px;\n    margin: 0; }\n  .container .projects-list {\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n    justify-content: flex-start;\n    align-items: center;\n    margin-top: 60px;\n    z-index: 2; }\n  .container .projects-list spc-project {\n      width: 100%;\n      margin-bottom: 40px;\n      display: flex;\n      flex-direction: column;\n      justify-content: flex-start;\n      align-items: center; }\n  @media (max-width: 576px) {\n  .centrer {\n    height: 70px; }\n  h1 {\n    font-size: 1.4em; }\n  .timeline svg-icon {\n    width: 30px;\n    margin-top: -10px; }\n  .timeline .line {\n    width: 4px; } }\n"
 
 /***/ }),
 
@@ -182,6 +186,7 @@ var ProjectsHomeComponent = /** @class */ (function () {
         this.router = router;
         this.routeAnimationsElements = _core_animations_route_animations__WEBPACK_IMPORTED_MODULE_1__["ROUTE_ANIMATIONS_ELEMENTS"];
         this.projects = _data_projects_data__WEBPACK_IMPORTED_MODULE_3__["PROJECTS"];
+        this.viewInit = false;
     }
     ProjectsHomeComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -194,6 +199,10 @@ var ProjectsHomeComponent = /** @class */ (function () {
         });
         this.initTheme();
     };
+    ProjectsHomeComponent.prototype.ngAfterViewInit = function () {
+        this.first_open();
+        this.viewInit = true;
+    };
     ProjectsHomeComponent.prototype.initTheme = function () {
         var hours = new Date().getHours();
         this.theme = ((hours >= this.themeHoursService.sunset || hours <= this.themeHoursService.sunrise)
@@ -201,10 +210,21 @@ var ProjectsHomeComponent = /** @class */ (function () {
             : 'blue-day-theme');
     };
     ProjectsHomeComponent.prototype.open = function (id) {
+        var _this = this;
         var found = false;
         for (var i = 0, len = this.projects.length; i < len; i++) {
             if (this.projects[i].id === id) {
                 this.projects[i].open = true;
+                this.currentId = id;
+                if (this.viewInit) {
+                    this.currentElement = this.projectElements.toArray()[i];
+                    setTimeout(function () {
+                        _this.currentElement.top.nativeElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }, 300);
+                }
                 found = true;
             }
             else {
@@ -216,10 +236,29 @@ var ProjectsHomeComponent = /** @class */ (function () {
             this.router.navigate(['/404']);
         }
     };
+    ProjectsHomeComponent.prototype.first_open = function () {
+        var _this = this;
+        for (var i = 0, len = this.projects.length; i < len; i++) {
+            if (this.projects[i].id === this.currentId) {
+                this.projects[i].open = true;
+                this.currentElement = this.projectElements.toArray()[i];
+                setTimeout(function () {
+                    _this.currentElement.top.nativeElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 600);
+            }
+        }
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('top'),
         __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
     ], ProjectsHomeComponent.prototype, "top", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChildren"])('projects'),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["QueryList"])
+    ], ProjectsHomeComponent.prototype, "projectElements", void 0);
     ProjectsHomeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'spc-projects-home',
@@ -301,14 +340,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _projects_home_projects_home_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./projects-home/projects-home.component */ "./src/app/projects/projects-home/projects-home.component.ts");
 /* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/shared.module */ "./src/app/shared/shared.module.ts");
 /* harmony import */ var _project_project_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./project/project.component */ "./src/app/projects/project/project.component.ts");
-/* harmony import */ var _shared_fragment_polyfill_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../shared/fragment-polyfill.module */ "./src/app/shared/fragment-polyfill.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -322,189 +359,11 @@ var ProjectsModule = /** @class */ (function () {
             imports: [
                 _shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"],
                 _projects_routing_module__WEBPACK_IMPORTED_MODULE_1__["ProjectsRoutingModule"],
-                _shared_fragment_polyfill_module__WEBPACK_IMPORTED_MODULE_5__["FragmentPolyfillModule"].forRoot({
-                    smooth: true
-                })
             ],
             declarations: [_projects_home_projects_home_component__WEBPACK_IMPORTED_MODULE_2__["ProjectsHomeComponent"], _project_project_component__WEBPACK_IMPORTED_MODULE_4__["ProjectComponent"]]
         })
     ], ProjectsModule);
     return ProjectsModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/shared/fragment-polyfill.module.ts":
-/*!****************************************************!*\
-  !*** ./src/app/shared/fragment-polyfill.module.ts ***!
-  \****************************************************/
-/*! exports provided: WINDOW_SCROLLER_OPTIONS, WindowScroller, FragmentTargetDirective, FragmentPolyfillModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WINDOW_SCROLLER_OPTIONS", function() { return WINDOW_SCROLLER_OPTIONS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WindowScroller", function() { return WindowScroller; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FragmentTargetDirective", function() { return FragmentTargetDirective; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FragmentPolyfillModule", function() { return FragmentPolyfillModule; });
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-// Import the core angular services.
-
-
-
-
-
-
-var WINDOW_SCROLLER_OPTIONS = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('WindowScroller.Options');
-// I provide the dependency-injection token for the window-scroller so that it can be
-// more easily injected into the FragmentTarget directive. This allows other developers
-// to provide an override that implements this Type without have to deal with the silly
-// @Inject() decorator.
-var WindowScroller = /** @class */ (function () {
-    function WindowScroller() {
-    }
-    return WindowScroller;
-}());
-
-// I provide an implementation for scrolling a given Element Reference into view. By
-// default, it uses the native .scrollIntoView() method; but, it can be overridden to
-// use something like a jQuery plug-in, or other custom implementation.
-// @ts-ignore
-var NativeWindowScroller = /** @class */ (function () {
-    // I initialize the window scroller implementation.
-    function NativeWindowScroller(options) {
-        this.behavior = (options.smooth ? 'smooth' : 'auto');
-        this.timer = null;
-    }
-    // ---
-    // PUBLIC METHODS.
-    // ---
-    // I scroll the given ElementRef into the client's viewport.
-    NativeWindowScroller.prototype.scrollIntoView = function (elementRef) {
-        var _this = this;
-        // NOTE: There is an odd race-condition that I cannot figure out. The initial
-        // scrollToView() will not work when the BROWSER IS REFRESHED. It will work if
-        // the page is opened in a new tab; it only fails on refresh (WAT?!). To fix this
-        // peculiarity, I'm putting the first scroll operation behind a timer. The rest
-        // of the scroll operations will initiate synchronously.
-        if (this.timer) {
-            this.doScroll(elementRef);
-        }
-        else {
-            this.timer = setTimeout(function () {
-                _this.doScroll(elementRef);
-            }, 0);
-        }
-    };
-    // ---
-    // PRIVATE METHOD.
-    // ---
-    // I perform the scrolling of the viewport.
-    NativeWindowScroller.prototype.doScroll = function (elementRef) {
-        elementRef.nativeElement.scrollIntoView({
-            behavior: this.behavior,
-            block: 'start'
-        });
-    };
-    NativeWindowScroller = __decorate([
-        __param(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(WINDOW_SCROLLER_OPTIONS)),
-        __metadata("design:paramtypes", [Object])
-    ], NativeWindowScroller);
-    return NativeWindowScroller;
-}());
-// ----------------------------------------------------------------------------------- //
-// ----------------------------------------------------------------------------------- //
-var FragmentTargetDirective = /** @class */ (function () {
-    // I initialize the fragment-target directive.
-    function FragmentTargetDirective(activatedRoute, elementRef, windowScroller) {
-        this.activatedRoute = activatedRoute;
-        this.elementRef = elementRef;
-        this.windowScroller = windowScroller;
-        this.id = null;
-        this.fragmentSubscription = null;
-        this.name = null;
-    }
-    // ---
-    // PUBLIC METHODS.
-    // ---
-    // I get called once when the directive is being destroyed.
-    FragmentTargetDirective.prototype.ngOnDestroy = function () {
-        this.fragmentSubscription.unsubscribe();
-    };
-    // I get called once after the inputs have been bound for the first time.
-    FragmentTargetDirective.prototype.ngOnInit = function () {
-        var _this = this;
-        this.fragmentSubscription = this.activatedRoute.fragment.subscribe(function (fragment) {
-            if (!fragment) {
-                return;
-            }
-            if ((fragment !== _this.id) &&
-                (fragment !== _this.name)) {
-                return;
-            }
-            setTimeout(function () { _this.windowScroller.scrollIntoView(_this.elementRef); }, 300);
-        });
-    };
-    FragmentTargetDirective = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-            selector: '[id], a[name]',
-            inputs: ['id', 'name']
-        }),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_0__["ActivatedRoute"],
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"],
-            WindowScroller])
-    ], FragmentTargetDirective);
-    return FragmentTargetDirective;
-}());
-
-var FragmentPolyfillModule = /** @class */ (function () {
-    function FragmentPolyfillModule() {
-    }
-    FragmentPolyfillModule_1 = FragmentPolyfillModule;
-    FragmentPolyfillModule.forRoot = function (options) {
-        return ({
-            ngModule: FragmentPolyfillModule_1,
-            providers: [
-                {
-                    provide: WINDOW_SCROLLER_OPTIONS,
-                    useValue: {
-                        smooth: ((options && options.smooth) || false)
-                    }
-                },
-                {
-                    provide: WindowScroller,
-                    useClass: NativeWindowScroller
-                }
-            ]
-        });
-    };
-    FragmentPolyfillModule = FragmentPolyfillModule_1 = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            exports: [
-                FragmentTargetDirective
-            ],
-            declarations: [
-                FragmentTargetDirective
-            ]
-        })
-    ], FragmentPolyfillModule);
-    return FragmentPolyfillModule;
-    var FragmentPolyfillModule_1;
 }());
 
 
@@ -539,13 +398,13 @@ var PROJECTS = [
         '<a href="https://www.mines-stetienne.fr/">École des Mines de Saint-Étienne</a>, ' +
         '<a href="https://www.linkedin.com/in/robin-camarasa-893726158">Robin Camarasa</a>, and this is our mission.', 'We first segmented  white matter lesions from brain MRIs thank to deep learning. ' +
         'We used a new method found in a research article which consist in using recurrent neural networks on 3D images ' +
-        'by using one of spatial dimension as the temporal dimension of the recurrent neural network. <br>' +
+        'by using one of spatial dimensions as the temporal dimension of the recurrent neural network. <br>' +
         'We implemented this method thank to Keras, a Python library working on top of TensorFlow (the machine learning framework of Google).' +
         ' Then we trained our network on the data set of a former white matter lesion segmentation challenge and ' +
         'we had results as good as the bests of the challenge.<br> We are now trying to apply our network on a currently active challenge. ' +
         'We have to segment eight brain parts including white matter lesion. We will submit our work before the end of the internship. ' +
         'We will also use our final network on the brain MRI data set of Erasmus MC to segment automatically the white matter lesions. ' +
-        'Those segmentations will be use by our internship supervisor to a bigger project after our internship.', [
+        'Those segmentations will be used by our internship supervisor for a bigger project after our internship.', [
         new _project__WEBPACK_IMPORTED_MODULE_0__["Link"]('Erasmus MC', 'https://www.erasmusmc.nl/'),
         new _project__WEBPACK_IMPORTED_MODULE_0__["Link"]('First challenge', 'http://wmh.isi.uu.nl/'),
         new _project__WEBPACK_IMPORTED_MODULE_0__["Link"]('Second challenge', 'http://mrbrains18.isi.uu.nl/')
@@ -559,8 +418,8 @@ var PROJECTS = [
         new _project__WEBPACK_IMPORTED_MODULE_0__["Label"]('Type Script', 'web', 'ts', 'https://www.typescriptlang.org/'),
         new _project__WEBPACK_IMPORTED_MODULE_0__["Label"]('Html', 'code', 'html', 'https://en.wikipedia.org/wiki/HTML'),
         new _project__WEBPACK_IMPORTED_MODULE_0__["Label"]('SCSS', 'code', 'scss', 'https://sass-lang.com/')
-    ], 'I wanted a website to present me, my skills and my projects to potential headhunters. I wanted also learn the Angular framework. ' +
-        'So I made this website', 'I followed most of the tutorials on angular.io before start this project. ' +
+    ], 'I wanted a cv website to present me, my skills and my projects. I wanted also to learn the Angular framework. ' +
+        'That is why I made this website.', 'I followed most of the tutorials on angular.io before start this project. ' +
         'Then I took inspiration from the angular-ngrx-material-starter project of Tomas Trajan to master theming and animations and ' +
         'to not start my website from scratch. Then I tried to make my own components to improve my knowledge about Angular.<br>' +
         'There is no backend, just the angular front and I keep the content up to date by directly changing the code. ' +
@@ -575,12 +434,12 @@ var PROJECTS = [
         'I also took the time to make all the timeline component and its animations myself</li>' +
         '<li><u>Hobbies :</u> A presentation of my hobbies</li>' +
         '</ul>' +
-        'To implement theming, I made a day-night theming witch use a dark theme at night and a light theme at day.<br><br>' +
+        'To implement the theming, I made a day-night theming witch use a dark theme at night and a light theme at day.<br><br>' +
         'The next thing I would like to do is adding a translation of the site in french using ngx-translate', [
         new _project__WEBPACK_IMPORTED_MODULE_0__["Link"]('The code hosted on github', 'https://github.com/CorentinDoue/www-dev/tree/master/angular/site-perso-corentin'),
         new _project__WEBPACK_IMPORTED_MODULE_0__["Link"]('angular-ngrx-material-starter', 'https://tomastrajan.github.io/angular-ngrx-material-starter#/')
     ], new _project__WEBPACK_IMPORTED_MODULE_0__["Link"]('corentindoue.github.io', 'https://corentindoue.github.io')),
-    new _project__WEBPACK_IMPORTED_MODULE_0__["Project"]('Course Project', 'project_majeure_info', 'web', 'october 2017', 'january 2018', [
+    new _project__WEBPACK_IMPORTED_MODULE_0__["Project"]('C.S. courses Project', 'project_majeure_info', 'web', 'october 2017', 'january 2018', [
         new _project__WEBPACK_IMPORTED_MODULE_0__["Label"]('VueJS', 'front', 'vuejs', 'https://vuejs.org/'),
         new _project__WEBPACK_IMPORTED_MODULE_0__["Label"]('Android', 'front', 'android', 'https://www.android.com/'),
         new _project__WEBPACK_IMPORTED_MODULE_0__["Label"]('Spring', 'back', 'spring', 'https://spring.io/')
@@ -611,7 +470,7 @@ var PROJECTS = [
         'The local control of the lamps work as follow : ' +
         '<ul>' +
         '<li>Some sensors are plugged into an Arduino which is connected to the local network.</li>' +
-        '<li>An Raspberry pi is also connected the local network. It hosts a MQTT Broker and a java program.</li>' +
+        '<li>An Raspberry pi is also connected to the local network. It hosts a MQTT Broker and a java program.</li>' +
         '<li>A Philips Hue bridge is also connected to the local network and could command several lamps.</li>' +
         '<li>The Arduino publish the comportment of the sensors to the MQTT Broker.</li>' +
         '<li>The java program subscribe to the MQTT Broker and convert the comportment of the sensor into Philips Hue state.' +
@@ -636,8 +495,8 @@ var PROJECTS = [
         '<li>Both frontends set their own changes of the lamps states on the API which publish to CloudMQTT ' +
         'to update the local state of the lamp and then the real state.</li>' +
         '</ul>' +
-        'We finally succeed to keep all components synchronise.' +
-        'Note that we developed during courses a first Spring API and the VueJs frontend associated. ' +
+        'We finally succeed to keep all components synchronised.' +
+        'Note that we developed during the courses a first Spring API and the VueJs frontend associated. ' +
         'Both are in the same repository as the project.', [
         new _project__WEBPACK_IMPORTED_MODULE_0__["Link"]('Front web', '/majeure_info_project/PhillipsHue/'),
         new _project__WEBPACK_IMPORTED_MODULE_0__["Link"]('Front android', 'https://github.com/EMSEMajorProject/major_project_front_android_phillipshue_manager'),
@@ -654,7 +513,7 @@ var PROJECTS = [
         new _project__WEBPACK_IMPORTED_MODULE_0__["Label"]('JS', 'code', 'js', 'https://en.wikipedia.org/wiki/JavaScript'),
         new _project__WEBPACK_IMPORTED_MODULE_0__["Label"]('Html', 'code', 'html', 'https://en.wikipedia.org/wiki/HTML'),
         new _project__WEBPACK_IMPORTED_MODULE_0__["Label"]('CSS', 'code', 'css', 'https://en.wikipedia.org/wiki/Cascading_Style_Sheets')
-    ], '"Le Cercle" is the student bar of our school. To facilitate the payment, each student have a account with a money balance. ' +
+    ], '"Le Cercle" is the student bar of our school. To facilitate the payment, each student has an account with a money balance. ' +
         'As everybody knows everybody, the barmen just type the name of the customer to cash him. ' +
         'A former website existed but it was neither convenient nor fine. So I decided to make a new one during the summer.', 'I used AngularJs and raw PHP as frontend, raw PHP as backend and MySql as database.<br>' +
         'The backend was essentially PHP files which are called by AngularJS. ' +
@@ -664,7 +523,7 @@ var PROJECTS = [
         'The authentication is done through a php central authentication service provided by the school. ' +
         'This service block the access of a page if the user is not authenticated so I didn\'t deal with security.<br><br>' +
         'The link above provide you a copy of this website where I modified the data and skipped the authentication service. ' +
-        'You will be connect as me with all the rights.<br><br>' +
+        'You will be logged in as me with all the rights.<br><br>' +
         'The site have seven pages : ' +
         '<ul>' +
         '<li><u>Mon compte :</u> History of an account. ' +
@@ -697,9 +556,9 @@ var PROJECTS = [
         new _project__WEBPACK_IMPORTED_MODULE_0__["Label"]('Html', 'code', 'html', 'https://en.wikipedia.org/wiki/HTML'),
         new _project__WEBPACK_IMPORTED_MODULE_0__["Label"]('CSS', 'code', 'css', 'https://en.wikipedia.org/wiki/Cascading_Style_Sheets'),
     ], 'During the first year of the "Ingénieur Civil des Mines" curriculum we have a five month project. ' +
-        'We were in a team of six. ' +
-        'Our project was to find a better way to communicate about the international mobility provide by the school. ' +
-        'We realized short video and a website. The video answers to most of the new arrivals\' questions about international mobility. ' +
+        'We were a team of six. ' +
+        'Our project was to find a better way to communicate about the international mobility provided by the school. ' +
+        'We realized a short video and a website. The video answers to most of the new arrivals\' questions about international mobility. ' +
         'The web site gathers all the informations about international mobility and provide a destinations directory. ' +
         'I mostly worked on the website while the other worked on the video.', 'The difficulty of this project was to create a tool serviceable for people in charge of the mobilities. ' +
         'As they know nothing about computer science I created a back office website to easily manage the content of main site.<br>' +
@@ -711,10 +570,10 @@ var PROJECTS = [
         'The name of students are anonymized.<br><br>' +
         'The main site have four pages : ' +
         '<ul>' +
-        '<li><u>Accueil :</u> This is the home page. There are the video and all the explanations about international mobility.</li>' +
+        '<li><u>Accueil :</u> This is the home page. Here are the video and all the explanations about international mobility.</li>' +
         '<li><u>Destinations :</u> This is the list of all the destinations which are sortable with some criteria.</li>' +
         '<li><u>Destination :</u> When people click on a destination card, they are redirect to this page which provide more ' +
-        'informations about the destination. There also are some informations about the previous student who went in this destination.</li>' +
+        'informations about the destination. There also are some informations about the previous students who went in this destination.</li>' +
         '<li><u>Démarches :</u> This page describe all the administrative procedures to go abroad.</li>' +
         '</ul>' +
         'The back office site have five pages : ' +
@@ -738,14 +597,14 @@ var PROJECTS = [
         new _project__WEBPACK_IMPORTED_MODULE_0__["Label"]('Blender', 'graphical', 'blender', 'https://www.blender.org/'),
     ], [
         new _project__WEBPACK_IMPORTED_MODULE_0__["Label"]('Blender', 'graphical', 'blender', 'https://www.blender.org/')
-    ], 'Each year in mars at the ' +
+    ], 'Each year in March at the ' +
         '<a href="https://www.mines-stetienne.fr/">École des Mines de Saint-Étienne</a>, ' +
-        ', there is the Student Union campaign. ' +
+        ', happen the Student Union campaign. ' +
         'It is the major event of the community life, it lasts three week during which two teams of 40 students organise lot of events. ' +
         'At the end, one of the teams is elected and becomes the new Student Union. ' +
         'In 2017 I was vice-president of a team named "Minesterstellar" with the space theme . ' +
-        'We finally won and I became vice-president of the Student Union for a year. <br><br>' +
-        'We had to make campaign film to present our team. Our film is naturally on the space theme', 'I worked with my colleague <a href="https://www.linkedin.com/in/jean-jardel-75340b15b">Jean Jardel</a> on the special ' +
+        'We finally won and I became vice-president of the Student Union for one year. <br><br>' +
+        'We had to make a campaign movie to present our team. Our film is naturally on the space theme', 'I worked with my colleague <a href="https://www.linkedin.com/in/jean-jardel-75340b15b">Jean Jardel</a> on the special ' +
         'effects of the film with blender.<br>' +
         'I first made the 3D animation of our logo which became the beginning of all our videos. ' +
         'Then I helped Jean who was the film director to make 3D scene of the film and special effects.', [
@@ -761,18 +620,18 @@ var PROJECTS = [
         new _project__WEBPACK_IMPORTED_MODULE_0__["Label"]('Html', 'code', 'html', 'https://en.wikipedia.org/wiki/HTML'),
         new _project__WEBPACK_IMPORTED_MODULE_0__["Label"]('CSS', 'code', 'css', 'https://en.wikipedia.org/wiki/Cascading_Style_Sheets'),
         new _project__WEBPACK_IMPORTED_MODULE_0__["Label"]('Photoshop', 'graphical', 'photoshop', 'https://www.photoshop.com/'),
-    ], 'Each year in mars at the ' +
+    ], 'Each year in March at the ' +
         '<a href="https://www.mines-stetienne.fr/">École des Mines de Saint-Étienne</a>, ' +
-        ', there is the Student Union campaign. ' +
+        ', happen the Student Union campaign. ' +
         'It is the major event of the community life, it lasts three week during which two teams of 40 students organise lot of events. ' +
         'At the end, one of the teams is elected and becomes the new Student Union. ' +
         'In 2017 I was vice-president of a team named "Minesterstellar" with the space theme. ' +
-        'We finally won and I became vice-president of the Student Union for a year. <br><br>' +
-        'I created a website to present us and our events. Moreover our campaign was a big game with prices to win at the end. ' +
+        'We finally won and I became vice-president of the Student Union for one year. <br><br>' +
+        'I created a website to present us and our events. Moreover our campaign was a big game with prizes to win at the end. ' +
         'There were lot of small games during these three weeks and the website was used to record the scores.', 'This was my first website, I had never done any kind of web development before. ' +
         'So I started by follow MOOCs about HTML, CSS and PHP. ' +
         'The site mostly done with raw PHP, Html and CSS. ' +
-        'To dynamize it, I added some JavaScript component but without really understand what ' +
+        'To dynamize it, I added some JavaScript component but without really understanding what ' +
         'I was doing because I had not time to learn JavaScript. ' +
         'I used a MySql database to store all the data. I did not know yet the concept of backend so the queries and preprocessings ' +
         'were directly executed from the top of the pages. ' +
@@ -788,13 +647,13 @@ var PROJECTS = [
         '<li><u>Galerie :</u> We put on this pages our pictures and videos.</li>' +
         '<li><u>Soundbox :</u> It is a funny page with lot of funny sounds.</li>' +
         '<li><u>Résultats jeux :</u> On this page are all the rankings of our games and the global ranking.</li>' +
-        '<li><u>Entrainement spatial :</u> This page is an explanation of our key thread game and the presentation of the prices.</li>' +
+        '<li><u>Entrainement spatial :</u> This page is an explanation of our key thread game and the presentation of the prizes.</li>' +
         '<li><u>Jeu de piste :</u> We organized a treasure hunt with flash tags. ' +
         'When a tag was found and flashed, the user is redirected to this page and a new clue is revealed to lead to the next tag. ' +
         'Without being connected, this page only display the rules of the treasure hunt.</li>' +
         '</ul>' +
         'If you are connected as user, the same pages are available but you can track your rank and your progression in the treasure hunt. ' +
-        'The "Allo" page is added. It is a page where people could ask lot of services. There are no more active but when they were a ' +
+        'The "Allo" page is added. It is a page where people could ask lot of services. It is no more active now but at this time a ' +
         'telephone number was displayed (or could directly call the number on the mobile version).<br><br>' +
         'If you are connected as admin, some things are added :' +
         '<ul>' +

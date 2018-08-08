@@ -195,6 +195,7 @@
 
 @media (max-width: map-get($grid-breakpoints, sm)) {
   .marker {
+    height: 40px;
 
     .lines {
       .line {
@@ -253,6 +254,8 @@
   }
 
   .project-body {
+    padding: 10px 30px;
+
     h4 {
       font-size: 1em;
     }

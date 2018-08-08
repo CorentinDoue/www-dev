@@ -15,7 +15,7 @@ export const SKILLS = {
       'C',
       4,
       'General-purpose, imperative computer programming language. It is a low-level language ' +
-      'which should be compile to machine instructions.',
+      'which should be compiled to machine instructions.',
       'I used it a lot in pratical works in courses of C, Computer sciences and Big Data.',
       [],
       'c.png'
@@ -53,7 +53,7 @@ export const SKILLS = {
     new Skill(
       'SQL',
       4,
-      'Domain-specific language used in programming and designed for managing data held in ' +
+      'Domain-specific language used for programming and designed for managing data held in ' +
       'a relational database management system, or for stream processing in a relational data stream management system.',
       'I learned it in preparatory classes and had courses on it at the École des Mines. ' +
       'I used MySQL a lot to manage the data of my three first websites.',
@@ -146,7 +146,7 @@ export const SKILLS = {
       new Skill(
         'Material',
         3,
-        'Design system – backed by open-source code – that helps teams build digital experiences.',
+        'Design system – backed by open-source code – that helps teams to build digital experiences.',
         'I learned it by myself on internet to build this web site.',
         [new Link('Personal Website', 'spc')],
         'material.png'
@@ -252,7 +252,7 @@ export const SKILLS = {
       'Photoshop',
       2,
       'Raster graphics editor.',
-      'I used it for personnal stuffs or to preprocess images I want display on my websites.',
+      'I used it for personnal stuffs or to preprocess images I want to display on my websites.',
       [],
       'photoshop.png'
     ),

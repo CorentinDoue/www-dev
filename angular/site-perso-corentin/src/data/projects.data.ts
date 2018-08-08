@@ -25,13 +25,13 @@ export const PROJECTS: Project[] = [
     '<a href="https://www.linkedin.com/in/robin-camarasa-893726158">Robin Camarasa</a>, and this is our mission.',
     'We first segmented  white matter lesions from brain MRIs thank to deep learning. ' +
     'We used a new method found in a research article which consist in using recurrent neural networks on 3D images ' +
-    'by using one of spatial dimension as the temporal dimension of the recurrent neural network. <br>' +
+    'by using one of spatial dimensions as the temporal dimension of the recurrent neural network. <br>' +
     'We implemented this method thank to Keras, a Python library working on top of TensorFlow (the machine learning framework of Google).' +
     ' Then we trained our network on the data set of a former white matter lesion segmentation challenge and ' +
     'we had results as good as the bests of the challenge.<br> We are now trying to apply our network on a currently active challenge. ' +
     'We have to segment eight brain parts including white matter lesion. We will submit our work before the end of the internship. ' +
     'We will also use our final network on the brain MRI data set of Erasmus MC to segment automatically the white matter lesions. ' +
-    'Those segmentations will be use by our internship supervisor to a bigger project after our internship.',
+    'Those segmentations will be used by our internship supervisor for a bigger project after our internship.',
     [
       new Link('Erasmus MC', 'https://www.erasmusmc.nl/'),
       new Link('First challenge', 'http://wmh.isi.uu.nl/'),
@@ -56,8 +56,8 @@ export const PROJECTS: Project[] = [
       new Label('Html', 'code', 'html', 'https://en.wikipedia.org/wiki/HTML'),
       new Label('SCSS', 'code', 'scss', 'https://sass-lang.com/')
     ],
-    'I wanted a website to present me, my skills and my projects to potential headhunters. I wanted also learn the Angular framework. ' +
-    'So I made this website',
+    'I wanted a cv website to present me, my skills and my projects. I wanted also to learn the Angular framework. ' +
+    'That is why I made this website.',
     'I followed most of the tutorials on angular.io before start this project. ' +
     'Then I took inspiration from the angular-ngrx-material-starter project of Tomas Trajan to master theming and animations and ' +
     'to not start my website from scratch. Then I tried to make my own components to improve my knowledge about Angular.<br>' +
@@ -73,7 +73,7 @@ export const PROJECTS: Project[] = [
     'I also took the time to make all the timeline component and its animations myself</li>' +
     '<li><u>Hobbies :</u> A presentation of my hobbies</li>' +
     '</ul>' +
-    'To implement theming, I made a day-night theming witch use a dark theme at night and a light theme at day.<br><br>' +
+    'To implement the theming, I made a day-night theming witch use a dark theme at night and a light theme at day.<br><br>' +
     'The next thing I would like to do is adding a translation of the site in french using ngx-translate',
     [
       new Link('The code hosted on github', 'https://github.com/CorentinDoue/www-dev/tree/master/angular/site-perso-corentin'),
@@ -82,7 +82,7 @@ export const PROJECTS: Project[] = [
     new Link('corentindoue.github.io', 'https://corentindoue.github.io')
   ),
   new Project(
-    'Course Project',
+    'C.S. courses Project',
     'project_majeure_info',
     'web',
     'october 2017',
@@ -121,7 +121,7 @@ export const PROJECTS: Project[] = [
     'The local control of the lamps work as follow : ' +
     '<ul>' +
     '<li>Some sensors are plugged into an Arduino which is connected to the local network.</li>' +
-    '<li>An Raspberry pi is also connected the local network. It hosts a MQTT Broker and a java program.</li>' +
+    '<li>An Raspberry pi is also connected to the local network. It hosts a MQTT Broker and a java program.</li>' +
     '<li>A Philips Hue bridge is also connected to the local network and could command several lamps.</li>' +
     '<li>The Arduino publish the comportment of the sensors to the MQTT Broker.</li>' +
     '<li>The java program subscribe to the MQTT Broker and convert the comportment of the sensor into Philips Hue state.' +
@@ -146,8 +146,8 @@ export const PROJECTS: Project[] = [
     '<li>Both frontends set their own changes of the lamps states on the API which publish to CloudMQTT ' +
     'to update the local state of the lamp and then the real state.</li>' +
     '</ul>' +
-    'We finally succeed to keep all components synchronise.' +
-    'Note that we developed during courses a first Spring API and the VueJs frontend associated. ' +
+    'We finally succeed to keep all components synchronised.' +
+    'Note that we developed during the courses a first Spring API and the VueJs frontend associated. ' +
     'Both are in the same repository as the project.',
     [
       new Link('Front web', '/majeure_info_project/PhillipsHue/'),
@@ -176,7 +176,7 @@ export const PROJECTS: Project[] = [
       new Label('Html', 'code', 'html', 'https://en.wikipedia.org/wiki/HTML'),
       new Label('CSS', 'code', 'css', 'https://en.wikipedia.org/wiki/Cascading_Style_Sheets')
     ],
-    '"Le Cercle" is the student bar of our school. To facilitate the payment, each student have a account with a money balance. ' +
+    '"Le Cercle" is the student bar of our school. To facilitate the payment, each student has an account with a money balance. ' +
     'As everybody knows everybody, the barmen just type the name of the customer to cash him. ' +
     'A former website existed but it was neither convenient nor fine. So I decided to make a new one during the summer.',
     'I used AngularJs and raw PHP as frontend, raw PHP as backend and MySql as database.<br>' +
@@ -187,7 +187,7 @@ export const PROJECTS: Project[] = [
     'The authentication is done through a php central authentication service provided by the school. ' +
     'This service block the access of a page if the user is not authenticated so I didn\'t deal with security.<br><br>' +
     'The link above provide you a copy of this website where I modified the data and skipped the authentication service. ' +
-    'You will be connect as me with all the rights.<br><br>' +
+    'You will be logged in as me with all the rights.<br><br>' +
     'The site have seven pages : ' +
     '<ul>' +
     '<li><u>Mon compte :</u> History of an account. ' +
@@ -231,9 +231,9 @@ export const PROJECTS: Project[] = [
       new Label('CSS', 'code', 'css', 'https://en.wikipedia.org/wiki/Cascading_Style_Sheets'),
     ],
     'During the first year of the "Ingénieur Civil des Mines" curriculum we have a five month project. ' +
-    'We were in a team of six. ' +
-    'Our project was to find a better way to communicate about the international mobility provide by the school. ' +
-    'We realized short video and a website. The video answers to most of the new arrivals\' questions about international mobility. ' +
+    'We were a team of six. ' +
+    'Our project was to find a better way to communicate about the international mobility provided by the school. ' +
+    'We realized a short video and a website. The video answers to most of the new arrivals\' questions about international mobility. ' +
     'The web site gathers all the informations about international mobility and provide a destinations directory. ' +
     'I mostly worked on the website while the other worked on the video.',
     'The difficulty of this project was to create a tool serviceable for people in charge of the mobilities. ' +
@@ -246,10 +246,10 @@ export const PROJECTS: Project[] = [
     'The name of students are anonymized.<br><br>' +
     'The main site have four pages : ' +
     '<ul>' +
-    '<li><u>Accueil :</u> This is the home page. There are the video and all the explanations about international mobility.</li>' +
+    '<li><u>Accueil :</u> This is the home page. Here are the video and all the explanations about international mobility.</li>' +
     '<li><u>Destinations :</u> This is the list of all the destinations which are sortable with some criteria.</li>' +
     '<li><u>Destination :</u> When people click on a destination card, they are redirect to this page which provide more ' +
-    'informations about the destination. There also are some informations about the previous student who went in this destination.</li>' +
+    'informations about the destination. There also are some informations about the previous students who went in this destination.</li>' +
     '<li><u>Démarches :</u> This page describe all the administrative procedures to go abroad.</li>' +
     '</ul>' +
     'The back office site have five pages : ' +
@@ -284,14 +284,14 @@ export const PROJECTS: Project[] = [
     [
       new Label('Blender', 'graphical', 'blender', 'https://www.blender.org/')
     ],
-    'Each year in mars at the ' +
+    'Each year in March at the ' +
     '<a href="https://www.mines-stetienne.fr/">École des Mines de Saint-Étienne</a>, ' +
-    ', there is the Student Union campaign. ' +
+    ', happen the Student Union campaign. ' +
     'It is the major event of the community life, it lasts three week during which two teams of 40 students organise lot of events. ' +
     'At the end, one of the teams is elected and becomes the new Student Union. ' +
     'In 2017 I was vice-president of a team named "Minesterstellar" with the space theme . ' +
-    'We finally won and I became vice-president of the Student Union for a year. <br><br>' +
-    'We had to make campaign film to present our team. Our film is naturally on the space theme',
+    'We finally won and I became vice-president of the Student Union for one year. <br><br>' +
+    'We had to make a campaign movie to present our team. Our film is naturally on the space theme',
     'I worked with my colleague <a href="https://www.linkedin.com/in/jean-jardel-75340b15b">Jean Jardel</a> on the special ' +
     'effects of the film with blender.<br>' +
     'I first made the 3D animation of our logo which became the beginning of all our videos. ' +
@@ -319,19 +319,19 @@ export const PROJECTS: Project[] = [
       new Label('CSS', 'code', 'css', 'https://en.wikipedia.org/wiki/Cascading_Style_Sheets'),
       new Label('Photoshop', 'graphical', 'photoshop', 'https://www.photoshop.com/'),
     ],
-    'Each year in mars at the ' +
+    'Each year in March at the ' +
     '<a href="https://www.mines-stetienne.fr/">École des Mines de Saint-Étienne</a>, ' +
-    ', there is the Student Union campaign. ' +
+    ', happen the Student Union campaign. ' +
     'It is the major event of the community life, it lasts three week during which two teams of 40 students organise lot of events. ' +
     'At the end, one of the teams is elected and becomes the new Student Union. ' +
     'In 2017 I was vice-president of a team named "Minesterstellar" with the space theme. ' +
-    'We finally won and I became vice-president of the Student Union for a year. <br><br>' +
-    'I created a website to present us and our events. Moreover our campaign was a big game with prices to win at the end. ' +
+    'We finally won and I became vice-president of the Student Union for one year. <br><br>' +
+    'I created a website to present us and our events. Moreover our campaign was a big game with prizes to win at the end. ' +
     'There were lot of small games during these three weeks and the website was used to record the scores.',
     'This was my first website, I had never done any kind of web development before. ' +
     'So I started by follow MOOCs about HTML, CSS and PHP. ' +
     'The site mostly done with raw PHP, Html and CSS. ' +
-    'To dynamize it, I added some JavaScript component but without really understand what ' +
+    'To dynamize it, I added some JavaScript component but without really understanding what ' +
     'I was doing because I had not time to learn JavaScript. ' +
     'I used a MySql database to store all the data. I did not know yet the concept of backend so the queries and preprocessings ' +
     'were directly executed from the top of the pages. ' +
@@ -347,13 +347,13 @@ export const PROJECTS: Project[] = [
     '<li><u>Galerie :</u> We put on this pages our pictures and videos.</li>' +
     '<li><u>Soundbox :</u> It is a funny page with lot of funny sounds.</li>' +
     '<li><u>Résultats jeux :</u> On this page are all the rankings of our games and the global ranking.</li>' +
-    '<li><u>Entrainement spatial :</u> This page is an explanation of our key thread game and the presentation of the prices.</li>' +
+    '<li><u>Entrainement spatial :</u> This page is an explanation of our key thread game and the presentation of the prizes.</li>' +
     '<li><u>Jeu de piste :</u> We organized a treasure hunt with flash tags. ' +
     'When a tag was found and flashed, the user is redirected to this page and a new clue is revealed to lead to the next tag. ' +
     'Without being connected, this page only display the rules of the treasure hunt.</li>' +
     '</ul>' +
     'If you are connected as user, the same pages are available but you can track your rank and your progression in the treasure hunt. ' +
-    'The "Allo" page is added. It is a page where people could ask lot of services. There are no more active but when they were a ' +
+    'The "Allo" page is added. It is a page where people could ask lot of services. It is no more active now but at this time a ' +
     'telephone number was displayed (or could directly call the number on the mobile version).<br><br>' +
     'If you are connected as admin, some things are added :' +
     '<ul>' +
