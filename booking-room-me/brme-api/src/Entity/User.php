@@ -2,22 +2,30 @@
 namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Controller\EncodeUser;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 /**
  * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="App\Repository\UserCustomRepository")
  * @ApiResource(
  *     collectionOperations={
  *         "get"={"access_control"="is_granted('ROLE_ADMIN')"},
- *         "post"={"access_control"="is_granted('ROLE_ADMIN')"}
+ *         "post"={"access_control"="is_granted('ROLE_ADMIN')",
+ *                  "controller"=EncodeUser::class}
  *     },
  *     itemOperations={
  *          "get"={"access_control"="(is_granted('ROLE_USER') and object == user) or is_granted('ROLE_ADMIN')"},
  *          "delete"={"access_control"="is_granted('ROLE_ADMIN')"},
- *          "put"={"access_control"="(is_granted('ROLE_USER') and object == user) or is_granted('ROLE_ADMIN')"}
- *     }
+ *          "put"={"access_control"="(is_granted('ROLE_USER') and object == user) or is_granted('ROLE_ADMIN')",
+ *                  "controller"=EncodeUser::class
+ *                }
+ *     },
+ *     normalizationContext={"groups"={"read"}}
  * )
  */
 class User implements UserInterface
@@ -32,38 +40,43 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=100, unique=true)
      * @Assert\NotBlank
+     * @Groups({"read"})
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     *
+     * @Groups({"read"})
+     */
+    private $firstname;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"read"})
      */
     private $lastname;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     *
-     */
-    private $surname;
-
-    /**
      * @ORM\Column(type="string", length=50, nullable=true)
+     * @Groups({"read"})
      */
     private $type;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
+     * @Groups({"read"})
      */
     private $role;
 
     /**
      * @ORM\Column(name="bed_room_number", type="string", length=25, nullable=true)
+     * @Groups({"read"})
      */
     private $bedRoomNumber;
 
     /**
      * @ORM\Column(type="string", length=500)
+     * @Assert\NotBlank
      */
     private $password;
 
@@ -72,24 +85,28 @@ class User implements UserInterface
      * @var Reservation[] All reservations booked by this user.
      *
      * @ORM\OneToMany(targetEntity="Reservation", mappedBy="user")
+     * @Groups({"read"})
      */
     public $reservations;
 
     /**
      * @ORM\Column(name="created_at", type="datetime")
+     * @Groups({"read"})
      */
     private $createdAt;
 
     /**
      * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     * @Groups({"read"})
      */
     private $updatedAt;
+
 
     public function __construct($email, $lastname = "", $surname = "", $type = "", $role = null, $bedRoomNumber = "")
     {
         $this->email = $email;
-        $this->surname = $surname;
-        $this->lastname = $lastname;
+        $this->lastname = $surname;
+        $this->firstname = $lastname;
         $this->type = $type;
         $this->role = $role;
         $this->bedRoomNumber = $bedRoomNumber;
@@ -232,6 +249,22 @@ class User implements UserInterface
     /**
      * @return mixed
      */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * @param mixed $firstname
+     */
+    public function setFirstname($firstname): void
+    {
+        $this->firstname = $firstname;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getLastname()
     {
         return $this->lastname;
@@ -243,22 +276,6 @@ class User implements UserInterface
     public function setLastname($lastname): void
     {
         $this->lastname = $lastname;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSurname()
-    {
-        return $this->surname;
-    }
-
-    /**
-     * @param mixed $surname
-     */
-    public function setSurname($surname): void
-    {
-        $this->surname = $surname;
     }
 
     /**
