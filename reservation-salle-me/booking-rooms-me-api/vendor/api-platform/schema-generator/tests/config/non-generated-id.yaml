@@ -1,6 +1,0 @@
-id:
-  generationStrategy: none
-types:
-  Person:
-    properties:
-      name: ~

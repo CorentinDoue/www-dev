@@ -102,11 +102,11 @@ class User implements UserInterface
     private $updatedAt;
 
 
-    public function __construct($email, $lastname = "", $surname = "", $type = "", $role = null, $bedRoomNumber = "")
+    public function __construct($email, $lastname = "", $firstname = "", $type = "", $role = null, $bedRoomNumber = "")
     {
         $this->email = $email;
-        $this->lastname = $surname;
-        $this->firstname = $lastname;
+        $this->lastname = $lastname;
+        $this->firstname = $firstname;
         $this->type = $type;
         $this->role = $role;
         $this->bedRoomNumber = $bedRoomNumber;

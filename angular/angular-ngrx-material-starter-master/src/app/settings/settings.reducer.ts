@@ -3,6 +3,7 @@ import { Action } from '@ngrx/store';
 export const SETTINGS_KEY = 'SETTINGS';
 
 export enum SettingsActionTypes {
+  CHANGE_LANGUAGE = '[Settings] Change Language',
   CHANGE_THEME = '[Settings] Change Theme',
   CHANGE_AUTO_NIGHT_AUTO_MODE = '[Settings] Change Auto Night Mode',
   CHANGE_ANIMATIONS_PAGE = '[Settings] Change Animations Page',
@@ -11,38 +12,53 @@ export enum SettingsActionTypes {
   PERSIST = '[Settings] Persist'
 }
 
+export type Language = 'en' | 'sk';
+
+export class ActionSettingsChangeLanguage implements Action {
+  readonly type = SettingsActionTypes.CHANGE_LANGUAGE;
+
+  constructor(readonly payload: { language: Language }) {}
+}
+
 export class ActionSettingsChangeTheme implements Action {
   readonly type = SettingsActionTypes.CHANGE_THEME;
-  constructor(public payload: { theme: string }) {}
+
+  constructor(readonly payload: { theme: string }) {}
 }
 
 export class ActionSettingsChangeAutoNightMode implements Action {
   readonly type = SettingsActionTypes.CHANGE_AUTO_NIGHT_AUTO_MODE;
-  constructor(public payload: { autoNightMode: boolean }) {}
+
+  constructor(readonly payload: { autoNightMode: boolean }) {}
 }
 
 export class ActionSettingsChangeAnimationsPage implements Action {
   readonly type = SettingsActionTypes.CHANGE_ANIMATIONS_PAGE;
-  constructor(public payload: { pageAnimations: boolean }) {}
+
+  constructor(readonly payload: { pageAnimations: boolean }) {}
 }
 
 export class ActionSettingsChangeAnimationsPageDisabled implements Action {
   readonly type = SettingsActionTypes.CHANGE_ANIMATIONS_PAGE_DISABLED;
-  constructor(public payload: { pageAnimationsDisabled: boolean }) {}
+
+  constructor(readonly payload: { pageAnimationsDisabled: boolean }) {}
 }
 
 export class ActionSettingsChangeAnimationsElements implements Action {
   readonly type = SettingsActionTypes.CHANGE_ANIMATIONS_ELEMENTS;
-  constructor(public payload: { elementsAnimations: boolean }) {}
+
+  constructor(readonly payload: { elementsAnimations: boolean }) {}
 }
 
 export class ActionSettingsPersist implements Action {
   readonly type = SettingsActionTypes.PERSIST;
-  constructor(public payload: { settings: SettingsState }) {}
+
+  constructor(readonly payload: { settings: SettingsState }) {}
 }
 
 export type SettingsActions =
   | ActionSettingsPersist
+  | ActionSettingsChangeLanguage
   | ActionSettingsChangeTheme
   | ActionSettingsChangeAnimationsPage
   | ActionSettingsChangeAnimationsPageDisabled
@@ -52,6 +68,7 @@ export type SettingsActions =
 export const NIGHT_MODE_THEME = 'BLACK-THEME';
 
 export const initialState: SettingsState = {
+  language: 'en',
   theme: 'DEFAULT-THEME',
   autoNightMode: false,
   pageAnimations: true,
@@ -67,20 +84,12 @@ export function settingsReducer(
   action: SettingsActions
 ): SettingsState {
   switch (action.type) {
+    case SettingsActionTypes.CHANGE_LANGUAGE:
     case SettingsActionTypes.CHANGE_THEME:
-      return { ...state, theme: action.payload.theme };
-
     case SettingsActionTypes.CHANGE_AUTO_NIGHT_AUTO_MODE:
-      return { ...state, autoNightMode: action.payload.autoNightMode };
-
     case SettingsActionTypes.CHANGE_ANIMATIONS_PAGE:
-      return { ...state, pageAnimations: action.payload.pageAnimations };
-
     case SettingsActionTypes.CHANGE_ANIMATIONS_ELEMENTS:
-      return {
-        ...state,
-        elementsAnimations: action.payload.elementsAnimations
-      };
+      return { ...state, ...action.payload };
 
     case SettingsActionTypes.CHANGE_ANIMATIONS_PAGE_DISABLED:
       return {
@@ -95,6 +104,7 @@ export function settingsReducer(
 }
 
 export interface SettingsState {
+  language: string;
   theme: string;
   autoNightMode: boolean;
   pageAnimations: boolean;

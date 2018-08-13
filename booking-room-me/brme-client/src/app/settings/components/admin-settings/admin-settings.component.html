@@ -1,0 +1,26 @@
+<div class="container">
+  <mat-tab-group [dynamicHeight]="true" [selectedIndex]='selectedSetting$ | async' >
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span class="mat-tab-label" (click)="goTo(0)">Nouvel Utilisateur</span>
+      </ng-template>
+      <brme-user-form (submitted)="onSubmit($event)" [pending]="ispending$ | async" [errorMessage]="errorMessage$ | async" [successMessage]="successMessage$ | async"></brme-user-form>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span class="mat-tab-label" (click)="goTo(1)">Languages</span>
+      </ng-template>
+      <h2>Programming Languages</h2>
+      <p>Content</p>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span class="mat-tab-label" (click)="goTo(2)">Languages</span>
+      </ng-template>
+      <h2>Programming Languages</h2>
+      <p>Content</p>
+    </mat-tab>
+  </mat-tab-group>
+</div>

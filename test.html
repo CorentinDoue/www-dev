@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <button id="ajaxButton" type="button">Make a request</button>
+
+    <script>
+    (function() {
+      var httpRequest;
+      document.getElementById("ajaxButton").addEventListener('click', makeRequest);
+
+      function makeRequest() {
+        httpRequest = new XMLHttpRequest();
+
+        if (!httpRequest) {
+          console.error('Giving up :( Cannot create an XMLHTTP instance');
+          return false;
+        }
+        httpRequest.onreadystatechange = logContents;
+-       httpRequest.open('GET', 'http://brme.fr/index.php/api/rooms');
+        httpRequest.send();
+      }
+
+      function logContents() {
+        if (httpRequest.readyState === XMLHttpRequest.DONE) {
+          if (httpRequest.status === 200) {
+            console.log('success', httpRequest.responseText);
+          } else {
+            console.error('There was a problem with the request.', httpRequest);
+          }
+        }
+      }
+    })();
+    </script>
+
+</body>
+</html>

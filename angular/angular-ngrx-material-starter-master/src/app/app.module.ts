@@ -10,6 +10,8 @@ import { StaticModule } from './static';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { environment } from '@env/environment';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   imports: [
@@ -24,6 +26,11 @@ import { AppComponent } from './app.component';
     // features
     StaticModule,
     SettingsModule,
+
+    StoreDevtoolsModule.instrument({
+      name: 'Angular NgRx Material Store DevTools',
+      logOnly: environment.production,
+    }),
 
     // app
     AppRoutingModule

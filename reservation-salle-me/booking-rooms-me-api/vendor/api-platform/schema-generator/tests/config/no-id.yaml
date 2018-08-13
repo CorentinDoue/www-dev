@@ -1,6 +1,0 @@
-id:
-  generate: false
-types:
-  Person:
-    properties:
-      name: ~

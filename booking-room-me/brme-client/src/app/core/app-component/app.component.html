@@ -1,0 +1,155 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="push" [opened]="showSidenav$ | async" (closedStart)="closeSidenav()">
+
+    <mat-toolbar color="primary" class="branding">
+    <span class="w-100 text-center">
+      <a routerLink="" (click)="sidenav.close()">
+        <img [src]="logo"/>
+      </a>
+    </span>
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <ng-container *ngIf="session$ | async as session">
+        <a mat-list-item class="nav-button link mb-4" *ngIf="session.role === 'ROLE_ADMIN'"
+                [routerLink]="'settings/admin'" routerLinkActive="active" (click)="sidenav.close()">
+          Admin Settings
+        </a>
+      </ng-container>
+
+      <a mat-list-item *ngFor="let item of navigation" (click)="sidenav.close()"
+         [routerLink]="[item.link]" routerLinkActive="active">
+        {{item.label}}
+      </a>
+
+      <!--<a mat-list-item (click)="sidenav.close()"-->
+         <!--[routerLink]="'settings'" routerLinkActive="active">-->
+        <!--<mat-icon fontSet="fas" fontIcon="fa-cog"></mat-icon>Settings-->
+      <!--</a>-->
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav #usernav mode="push" position="end" [opened]="showUsernav$ | async" (closedStart)="closeSidenav()">
+
+    <mat-toolbar color="primary" class="branding">
+      <span class="w-100 text-center" *ngIf="session$ | async as session">
+        {{session.firstname}} {{session.lastname}}
+      </span>
+    </mat-toolbar>
+
+    <mat-nav-list *ngIf="session$ | async as session">
+      <div class="user-list"  *ngIf="session.bedroomnumber">Logement {{session.bedroomnumber}}</div>
+      <div class="user-list" *ngIf="session.type">{{session.type}}</div>
+      <a mat-list-item (click)="usernav.close()"
+      [routerLink]="'settings'">
+      <mat-icon fontSet="fas" fontIcon="fa-cog"></mat-icon>Settings
+      </a>
+      <mat-list-item (click)="usernav.close(); onLogoutClick()">
+        <mat-icon fontSet="fas" fontIcon="fa-power-off"></mat-icon>
+        <span>Déconnexion</span>
+      </mat-list-item>
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="d-md-none" (click)="openSidenav()">
+      <mat-icon fontSet="fas" fontIcon="fa-bars"></mat-icon>
+    </button>
+
+    <span class="branding spacer center d-inline d-sm-none link position-absolute w-100" style="margin-left: -16px; z-index: -1">
+      <a routerLink="">
+        <img [src]="logo"/>
+      </a>
+    </span>
+
+    <span routerLink="" class="branding spacer center d-inline d-sm-none link">
+
+    </span>
+
+    <span routerLink="" class="branding spacer center d-none d-sm-inline d-md-none link">
+      <a routerLink="">
+        <img [src]="logo"/>
+        <span class="app-title">Réservations des salles</span>
+      </a>
+    </span>
+
+    <span routerLink="" class="branding spacer d-none d-md-inline link">
+      <a routerLink="">
+        <img [src]="logo"/>
+        <span class="app-title">Réservations des salles</span>
+      </a>
+    </span>
+
+    <span class="d-none d-md-inline">
+
+      <button mat-button class="mat-button link d-none active " *ngFor="let item of navigation"
+              [routerLink]="[item.link]" routerLinkActive="d-inline">
+          <a [routerLink]="[item.link]">{{item.label}}</a>
+      </button>
+
+      <button mat-button [matMenuTriggerFor]="rooms">Salles</button>
+
+      <mat-menu #rooms="matMenu">
+        <button mat-menu-item class="mat-button link" *ngFor="let item of navigation"
+                  [routerLink]="[item.link]" routerLinkActive="active">
+          <a [routerLink]="[item.link]">{{item.label}}</a>
+        </button>
+      </mat-menu>
+
+
+
+      <ng-container *ngIf="session$ | async as session">
+        <button mat-button class="nav-button link" *ngIf="session.role === 'ROLE_ADMIN'"
+                [routerLink]="'settings/admin'" routerLinkActive="active">
+          <a [routerLink]="'settings/admin'">Admin Settings</a>
+        </button>
+      </ng-container>
+
+
+    </span>
+
+    <button mat-button class="sign-in-button "
+            *ngIf="!((isAuthenticated$ | async) || (isLoginPage))"
+            [routerLink]="'login'">
+      Se connecter
+    </button>
+
+    <button *ngIf="isAuthenticated$ | async" mat-icon-button (click)="openUsernav()">
+      <mat-icon fontSet="fas" fontIcon="fa-user-circle"></mat-icon>
+    </button>
+
+    <mat-menu #toolbarUserMenu="matMenu">
+      <button mat-menu-item (click)="onLogoutClick()">
+        Corentin Doué <br>
+        <mat-icon fontSet="fas" fontIcon="fa-power-off"></mat-icon>
+        <span>Déconnexion</span>
+      </button>
+    </mat-menu>
+
+    <!--<button mat-icon-button routerLink="settings" class="d-none d-sm-inline">-->
+      <!--<mat-icon fontSet="fas" fontIcon="fa-cog"></mat-icon>-->
+    <!--</button>-->
+  </mat-toolbar>
+
+  <div class="wrapper">
+    <div class="content">
+      <router-outlet #o="outlet"></router-outlet>
+    </div>
+
+    <footer>
+      <div class="row">
+        <div class="col-12 signature">
+          &#169; <span class="year">{{year}}</span> - Maison des Élèves
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 signature">
+          Site developpé en 2018 par Corentin Doué - ICM 2016
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+</mat-sidenav-container>
+

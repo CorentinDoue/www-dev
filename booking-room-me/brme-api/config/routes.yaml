@@ -11,5 +11,5 @@ api:
     path: /api/hello
     controller: App\Controller\AuthController::api
 
-login_check:
-    path:     /login_check
+api_login_check:
+    path: /api/login
