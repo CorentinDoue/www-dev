@@ -29,7 +29,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
     StoreDevtoolsModule.instrument({
       name: 'Angular NgRx Material Store DevTools',
-      logOnly: environment.production,
+      logOnly: environment.production
     }),
 
     // app

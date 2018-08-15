@@ -1,0 +1,31 @@
+<div class="container">
+  <mat-tab-group [dynamicHeight]="true" [selectedIndex]='selectedSetting$ | async' >
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span class="mat-tab-label" (click)="goTo(0)">Nouvel Utilisateur</span>
+      </ng-template>
+      <brme-user-new></brme-user-new>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span class="mat-tab-label" (click)="goTo(1)">Utilisateurs</span>
+      </ng-template>
+      <brme-user-management></brme-user-management>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span class="mat-tab-label" (click)="goTo(2)">Nouvelle Salle</span>
+      </ng-template>
+      <brme-room-new></brme-room-new>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span class="mat-tab-label" (click)="goTo(3)">Salles</span>
+      </ng-template>
+      <brme-room-management></brme-room-management>
+    </mat-tab>
+  </mat-tab-group>
+</div>

@@ -21,6 +21,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import {HttpClientModule} from '@angular/common/http';
 import {MatExpansionModule} from '@angular/material';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
 
 
 export const DIRECTIVES = [
@@ -51,6 +54,9 @@ export const SHARED = [
   MatSnackBarModule,
   MatSlideToggleModule,
   MatExpansionModule,
+  MatPaginatorModule,
+  MatTableModule,
+  MatSortModule,
 
   AngularSvgIconModule,
 ];

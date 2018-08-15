@@ -9,19 +9,23 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity
+ * @UniqueEntity("name", message="Cette salle existe déjà")
  * @ApiResource(
  *     collectionOperations={
- *         "get",
+ *         "get"={"groups"={"readRooms"}},
  *         "post"={"access_control"="is_granted('ROLE_ADMIN')"}
  *     },
  *     itemOperations={
- *          "get",
+ *          "get"={"groups"={"getRoom"}},
  *          "delete"={"access_control"="is_granted('ROLE_ADMIN')"},
  *          "put"={"access_control"="is_granted('ROLE_ADMIN')"}
- *     }
+ *     },
+ *     attributes={"pagination_enabled"=false}
  * )
  */
 class Room
@@ -32,6 +36,7 @@ class Room
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
+     * @Groups({"readRooms", "getRoom"})
      */
     private $id;
 
@@ -41,6 +46,7 @@ class Room
      * @ORM\Column(type="text")
      * @ApiProperty(iri="http://schema.org/name")
      * @Assert\NotBlank
+     * @Groups({"readRooms", "getRoom"})
      */
     private $name;
 
@@ -49,6 +55,7 @@ class Room
      *
      * @ORM\Column(type="text", nullable=true)
      * @ApiProperty(iri="http://schema.org/description")
+     * @Groups({"readRooms", "getRoom"})
      */
     private $description;
 
@@ -57,6 +64,7 @@ class Room
      *
      * @ORM\Column(type="text", nullable=true)
      * @ApiProperty(iri="http://schema.org/description")
+     * @Groups({"readRooms", "getRoom"})
      */
     private $instructions;
 
@@ -78,6 +86,7 @@ class Room
      * @var Reservation[] All reservations of this room.
      *
      * @ORM\OneToMany(targetEntity="Reservation", mappedBy="room")
+     * @Groups({"getRoom"})
      */
     public $reservations;
 

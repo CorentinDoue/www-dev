@@ -14,7 +14,7 @@ export class ErrorInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request).pipe(catchError(err => {
-            // console.log(err);
+            console.log(err);
             if (err.status === 401 && err.error.message.status !== '401 Bad Credential') {
                 // auto logout if 401 response returned from api
                 this.store.dispatch(new authActions.Logout());
@@ -22,7 +22,7 @@ export class ErrorInterceptor implements HttpInterceptor {
                 this.router.navigate(['/login']);
             }
 
-            const error = err.error.message || err.statusText;
+            const error = err.error.message || err.error.violations[0].message || err.statusText;
             return throwError(error);
         }));
     }

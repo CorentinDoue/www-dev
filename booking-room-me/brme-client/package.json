@@ -24,6 +24,7 @@
     "@angular/router": "^6.0.3",
     "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
     "@ngrx/effects": "^6.1.0",
+    "@ngrx/entity": "^6.1.0",
     "@ngrx/router-store": "^6.1.0",
     "@ngrx/store": "^6.1.0",
     "@ngrx/store-devtools": "^6.1.0",

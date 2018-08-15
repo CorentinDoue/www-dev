@@ -7,6 +7,8 @@ import { NotFoundPageComponent } from './components/not-found-page.component';
 import {LocalStorageService} from './services/local-storage.service';
 import {SharedModule} from '../shared/shared.module';
 import {UserService} from './services/user.service';
+import {JsonLdService} from './services/json-ld.service';
+import {RoomService} from './services/room.service';
 
 
 
@@ -18,7 +20,9 @@ export const COMPONENTS = [
 
 export const SERVICES = [
   LocalStorageService,
-  UserService
+  UserService,
+  JsonLdService,
+  RoomService
 ];
 
 @NgModule({

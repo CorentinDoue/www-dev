@@ -8,10 +8,15 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Controller\EncodeUser;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use App\Filter\UserAllFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 
 /**
  * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="App\Repository\UserCustomRepository")
+ * @UniqueEntity("email", message="Cet Email existe déjà")
  * @ApiResource(
  *     collectionOperations={
  *         "get"={"access_control"="is_granted('ROLE_ADMIN')"},
@@ -21,12 +26,13 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *     itemOperations={
  *          "get"={"access_control"="(is_granted('ROLE_USER') and object == user) or is_granted('ROLE_ADMIN')"},
  *          "delete"={"access_control"="is_granted('ROLE_ADMIN')"},
- *          "put"={"access_control"="(is_granted('ROLE_USER') and object == user) or is_granted('ROLE_ADMIN')",
- *                  "controller"=EncodeUser::class
+ *          "put"={"access_control"="(is_granted('ROLE_USER') and object == user) or is_granted('ROLE_ADMIN')"
  *                }
  *     },
  *     normalizationContext={"groups"={"read"}}
  * )
+ * @ApiFilter(UserAllFilter::class)
+ * @ApiFilter(OrderFilter::class, properties={"email", "firstname", "lastname", "type", "role", "bedRoomNumber"}, arguments={"orderParameterName"="order"})
  */
 class User implements UserInterface
 {
@@ -34,12 +40,14 @@ class User implements UserInterface
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Groups({"read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=100, unique=true)
      * @Assert\NotBlank
+     * @Assert\Email()
      * @Groups({"read"})
      */
     private $email;

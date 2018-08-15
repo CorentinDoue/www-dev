@@ -1,4 +1,5 @@
 import {UserAdminSettingsActionsUnion, UserAdminSettingsActionTypes} from '../actions/users.actions';
+import {ROUTER_NAVIGATION} from '@ngrx/router-store';
 
 
 export interface State {
@@ -41,6 +42,40 @@ export function reducer(state = initialState, action: UserAdminSettingsActionsUn
         pending: false,
       };
     }
+
+    case UserAdminSettingsActionTypes.PutUser: {
+      return {
+        ...state,
+        pending: true,
+        success: '',
+        error: '',
+      };
+    }
+
+    case UserAdminSettingsActionTypes.PutUserFailure: {
+      return {
+        ...state,
+        pending: false,
+        success: '',
+        error: action.payload,
+      };
+    }
+
+    case UserAdminSettingsActionTypes.PutUserSuccess: {
+      return {
+        ...state,
+        pending: false,
+        error: '',
+        success: action.payload.message
+      };
+    }
+
+    case ROUTER_NAVIGATION:
+      return {
+        ...state,
+        error: '',
+        success: ''
+      };
 
     default: {
       return state;

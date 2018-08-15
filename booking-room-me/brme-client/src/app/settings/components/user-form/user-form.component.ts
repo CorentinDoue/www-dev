@@ -2,10 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {User} from '../../models/user.model';
 import * as fromUserForm from '../../reducers/user-form.reducer';
-import {Observable} from 'rxjs';
-import {select, Store} from '@ngrx/store';
-import {CreateUser} from '../../actions/users.actions';
-import {Credentials} from '../../../auth/models/auth.model';
+import {Store} from '@ngrx/store';
 
 
 @Component({
@@ -26,18 +23,28 @@ export class UserFormComponent implements OnInit {
       this.ispending = false;
     }
   }
-
+  @Input() emailDisable = false;
   @Input() errorMessage: string | null;
   @Input() successMessage: string | null;
+  @Input() verb: string;
+
+  @Input()
+  set user (user: User | null) {
+    if (user !== null) {
+      this.form.patchValue(user);
+      this.role.patchValue(this.parseRole(user.role));
+    }
+  }
 
   @Output() submitted = new EventEmitter<User>();
 
   form: FormGroup = this.fb.group({
+    id: [null],
     email: ['', [ Validators.required, Validators.email ]],
     firstname: ['', Validators.required],
     lastname: ['', Validators.required],
     type: [''],
-    bedroomnumber: [''],
+    bedRoomNumber: [''],
     role: ['USER']
   });
 
@@ -45,15 +52,18 @@ export class UserFormComponent implements OnInit {
   get firstname() { return this.form.get('firstname'); }
   get lastname() { return this.form.get('lastname'); }
   get type() { return this.form.get('type'); }
-  get bedroomnumber() { return this.form.get('bedroomnumber'); }
+  get bedRoomNumber() { return this.form.get('bedRoomNumber'); }
   get role() { return this.form.get('role'); }
 
   constructor(private fb: FormBuilder, private store: Store<fromUserForm.State>) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.email[!this.emailDisable ? 'enable' : 'disable']();
+  }
 
   submit() {
     if (this.form.valid) {
+      if (!this.emailDisable) {this.form.removeControl('id'); }
       this.submitted.emit(this.form.value);
     }
   }
@@ -61,6 +71,15 @@ export class UserFormComponent implements OnInit {
   getErrorMessage(formControl: FormControl) {
     return formControl.hasError('required') ? 'Ce champs ne doit pas être vide' :
       formControl.hasError('email') ? 'L\'email n\'est pas valide' : '';
+  }
+
+  parseRole(role: string | null) {
+    if (role === null ) {
+      return 'USER';
+    } else {
+      return role;
+    }
+
   }
 
 }

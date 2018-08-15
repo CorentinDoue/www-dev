@@ -42,7 +42,7 @@ if (!environment.production) {
       { metaReducers }
     ),
     StoreDevtoolsModule.instrument({
-      maxAge: 25, // Retains last 25 states
+      maxAge: 25 // Retains last 25 states
     }),
     EffectsModule.forRoot([AuthEffects]),
 

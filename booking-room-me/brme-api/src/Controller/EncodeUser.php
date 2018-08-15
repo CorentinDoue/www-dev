@@ -29,10 +29,10 @@ class EncodeUser
 
         $role = $data->getRole();
         switch ($role){
-            case "admin":
+            case "ROLE_ADMIN":
                 $data->setRole("ROLE_ADMIN");
                 break;
-            case "asso":
+            case "ROLE_ASSO":
                 $data->setRole("ROLE_ASSO");
                 break;
             default:

@@ -9,18 +9,23 @@ export interface AdminSetting {
 export const ADMIN_SETTINGS: AdminSetting[] = [
   {
     id: 0,
+    str_id: 'newuser',
+    name: 'Nouvel Utilisateur'
+  },
+  {
+    id: 1,
     str_id: 'users',
     name: 'Utilisateurs'
   },
   {
-    id: 1,
-    str_id: 'rooms',
-    name: 'Utilisateurs'
+    id: 2,
+    str_id: 'newroom',
+    name: 'Nouvelle Salle'
   },
   {
-    id: 2,
-    str_id: 'user',
-    name: 'Utilisateurs'
+    id: 3,
+    str_id: 'rooms',
+    name: 'Salles'
   }
 ];
 
