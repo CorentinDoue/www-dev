@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {select, Store} from '@ngrx/store';
 import * as fromSettings from '../reducers';
-import {DeleteRoom, GetRoom, PutRoom, SelectRoom} from '../actions/rooms.actions';
+import * as fromRoot from '../../core/reducers';
+import {DeleteRoom, PutRoom, SelectRoom} from '../actions/rooms.actions';
 import {Room} from '../../bookings/models/room.model';
 
 
@@ -35,7 +36,7 @@ export class RoomManagementComponent implements OnInit {
   successMessage$ = this.store.pipe(select(fromSettings.getRoomFormSuccess));
   ispending$ = this.store.pipe(select(fromSettings.getRoomFormPending));
   selectedRoom$ = this.store.pipe(select(fromSettings.getSelectedRoom));
-  rooms$ = this.store.pipe(select(fromSettings.getAllRooms));
+  rooms$ = this.store.pipe(select(fromRoot.getAllRooms));
   loading$ = this.store.pipe(select(fromSettings.getRoomSearchLoading));
   error$ = this.store.pipe(select(fromSettings.getRoomSearchError));
   success$ = this.store.pipe(select(fromSettings.getRoomSearchSuccess));
@@ -52,7 +53,6 @@ export class RoomManagementComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(new GetRoom(null));
   }
 
   onSubmit(room: Room) {

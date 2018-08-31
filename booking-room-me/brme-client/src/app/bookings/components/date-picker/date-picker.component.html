@@ -1,0 +1,11 @@
+<div class="arrow">
+  <svg-icon src="assets/left-arrow.svg" [svgStyle]="{ 'width.%': '100', 'height.%': '100' }" (click)="last()"></svg-icon>
+</div>
+<mat-form-field>
+  <input matInput [matDatepicker]="picker" placeholder="Sélectionnez une date" [value]="date" (dateChange)="set($event.value)">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<div class="arrow">
+  <svg-icon src="assets/right-arrow.svg" [svgStyle]="{ 'width.%': '100', 'height.%': '100' }" (click)="next()"></svg-icon>
+</div>

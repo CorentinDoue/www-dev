@@ -14,6 +14,7 @@ import { EffectsModule } from '@ngrx/effects';
 import {environment} from '../environments/environment';
 import {AuthModule} from './auth/auth.module';
 import {OverlayContainer} from '@angular/cdk/overlay';
+import {MAT_DATE_LOCALE} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -69,7 +70,7 @@ import {OverlayContainer} from '@angular/cdk/overlay';
      */
     EffectsModule.forRoot([]),
   ],
-  providers: [],
+  providers: [{provide: MAT_DATE_LOCALE, useValue: 'fr'}],
   bootstrap: [AppComponent]
 })
 export class AppModule {

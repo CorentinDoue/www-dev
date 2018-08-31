@@ -30,12 +30,8 @@ final class UserAllFilter extends AbstractContextAwareFilter
         $this->logger->info('UserAllFilter value : '. $value);
 
         $queryBuilder
-            ->orWhere('o.email LIKE ?1')
-            ->orWhere('o.lastname LIKE ?1')
-            ->orWhere('o.firstname LIKE ?1')
-            ->orWhere('o.bedRoomNumber LIKE ?1')
-            ->orWhere('o.type LIKE ?1')
-            ->orWhere('o.role LIKE ?1')
+            ->andWhere('o.role IS NOT NULL')
+            ->andWhere('o.email LIKE ?1 OR o.lastname LIKE ?1 OR o.firstname LIKE ?1 OR o.bedRoomNumber LIKE ?1 OR o.type LIKE ?1 OR o.role LIKE ?1')
             ->setParameter(1, '%'.$value.'%');
     }
 
@@ -49,7 +45,7 @@ final class UserAllFilter extends AbstractContextAwareFilter
         $description = [];
 
         $description["search"] = [
-            'property' => 'email, Lastname, Firstname, BedRoomNumber, Type or Role',
+            'property' => 'search',
             'type' => 'string',
             'required' => false,
             'swagger' => [

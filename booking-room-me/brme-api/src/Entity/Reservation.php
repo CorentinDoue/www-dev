@@ -7,11 +7,18 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use App\Filter\GetReservationsFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Doctrine\ORM\Mapping\JoinColumn;
 
 /**
  * Describes a reservation of a room.
  *
  * @ORM\Entity
+ * @UniqueEntity("startTime", message="Ce créneau est déjà réservé, rafraichissez la page")
  * @ApiResource(
  *     collectionOperations={
  *         "get",
@@ -20,9 +27,12 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     itemOperations={
  *          "get",
  *          "delete"={"access_control"="(is_granted('ROLE_USER') and object.user == user) or is_granted('ROLE_ADMIN')"},
- *          "put"={"access_control"="(is_granted('ROLE_USER') and object.user == user) or is_granted('ROLE_ADMIN')"}
- *     }
+ *     },
+ *     normalizationContext={"groups"={"reservation"}},
+ *     attributes={"pagination_items_per_page"=350}
  * )
+ * @ApiFilter(GetReservationsFilter::class)
+ * @ApiFilter(SearchFilter::class, properties={"room.id": "exact", "user.id": "exact"})
  */
 class Reservation
 {
@@ -32,6 +42,7 @@ class Reservation
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
+     * @Groups({"reservation"})
      */
     private $id;
 
@@ -39,7 +50,9 @@ class Reservation
      * @var User The user who book this reservation.
      *
      * @ORM\ManyToOne(targetEntity="User", inversedBy="reservations")
+     * @JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")
      * @Assert\NotNull
+     * @Groups({"reservation"})
      */
     public $user;
 
@@ -47,25 +60,21 @@ class Reservation
      * @var Room The room which is booked by this reservation.
      *
      * @ORM\ManyToOne(targetEntity="Room", inversedBy="reservations")
+     * @JoinColumn(name="room_id", referencedColumnName="id", onDelete="CASCADE")
      * @Assert\NotNull
+     * @Groups({"reservation"})
      */
     public $room;
 
     /**
-     * @var \DateTimeInterface The date of the beginning of this reservation.
+     * @var integer The date of the beginning of this reservation.
      *
-     * @ORM\Column(name="start_time", type="datetime")
+     * @ORM\Column(name="start_time", type="integer", unique=true)
      * @Assert\NotNull
+     * @Groups({"reservation"})
      */
     public $startTime;
 
-    /**
-     * @var \DateTimeInterface The date of the end of this reservation.
-     *
-     * @ORM\Column(name="end_time", type="datetime")
-     * @Assert\NotNull
-     */
-    public $endTime;
 
     /**
      * @var \DateTimeInterface The creation date of this reservation.
@@ -162,6 +171,26 @@ class Reservation
     {
         $this->updatedAt = $updatedAt;
     }
+
+    /**
+     * @return int
+     */
+    public function getStartTime(): int
+    {
+        return $this->startTime;
+    }
+
+    /**
+     * @param int $startTime
+     */
+    public function setStartTime(int $startTime): void
+    {
+        $this->startTime = $startTime;
+    }
+
+    
+
+
 
 
 }

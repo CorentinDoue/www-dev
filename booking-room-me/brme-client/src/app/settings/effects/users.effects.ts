@@ -64,7 +64,6 @@ export class UserAdminSettingsEffects {
       debounceTime(debounce, scheduler),
       map(action => action.payload),
       switchMap(query => {
-        console.log('search query floor');
         const nextSearch$ = this.actions$.pipe(
           ofType(UserAdminSettingsActionTypes.SearchUserSwitchPage,
             UserAdminSettingsActionTypes.SearchUser,
@@ -76,7 +75,6 @@ export class UserAdminSettingsEffects {
           takeUntil(nextSearch$),
           take(1),
           switchMap(sort => {
-            console.log('search sort floor');
             return this.userService.search(query, sort).pipe(
               takeUntil(nextSearch$),
               map(response => this.jsonLdService.parseCollection<User>(response)),

@@ -8,6 +8,10 @@ import * as AuthActions from '../../auth/actions/auth.actions';
 import {SESS_KEY} from '../../auth/actions/auth.actions';
 import {LocalStorageService} from '../services/local-storage.service';
 import {Session} from '../../auth/models/auth.model';
+import {GetRoom} from '../actions/layout.actions';
+import {flatMap} from 'rxjs/operators';
+import {Room} from '../../bookings/models/room.model';
+import {UrlSafeStringService} from '../services/url-safe-string.service';
 
 @Component({
   selector: 'brme-root',
@@ -16,15 +20,7 @@ import {Session} from '../../auth/models/auth.model';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
-  navigation = [
-    { link: 'room/cercle', label: 'Cercle'},
-    { link: 'room/tennis', label: 'Tennis'},
-    { link: 'room/bbq', label: 'Barbecues'},
-    { link: 'room/piano', label: 'Piano'},
-    { link: 'room/squash', label: 'Squash'},
-    { link: 'room/city', label: 'City'},
-    { link: 'room/2nme', label: 'Réunion 2 NME'},
-  ];
+  navigation;
   logo = '../../../../assets/logo_me.png';
   year = new Date().getFullYear();
   showSidenav$: Observable<boolean>;
@@ -36,10 +32,12 @@ export class AppComponent implements OnInit {
   constructor(
     private store: Store<fromRoot.State>,
     private localStorageService: LocalStorageService,
+    private urlSafeStringService: UrlSafeStringService
   ) { }
 
   ngOnInit() {
     this.reloadSession();
+    this.store.dispatch(new GetRoom(null));
     this.showSidenav$ = this.store.pipe(select(fromRoot.getShowSidenav));
     this.showUsernav$ = this.store.pipe(select(fromRoot.getShowUsernav));
     this.isAuthenticated$ = this.store.pipe(select(fromAuth.getLoggedIn));
@@ -52,6 +50,18 @@ export class AppComponent implements OnInit {
         this.isLoginPage = false;
       }
     });
+    this.store.pipe(select(fromRoot.getAllRooms)).subscribe(
+      (rooms: Room[]) => {
+        const navigation = [];
+        for (let i = 0; i < rooms.length; i++) {
+          navigation.push({
+            link: 'room/' + this.urlSafeStringService.generate(rooms[i].tag),
+            label: rooms[i].name
+          });
+        }
+        this.navigation = navigation;
+      }
+    );
   }
 
   onLogoutClick() {

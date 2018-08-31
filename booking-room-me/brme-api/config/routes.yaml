@@ -2,14 +2,9 @@ index:
     path: /
     controller: App\Controller\DefaultController::index
 
-register:
-    path: /register
-    controller: App\Controller\AuthController::register
-    methods: POST
-
-api:
-    path: /api/hello
-    controller: App\Controller\AuthController::api
+parse_excel:
+    path: /api/parse_excel/{id}
+    controller: App\Controller\ExcelController::parseExcel
 
 api_login_check:
     path: /api/login

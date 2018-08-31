@@ -20,50 +20,86 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import {HttpClientModule} from '@angular/common/http';
-import {MatExpansionModule} from '@angular/material';
+import {MatDatepickerModule, MatExpansionModule, MatNativeDateModule} from '@angular/material';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
+import {RouterModule} from '@angular/router';
+import {HourPipe} from './pipes/hour.pipe';
+import {TranslateDayPipe} from './pipes/translate-day.pipe';
 
-
-export const DIRECTIVES = [
-];
-export const PIPES = [
-];
-
-export const SHARED = [
-  CommonModule,
-  FormsModule,
-  ReactiveFormsModule,
-  HttpClientModule,
-
-  MatButtonModule,
-  MatToolbarModule,
-  MatSelectModule,
-  MatTabsModule,
-  MatInputModule,
-  MatProgressSpinnerModule,
-  MatChipsModule,
-  MatCardModule,
-  MatSidenavModule,
-  MatCheckboxModule,
-  MatListModule,
-  MatMenuModule,
-  MatIconModule,
-  MatTooltipModule,
-  MatSnackBarModule,
-  MatSlideToggleModule,
-  MatExpansionModule,
-  MatPaginatorModule,
-  MatTableModule,
-  MatSortModule,
-
-  AngularSvgIconModule,
-];
 
 @NgModule({
-  imports: SHARED,
-  declarations: PIPES.concat(DIRECTIVES),
-  exports: SHARED
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule,
+
+    MatButtonModule,
+    MatToolbarModule,
+    MatSelectModule,
+    MatTabsModule,
+    MatInputModule,
+    MatProgressSpinnerModule,
+    MatChipsModule,
+    MatCardModule,
+    MatSidenavModule,
+    MatCheckboxModule,
+    MatListModule,
+    MatMenuModule,
+    MatIconModule,
+    MatTooltipModule,
+    MatSnackBarModule,
+    MatSlideToggleModule,
+    MatExpansionModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatSortModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+
+    AngularSvgIconModule,
+  ],
+  declarations: [
+    HourPipe,
+    TranslateDayPipe
+  ],
+  exports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule,
+
+    MatButtonModule,
+    MatToolbarModule,
+    MatSelectModule,
+    MatTabsModule,
+    MatInputModule,
+    MatProgressSpinnerModule,
+    MatChipsModule,
+    MatCardModule,
+    MatSidenavModule,
+    MatCheckboxModule,
+    MatListModule,
+    MatMenuModule,
+    MatIconModule,
+    MatTooltipModule,
+    MatSnackBarModule,
+    MatSlideToggleModule,
+    MatExpansionModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatSortModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+
+    AngularSvgIconModule,
+
+    HourPipe,
+    TranslateDayPipe
+  ]
 })
 export class SharedModule {}

@@ -9,6 +9,14 @@ import {SharedModule} from '../shared/shared.module';
 import {UserService} from './services/user.service';
 import {JsonLdService} from './services/json-ld.service';
 import {RoomService} from './services/room.service';
+import {EffectsModule} from '@ngrx/effects';
+import {UserAdminSettingsEffects} from '../settings/effects/users.effects';
+import {RoomAdminSettingsEffects} from '../settings/effects/rooms.effects';
+import {LayoutEffects} from './effects/layout.effects';
+import {UrlSafeStringService} from './services/url-safe-string.service';
+import {DateService} from './services/date.service';
+import {ReservationService} from './services/reservation.service';
+import {ExcelService} from './services/excel.service';
 
 
 
@@ -22,11 +30,20 @@ export const SERVICES = [
   LocalStorageService,
   UserService,
   JsonLdService,
-  RoomService
+  RoomService,
+  UrlSafeStringService,
+  DateService,
+  ReservationService,
+  ExcelService
 ];
 
 @NgModule({
-  imports: [CommonModule, RouterModule, SharedModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    SharedModule,
+    EffectsModule.forFeature([LayoutEffects]),
+  ],
   declarations: COMPONENTS,
   exports: COMPONENTS,
 })

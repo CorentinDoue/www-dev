@@ -17,11 +17,11 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @UniqueEntity("name", message="Cette salle existe déjà")
  * @ApiResource(
  *     collectionOperations={
- *         "get"={"groups"={"readRooms"}},
+ *         "get"={"normalization_context"={"groups"={"readRooms"}}},
  *         "post"={"access_control"="is_granted('ROLE_ADMIN')"}
  *     },
  *     itemOperations={
- *          "get"={"groups"={"getRoom"}},
+ *          "get"={"normalization_context"={"groups"={"getRoom"}}},
  *          "delete"={"access_control"="is_granted('ROLE_ADMIN')"},
  *          "put"={"access_control"="is_granted('ROLE_ADMIN')"}
  *     },
@@ -36,17 +36,26 @@ class Room
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
-     * @Groups({"readRooms", "getRoom"})
+     * @Groups({"readRooms", "getRoom","reservation"})
      */
     private $id;
 
     /**
+     * @var string the tag of the room
+     *
+     * @ORM\Column(type="string", length=200, unique=true)
+     * @Assert\NotBlank
+     * @Groups({"readRooms", "getRoom","reservation"})
+     */
+    private $tag;
+
+    /**
      * @var string the name of the room
      *
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string", length=200)
      * @ApiProperty(iri="http://schema.org/name")
      * @Assert\NotBlank
-     * @Groups({"readRooms", "getRoom"})
+     * @Groups({"readRooms", "getRoom","reservation"})
      */
     private $name;
 
@@ -178,5 +187,21 @@ class Room
     public function setUpdatedAt($updatedAt): void
     {
         $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTag(): string
+    {
+        return $this->tag;
+    }
+
+    /**
+     * @param string $tag
+     */
+    public function setTag(string $tag): void
+    {
+        $this->tag = $tag;
     }
 }

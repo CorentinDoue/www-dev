@@ -45,7 +45,7 @@ export class UserFormComponent implements OnInit {
     lastname: ['', Validators.required],
     type: [''],
     bedRoomNumber: [''],
-    role: ['USER']
+    role: ['ROLE_ASSO']
   });
 
   get email() { return this.form.get('email'); }
@@ -64,6 +64,7 @@ export class UserFormComponent implements OnInit {
   submit() {
     if (this.form.valid) {
       if (!this.emailDisable) {this.form.removeControl('id'); }
+      this.role.patchValue(this.unparseRole(this.role.value));
       this.submitted.emit(this.form.value);
     }
   }
@@ -76,6 +77,15 @@ export class UserFormComponent implements OnInit {
   parseRole(role: string | null) {
     if (role === null ) {
       return 'USER';
+    } else {
+      return role;
+    }
+
+  }
+
+  unparseRole(role: string | null) {
+    if (role === 'USER' ) {
+      return null;
     } else {
       return role;
     }

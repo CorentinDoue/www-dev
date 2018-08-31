@@ -1,0 +1,26 @@
+<div class="container" *ngIf="currentRoom$ | async">
+  <div class="title">
+    <h1>{{(currentRoom$ | async).name}}</h1>
+    <mat-spinner [diameter]="30" *ngIf="pending$ | async"></mat-spinner>
+    <div class="empty-spinner" *ngIf="!(pending$ | async)"></div>
+  </div>
+
+  <div class="alert alert-info" *ngIf="(currentRoom$ | async).instructions">{{(currentRoom$ | async).instructions}}</div>
+
+  <brme-date-picker [timestamp]="currentDate$ | async"
+                    [currentRoom]="currentRoom$ | async">
+  </brme-date-picker>
+  <div class="alert alert-danger" *ngIf="error$ | async">
+    {{error$ | async}}
+  </div>
+  <div class="row justify-content-center">
+    <brme-day *ngFor="let day of days$ | async; index as i"
+              [timestamp]="day.timestamp"
+              [quartersState]="day.quarter"
+              [currentUser]="currentUser$ | async"
+              [currentRoom]="currentRoom$ | async"
+              [reservations]="day.reservations" (switchQuarterState)="switchQuarterState($event, i)">
+    </brme-day>
+  </div>
+  <div class="alert alert-dark" *ngIf="(currentRoom$ | async).description">{{(currentRoom$ | async).description}}</div>
+</div>

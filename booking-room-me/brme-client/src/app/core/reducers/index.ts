@@ -7,6 +7,7 @@ import {
 } from '@ngrx/store';
 import { environment } from '../../../environments/environment';
 import * as fromRouter from '@ngrx/router-store';
+import * as fromRooms from './rooms.reducer';
 
 /**
  * storeFreeze prevents state from being mutated. When mutation occurs, an
@@ -32,6 +33,7 @@ import {initStateFromLocalStorage} from './init-state-from-local-storage.reducer
 export interface State {
   layout: fromLayout.State;
   router: fromRouter.RouterReducerState;
+  rooms: fromRooms.State;
 }
 
 /**
@@ -42,6 +44,7 @@ export interface State {
 export const reducers: ActionReducerMap<State> = {
   layout: fromLayout.reducer,
   router: fromRouter.routerReducer,
+  rooms: fromRooms.reducer,
 };
 
 // console.log all actions
@@ -60,7 +63,7 @@ export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
  * that will be composed to form the root meta-reducer.
  */
 export const metaReducers: MetaReducer<State>[] = !environment.production
-  ? [logger, storeFreeze]
+  ? [storeFreeze]
   : [];
 
 /**
@@ -94,3 +97,33 @@ export const getUrlState = createSelector(
 //   getUrlState,
 //   url => url === 'login'
 // );
+
+export const getRoomsState = createFeatureSelector<State, fromRooms.State>(
+  'rooms'
+);
+
+
+
+export const {
+  selectIds: getRoomIds,
+  selectEntities: getRoomEntities,
+  selectAll: getAllRooms,
+  selectTotal: getTotalRooms,
+} = fromRooms.adapter.getSelectors(getRoomsState);
+
+export const getSelectedRoomId = createSelector(
+  getRoomsState,
+  fromRooms.getSelectedId
+);
+
+
+export const getSelectedRoom = createSelector(
+  getSelectedRoomId,
+  getRoomEntities,
+  (id, entities) => entities[id]
+);
+
+export const getRoomNames = createSelector(
+  getAllRooms,
+  rooms => rooms.map(room => room.name)
+);

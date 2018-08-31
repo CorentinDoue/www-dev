@@ -26,6 +26,11 @@ export const ADMIN_SETTINGS: AdminSetting[] = [
     id: 3,
     str_id: 'rooms',
     name: 'Salles'
+  },
+  {
+    id: 4,
+    str_id: 'residents',
+    name: 'Résidents'
   }
 ];
 

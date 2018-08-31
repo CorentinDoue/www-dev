@@ -14,7 +14,6 @@ export class RoomService {
   }
 
   public get(): Observable<Room[]> {
-    console.log('service floor');
     const url = `${environment.upiUrl}/rooms`;
     return this.http.get<Room[]>(url);
   }

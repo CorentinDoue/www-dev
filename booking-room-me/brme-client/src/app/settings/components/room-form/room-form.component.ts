@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import * as fromRoomForm from '../../reducers/room-form.reducer';
 import { Store} from '@ngrx/store';
 import {Room} from '../../../bookings/models/room.model';
+import {UrlSafeStringService} from '../../../core/services/url-safe-string.service';
 
 
 
@@ -40,6 +41,7 @@ export class RoomFormComponent implements OnInit {
 
   form: FormGroup = this.fb.group({
     id: [null],
+    tag: [''],
     name: ['', Validators.required],
     description: [''],
     instructions: [''],
@@ -47,11 +49,12 @@ export class RoomFormComponent implements OnInit {
 
 
   get name() { return this.form.get('name'); }
+  get tag() { return this.form.get('tag'); }
   get description() { return this.form.get('description'); }
   get instructions() { return this.form.get('instructions'); }
 
 
-  constructor(private fb: FormBuilder, private store: Store<fromRoomForm.State>) {}
+  constructor(private fb: FormBuilder, private store: Store<fromRoomForm.State>, private urlSafeStringService: UrlSafeStringService) {}
 
   ngOnInit() {
   }
@@ -59,6 +62,7 @@ export class RoomFormComponent implements OnInit {
   submit() {
     if (this.form.valid) {
       if (this.isNew) {this.form.removeControl('id'); }
+      this.tag.setValue(this.urlSafeStringService.generate(this.name.value));
       this.submitted.emit(this.form.value);
     }
   }

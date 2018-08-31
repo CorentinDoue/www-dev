@@ -1,4 +1,5 @@
 import { AuthActionTypes, AuthActionsUnion } from '../actions/auth.actions';
+import {ROUTER_NAVIGATION} from '@ngrx/router-store';
 
 export interface State {
   error: string | null;
@@ -35,6 +36,12 @@ export function reducer(state = initialState, action: AuthActionsUnion): State {
         pending: false,
       };
     }
+
+    case ROUTER_NAVIGATION:
+      return {
+        ...state,
+        error: ''
+      };
 
     default: {
       return state;

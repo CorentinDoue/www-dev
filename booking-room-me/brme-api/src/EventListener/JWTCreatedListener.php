@@ -42,7 +42,7 @@ class JWTCreatedListener
         {
             $expiration = new \DateTime('+1 year');
         }else{
-            $expiration = new \DateTime('+5 min');
+            $expiration = new \DateTime('+1 day');
         }
         $expiration->setTime(2, 0, 0);
 

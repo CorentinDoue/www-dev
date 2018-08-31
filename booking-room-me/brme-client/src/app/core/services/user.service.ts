@@ -15,7 +15,6 @@ export class UserService {
     // console.log('! user service reached !');
     // console.log(user);
     const url = `${environment.upiUrl}/users`;
-
     return this.http.post(url, user);
   }
 
@@ -24,9 +23,9 @@ export class UserService {
     const url = `${environment.upiUrl}/users`;
     let Params = new HttpParams();
 
-    if (query !== '') {
-      Params = Params.append('search', query);
-    }
+
+    Params = Params.append('search', query);
+
 
     if (sort !== null) {
       Params = Params.append('order[' + sort.active + ']', sort.direction);
@@ -47,7 +46,6 @@ export class UserService {
     // console.log('! user service reached !');
     // console.log(user);
     const url = `${environment.upiUrl}/users/${user.id}`;
-
     return this.http.put(url, user);
   }
 }

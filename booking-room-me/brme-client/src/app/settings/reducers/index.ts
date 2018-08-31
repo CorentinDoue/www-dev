@@ -1,11 +1,11 @@
 import * as fromLayout from './layout.reducer';
-import * as fromUserForm from './room-form.reducer';
+import * as fromUserForm from './user-form.reducer';
 import * as fromUserSearch from './user-search.reducer';
 import * as fromUsers from './users.reducer';
 import * as fromRoot from '../../core/reducers';
 import * as fromRoomForm from './room-form.reducer';
 import * as fromRoomSearch from './room-search.reducer';
-import * as fromRooms from './rooms.reducer';
+import * as fromExcel from './excel.reducer';
 
 import {ActionReducerMap, createFeatureSelector, createSelector} from '@ngrx/store';
 import {getError, getPending, getSuccess} from './user-form.reducer';
@@ -18,7 +18,7 @@ export interface AdminSettingsState {
   users: fromUsers.State;
   roomform: fromRoomForm.State;
   roomsearch: fromRoomSearch.State;
-  rooms: fromRooms.State;
+  excel: fromExcel.State;
 }
 
 export interface State extends fromRoot.State {
@@ -32,7 +32,7 @@ export const reducers: ActionReducerMap<AdminSettingsState> = {
   users: fromUsers.reducer,
   roomform: fromRoomForm.reducer,
   roomsearch: fromRoomSearch.reducer,
-  rooms: fromRooms.reducer,
+  excel: fromExcel.reducer,
 };
 
 export const selectAdminSettingsState = createFeatureSelector<State, AdminSettingsState>('adminsettings');
@@ -153,34 +153,22 @@ export const getRoomFormPending = createSelector(
   getPending
 );
 
-export const getRoomsState = createSelector(
-  selectAdminSettingsState,
-  state => state.rooms
-);
 
-export const getSelectedRoomId = createSelector(
-  getRoomsState,
-  fromRooms.getSelectedId
-);
 
-export const {
-  selectIds: getRoomIds,
-  selectEntities: getRoomEntities,
-  selectAll: getAllRooms,
-  selectTotal: getTotalRooms,
-} = fromRooms.adapter.getSelectors(getRoomsState);
 
-export const getSelectedRoom = createSelector(
-  getRoomEntities,
-  getSelectedRoomId,
-  (entities, selectedId) => {
-    return selectedId && entities[selectedId];
-  }
-);
+
+
+
+
 
 export const getRoomSearchState = createSelector(
   selectAdminSettingsState,
   (state: AdminSettingsState) => state.roomsearch
+);
+
+export const getSelectedRoomId = createSelector(
+  getRoomSearchState,
+  fromRoomSearch.getSelectedId
 );
 
 export const getRoomSearchError = createSelector(
@@ -197,3 +185,42 @@ export const getRoomSearchLoading = createSelector(
   getRoomSearchState,
   fromRoomSearch.getLoading
 );
+
+export const getSelectedRoom = createSelector(
+  fromRoot.getRoomEntities,
+  getSelectedRoomId,
+  (entities, selectedId) => {
+    return selectedId && entities[selectedId];
+  }
+);
+
+export const selectExcelState = createSelector(
+  selectAdminSettingsState,
+  (settingsSate: AdminSettingsState) => settingsSate.excel
+);
+
+export const selectExcelError = createSelector(
+  selectExcelState,
+  fromExcel.getError
+)
+
+export const selectExcelSuccess = createSelector(
+  selectExcelState,
+  fromExcel.getSuccess
+)
+
+export const selectExcelMessage = createSelector(
+  selectExcelState,
+  fromExcel.getMessage
+)
+
+export const selectExcelPending = createSelector(
+  selectExcelState,
+  fromExcel.getPending
+)
+
+export const selectExcelStateState = createSelector(
+  selectExcelState,
+  fromExcel.getState
+)
+

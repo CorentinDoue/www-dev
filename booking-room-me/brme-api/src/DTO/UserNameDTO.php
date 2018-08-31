@@ -29,7 +29,7 @@ class UserNameDTO
 {
     public $id;
     public $lastname;
-    public $surname;
+    public $firstname;
 
     /**
      * UserNameDTO constructor.
@@ -37,10 +37,10 @@ class UserNameDTO
      * @param $lastname
      * @param $surname
      */
-    public function __construct($id, $lastname, $surname)
+    public function __construct($id, $lastname, $firstname)
     {
         $this->id = $id;
         $this->lastname = $lastname;
-        $this->surname = $surname;
+        $this->firstname = $firstname;
     }
 }

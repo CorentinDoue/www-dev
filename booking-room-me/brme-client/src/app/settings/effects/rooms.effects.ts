@@ -6,12 +6,10 @@ import {catchError, exhaustMap, map} from 'rxjs/operators';
 import {
   CreateRoom,
   CreateRoomSuccess, DeleteRoom, RoomFailure, DeleteRoomSuccess, PutRoom, PutRoomSuccess,
-  RoomAdminSettingsActionTypes, GetRoom, GetRoomSuccess
+  RoomAdminSettingsActionTypes,
 } from '../actions/rooms.actions';
 import {RoomService} from '../../core/services/room.service';
 import {Room} from '../../bookings/models/room.model';
-import {User} from '../models/user.model';
-import {JsonLdService} from '../../core/services/json-ld.service';
 
 
 @Injectable()
@@ -47,19 +45,7 @@ export class RoomAdminSettingsEffects {
     map(action => action.payload),
     exhaustMap((room: Room) =>
       this.roomService.put(room).pipe(
-        map(room2 => new PutRoomSuccess({message: 'Salle modifiée avec succès', room: room2})),
-        catchError(error => of(new RoomFailure(error)))
-      )
-    )
-  );
-
-  @Effect()
-  getrooms$ = this.actions$.pipe(
-    ofType<GetRoom>(RoomAdminSettingsActionTypes.GetRoom),
-    exhaustMap(() =>
-      this.roomService.get().pipe(
-        map(response => this.jsonLdService.parseCollection<Room>(response)),
-        map(rooms => new GetRoomSuccess({message: '', rooms: rooms})),
+        map((room2: Room) => new PutRoomSuccess({message: 'Salle modifiée avec succès', room: room2})),
         catchError(error => of(new RoomFailure(error)))
       )
     )
@@ -68,7 +54,6 @@ export class RoomAdminSettingsEffects {
 
   constructor(
     private actions$: Actions,
-    private roomService: RoomService,
-    private jsonLdService: JsonLdService
+    private roomService: RoomService
   ) {}
 }

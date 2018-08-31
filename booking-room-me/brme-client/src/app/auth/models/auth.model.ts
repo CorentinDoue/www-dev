@@ -4,8 +4,13 @@ export interface Credentials {
   remember: boolean;
 }
 
+export interface SetPassword {
+  formerPwd: string;
+  newPwd: string;
+}
+
 export interface Session {
-  id: string;
+  id: number;
   email: string;
   firstName: string;
   lastName: string;
@@ -14,4 +19,7 @@ export interface Session {
   type: string;
   token: string;
   exp: number;
+  room1: number | null;
+  room2: number | null;
+  room3: number | null;
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 
-import {Credentials, Session} from '../models/auth.model';
+import {Credentials, Session, SetPassword} from '../models/auth.model';
 import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 
@@ -32,5 +32,15 @@ export class AuthService {
 
   logout() {
     return of(true);
+  }
+
+  resetPwd(email) {
+    const url = `${environment.upiUrl}/users/forgot-password-request`;
+    return this.http.post(url, email);
+  }
+
+  setPwd(password: SetPassword, id: number) {
+    const url = `${environment.upiUrl}/users/${id}/pwd`;
+    return this.http.put(url, password);
   }
 }

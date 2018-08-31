@@ -2,18 +2,18 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { catchError, exhaustMap, map, tap } from 'rxjs/operators';
+import {catchError, exhaustMap, map, switchMap, tap} from 'rxjs/operators';
 
 import {
   SESS_KEY,
-  AuthActionTypes,  Login,
+  AuthActionTypes, Login,
   LoginFailure,
-  LoginSuccess, ReloadSession, Logout,
+  LoginSuccess, ReloadSession, Logout, ResetPwd, ResetPwdSuccess, ResetPwdFailure, SetPwd, SetPwdSuccess, SetPwdFailure,
 } from '../actions/auth.actions';
-import {Credentials, Session} from '../models/auth.model';
+import {Credentials, Session, SetPassword} from '../models/auth.model';
 import { AuthService } from '../services/auth.service';
 import {LocalStorageService} from '../../core/services/local-storage.service';
-import {Store} from '@ngrx/store';
+import {select, Store} from '@ngrx/store';
 import * as fromAuth from '../reducers';
 
 @Injectable()
@@ -27,10 +27,39 @@ export class AuthEffects {
     exhaustMap((auth: Credentials) =>
       this.authService.login(auth).pipe(
         map(session => new LoginSuccess({ session })),
-        catchError(error => of(new LoginFailure(error.message)))
+        catchError(error => of(new LoginFailure(error)))
       )
     )
   );
+
+  @Effect()
+  resetPwd$ = this.actions$.pipe(
+    ofType<ResetPwd>(AuthActionTypes.ResetPwd),
+    map(action => action.payload),
+    exhaustMap((email) =>
+      this.authService.resetPwd(email).pipe(
+        map(success => new ResetPwdSuccess('Votre mot de passe a été réinitialiser, consultez votre boite mail')),
+        catchError(error => of(new ResetPwdFailure(error)))
+      )
+    )
+  );
+
+  @Effect()
+  setPwd$ = this.actions$.pipe(
+    ofType<SetPwd>(AuthActionTypes.SetPwd),
+    map(action => action.payload),
+    switchMap((password: SetPassword) =>
+      this.store.pipe(
+        select(fromAuth.getSessionId),
+        exhaustMap((id: number) =>
+          this.authService.setPwd(password, id).pipe(
+            map(success => new SetPwdSuccess('Votre mot de passe a été modifié avec succès')),
+            catchError(error => of(new SetPwdFailure(error)))
+          )
+        )
+      )
+    )
+  )
 
   @Effect({ dispatch: false })
   loginSuccess$ = this.actions$.pipe(

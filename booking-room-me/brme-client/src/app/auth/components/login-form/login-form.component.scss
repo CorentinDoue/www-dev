@@ -27,3 +27,17 @@ mat-card-content {
   flex-direction: row;
   justify-content: flex-end;
 }
+
+mat-card-footer {
+  display: flex;
+  justify-content: center;
+  height: 2em;
+  a {
+    color: #434549;
+    font-size: 0.8em;
+  }
+  a:hover {
+    color: #413f5b;
+    font-size: 1em;
+  }
+}

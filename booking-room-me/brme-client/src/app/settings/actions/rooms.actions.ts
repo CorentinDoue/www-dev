@@ -8,8 +8,6 @@ import { RouterNavigationAction} from '@ngrx/router-store';
 export enum RoomAdminSettingsActionTypes {
   CreateRoom = '[Admin Settings] Create Room',
   CreateRoomSuccess = '[Admin Settings] Create Room Success',
-  GetRoom = '[Admin Settings] Get Room',
-  GetRoomSuccess = '[Admin Settings] Get Room Success',
   SelectRoom = '[Admin Settings] Select Room',
   DeleteRoom = '[Admin Settings] Delete Room',
   DeleteRoomSuccess = '[Admin Settings] Delete Room Success',
@@ -30,21 +28,12 @@ export class CreateRoomSuccess implements Action {
   constructor(public payload: {message: string, room: Room}) {}
 }
 
-export class GetRoom implements Action {
-  readonly type = RoomAdminSettingsActionTypes.GetRoom;
-  constructor(public payload: any) {}
-}
 
-export class GetRoomSuccess implements Action {
-  readonly type = RoomAdminSettingsActionTypes.GetRoomSuccess;
-
-  constructor(public payload: {message: string, rooms: JsonLdCollection<Room>}) {}
-}
 
 export class SelectRoom implements Action {
   readonly type = RoomAdminSettingsActionTypes.SelectRoom;
 
-  constructor(public payload: string) {}
+  constructor(public payload: number) {}
 }
 
 export class DeleteRoom implements Action {
@@ -86,6 +75,4 @@ export type RoomAdminSettingsActionsUnion =
   | PutRoom
   | PutRoomSuccess
   | RoomFailure
-  | GetRoom
-  | GetRoomSuccess
   | RouterNavigationAction;

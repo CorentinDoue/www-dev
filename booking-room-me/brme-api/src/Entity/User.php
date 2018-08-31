@@ -19,15 +19,23 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
  * @UniqueEntity("email", message="Cet Email existe déjà")
  * @ApiResource(
  *     collectionOperations={
- *         "get"={"access_control"="is_granted('ROLE_ADMIN')"},
+ *         "get"={"access_control"="is_granted('ROLE_ADMIN')",
+ *              "normalization_context"={"groups"={"usersettings"}}
+ *          },
  *         "post"={"access_control"="is_granted('ROLE_ADMIN')",
  *                  "controller"=EncodeUser::class}
  *     },
  *     itemOperations={
  *          "get"={"access_control"="(is_granted('ROLE_USER') and object == user) or is_granted('ROLE_ADMIN')"},
  *          "delete"={"access_control"="is_granted('ROLE_ADMIN')"},
- *          "put"={"access_control"="(is_granted('ROLE_USER') and object == user) or is_granted('ROLE_ADMIN')"
- *                }
+ *          "put"={"access_control"="(is_granted('ROLE_USER') and object == user) or is_granted('ROLE_ADMIN')",
+ *              "denormalization_context"={"groups"={"usersettings"}}
+ *          },
+ *          "updatePwd"={
+ *              "method"="PUT",
+ *              "path"="/users/{id}/pwd",
+ *              "access_control"="(is_granted('ROLE_USER') and object == user) or is_granted('ROLE_ADMIN')"
+ *          }
  *     },
  *     normalizationContext={"groups"={"read"}}
  * )
@@ -37,10 +45,10 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 class User implements UserInterface
 {
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", unique=true)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Groups({"read"})
+     * @Groups({"read","usersettings","reservation"})
      */
     private $id;
 
@@ -48,37 +56,37 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=100, unique=true)
      * @Assert\NotBlank
      * @Assert\Email()
-     * @Groups({"read"})
+     * @Groups({"read","usersettings","reservation"})
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"read"})
+     * @Groups({"read","usersettings","reservation"})
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"read"})
+     * @Groups({"read","usersettings","reservation"})
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups({"read"})
+     * @Groups({"read","usersettings"})
      */
     private $type;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups({"read"})
+     * @Groups({"read","usersettings","reservation"})
      */
     private $role;
 
     /**
      * @ORM\Column(name="bed_room_number", type="string", length=25, nullable=true)
-     * @Groups({"read"})
+     * @Groups({"read","usersettings"})
      */
     private $bedRoomNumber;
 

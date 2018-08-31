@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 
 import { SettingsRoutingModule } from './settings-routing.module';
 import {SharedModule} from '../shared/shared.module';
-import { SettingsComponent } from './containers/settings/settings.component';
 import { AdminSettingsComponent } from './containers/admin-settings/admin-settings.component';
 import {StoreModule} from '@ngrx/store';
 import {reducers} from './reducers';
@@ -19,6 +18,11 @@ import {RoomFormComponent} from './components/room-form/room-form.component';
 import {RoomNewComponent} from './containers/room-new.component';
 import {RoomManagementComponent} from './containers/room-management.component';
 import {RoomAdminSettingsEffects} from './effects/rooms.effects';
+import {ExcelPendingComponent} from './components/excel-pending.component';
+import {ExcelSuccessComponent} from './components/excel-success.component';
+import {ExcelComponent} from './containers/excel.component';
+import {ExcelFormComponent} from './components/excel-form/excel-form.component';
+import {ExcelAdminSettingsEffects} from './effects/excel.effects';
 
 
 @NgModule({
@@ -26,11 +30,12 @@ import {RoomAdminSettingsEffects} from './effects/rooms.effects';
     SharedModule,
     SettingsRoutingModule,
     StoreModule.forFeature('adminsettings', reducers),
-    EffectsModule.forFeature([UserAdminSettingsEffects, RoomAdminSettingsEffects]),
+    EffectsModule.forFeature([UserAdminSettingsEffects, RoomAdminSettingsEffects, ExcelAdminSettingsEffects]),
   ],
-  declarations: [SettingsComponent, AdminSettingsComponent, UserFormComponent,
+  declarations: [ AdminSettingsComponent, UserFormComponent,
     SearchComponent, RoomsListComponent, UserManagementComponent,
-    UserNewComponent, UsersListComponent, RoomFormComponent, RoomNewComponent, RoomManagementComponent],
+    UserNewComponent, UsersListComponent, RoomFormComponent, RoomNewComponent, RoomManagementComponent,
+    ExcelPendingComponent, ExcelSuccessComponent, ExcelFormComponent, ExcelComponent],
   providers: [AdminSettingsGuard]
 })
 export class SettingsModule { }

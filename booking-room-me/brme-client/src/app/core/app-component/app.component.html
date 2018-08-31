@@ -40,7 +40,7 @@
       <div class="user-list"  *ngIf="session.bedroomnumber">Logement {{session.bedroomnumber}}</div>
       <div class="user-list" *ngIf="session.type">{{session.type}}</div>
       <a mat-list-item (click)="usernav.close()"
-      [routerLink]="'settings'">
+      [routerLink]="'/settings'">
       <mat-icon fontSet="fas" fontIcon="fa-cog"></mat-icon>Settings
       </a>
       <mat-list-item (click)="usernav.close(); onLogoutClick()">

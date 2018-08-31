@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  upiUrl: 'http://brme.fr/index.php/api'
+  upiUrl: 'http://brme.fr/index.php/api',
+  apiId: '/index.php/api'
 };
 
 /*

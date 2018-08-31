@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <title>Mot de passe réinitilisé</title>
+        <style media="screen" type="text/css">
+            body {
+                font-family: gt-eesti, ArialMT, Helvetica, Arial, sans-serif;
+            }
+            a {
+                color: #425977;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="display: flex; align-items: center; background-color: rgba(57,255,0,0.76); height: 80px;">
+            <img style="width: 50px; height: 50px; margin: 15px; position: absolute;" src="https://www.me-mines-saint-etienne.org/wp-content/themes/me/assets/images/logo-me.png" alt="logo_me">
+            <div style="font-size: 1.8em; font-weight: bold; color: white; margin: auto">Mot de passe réinitilisé !</div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <div style="max-width: 600px; margin: auto;">
+                <div style="display: flex; justify-content: center; margin: 20px;">
+                    <h1 style="font-size: 1.2em; color: #249e00; margin: auto;">Bonjour {{ name }}</h1>
+                </div>
+                <p style="text-align: justify">
+                    Votre mot de passe sur le site de réservation des salles de la Maison des Élèves viens d'être réinitialisé.<br>
+                    <br>
+                    Votre nouveau mot de passe est : <span style="color: rgb(86,87,87); font-style: italic">{{ password }}</span><br>
+                    <br>
+                    Nous vous invitons à le changer dès maintenant dans les paramètres de votre compte :<br>
+                    <br>
+                    <a href="http://localhost:4200">Changer mon mot de passe</a><br>
+                    <br>
+                    Pour rappel le site n'est accessible que depuis le réseau local de la Me à l'adresse suivante :<br>
+                    <br>
+                    <a href="http://localhost:4200">localhost:4200</a><br>
+                    <br>
+                    Cordialement,<br>
+                    <span style="margin-left: 5em;">L'administration</span>
+                </p>
+                <div style="display: flex; justify-content: center; margin: 20px;">
+                    <img style="width: 200px; height: 60px; margin: auto;" src="https://www.me-mines-saint-etienne.org/wp-content/themes/me/assets/images/logo-maison-des-eleves.png" alt="logo_me">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
